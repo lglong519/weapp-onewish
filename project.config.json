@@ -25,8 +25,15 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
-			"list": []
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "ac",
+					"pathName": "pages/account/account",
+					"query": ""
+				}
+			]
 		}
 	}
 }

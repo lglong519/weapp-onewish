@@ -13,13 +13,9 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		this.setData({
-			articles
-		});
+		wx.setNavigationBarColor({ frontColor: '#ffffff', backgroundColor: '#73A0C2' })
 	},
-	toArticle(event){
-		var index = event.currentTarget.dataset.artIndex
-		wx.setStorageSync('artIndex', index);
+	toArticles() {
 		wx.switchTab({
 			url: '/pages/articles/articles',
 		})
@@ -35,15 +31,7 @@ Page({
 	 * 生命周期函数--监听页面显示
 	 */
 	onShow: function () {
-		if (wx.getStorageSync('onPlay')){
-			this.setData({
-				index: wx.getStorageSync('artIndex') || 0
-			});
-		}else{
-			this.setData({
-				index: ''
-			});
-		}
+
 	},
 
 	/**

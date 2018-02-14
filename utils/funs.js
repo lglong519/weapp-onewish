@@ -9,6 +9,7 @@ const init = () => {
 	wx.setTabBarStyle({
 		selectedColor: '#5287E9',
 	})
+	console.log('init');
 }
 
 module.exports = {

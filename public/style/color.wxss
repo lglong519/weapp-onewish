@@ -1,5 +1,11 @@
 /*colors  */
 
+page,
+.container {
+    color: #555;
+    background-color: #f7f7f7;
+}
+
 
 /* text */
 
@@ -84,39 +90,39 @@
 
 /* 纯色background */
 
-.text-white {
+.bg-white {
     background-color: white;
 }
 
-.text-black {
+.bg-black {
     background-color: black;
 }
 
-.text-red {
+.bg-red {
     background-color: red;
 }
 
-.text-green {
+.bg-green {
     background-color: green;
 }
 
-.text-yellow {
+.bg-yellow {
     background-color: yellow;
 }
 
-.text-pink {
+.bg-pink {
     background-color: pink;
 }
 
-.text-cyan {
+.bg-cyan {
     background-color: cyan;
 }
 
-.text-gray {
+.bg-gray {
     background-color: gray;
 }
 
-.text-grey {
+.bg-grey {
     background-color: grey;
 }
 
@@ -177,12 +183,12 @@
 
 /* 绿色 */
 
-.text-cyan-0 {
+.text-green-0 {
     /*m*/
     color: #83c44e;
 }
 
-.text-cyan-1 {
+.text-green-1 {
     color: #072;
 }
 
@@ -289,12 +295,12 @@
 
 /* 绿色 */
 
-.bg-cyan-0 {
+.bg-green-0 {
     /*m*/
     background-color: #83c44e;
 }
 
-.bg-cyan-1 {
+.bg-green-1 {
     background-color: #072;
 }
 

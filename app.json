@@ -2,14 +2,15 @@
     "pages": [
         "pages/index/index",
         "pages/login/login",
-        "pages/account/account",
-        "pages/articles/articles"
+        "pages/articles/articles",
+        "pages/play/play",
+        "pages/account/account"
     ],
     "window": {
         "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#ddd",
+        "navigationBarBackgroundColor": "#73A0C2",
         "navigationBarTitleText": "WeChat",
-        "navigationBarTextStyle": "black"
+        "navigationBarTextStyle": "white"
     },
     "tabBar": {
         "list": [
@@ -19,12 +20,18 @@
                 "selectedIconPath": "public/icons/home01.png",
                 "text": "首页"
             },
-			{
-				"pagePath": "pages/articles/articles",
-				"iconPath": "public/icons/book.png",
-				"selectedIconPath": "public/icons/book01.png",
-				"text": "文章"
-			},
+            {
+                "pagePath": "pages/articles/articles",
+                "iconPath": "public/icons/book.png",
+                "selectedIconPath": "public/icons/book01.png",
+                "text": "文章"
+            },
+            {
+                "pagePath": "pages/play/play",
+                "iconPath": "public/icons/queue_music.png",
+                "selectedIconPath": "public/icons/queue_music01.png",
+                "text": "播放"
+            },
             {
                 "pagePath": "pages/account/account",
                 "iconPath": "public/icons/User.png",

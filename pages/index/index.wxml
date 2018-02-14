@@ -1,21 +1,25 @@
 <!--index.wxml-->
 <view class="page">
-    <view class=" weui-cells_after-title">
-        <view class="weui-cell">
-            <view class="weui-cell__bd">
-                <view class='text-center text-orange-3'>文章列表</view>
-            </view>
-        </view>
-        <block wx:for='{{articles}}' wx:for-index='i' wx:key='title'>
-            <view class="weui-cell weui-cell_access {{index===i &&'text-cyan-0'}}" bindtap='toArticle' data-art-index='{{i}}'>
-                <view class="weui-cell__bd">
-                    <view style="display: inline-block; vertical-align: middle">{{item[0].title}}</view>
-                </view>
-				<!--箭头  -->
-                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-            </view>
-        </block>
-		 <view class="weui-cell weui-cell_access"></view>
+    <view>
+        <image src='../../public/images/2018fly.jpg' mode='widthFix' class='banner-img'></image>
     </view>
-  
+    <view class='flex-row  text-center bg-white py-4'>
+        <view class='xs3 flex-column ' bindtap='toArticles'>
+            <icon class='material-icons text-orange-3 text-30'>import_contacts</icon>
+			<text>文章</text>
+        </view>
+        <view class='xs3 flex-column'>
+            <icon class='material-icons text-green-0 text-30'>audiotrack</icon>
+			<text>音乐</text>
+		</view>
+		 <view class='xs3 flex-column'>
+            <icon class='material-icons text-blue-1 text-30'>straighten</icon>
+			<text>钢琴</text>
+		</view>
+		 <view class='xs3 flex-column'>
+            <icon class='material-icons text-red-0 text-30'>sort_by_alpha</icon>
+			<text>Articles</text>
+		</view>
+      
+    </view>
 </view>
