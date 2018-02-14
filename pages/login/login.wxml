@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="container">
+    <view class='banner'>
+        <!-- <image src='../images/banner.png'></image> -->
+        GUZZU管理员登录
+    </view>
+    <view class='infoview'>
+        <view class="inputview">
+            <label class='loginLab'>帐号：</label>
+            <input class='inputText' placeholder="请输入帐号" auto-focus placeholder-style="color:#b0b0b0" bindinput='userInput' />
+        </view>
+        <view class="line"></view>
+        <view class="inputview">
+            <label class='loginLab'>密码：</label>
+            <input class='inputText' password placeholder="请输入密码" placeholder-style="color:#b0b0b0" bindinput='pwdInput' />
+        </view>
+        <view class="loginview">
+            <button class='loginBtn' bindtap='loginEvent' type='primary' size='default' loading='{{logining}}'>登录</button>
+        </view>
+        <view>
+            <button bindtap='shareBtn'>share</button>
+        </view>
+    </view>
+</view>

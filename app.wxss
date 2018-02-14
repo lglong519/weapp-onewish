@@ -1,0 +1,20 @@
+/**app.wxss**/
+
+@import "public/weui/weui.wxss";
+@import "public/MaterialIcons-font/MaterialIcons.wxss";
+@import "public/style/color.wxss";
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.text-center {
+    text-align: center;
+}
