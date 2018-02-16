@@ -25,13 +25,24 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
 					"name": "ac",
 					"pathName": "pages/account/account",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "articles",
+					"pathName": "pages/articles/articles",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "play",
+					"pathName": "pages/play/play"
 				}
 			]
 		}

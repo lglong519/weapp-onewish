@@ -18,7 +18,7 @@ Page({
 		timer: null,
 		sec: 0,
 		timeStamp: -1,
-		duration:0
+		duration: 0
 	},
 
 	/**
@@ -61,7 +61,7 @@ Page({
 		var data = e.currentTarget.dataset;
 		var audio = this.data.audio;
 		audio.src = data.artUrl;
-		console.log('e.currentTarget.dataset',data);
+		console.log('e.currentTarget.dataset', data);
 		var sec = 0;
 		if (data.artTime) {
 			sec = toSecond(data.artTime);
@@ -78,10 +78,10 @@ Page({
 	 * 生命周期函数--监听页面显示
 	 */
 	onShow: function () {
-		var audio=this.data.audio;
-		var index = wx.getStorageSync('artIndex') ;
+		var audio = this.data.audio;
+		var index = wx.getStorageSync('artIndex');
 		var sectionTimes = articles[index][0].sections.map(i => i.time);
-		if (!this.data.currUrl || this.data.currUrl != articles[index][0].url){
+		if (!this.data.currUrl || this.data.currUrl != articles[index][0].url) {
 			audio.stop();
 			this.setData({
 				onPlay: false
@@ -92,7 +92,7 @@ Page({
 			articles: articles[index],
 			sectionTimes,
 			currUrl: articles[index][0].url,
-			duration: audio.duration
+			duration: toMinute(audio.duration)
 		});
 		console.log(this.data.duration);
 	},
@@ -121,11 +121,11 @@ Page({
 			currTime: toMinute(data.value),
 		});
 	},//后退5s
-	playBackward(){
-		this.data.audio.seek(this.data.sec-5);
+	playBackward() {
+		this.data.audio.seek(this.data.sec - 5);
 	},
-	playForward(){
-		this.data.audio.seek(this.data.sec +5);
+	playForward() {
+		this.data.audio.seek(this.data.sec + 5);
 	}
 })
 
@@ -144,7 +144,7 @@ function updatePlayTime(that) {
 			that.setData({
 				currTime: toMinute(data.audio.currentTime),
 				sec: data.audio.currentTime,
-				duration: data.audio.duration,
+				duration: toMinute(data.audio.duration),
 				currPart: getCurrPart(data.sectionTimes, data.audio.currentTime)
 			});
 		}
