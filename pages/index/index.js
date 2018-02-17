@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp();
-import articles from '../../libs/articles.js'
+import articles from '../../libs/articleZH.js'
 
 Page({
 
@@ -13,7 +13,6 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		wx.setNavigationBarColor({ frontColor: '#ffffff', backgroundColor: '#73A0C2' })
 	},
 	toArticles() {
 		wx.switchTab({

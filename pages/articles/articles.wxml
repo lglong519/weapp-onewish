@@ -7,7 +7,7 @@
             </view>
         </view>
         <block wx:for='{{articles}}' wx:for-index='i' wx:key='title'>
-            <view class="weui-cell weui-cell_access {{index===i &&'text-green-0 bg-cyan-0'}}" bindtap='toArticle' data-art-index='{{i}}'>
+            <view class="weui-cell weui-cell_access {{index===i &&'text-green-0 bg-orange-0'}}" bindtap='switchToPlay' data-audio-index='{{i}}' data-audio-type='{{item[0].type}}'>
                 <view class="weui-cell__bd">
                     <view style="display: inline-block; vertical-align: middle">{{item[0].title}}</view>
                 </view>

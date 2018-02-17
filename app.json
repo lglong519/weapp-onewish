@@ -18,25 +18,29 @@
                 "pagePath": "pages/index/index",
                 "iconPath": "public/icons/home.png",
                 "selectedIconPath": "public/icons/home01.png",
+				"selectedColor":"#FF765D",
                 "text": "首页"
             },
             {
                 "pagePath": "pages/articles/articles",
                 "iconPath": "public/icons/book.png",
                 "selectedIconPath": "public/icons/book01.png",
-                "text": "文章"
+				"selectedColor":"#FFB13F",
+				"text": "文章"
             },
             {
                 "pagePath": "pages/play/play",
                 "iconPath": "public/icons/queue_music.png",
                 "selectedIconPath": "public/icons/queue_music01.png",
-                "text": "播放"
+				"selectedColor":"#83c44e",
+				"text": "播放"
             },
             {
                 "pagePath": "pages/account/account",
                 "iconPath": "public/icons/User.png",
                 "selectedIconPath": "public/icons/User01.png",
-                "text": "我的"
+				"selectedColor":"#5287E9",
+				"text": "我的"
             }
         ]
     }

@@ -1,5 +1,5 @@
 // pages/articles.js
-import articles from '../../libs/articles.js'
+import articles from '../../libs/articleZH.js'
 
 Page({
 
@@ -25,7 +25,6 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		wx.setNavigationBarColor({ frontColor: '#ffffff', backgroundColor: '#9CE65F' })
 		console.log('load');
 		this.setData({
 			audio: wx.createInnerAudioContext()
@@ -79,7 +78,7 @@ Page({
 	 */
 	onShow: function () {
 		var audio = this.data.audio;
-		var index = wx.getStorageSync('artIndex');
+		var index = wx.getStorageSync('artIndex')||0;
 		var sectionTimes = articles[index][0].sections.map(i => i.time);
 		if (!this.data.currUrl || this.data.currUrl != articles[index][0].url) {
 			audio.stop();
@@ -92,7 +91,7 @@ Page({
 			articles: articles[index],
 			sectionTimes,
 			currUrl: articles[index][0].url,
-			duration: toMinute(audio.duration)
+			duration: audio.duration
 		});
 		console.log(this.data.duration);
 	},
@@ -144,7 +143,7 @@ function updatePlayTime(that) {
 			that.setData({
 				currTime: toMinute(data.audio.currentTime),
 				sec: data.audio.currentTime,
-				duration: toMinute(data.audio.duration),
+				duration: data.audio.duration,
 				currPart: getCurrPart(data.sectionTimes, data.audio.currentTime)
 			});
 		}

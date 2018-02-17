@@ -210,12 +210,12 @@ page,
     color: #fad5b5;
 }
 
-.text-orange-2 {
+.text-orange-3 {
     /*tx*/
     color: #F1B140;
 }
 
-.text-orange-3 {
+.text-orange-4 {
     /*m*/
     color: #ffac13;
 }
