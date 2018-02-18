@@ -47,53 +47,34 @@ const init = (app) => {
 	keepPlay(app);
 	console.log('init');
 }
-/*
-//停止音乐，清除timer,return data to default
-const clearData = (app, options) => {
-	let data = globalData();
-	wx.removeStorageSync('index');
-	wx.removeStorageSync('type');
-	app.data.Audio && app.data.Audio.stop();
-	app.data.timer && clearTimeout(app.data.timer);
-	if (options) {
-		var keys = Object.keys(options);
-		keys.forEach(item => {
-			data[item] = options[item];
-		})
-	}
-	app.data = data;
-}
-*/
+
 //重置所有数据
 const resetData = (app, type, index) => {
 	let data = app.data;
-	app.data.Audio && app.data.Audio.stop();
-	app.data.timer && clearTimeout(app.data.timer);
+	data.Audio && data.Audio.stop();
 	wx.setStorageSync('type', type);
 	wx.setStorageSync('index', index);
 	data.onPlay = true;
 	if (type === data.type && index === data.index) {
 		return;
 	}
-	console.log('list', getAudioList(type));
-
 	if (type !== data.type) {
 		// clearData(app);
+		data.type = type;
 		data.audioList = getAudioList(type);
+		_();
+	} else {
+		//如果只是索引改了
+		if (index !== data.index) {
+			_();
+		}
+	}
+	function _() {
+		data.index = index;
 		data.currAudio = data.audioList[index];
 		data.url = data.currAudio[0].url;
 		data.Audio.src = data.url;
-	} else {
-		//如果只是索引改了，
-		if (index !== data.index) {
-			data.currAudio = data.audioList[index];
-			data.url = data.currAudio[0].url;
-			data.Audio.src = data.url;
-		}
 	}
-	console.log('reset data:', data.url);
-	console.log('reset data:', app.data.url);
-
 }
 const switchToPlay = e => {
 	const app = getApp();
@@ -102,18 +83,15 @@ const switchToPlay = e => {
 	wx.switchTab({
 		url: '/pages/play/play',
 	})
-	console.log('e', dataset);
-	console.log('app', app);
-
 }
 
 const keepPlay = (app) => {
 	let data = app.data;
 	let Audio = data.Audio;
 	if (data.onPlay) {
+		Audio.pause();
 		Audio.play();
 	}
-	console.log(data.onPlay);
 }
 const getAudioList = (type) => {
 	switch (type) {
@@ -147,19 +125,8 @@ const setTabBarStyle = () => {
 	})
 }
 */
-const showLoading = options => {
-	options = options || {};
-	let params = {
-		title: options.title || 0,
-		timeOut: options.timeOut
-	}
-	wx.showLoading({
-
-	})
-}
 module.exports = {
 	init,
 	keepPlay,
 	switchToPlay,
-	// clearData
 }

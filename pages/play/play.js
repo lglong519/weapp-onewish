@@ -9,143 +9,130 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		currAudio: [],
+		currAudio: [],//页面数据
+		type: null,//判断页面类型
+		onPlay: false,//判断播放器和musice和article的状态
+		//page data
 		sectionTimes: [],
-		type: null,
-		currArt: '',
-		url: '',
 		currPart: '',
-		currentTime: '00:00',
+		currentTime: 0,
 		currentTimeFormat: '00:00',
-		onPlay: false,
-		timer: null,
-		sec: 0,
-		timeStamp: -1,
+		timeStamp: 0,
 		duration: 0,
 		durationFormat: '00:00'
 	},
 	onLoad() {
-		console.log('play onLoad');
 		setAudioEvent(this);
 	},
 	playControl() {
-		if (this.data.onPlay) {
-			clearTimeout(this.data.timer);
-			this.setData({
-				onPlay: false
-			});
+		if (appData.onPlay) {
 			Audio.pause();
 		} else {
-			this.setData({
-				onPlay: true
+			wx.showLoading({
+				title: '音频加载中...'
 			});
 			Audio.play();
-			if (parseInt(Audio.duration - Audio.currentTime) == 0 && Audio.duration != 0) {
-				Audio.seek(0);
-			}
-
 		}
 	},
-	openVoice(e) {
+	playSection(e) {
 		var dataset = e.currentTarget.dataset;
-		Audio.src = dataset.artUrl;
-		console.log('e.currentTarget.dataset', dataset);
-		var sec = 0;
 		if (dataset.artTime) {
-			sec = toSecond(dataset.artTime);
+			var sec = toSecond(dataset.artTime);
 		}
 		this.setData({
-			currArt: dataset.artId,
+			currArt: dataset.artTime,
 			onPlay: true
 		});
-		Audio.play();
-		Audio.seek(sec);
+		if (sec) {
+			Audio.seek(sec);
+		}
 	},
 
 	/**
 	 * 生命周期函数--监听页面显示
 	 */
 	onShow: function () {
-		if (appData.type.indexOf('article') > -1) {
+		//如果是文章类型，设置章节时间列表
+		if (appData.type.indexOf('article') > -1 && this.currAudio != appData.currAudio) {
 			var sectionTimes = appData.currAudio[0].sections.map(i => i.time);
 		}
-		if (appData.onPlay) {
-			playAudio(this)
-		}
+		app.Funs.keepPlay(app);
 		this.setData({
 			currAudio: appData.currAudio,
 			type: appData.type,
 			onPlay: appData.onPlay,
-			sectionTimes: sectionTimes || [],
-			url: appData.url
+			sectionTimes: sectionTimes || []
 		});
-
-		console.log(this.data.duration);
 	},
 	onHide: function () {
-		wx.setStorageSync('onPlay', this.data.onPlay);
+		appData.onPlay = this.data.onPlay;
 	},
 	sliderChange(event) {
 		var sliderValue = event.detail;
 		this.setData({
-			currentTime: toMinute(sliderValue.value),
-			sec: sliderValue.value,
-			timeStamp: sliderValue.value
+			currentTimeFormat: toMinute(sliderValue.value),
+			currentTime: sliderValue.value,
+			timeStamp: 0
 		});
-		if (this.data.onPlay) {
-			Audio.play();
-			// updatePlayTime(this);
-		}
 		Audio.seek(sliderValue.value);
-		// console.log('timeStamp', data.value);
 	},
 	sliderChanging(event) {
-		var sliderValue = event.detail;
-		clearTimeout(this.data.timer);
+		let sliderValue = event.detail;
 		this.setData({
-			currentTime: toMinute(sliderValue.value),
+			currentTimeFormat: toMinute(sliderValue.value),
+			currentTime: sliderValue.value,
+			timeStamp: 1
 		});
 	},//后退5s
 	playBackward() {
-		Audio.seek(this.data.sec - 5);
+		Audio.seek(this.data.currentTime - 5);
 	},
 	playForward() {
-		Audio.seek(this.data.sec + 5);
+		Audio.seek(this.data.currentTime + 5);
 	}
 })
 //
 function setAudioEvent(that) {
 	let data = that.data;
 	let pause = () => {
-		console.log('onPause');
-
+		// console.log('onPause');
+		appData.onPlay = false;
+		wx.hideLoading();
 		that.setData({
 			onPlay: false
 		});
 	}
-
 	Audio.onTimeUpdate(() => {
-		let currentTimeFormat = toMinute(Audio.currentTime);
-		if (toMinute(data.currentTime) != currentTimeFormat) {
-			that.setData({
-				currentTime: Audio.currentTime,
-				currentTimeFormat
-			});
-		}
 		if (parseInt(data.duration) != parseInt(Audio.duration)) {
 			that.setData({
 				duration: Audio.duration,
 				durationFormat: toMinute(Audio.duration)
 			});
 		}
+		if (that.data.timeStamp) {
+			return;
+		}
+		let currentTimeFormat = toMinute(Audio.currentTime);
+		if (toMinute(data.currentTime) != currentTimeFormat) {
+			that.setData({
+				currentTime: Audio.currentTime,
+				currentTimeFormat
+			});
+			let currPart = getCurrPart(that.data.sectionTimes, Audio.currentTime);
+			if (currPart != that.data.currPart) {
+				that.setData({
+					currPart,
+				});
+			}
+		}
 	});
 	Audio.onPlay(() => {
 		console.log('onPlay');
+		appData.onPlay = true;
+		that.setData({
+			onPlay: true
+		});
 		wx.hideLoading();
-	});
-	Audio.onWaiting(() => {
-		console.log('onWaiting');
-		wx.showLoading();
 	});
 	Audio.onSeeking(() => {
 		console.log('onSeeking');
@@ -154,46 +141,22 @@ function setAudioEvent(that) {
 	Audio.onSeeked(() => {
 		console.log('onSeeked');
 		wx.hideLoading();
+		if (appData.onPlay) {
+			Audio.pause();
+			Audio.play();
+		}
 	});
 	Audio.onError((err) => {
 		console.log('onError', err);
-		wx.showLoading({
-			title: err.errMsg
+		pause();
+		wx.showModal({
+			content: err.errMsg,
+			showCancel: false
 		});
 	});
 	Audio.onPause(pause);
 	Audio.onStop(pause);
 	Audio.onEnded(pause);
-
-
-	/*
-	clearTimeout(appData.timer);
-	if (parseInt(Audio.duration - Audio.currentTime) > 0 || Audio.currentTime == 0) {
-		if (data.timeStamp != -1 && data.timeStamp == parseInt(Audio.currentTime)) {
-			data.timeStamp = -1;
-		}
-		if (data.timeStamp == -1) {
-			// console.log('Audio.currentTime',Audio.currentTime)
-			that.setData({
-				currentTime: toMinute(Audio.currentTime),
-				sec: Audio.currentTime,
-				duration: Audio.duration,
-				currPart: getCurrPart(data.sectionTimes, Audio.currentTime)
-			});
-		}
-
-		data.timer = setTimeout(function () {
-			// updatePlayTime(that)
-		}, 1000)
-	} else {
-		Audio.stop();
-		that.setData({
-			currentTime: toMinute(Audio.currentTime),
-			sec: Audio.currentTime,
-			onPlay: false
-		});
-	}
-	*/
 }
 function toMinute(myTime) {
 	var minutes = parseInt(myTime / 60);
@@ -208,7 +171,6 @@ function toSecond(myTime) {
 		return myTime;
 	}
 	var arr = myTime.split(reg);
-	// console.log('arr',arr);
 	return arr[0] * 60 + arr[1] * 1;
 }
 function getCurrPart(sectionTime, currentTime) {
@@ -224,15 +186,13 @@ function getCurrPart(sectionTime, currentTime) {
 	}
 	return '00:00'
 }
-function playAudio(self) {
-	wx.showLoading({
-		title: '音频加载中...'
-	});
-	Audio.play();
-	if (parseInt(Audio.duration - Audio.currentTime) == 0 && Audio.duration != 0) {
-		Audio.seek(0);
+function playAudio() {
+	if (appData.onPlay) {
+		if (Audio.paused) {
+			wx.showLoading({
+				title: '音频加载中...'
+			});
+		}
+		Audio.play();
 	}
-}
-function pauseAudio() {
-	Audio.pause();
 }

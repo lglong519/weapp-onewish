@@ -12,24 +12,25 @@
     </view>
     <view class='currentTime text-white'>{{currentTimeFormat}} / {{durationFormat}}</view>
 </view>
+
 <!--文章  -->
 <view class="page" wx:if='{{type=="articleZH"}}'>
     <view class="page__bd">
-        <block wx:for='{{currAudio}}' wx:for-item='art' wx:key='id'>
-            <view class="weui-article" data-art-id='{{art.id}}'>
+        <block wx:for='{{currAudio}}' wx:for-item='art' wx:for-index='i' wx:key='title'>
+            <view class="weui-article">
                 <view class="weui-article__section">
                     <view class="weui-article__title text-orange-3 text-18 mb-2">
                         {{art.title}}
-                        <icon class='material-icons {{currArt==art.id&&onPlay?"text-blue-0":"text-grey-1"}}' bindtap='playControl' data-art-id='{{art.id}}'
-                            data-art-url='{{art.url}}' data-art-time='{{art.time}}'>{{currArt==art.id&&onPlay?"volume_up":"volume_down"}}</icon>
+                        <icon wx:if='{{onPlay}}' class='material-icons text-blue-0' bindtap='playControl' data-art-time='{{art.time}}'>volume_up</icon>
+                        <icon wx:else class='material-icons text-grey-1' bindtap='playControl' data-art-time='{{art.time}}'>volume_down</icon>
                     </view>
 
-                    <block wx:for='{{art.sections}}' wx:key='id'>
+                    <block wx:for='{{art.sections}}' wx:for-index='j' wx:key='time'>
                         <view class="weui-article__section mb-2">
                             <view class='weui-article__h3 {{currPart==item.time && onPlay?"text-blue-2":"text-grey-6"}}'>
                                 {{item.time}}
-                                <icon class='material-icons {{currPart==item.time && onPlay?"text-cyan-0":"text-grey-1"}}' bindtap='openVoice' data-art-id='{{art.id}}'
-                                    data-art-url='{{art.url}}' data-art-time='{{item.time}}'>{{currPart==item.time && onPlay && currentTime[4]%2==0 ?"volume_mute":"volume_down"}}</icon>
+                                <icon class='material-icons {{currPart==item.time && onPlay?"text-green-0":"text-grey-1"}}' bindtap='openVoice' data-art-id='{{art.id}}'
+                                    data-art-url='{{art.url}}' data-art-time='{{item.time}}'>{{currPart==item.time && onPlay && currentTimeFormat[4]%2==0 ?"volume_mute":"volume_down"}}</icon>
                             </view>
                             <view class="weui-article__p">
                                 {{item.chapter}}
