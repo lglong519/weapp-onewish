@@ -3,8 +3,9 @@
 page {
     background-color: #f7f7f7;
 }
+
 .page {
-	padding-bottom: 160rpx;
+    padding-bottom: 160rpx;
 }
 
 .playcontroller {
@@ -14,10 +15,12 @@ page {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.2);
 }
-.play-btn{
-	margin-bottom:5px;
+
+.play-btn {
+    margin-bottom: 5px;
 }
-.play-btn icon{
+
+.play-btn icon {
     font-size: 100rpx;
     margin: 0 10rpx;
 }
@@ -27,10 +30,10 @@ page {
 }
 
 .play-btn icon:active {
-	color: #83c44e;
+    color: #83c44e;
 }
 
-.currTime {
+.currentTime {
     position: absolute;
     top: 45rpx;
     right: 35rpx;

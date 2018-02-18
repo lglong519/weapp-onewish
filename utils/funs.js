@@ -11,9 +11,9 @@ const globalData = () => {
 		url: null,//*
 		Audio: null,//*
 		currAudio: null,
-		currentTime: '00:00',
-		duration: 0,
-		durationFormat: '00:00',
+		// currentTime: '00:00',
+		// duration: 0,
+		// durationFormat: '00:00',
 		onPlay: false,
 		timer: null,
 		playMode: wx.getStorageSync('playMode') || 'once'	//+storage->once,loop,list,listLoop,random,randomInfinite
@@ -47,6 +47,7 @@ const init = (app) => {
 	keepPlay(app);
 	console.log('init');
 }
+/*
 //停止音乐，清除timer,return data to default
 const clearData = (app, options) => {
 	let data = globalData();
@@ -62,28 +63,36 @@ const clearData = (app, options) => {
 	}
 	app.data = data;
 }
+*/
 //重置所有数据
 const resetData = (app, type, index) => {
 	let data = app.data;
+	app.data.Audio && app.data.Audio.stop();
+	app.data.timer && clearTimeout(app.data.timer);
 	wx.setStorageSync('type', type);
 	wx.setStorageSync('index', index);
 	data.onPlay = true;
 	if (type === data.type && index === data.index) {
 		return;
 	}
+	console.log('list', getAudioList(type));
+
 	if (type !== data.type) {
-		clearData(app);
+		// clearData(app);
 		data.audioList = getAudioList(type);
 		data.currAudio = data.audioList[index];
 		data.url = data.currAudio[0].url;
+		data.Audio.src = data.url;
 	} else {
 		//如果只是索引改了，
 		if (index !== data.index) {
 			data.currAudio = data.audioList[index];
 			data.url = data.currAudio[0].url;
+			data.Audio.src = data.url;
 		}
 	}
-
+	console.log('reset data:', data.url);
+	console.log('reset data:', app.data.url);
 
 }
 const switchToPlay = e => {
@@ -103,16 +112,8 @@ const keepPlay = (app) => {
 	let Audio = data.Audio;
 	if (data.onPlay) {
 		Audio.play();
-		wx.showLoading({
-			title: '音频加载中...'
-		});
 	}
 	console.log(data.onPlay);
-
-	Audio.onPlay(() => {
-		wx.hideLoading();
-		console.log('continute to play');
-	})
 }
 const getAudioList = (type) => {
 	switch (type) {
@@ -160,5 +161,5 @@ module.exports = {
 	init,
 	keepPlay,
 	switchToPlay,
-	clearData
+	// clearData
 }

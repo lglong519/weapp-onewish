@@ -1,5 +1,7 @@
-// pages/articles.js
-import articles from '../../libs/articleZH.js'
+// pages/play/play
+const app = getApp();
+const appData = app.data;
+const Audio = appData.Audio;
 
 Page({
 
@@ -7,158 +9,191 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		articles: [],
+		currAudio: [],
 		sectionTimes: [],
-		audio: null,
+		type: null,
 		currArt: '',
-		currUrl: '',
+		url: '',
 		currPart: '',
-		currTime: '00:00',
+		currentTime: '00:00',
+		currentTimeFormat: '00:00',
 		onPlay: false,
 		timer: null,
 		sec: 0,
 		timeStamp: -1,
-		duration: 0
+		duration: 0,
+		durationFormat: '00:00'
 	},
-
-	/**
-	 * 生命周期函数--监听页面加载
-	 */
-	onLoad: function (options) {
-		console.log('load');
-		this.setData({
-			audio: wx.createInnerAudioContext()
-		});
+	onLoad() {
+		console.log('play onLoad');
+		setAudioEvent(this);
 	},
 	playControl() {
-		var audio = this.data.audio;
-		if (!audio.src) {
-			audio.src = this.data.articles[0].url;
-		}
 		if (this.data.onPlay) {
 			clearTimeout(this.data.timer);
 			this.setData({
-				currArt: "",
 				onPlay: false
 			});
-			audio.pause();
+			Audio.pause();
 		} else {
 			this.setData({
-				currArt: this.data.articles[0].id,
 				onPlay: true
 			});
-			audio.play();
-			if (parseInt(audio.duration - audio.currentTime) == 0 && audio.duration != 0) {
-				audio.seek(0);
+			Audio.play();
+			if (parseInt(Audio.duration - Audio.currentTime) == 0 && Audio.duration != 0) {
+				Audio.seek(0);
 			}
-			audio.onPlay(() => {
-				updatePlayTime(this)
-			})
+
 		}
 	},
 	openVoice(e) {
-		var data = e.currentTarget.dataset;
-		var audio = this.data.audio;
-		audio.src = data.artUrl;
-		console.log('e.currentTarget.dataset', data);
+		var dataset = e.currentTarget.dataset;
+		Audio.src = dataset.artUrl;
+		console.log('e.currentTarget.dataset', dataset);
 		var sec = 0;
-		if (data.artTime) {
-			sec = toSecond(data.artTime);
+		if (dataset.artTime) {
+			sec = toSecond(dataset.artTime);
 		}
 		this.setData({
-			currArt: data.artId,
+			currArt: dataset.artId,
 			onPlay: true
 		});
-		audio.play();
-		audio.seek(sec);
+		Audio.play();
+		Audio.seek(sec);
 	},
 
 	/**
 	 * 生命周期函数--监听页面显示
 	 */
 	onShow: function () {
-		var audio = this.data.audio;
-		var index = wx.getStorageSync('artIndex')||0;
-		var sectionTimes = articles[index][0].sections.map(i => i.time);
-		if (!this.data.currUrl || this.data.currUrl != articles[index][0].url) {
-			audio.stop();
-			this.setData({
-				onPlay: false
-			});
-			audio.src = this.data.currUrl;
+		if (appData.type.indexOf('article') > -1) {
+			var sectionTimes = appData.currAudio[0].sections.map(i => i.time);
+		}
+		if (appData.onPlay) {
+			playAudio(this)
 		}
 		this.setData({
-			articles: articles[index],
-			sectionTimes,
-			currUrl: articles[index][0].url,
-			duration: audio.duration
+			currAudio: appData.currAudio,
+			type: appData.type,
+			onPlay: appData.onPlay,
+			sectionTimes: sectionTimes || [],
+			url: appData.url
 		});
+
 		console.log(this.data.duration);
 	},
 	onHide: function () {
 		wx.setStorageSync('onPlay', this.data.onPlay);
 	},
 	sliderChange(event) {
-		var data = event.detail;
-		var audio = this.data.audio;
+		var sliderValue = event.detail;
 		this.setData({
-			currTime: toMinute(data.value),
-			sec: data.value,
-			timeStamp: data.value
+			currentTime: toMinute(sliderValue.value),
+			sec: sliderValue.value,
+			timeStamp: sliderValue.value
 		});
 		if (this.data.onPlay) {
-			audio.play();
-			updatePlayTime(this);
+			Audio.play();
+			// updatePlayTime(this);
 		}
-		audio.seek(data.value);
+		Audio.seek(sliderValue.value);
 		// console.log('timeStamp', data.value);
 	},
 	sliderChanging(event) {
-		var data = event.detail;
+		var sliderValue = event.detail;
 		clearTimeout(this.data.timer);
 		this.setData({
-			currTime: toMinute(data.value),
+			currentTime: toMinute(sliderValue.value),
 		});
 	},//后退5s
 	playBackward() {
-		this.data.audio.seek(this.data.sec - 5);
+		Audio.seek(this.data.sec - 5);
 	},
 	playForward() {
-		this.data.audio.seek(this.data.sec + 5);
+		Audio.seek(this.data.sec + 5);
 	}
 })
+//
+function setAudioEvent(that) {
+	let data = that.data;
+	let pause = () => {
+		console.log('onPause');
 
-function updatePlayTime(that) {
-	var data = that.data;
-	// console.log('that', that);
-	// console.log('currentTime', data.audio.currentTime);
-	// console.log('duration', data.audio.duration);
-	clearTimeout(data.timer);
-	if (parseInt(data.audio.duration - data.audio.currentTime) > 0 || data.audio.currentTime == 0) {
-		if (data.timeStamp != -1 && data.timeStamp == parseInt(data.audio.currentTime)) {
+		that.setData({
+			onPlay: false
+		});
+	}
+
+	Audio.onTimeUpdate(() => {
+		let currentTimeFormat = toMinute(Audio.currentTime);
+		if (toMinute(data.currentTime) != currentTimeFormat) {
+			that.setData({
+				currentTime: Audio.currentTime,
+				currentTimeFormat
+			});
+		}
+		if (parseInt(data.duration) != parseInt(Audio.duration)) {
+			that.setData({
+				duration: Audio.duration,
+				durationFormat: toMinute(Audio.duration)
+			});
+		}
+	});
+	Audio.onPlay(() => {
+		console.log('onPlay');
+		wx.hideLoading();
+	});
+	Audio.onWaiting(() => {
+		console.log('onWaiting');
+		wx.showLoading();
+	});
+	Audio.onSeeking(() => {
+		console.log('onSeeking');
+		wx.showLoading();
+	});
+	Audio.onSeeked(() => {
+		console.log('onSeeked');
+		wx.hideLoading();
+	});
+	Audio.onError((err) => {
+		console.log('onError', err);
+		wx.showLoading({
+			title: err.errMsg
+		});
+	});
+	Audio.onPause(pause);
+	Audio.onStop(pause);
+	Audio.onEnded(pause);
+
+
+	/*
+	clearTimeout(appData.timer);
+	if (parseInt(Audio.duration - Audio.currentTime) > 0 || Audio.currentTime == 0) {
+		if (data.timeStamp != -1 && data.timeStamp == parseInt(Audio.currentTime)) {
 			data.timeStamp = -1;
 		}
 		if (data.timeStamp == -1) {
-			// console.log('data.audio.currentTime',data.audio.currentTime)
+			// console.log('Audio.currentTime',Audio.currentTime)
 			that.setData({
-				currTime: toMinute(data.audio.currentTime),
-				sec: data.audio.currentTime,
-				duration: data.audio.duration,
-				currPart: getCurrPart(data.sectionTimes, data.audio.currentTime)
+				currentTime: toMinute(Audio.currentTime),
+				sec: Audio.currentTime,
+				duration: Audio.duration,
+				currPart: getCurrPart(data.sectionTimes, Audio.currentTime)
 			});
 		}
 
 		data.timer = setTimeout(function () {
-			updatePlayTime(that)
+			// updatePlayTime(that)
 		}, 1000)
 	} else {
-		data.audio.stop();
+		Audio.stop();
 		that.setData({
-			currTime: toMinute(data.audio.currentTime),
-			sec: data.audio.currentTime,
+			currentTime: toMinute(Audio.currentTime),
+			sec: Audio.currentTime,
 			onPlay: false
 		});
 	}
+	*/
 }
 function toMinute(myTime) {
 	var minutes = parseInt(myTime / 60);
@@ -176,16 +211,28 @@ function toSecond(myTime) {
 	// console.log('arr',arr);
 	return arr[0] * 60 + arr[1] * 1;
 }
-function getCurrPart(sectionTime, currTime) {
+function getCurrPart(sectionTime, currentTime) {
 	for (var j = 0; j < sectionTime.length; j++) {
 		if (j == sectionTime.length - 1) {
-			if (toSecond(currTime) >= toSecond(sectionTime[j])) {
+			if (toSecond(currentTime) >= toSecond(sectionTime[j])) {
 				return sectionTime[j];
 			}
 		}
-		if (toSecond(currTime) >= toSecond(sectionTime[j]) && toSecond(currTime) < toSecond(sectionTime[j + 1])) {
+		if (toSecond(currentTime) >= toSecond(sectionTime[j]) && toSecond(currentTime) < toSecond(sectionTime[j + 1])) {
 			return sectionTime[j];
 		}
 	}
 	return '00:00'
+}
+function playAudio(self) {
+	wx.showLoading({
+		title: '音频加载中...'
+	});
+	Audio.play();
+	if (parseInt(Audio.duration - Audio.currentTime) == 0 && Audio.duration != 0) {
+		Audio.seek(0);
+	}
+}
+function pauseAudio() {
+	Audio.pause();
 }

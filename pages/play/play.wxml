@@ -1,32 +1,35 @@
-<!--pages/articles.wxml-->
+<!--pages/play.wxml-->
 <!--音乐控制器  -->
 <view class='playcontroller'>
-    <slider bindchange="sliderChange" bindchanging='sliderChanging' value="{{sec}}" max='{{duration}}' block-size='20' activeColor='#5287E9' block-color='#FDE0E9' />
+    <slider bindchange="sliderChange" bindchanging='sliderChanging' value="{{currentTime}}" max='{{duration}}' block-size='20'
+        activeColor='#5287E9' block-color='#FDE0E9' />
     <view class='text-center play-btn'>
         <icon class='material-icons' bindtap='skip_previous'>skip_previous</icon>
         <icon class='material-icons' bindtap='playBackward'>fast_rewind</icon>
-        <icon class='material-icons {{onPlay && "text-cyan-0"}}' bindtap='playControl'>{{onPlay?"pause_circle_outline":"play_circle_outline"}}</icon>
+        <icon class='material-icons {{onPlay && "text-green-0"}}' bindtap='playControl'>{{onPlay?"pause_circle_outline":"play_circle_outline"}}</icon>
         <icon class='material-icons' bindtap='playForward'>fast_forward</icon>
         <icon class='material-icons' bindtap='skip_next'>skip_next</icon>
     </view>
-	<view class='currTime text-white'>{{currTime}} / {{duration}}</view>
+    <view class='currentTime text-white'>{{currentTimeFormat}} / {{durationFormat}}</view>
 </view>
 <!--文章  -->
-<view class="page">
+<view class="page" wx:if='{{type=="articleZH"}}'>
     <view class="page__bd">
-        <block wx:for='{{articles}}' wx:for-item='art' wx:key='id'>
+        <block wx:for='{{currAudio}}' wx:for-item='art' wx:key='id'>
             <view class="weui-article" data-art-id='{{art.id}}'>
                 <view class="weui-article__section">
                     <view class="weui-article__title text-orange-3 text-18 mb-2">
                         {{art.title}}
-                        <icon class='material-icons {{currArt==art.id&&onPlay?"text-blue-0":"text-grey-1"}}' bindtap='playControl' data-art-id='{{art.id}}' data-art-url='{{art.url}}' data-art-time='{{art.time}}'>{{currArt==art.id&&onPlay?"volume_up":"volume_down"}}</icon>
+                        <icon class='material-icons {{currArt==art.id&&onPlay?"text-blue-0":"text-grey-1"}}' bindtap='playControl' data-art-id='{{art.id}}'
+                            data-art-url='{{art.url}}' data-art-time='{{art.time}}'>{{currArt==art.id&&onPlay?"volume_up":"volume_down"}}</icon>
                     </view>
 
                     <block wx:for='{{art.sections}}' wx:key='id'>
                         <view class="weui-article__section mb-2">
                             <view class='weui-article__h3 {{currPart==item.time && onPlay?"text-blue-2":"text-grey-6"}}'>
                                 {{item.time}}
-                                <icon class='material-icons {{currPart==item.time && onPlay?"text-cyan-0":"text-grey-1"}}' bindtap='openVoice' data-art-id='{{art.id}}' data-art-url='{{art.url}}' data-art-time='{{item.time}}'>{{currPart==item.time && onPlay && currTime[4]%2==0 ?"volume_mute":"volume_down"}}</icon>
+                                <icon class='material-icons {{currPart==item.time && onPlay?"text-cyan-0":"text-grey-1"}}' bindtap='openVoice' data-art-id='{{art.id}}'
+                                    data-art-url='{{art.url}}' data-art-time='{{item.time}}'>{{currPart==item.time && onPlay && currentTime[4]%2==0 ?"volume_mute":"volume_down"}}</icon>
                             </view>
                             <view class="weui-article__p">
                                 {{item.chapter}}

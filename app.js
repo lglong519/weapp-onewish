@@ -8,7 +8,7 @@ App({
     onShow() {
         Funs.init(this);
         console.log(2, 'onShow');
-        Funs.clearData(this,{ index: 3 })
+        // Funs.clearData(this,{ index: 3 })
     },
     onHide() {
         console.log(3, 'onHide');

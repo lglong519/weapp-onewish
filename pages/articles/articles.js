@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-import { switchToPlay} from '../../utils/funs.js';
+import { switchToPlay } from '../../utils/funs.js';
 import articles from '../../libs/articleZH.js'
 
 
@@ -21,7 +21,7 @@ Page({
 	onShow: function () {
 		if (wx.getStorageSync('onPlay')) {
 			this.setData({
-				index: wx.getStorageSync('artIndex') || 0
+				index: wx.getStorageSync('index') || 0
 			});
 		} else {
 			this.setData({
