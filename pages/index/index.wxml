@@ -4,22 +4,22 @@
         <image src='../../public/images/2018fly.jpg' mode='widthFix' class='banner-img'></image>
     </view>
     <view class='flex-row  text-center bg-white py-4'>
-        <view class='xs3 flex-column ' bindtap='toArticles'>
+        <view class='xs3 flex-column ' bindtap='toArticles' data-type='articleZH'>
             <icon class='material-icons text-orange-3 text-30'>import_contacts</icon>
-			<text>文章</text>
+            <text>文章</text>
         </view>
         <view class='xs3 flex-column'>
             <icon class='material-icons text-green-0 text-30'>audiotrack</icon>
-			<text>音乐</text>
-		</view>
-		 <view class='xs3 flex-column'>
+            <text>音乐</text>
+        </view>
+        <view class='xs3 flex-column'>
             <icon class='material-icons text-blue-1 text-30'>straighten</icon>
-			<text>钢琴</text>
-		</view>
-		 <view class='xs3 flex-column'>
+            <text>钢琴</text>
+        </view>
+        <view class='xs3 flex-column' bindtap='toArticles' data-type='articleEN'>
             <icon class='material-icons text-red-0 text-30'>sort_by_alpha</icon>
-			<text>Articles</text>
-		</view>
-      
+            <text>Articles</text>
+        </view>
+
     </view>
 </view>

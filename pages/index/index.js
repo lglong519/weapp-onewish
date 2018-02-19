@@ -1,7 +1,5 @@
 //index.js
-//获取应用实例
 const app = getApp();
-import articles from '../../libs/articleZH.js'
 
 Page({
 
@@ -14,7 +12,9 @@ Page({
 	 */
 	onLoad: function (options) {
 	},
-	toArticles() {
+	toArticles(e) {
+		let dataset = e.currentTarget.dataset;
+		app.data.type = dataset.type;
 		wx.switchTab({
 			url: '/pages/articles/articles',
 		})

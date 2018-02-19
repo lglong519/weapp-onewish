@@ -11,11 +11,7 @@ const globalData = () => {
 		url: null,//*
 		Audio: null,//*
 		currAudio: null,
-		// currentTime: '00:00',
-		// duration: 0,
-		// durationFormat: '00:00',
-		onPlay: false,
-		timer: null,
+		onPlay: false,//判断并设置audio状态，所有页面以app为准，page内onPlay自动跟随
 		playMode: wx.getStorageSync('playMode') || 'once'	//+storage->once,loop,list,listLoop,random,randomInfinite
 	}
 }
@@ -29,6 +25,8 @@ const init = (app) => {
 
 	data.type = wx.getStorageSync('type') || 'articleZH';
 	data.index = wx.getStorageSync('index') || 0;
+	wx.setStorageSync('type', data.type);
+	wx.setStorageSync('index', data.index);
 
 	//+设置audioList
 	data.audioList = getAudioList(data.type);
@@ -126,6 +124,9 @@ const setTabBarStyle = () => {
 }
 */
 module.exports = {
+	articleZH,
+	articleEN,
+	classical,
 	init,
 	keepPlay,
 	switchToPlay,

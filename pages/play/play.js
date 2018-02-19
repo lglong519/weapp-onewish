@@ -27,6 +27,7 @@ Page({
 	playControl() {
 		if (appData.onPlay) {
 			Audio.pause();
+			appData.onPlay = false;
 		} else {
 			wx.showLoading({
 				title: '音频加载中...'
@@ -52,6 +53,7 @@ Page({
 	 * 生命周期函数--监听页面显示
 	 */
 	onShow: function () {
+		console.log('play onshow');
 		//如果是文章类型，设置章节时间列表
 		if (appData.type.indexOf('article') > -1 && this.currAudio != appData.currAudio) {
 			var sectionTimes = appData.currAudio[0].sections.map(i => i.time);
@@ -95,7 +97,6 @@ Page({
 function setAudioEvent(that) {
 	let data = that.data;
 	let pause = () => {
-		// console.log('onPause');
 		appData.onPlay = false;
 		wx.hideLoading();
 		that.setData({
@@ -154,7 +155,12 @@ function setAudioEvent(that) {
 			showCancel: false
 		});
 	});
-	Audio.onPause(pause);
+	Audio.onPause(() => {
+		wx.hideLoading();
+		that.setData({
+			onPlay: false
+		});
+	});
 	Audio.onStop(pause);
 	Audio.onEnded(pause);
 }

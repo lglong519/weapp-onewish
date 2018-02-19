@@ -1,0 +1,19 @@
+
+
+storage 只对app onShow 有效
+	1.获取type，加载audioList
+	2.获取index，设置当前audio
+	
+进入aritcle
+	调用app.data
+	1.设置{
+			articles//[]->页面内容
+			index//点亮对应行的背景色
+			onPlay//高亮title
+		}
+	2.wxml 绑定type 和 index
+	3.articles列表点击事件
+		switchToPlay
+			├── resetData//重置storage，写入当前页面type index，update appData，onPlay = true;
+			└── switchTab
+			

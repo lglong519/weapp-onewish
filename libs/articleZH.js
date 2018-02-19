@@ -2,7 +2,6 @@ module.exports = [
 	[{
 		title: '岳阳楼记',
 		url: 'http://song.gushiwen.org/mp3/jiangweiwei/47916.mp3',
-		id: '001',
 		type: 'articleZH',
 		sections: [
 			{ time: '00:00', chapter: '宋,范仲淹' },
@@ -17,7 +16,6 @@ module.exports = [
 	[{
 		title: '王蒙：尽力而为是对自己的敬意',
 		url: 'http://audio.xmcdn.com/group37/M05/72/CC/wKgJoFo0w0GT36Z6AE-ikJjdwcI437.m4a',
-		id: '002',
 		type: 'articleZH',
 		sections: [
 			{ time: '00:11', chapter: '从生命个体来说，我们能够支配的关键岁月不过那么几十年，然后再无第二次机会。对于人的一生来说，那就是机不可失，时不再来。生命由于它的短暂和不可逆性、一次性而弥足珍贵且神奇美丽。虚度这样的生命，辜负这样的生命，是多么愚蠢！一个人丢了一百元人民币都会心痛，那么丢失了生命中有所作为的可能，不是更心痛吗？' },
@@ -36,7 +34,6 @@ module.exports = [
 	[{
 		title: '杜联生：“能者多劳”与“能者过劳”',
 		url: 'http://audio.xmcdn.com/group39/M03/61/B5/wKgJn1plr_LAWBe_AESHrr5xxNY270.m4a',
-		id: '003',
 		type: 'articleZH',
 		sections: [
 			{ time: '00:10', chapter: '或许这个话题不应该说，因为“能者多劳”宣扬的是一种正能量，传递的是一种文明的行为和积极的品行。' },
@@ -51,7 +48,6 @@ module.exports = [
 	[{
 		title: '叔本华：良好的品性比智力更重要',
 		url: 'http://audio.xmcdn.com/group25/M03/10/18/wKgJNlpYd_2CcLjSAERwLo3nqFk645.m4a',
-		id: '004',
 		type: 'articleZH',
 		sections: [
 			{ time: '00:09', chapter: '所有真正的道德品质，无论好坏，都是内在天生的。' },

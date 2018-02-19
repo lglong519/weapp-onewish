@@ -29,7 +29,7 @@
                         <view class="weui-article__section mb-2">
                             <view class='weui-article__h3 {{currPart==item.time && onPlay?"text-blue-2":"text-grey-6"}}'>
                                 {{item.time}}
-                                <icon class='material-icons {{currPart==item.time && onPlay?"text-green-0":"text-grey-1"}}' bindtap='openVoice' data-art-id='{{art.id}}'
+                                <icon class='material-icons {{currPart==item.time && onPlay?"text-green-0":"text-grey-1"}}' bindtap='playSection' data-art-id='{{art.id}}'
                                     data-art-url='{{art.url}}' data-art-time='{{item.time}}'>{{currPart==item.time && onPlay && currentTimeFormat[4]%2==0 ?"volume_mute":"volume_down"}}</icon>
                             </view>
                             <view class="weui-article__p">
