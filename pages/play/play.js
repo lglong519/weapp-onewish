@@ -54,20 +54,22 @@ Page({
 	 */
 	onShow: function () {
 		console.log('play onshow');
+		console.log('appData:', appData);
+
 		//如果是文章类型，设置章节时间列表
 		if (appData.type.indexOf('article') > -1 && this.currAudio != appData.currAudio) {
 			var sectionTimes = appData.currAudio[0].sections.map(i => i.time);
 		}
-		app.Funs.keepPlay(app);
 		this.setData({
 			currAudio: appData.currAudio,
 			type: appData.type,
 			onPlay: appData.onPlay,
 			sectionTimes: sectionTimes || []
 		});
+		playAudio();
+		console.log('playData:', this.data);
 	},
 	onHide: function () {
-		appData.onPlay = this.data.onPlay;
 	},
 	sliderChange(event) {
 		var sliderValue = event.detail;
@@ -97,7 +99,6 @@ Page({
 function setAudioEvent(that) {
 	let data = that.data;
 	let pause = () => {
-		appData.onPlay = false;
 		wx.hideLoading();
 		that.setData({
 			onPlay: false
@@ -122,7 +123,7 @@ function setAudioEvent(that) {
 			let currPart = getCurrPart(that.data.sectionTimes, Audio.currentTime);
 			if (currPart != that.data.currPart) {
 				that.setData({
-					currPart,
+					currPart
 				});
 			}
 		}
@@ -149,7 +150,7 @@ function setAudioEvent(that) {
 	});
 	Audio.onError((err) => {
 		console.log('onError', err);
-		pause();
+		Audio.pause();
 		wx.showModal({
 			content: err.errMsg,
 			showCancel: false
@@ -194,11 +195,14 @@ function getCurrPart(sectionTime, currentTime) {
 }
 function playAudio() {
 	if (appData.onPlay) {
+		console.log('start to play');
 		if (Audio.paused) {
+			console.log('音频状态：', Audio.paused);
 			wx.showLoading({
 				title: '音频加载中...'
 			});
+			Audio.play();
 		}
-		Audio.play();
 	}
 }
+

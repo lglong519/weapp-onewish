@@ -30,7 +30,7 @@ const init = (app) => {
 
 	//+设置audioList
 	data.audioList = getAudioList(data.type);
-	console.log('list', data.audioList);
+	// console.log('list', data.audioList);
 
 	data.currAudio = data.audioList[data.index];
 	data.url = data.currAudio[0].url;
@@ -47,7 +47,8 @@ const init = (app) => {
 }
 
 //重置所有数据
-const resetData = (app, type, index) => {
+const resetData = (type, index) => {
+	const app = getApp();
 	let data = app.data;
 	data.Audio && data.Audio.stop();
 	wx.setStorageSync('type', type);
@@ -68,27 +69,27 @@ const resetData = (app, type, index) => {
 		}
 	}
 	function _() {
+		console.log('re data:', data);
 		data.index = index;
 		data.currAudio = data.audioList[index];
 		data.url = data.currAudio[0].url;
-		data.Audio.src = data.url;
+		data.Audio.src != data.url && (data.Audio.src = data.url);
 	}
 }
 const switchToPlay = e => {
-	const app = getApp();
 	let dataset = e.currentTarget.dataset;
-	resetData(app, dataset.audioType, dataset.audioIndex);
+	console.log();
+
+	resetData(dataset.audioType, dataset.audioIndex);
 	wx.switchTab({
 		url: '/pages/play/play',
 	})
 }
 
 const keepPlay = (app) => {
-	let data = app.data;
-	let Audio = data.Audio;
-	if (data.onPlay) {
-		Audio.pause();
-		Audio.play();
+	if (app.data.onPlay) {
+		app.data.Audio.pause();
+		app.data.Audio.play();
 	}
 }
 const getAudioList = (type) => {
