@@ -54,8 +54,6 @@ Page({
 	 */
 	onShow: function () {
 		console.log('play onshow');
-		console.log('appData:', appData);
-
 		//如果是文章类型，设置章节时间列表
 		if (appData.type.indexOf('article') > -1 && this.currAudio != appData.currAudio) {
 			var sectionTimes = appData.currAudio[0].sections.map(i => i.time);
@@ -66,10 +64,6 @@ Page({
 			onPlay: appData.onPlay,
 			sectionTimes: sectionTimes || []
 		});
-		playAudio();
-		console.log('playData:', this.data);
-	},
-	onHide: function () {
 	},
 	sliderChange(event) {
 		var sliderValue = event.detail;
@@ -197,7 +191,6 @@ function playAudio() {
 	if (appData.onPlay) {
 		console.log('start to play');
 		if (Audio.paused) {
-			console.log('音频状态：', Audio.paused);
 			wx.showLoading({
 				title: '音频加载中...'
 			});

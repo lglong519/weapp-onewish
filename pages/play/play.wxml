@@ -1,8 +1,13 @@
 <!--pages/play.wxml-->
 <!--音乐控制器  -->
 <view class='playcontroller'>
-    <slider bindchange="sliderChange" bindchanging='sliderChanging' value="{{currentTime}}" max='{{duration}}' block-size='20'
+	<view class='flex-row'>
+    <view class='currentTime text-white pt-2 pl-2'>{{currentTimeFormat}}</view>
+    <slider class='flex' bindchange="sliderChange" bindchanging='sliderChanging' value="{{currentTime}}" max='{{duration}}' block-size='12'
         activeColor='#5287E9' block-color='#FDE0E9' />
+    <view class='currentTime text-white pt-2 pr-2'>{{durationFormat}}</view>
+	</view>
+		
     <view class='text-center play-btn'>
         <icon class='material-icons' bindtap='skip_previous'>skip_previous</icon>
         <icon class='material-icons' bindtap='playBackward'>fast_rewind</icon>
@@ -10,7 +15,6 @@
         <icon class='material-icons' bindtap='playForward'>fast_forward</icon>
         <icon class='material-icons' bindtap='skip_next'>skip_next</icon>
     </view>
-    <view class='currentTime text-white'>{{currentTimeFormat}} / {{durationFormat}}</view>
 </view>
 
 <!--文章  -->
@@ -32,7 +36,7 @@
                                 <icon class='material-icons {{currPart==item.time && onPlay?"text-green-0":"text-grey-1"}}' bindtap='playSection' data-art-id='{{art.id}}'
                                     data-art-url='{{art.url}}' data-art-time='{{item.time}}'>{{currPart==item.time && onPlay && currentTimeFormat[4]%2==0 ?"volume_mute":"volume_down"}}</icon>
                             </view>
-                            <view class="weui-article__p">
+                            <view class="weui-article__p {{currPart==item.time && 'bg-cyan-0'}}">
                                 {{item.chapter}}
                             </view>
                         </view>

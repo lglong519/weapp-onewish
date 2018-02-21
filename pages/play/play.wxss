@@ -33,9 +33,10 @@ page {
     color: #83c44e;
 }
 
+/*
 .currentTime {
     position: absolute;
     top: 45rpx;
     right: 35rpx;
-    /* color: #fff; */
 }
+*/

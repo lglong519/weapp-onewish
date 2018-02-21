@@ -2,7 +2,6 @@
 const app = getApp();
 
 Page({
-
 	data: {
 		articles: []
 	},
@@ -14,7 +13,7 @@ Page({
 	},
 	toArticles(e) {
 		let dataset = e.currentTarget.dataset;
-		app.data.type = dataset.type;
+		wx.setStorageSync('audioType', dataset.type);
 		wx.switchTab({
 			url: '/pages/articles/articles',
 		})

@@ -54,6 +54,7 @@ const resetData = (type, index) => {
 	wx.setStorageSync('type', type);
 	wx.setStorageSync('index', index);
 	data.onPlay = true;
+
 	if (type === data.type && index === data.index) {
 		return;
 	}
@@ -69,7 +70,6 @@ const resetData = (type, index) => {
 		}
 	}
 	function _() {
-		console.log('re data:', data);
 		data.index = index;
 		data.currAudio = data.audioList[index];
 		data.url = data.currAudio[0].url;
@@ -78,9 +78,9 @@ const resetData = (type, index) => {
 }
 const switchToPlay = e => {
 	let dataset = e.currentTarget.dataset;
-	console.log();
-
+	let app = getApp();
 	resetData(dataset.audioType, dataset.audioIndex);
+	app.data.Audio.play();
 	wx.switchTab({
 		url: '/pages/play/play',
 	})
@@ -130,5 +130,5 @@ module.exports = {
 	classical,
 	init,
 	keepPlay,
-	switchToPlay,
+	switchToPlay
 }
