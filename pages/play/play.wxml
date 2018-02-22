@@ -18,7 +18,7 @@
 </view>
 
 <!--文章  -->
-<view class="page" wx:if='{{type=="articleZH"}}'>
+<view class="page" wx:if='{{type=="articleZH" || type=="articleEN"}}'>
     <view class="page__bd">
         <block wx:for='{{currAudio}}' wx:for-item='art' wx:for-index='i' wx:key='title'>
             <view class="weui-article">
@@ -36,7 +36,7 @@
                                 <icon class='material-icons {{currPart==item.time && onPlay?"text-green-0":"text-grey-1"}}' bindtap='playSection' data-art-id='{{art.id}}'
                                     data-art-url='{{art.url}}' data-art-time='{{item.time}}'>{{currPart==item.time && onPlay && currentTimeFormat[4]%2==0 ?"volume_mute":"volume_down"}}</icon>
                             </view>
-                            <view class="weui-article__p {{currPart==item.time && 'bg-cyan-0'}}">
+                            <view class="weui-article__p text-justify {{currPart==item.time && 'bg-cyan-0'}}">
                                 {{item.chapter}}
                             </view>
                         </view>

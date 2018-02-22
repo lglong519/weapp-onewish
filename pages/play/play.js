@@ -44,9 +44,7 @@ Page({
 			currArt: dataset.artTime,
 			onPlay: true
 		});
-		if (sec) {
-			Audio.seek(sec);
-		}
+		Audio.seek(sec||0);
 	},
 
 	/**
@@ -139,6 +137,8 @@ function setAudioEvent(that) {
 		wx.hideLoading();
 		if (appData.onPlay) {
 			Audio.pause();
+			Audio.play();
+		}else{
 			Audio.play();
 		}
 	});

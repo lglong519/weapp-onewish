@@ -100,18 +100,21 @@ const getAudioList = (type) => {
 		default: return '?'
 	}
 }
-const wxLogin = () => {
-	wx.getSetting({
+const wxLogin = app => {
+	wx.getUserInfo({
 		success: res => {
-			if (res.authSetting['scope.userInfo']) {
-				wx.getUserInfo({
-					success: res => {
-						app.data.userInfo = res.userInfo
-						if (app.userInfoReadyCallback) {
-							app.userInfoReadyCallback(res)
-						}
+			app.data.userInfo = res.userInfo
+			if (app.userInfoReadyCallback) {
+				app.userInfoReadyCallback(res)
+			}
+		},
+		complete(res) {
+			if (res.errMsg == 'getUserInfo:fail auth deny') {
+				wx.openSetting({
+					complete(res) {
+						console.log(res);
 					}
-				})
+				});
 			}
 		}
 	})
