@@ -6,12 +6,12 @@ Page({
      * 页面的初始数据
      */
     data: {
-		userInfo:null
+        userInfo: null
     },
     logoutEvent() {
         wx.removeStorage({
             key: 'userInfo',
-            success: function(res) {},
+            success: function (res) { },
         })
         wx.showToast({
             title: '退出成功',
@@ -31,10 +31,10 @@ Page({
      */
     onLoad: function (options) {
         console.log('页面加载');
-		this.setData({
-			userInfo: app.data.userInfo
-			
-		});
+        this.setData({
+            userInfo: app.data.userInfo
+
+        });
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -47,13 +47,16 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        wx.setTabBarStyle({
+            selectedColor: '#5287E9',
+        });
         console.log('页面显示')
         wx.getStorage({
             key: 'userInfo',
-            success: function(res) {
+            success: function (res) {
                 console.log('enter userCenter success')
             },
-            fail(){
+            fail() {
                 wx.redirectTo({
                     url: '../index/index'
                 })

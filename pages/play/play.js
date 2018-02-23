@@ -22,6 +22,7 @@ Page({
 		durationFormat: '00:00'
 	},
 	onLoad() {
+
 		setAudioEvent(this);
 	},
 	playControl() {
@@ -44,13 +45,16 @@ Page({
 			currArt: dataset.artTime,
 			onPlay: true
 		});
-		Audio.seek(sec||0);
+		Audio.seek(sec || 0);
 	},
 
 	/**
 	 * 生命周期函数--监听页面显示
 	 */
 	onShow: function () {
+		wx.setTabBarStyle({
+			selectedColor: '#83c44e',
+		});
 		console.log('play onshow');
 		//如果是文章类型，设置章节时间列表
 		if (appData.type.indexOf('article') > -1 && this.currAudio != appData.currAudio) {
@@ -138,7 +142,7 @@ function setAudioEvent(that) {
 		if (appData.onPlay) {
 			Audio.pause();
 			Audio.play();
-		}else{
+		} else {
 			Audio.play();
 		}
 	});

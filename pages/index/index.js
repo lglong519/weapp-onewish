@@ -5,12 +5,6 @@ Page({
 	data: {
 		articles: []
 	},
-
-	/**
-	 * 生命周期函数--监听页面加载
-	 */
-	onLoad: function (options) {
-	},
 	toArticles(e) {
 		let dataset = e.currentTarget.dataset;
 		wx.setStorageSync('audioType', dataset.type);
@@ -18,30 +12,21 @@ Page({
 			url: '/pages/articles/articles',
 		})
 	},
-	/**
-	 * 生命周期函数--监听页面初次渲染完成
-	 */
-	onReady: function () {
-
+	toMusic(e) {
+		let dataset = e.currentTarget.dataset;
+		wx.setStorageSync('audioType', dataset.type);
+		wx.switchTab({
+			url: '/pages/music/music',
+		})
 	},
-
-	/**
-	 * 生命周期函数--监听页面显示
-	 */
 	onShow: function () {
-
+		wx.setTabBarStyle({
+			selectedColor: '#73A0C2',
+		});
 	},
-
-	/**
-	 * 生命周期函数--监听页面隐藏
-	 */
 	onHide: function () {
 
 	},
-
-	/**
-	 * 生命周期函数--监听页面卸载
-	 */
 	onUnload: function () {
 
 	},
@@ -64,9 +49,5 @@ Page({
 	 * 用户点击右上角分享
 	 */
 	onShareAppMessage: function () {
-
 	},
-	openVoice() {
-
-	}
 })

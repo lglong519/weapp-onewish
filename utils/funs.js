@@ -12,7 +12,8 @@ const globalData = () => {
 		Audio: null,//*
 		currAudio: null,
 		onPlay: false,//判断并设置audio状态，所有页面以app为准，page内onPlay自动跟随
-		playMode: wx.getStorageSync('playMode') || 'once'	//+storage->once,loop,list,listLoop,random,randomInfinite
+		playMode: wx.getStorageSync('playMode') || 'once',	//+storage->once,loop,list,listLoop,random,randomInfinite
+		timer: null
 	}
 }
 
@@ -43,6 +44,7 @@ const init = (app) => {
 	}
 	wxLogin(app);
 	keepPlay(app);
+	showRedDot(app);
 	console.log('init');
 }
 
@@ -119,14 +121,20 @@ const wxLogin = app => {
 		}
 	})
 }
-/*
-const setTabBarStyle = () => {
-	//设置导航栏文字选中颜色
-	wx.setTabBarStyle({
-		selectedColor: '#ffac13',
-	})
+const showRedDot = (app) => {
+	app.timer && clearInterval(app.timer);
+	app.timer = setInterval(() => {
+		if (app.data.onPlay) {
+			wx.showTabBarRedDot({
+				index: 3
+			})
+		} else {
+			wx.hideTabBarRedDot({
+				index: 3
+			})
+		}
+	}, 1000);
 }
-*/
 module.exports = {
 	articleZH,
 	articleEN,

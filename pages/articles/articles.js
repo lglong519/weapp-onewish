@@ -1,11 +1,14 @@
 //index.js
 import { switchToPlay } from '../../utils/funs.js';
-const app=getApp();
+const app = getApp();
 
 Page({
 	data: {},
 	switchToPlay,
 	onShow: function () {
+		wx.setTabBarStyle({
+			selectedColor: '#FFB13F',
+		})
 		this.setData({
 			articles: wx.getStorageSync('audioType') == 'articleEN' ? app.Funs.articleEN : app.Funs.articleZH,
 			type: app.data.type,

@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.1",
 	"appid": "wx66cbc86d3a5d88913a",
-	"projectname": "Today",
+	"projectname": "Onewish",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -43,6 +43,12 @@
 					"id": -1,
 					"name": "play",
 					"pathName": "pages/play/play",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "music",
+					"pathName": "pages/music/music",
 					"query": ""
 				}
 			]
