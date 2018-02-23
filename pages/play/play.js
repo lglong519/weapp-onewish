@@ -19,11 +19,15 @@ Page({
 		currentTimeFormat: '00:00',
 		timeStamp: 0,
 		duration: 0,
-		durationFormat: '00:00'
+		durationFormat: '00:00',
+		windowHeight:0,
+		id:null
 	},
 	onLoad() {
-
 		setAudioEvent(this);
+		this.setData({
+			windowHeight: appData.windowHeight
+		});
 	},
 	playControl() {
 		if (appData.onPlay) {
@@ -47,7 +51,12 @@ Page({
 		});
 		Audio.seek(sec || 0);
 	},
-
+	toSection(){
+		this.setData({
+			id: "currentPart"
+		});
+		
+	},
 	/**
 	 * 生命周期函数--监听页面显示
 	 */

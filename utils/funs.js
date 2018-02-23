@@ -42,6 +42,11 @@ const init = (app) => {
 	} else {
 		data.Audio.src = data.url
 	}
+	wx.getSystemInfo({
+		success: function (res) {
+			data.windowHeight = res.windowHeight;
+		}
+	})
 	wxLogin(app);
 	keepPlay(app);
 	showRedDot(app);
