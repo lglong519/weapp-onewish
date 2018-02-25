@@ -20,8 +20,9 @@ Page({
 		timeStamp: 0,
 		duration: 0,
 		durationFormat: '00:00',
-		windowHeight:0,
-		id:null
+		windowHeight: 0,
+		id: null,
+		show: false
 	},
 	onLoad() {
 		setAudioEvent(this);
@@ -51,11 +52,11 @@ Page({
 		});
 		Audio.seek(sec || 0);
 	},
-	toSection(){
+	toSection() {
 		this.setData({
 			id: "currentPart"
 		});
-		
+
 	},
 	/**
 	 * 生命周期函数--监听页面显示
@@ -63,6 +64,8 @@ Page({
 	onShow: function () {
 		wx.setTabBarStyle({
 			selectedColor: '#83c44e',
+			backgroundColor: appData.url ? '#C6C6C6' : '',
+			borderStyle: appData.url ? 'white' : ''
 		});
 		console.log('play onshow');
 		//如果是文章类型，设置章节时间列表
@@ -74,6 +77,20 @@ Page({
 			type: appData.type,
 			onPlay: appData.onPlay,
 			sectionTimes: sectionTimes || []
+		});
+		this.setData({
+			hide: false
+		});
+		setTimeout(() => {
+			this.setData({
+				show: true
+			});
+		}, 200);
+	},
+	onHide() {
+		this.setData({
+			show: false,
+			hide: true
 		});
 	},
 	sliderChange(event) {
@@ -211,4 +228,3 @@ function playAudio() {
 		}
 	}
 }
-

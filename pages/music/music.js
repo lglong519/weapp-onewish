@@ -5,23 +5,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-	type:null
+    type: null
   },
   onShow: function () {
-	  this.setData({
-		  type: wx.getStorageSync('audioType')
-	  });
-    wx.setTabBarStyle({
-		selectedColor: '#8a635c',
+    this.setData({
+      type: wx.getStorageSync('audioType')
     });
-	wx.setNavigationBarColor({
-		frontColor: '#ffffff',
-		backgroundColor: this.data.type == 'classical' ? '#8a635c' :'#514e5a',
-		animation: {
-			duration: 400,
-			timingFunc: 'easeIn'
-		}
-	})
+    wx.setTabBarStyle({
+      selectedColor: '#8a635c',
+    });
+    wx.setNavigationBarColor({
+      frontColor: '#ffffff',
+      backgroundColor: this.data.type == 'classical' ? '#8a635c' : '#514e5a',
+      animation: {
+        duration: 400,
+        timingFunc: 'easeIn'
+      }
+    })
   },
 
   /**

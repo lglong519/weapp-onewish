@@ -8,6 +8,8 @@ Page({
 	onShow: function () {
 		wx.setTabBarStyle({
 			selectedColor: '#FFB13F',
+			backgroundColor: '#EBE1D5',
+			borderStyle: 'white'
 		})
 		this.setData({
 			articles: wx.getStorageSync('audioType') == 'articleEN' ? app.Funs.articleEN : app.Funs.articleZH,

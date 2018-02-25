@@ -14,12 +14,12 @@
         "navigationBarTextStyle": "white"
     },
     "tabBar": {
+		"color":"#999",
         "list": [
             {
                 "pagePath": "pages/index/index",
                 "iconPath": "public/icons/home.png",
                 "selectedIconPath": "public/icons/home01.png",
-                "selectedColor": "#FF765D",
                 "text": "首页"
             },
 			{
@@ -32,7 +32,6 @@
                 "pagePath": "pages/articles/articles",
                 "iconPath": "public/icons/book.png",
                 "selectedIconPath": "public/icons/book01.png",
-                "selectedColor": "#FFB13F",
                 "text": "文章"
             },
 			
@@ -40,14 +39,12 @@
                 "pagePath": "pages/play/play",
                 "iconPath": "public/icons/queue_music.png",
                 "selectedIconPath": "public/icons/queue_music01.png",
-                "selectedColor": "#83c44e",
                 "text": "播放"
             },
             {
                 "pagePath": "pages/account/account",
                 "iconPath": "public/icons/User.png",
                 "selectedIconPath": "public/icons/User01.png",
-                "selectedColor": "#5287E9",
                 "text": "我的"
             }
         ]

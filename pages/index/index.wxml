@@ -10,11 +10,11 @@
         </view>
         <view class='xs3 flex-column' bindtap='toMusic' data-type='music'>
             <icon class='material-icons text-green-0 text-30'>audiotrack</icon>
-            <text>音乐</text>
+            <text>歌单</text>
         </view>
         <view class='xs3 flex-column' bindtap='toMusic' data-type='classical'>
             <icon class='material-icons text-blue-1 text-30'>straighten</icon>
-            <text>钢琴</text>
+            <text>轻音乐</text>
         </view>
         <view class='xs3 flex-column' bindtap='toArticles' data-type='articleEN'>
             <icon class='material-icons text-red-0 text-30'>sort_by_alpha</icon>

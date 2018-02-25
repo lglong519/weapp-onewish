@@ -110,18 +110,37 @@ const getAudioList = (type) => {
 const wxLogin = app => {
 	wx.getUserInfo({
 		success: res => {
+			console.log(res);
+
 			app.data.userInfo = res.userInfo
 			if (app.userInfoReadyCallback) {
 				app.userInfoReadyCallback(res)
 			}
 		},
 		complete(res) {
-			if (res.errMsg == 'getUserInfo:fail auth deny') {
-				wx.openSetting({
+			if (/deny|fail/g.test(res.errMsg)) {
+				wx.removeStorageSync('userInfo');
+				wx.showModal({
+					content: '当前帐号未登录，\n为了更好的使用体验请登录，\n是否使用微信登录？',
 					complete(res) {
-						console.log(res);
+						if (res.confirm) {
+							wx.openSetting({
+								complete(res) {
+									console.log(res);
+								}
+							});
+						}
+						if (res.cancel) {
+							wx.showToast({
+								title: '再会',
+								icon: 'success',
+								duration: 600
+							})
+						}
 					}
 				});
+			} else {
+				wx.setStorageSync('userInfo', true);
 			}
 		}
 	})
@@ -146,5 +165,6 @@ module.exports = {
 	classical,
 	init,
 	keepPlay,
-	switchToPlay
+	switchToPlay,
+	wxLogin
 }

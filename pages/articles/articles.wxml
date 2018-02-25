@@ -10,6 +10,7 @@
             <view class="weui-cell weui-cell_access {{index===i && 'bg-orange-0'}} {{onPlay && type==item[0].type && index==i && 'text-green-0'}}" bindtap='switchToPlay' data-audio-index='{{i}}' data-audio-type='{{item[0].type}}'>
                 <view class="weui-cell__bd">
                     <view style="display: inline-block; vertical-align: middle">{{item[0].title}}</view>
+                    <view wx:if='{{item[0].author}}' class='text-grey text-12'>作者:{{item[0].author}}</view>
                 </view>
                 <!--箭头  -->
                 <view class="weui-cell__ft weui-cell__ft_in-access"></view>
