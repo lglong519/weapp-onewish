@@ -1,6 +1,7 @@
 import articleZH from '../libs/articleZH.js';
 import articleEN from '../libs/articleEN.js';
 import classical from '../libs/classical.js';
+import music from '../libs/music.js';
 
 //定义全局变量
 const globalData = () => {
@@ -47,6 +48,7 @@ const init = (app) => {
 			data.windowHeight = res.windowHeight;
 		}
 	})
+	setAudioEvent(app);
 	wxLogin(app);
 	keepPlay(app);
 	showRedDot(app);
@@ -92,6 +94,18 @@ const switchToPlay = e => {
 		url: '/pages/play/play',
 	})
 }
+const playControl = () => {
+	let app = getApp();
+	if (app.data.onPlay) {
+		app.data.Audio.pause();
+		app.data.onPlay = false;
+	} else {
+		wx.showLoading({
+			title: '音频加载中...'
+		});
+		app.data.Audio.play();
+	}
+}
 
 const keepPlay = (app) => {
 	if (app.data.onPlay) {
@@ -104,14 +118,12 @@ const getAudioList = (type) => {
 		case 'articleZH': return articleZH;
 		case 'articleEN': return articleEN;
 		case 'classical': return classical;
-		default: return '?'
+		default: return music
 	}
 }
 const wxLogin = app => {
 	wx.getUserInfo({
 		success: res => {
-			console.log(res);
-
 			app.data.userInfo = res.userInfo
 			if (app.userInfoReadyCallback) {
 				app.userInfoReadyCallback(res)
@@ -159,12 +171,134 @@ const showRedDot = (app) => {
 		}
 	}, 1000);
 }
+
+const setAudioEvent = (app, that) => {
+	let data;
+	if (that) {
+		data = that.data
+	}
+	let appData = app.data;
+	let Audio = app.data.Audio;
+	let pause = () => {
+		wx.hideLoading();
+		if (!data) { return }
+		that.setData({
+			onPlay: false
+		});
+	}
+	Audio.onPlay(() => {
+		console.log('onPlay');
+		appData.onPlay = true;
+		wx.hideLoading();
+		if (!data) { return }
+		that.setData({
+			onPlay: true
+		});
+	});
+
+	if (!data) {
+		Audio.onSeeking(() => {
+			console.log('onSeeking');
+			wx.showLoading();
+		});
+		Audio.onSeeked(() => {
+			console.log('onSeeked');
+			wx.hideLoading();
+			if (appData.onPlay) {
+				Audio.pause();
+				Audio.play();
+			} else {
+				Audio.play();
+			}
+		});
+		Audio.onError((err) => {
+			console.log('onError', err);
+			Audio.pause();
+			wx.showModal({
+				content: err.errMsg,
+				showCancel: false
+			});
+		});
+	}
+
+	Audio.onPause(() => {
+		wx.hideLoading();
+		if (!data) { return }
+		that.setData({
+			onPlay: false
+		});
+	});
+	Audio.onStop(pause);
+	Audio.onEnded(pause);
+
+	if (data) {
+		Audio.onTimeUpdate(() => {
+			if (parseInt(data.duration) != parseInt(Audio.duration)) {
+				that.setData({
+					duration: Audio.duration,
+					durationFormat: toMinute(Audio.duration)
+				});
+			}
+			if (that.data.timeStamp) {
+				return;
+			}
+			let currentTimeFormat = toMinute(Audio.currentTime);
+			if (toMinute(data.currentTime) != currentTimeFormat) {
+				that.setData({
+					currentTime: Audio.currentTime,
+					currentTimeFormat
+				});
+				let currPart = getCurrPart(that.data.sectionTimes, Audio.currentTime);
+				if (currPart != that.data.currPart) {
+					that.setData({
+						currPart
+					});
+				}
+			}
+		});
+	}
+}
+const toMinute = myTime => {
+	var minutes = parseInt(myTime / 60);
+	var seconds = parseInt(myTime - 60 * minutes);
+	minutes = minutes < 10 ? '0' + minutes : minutes;
+	seconds = seconds < 10 ? '0' + seconds : seconds;
+	return minutes + ':' + seconds;
+}
+const toSecond = myTime => {
+	var reg = /[:：]/;
+	if (!reg.test(myTime)) {
+		return myTime;
+	}
+	var arr = myTime.split(reg);
+	return arr[0] * 60 + arr[1] * 1;
+}
+const getCurrPart = (sectionTime, currentTime) => {
+	for (var j = 0; j < sectionTime.length; j++) {
+		if (j == sectionTime.length - 1) {
+			if (toSecond(currentTime) >= toSecond(sectionTime[j])) {
+				return sectionTime[j];
+			}
+		}
+		if (toSecond(currentTime) >= toSecond(sectionTime[j]) && toSecond(currentTime) < toSecond(sectionTime[j + 1])) {
+			return sectionTime[j];
+		}
+	}
+	return '00:00'
+}
 module.exports = {
 	articleZH,
 	articleEN,
 	classical,
+	music,
 	init,
 	keepPlay,
 	switchToPlay,
-	wxLogin
+	wxLogin,
+	playControl,
+	resetData,
+	setAudioEvent,
+	toMinute,
+	toSecond,
+	getCurrPart
 }

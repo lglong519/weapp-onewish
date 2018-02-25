@@ -2,14 +2,15 @@
 <!--音乐控制器  -->
 <view wx:if='{{currAudio[0].url}}' class='playcontroller {{hide&&"hide"}} {{show&&"show"}}'>
     <view class='flex-row'>
-        <view class='currentTime text-white pt-2 pl-2'>{{currentTimeFormat}}</view>
-        <slider class='flex' bindchange="sliderChange" bindchanging='sliderChanging' value="{{currentTime}}" max='{{duration}}' block-size='12' activeColor='#5287E9' block-color='#FDE0E9' />
-        <view class='currentTime text-white pt-2 pr-2'>{{durationFormat}}</view>
+        <view class='currentTime text-white pt-3 pl-2'>{{currentTimeFormat}}</view>
+        <slider class='flex' bindchange="sliderChange" bindchanging='sliderChanging' value="{{currentTime}}" max='{{duration}}' block-size='12'
+            activeColor='#5287E9' block-color='#FDE0E9' />
+        <view class='currentTime text-white pt-3 pr-2'>{{durationFormat}}</view>
     </view>
     <view class='text-center play-btn'>
         <icon class='material-icons' bindtap='skip_previous'>skip_previous</icon>
         <icon class='material-icons' bindtap='playBackward'>fast_rewind</icon>
-        <icon class='material-icons {{onPlay && "text-green-0"}}' bindtap='playControl'>{{onPlay?"pause_circle_outline":"play_circle_outline"}}</icon>
+        <icon class='material-icons' bindtap='playControl'>{{onPlay?"pause_circle_outline":"play_circle_outline"}}</icon>
         <icon class='material-icons' bindtap='playForward'>fast_forward</icon>
         <icon class='material-icons' bindtap='skip_next'>skip_next</icon>
     </view>
@@ -17,30 +18,31 @@
 
 <!--文章  -->
 <view class="page" wx:if='{{type=="articleZH" || type=="articleEN"}}'>
-	  <!-- 跳转 -->
+    <!-- 跳转 -->
     <icon wx:if='{{currAudio[0].url}}' class='material-icons anchor text-30 text-cyan-0' bindtap='toSection'>play_for_work</icon>
     <view class="page__bd">
         <block wx:for='{{currAudio}}' wx:for-item='art' wx:for-index='i' wx:key='title'>
             <view class="weui-article">
                 <view class="weui-article__section">
-				<!--标题  -->
+                    <!--标题  -->
                     <view class="weui-article__title text-orange-3 text-18 mb-2">
                         {{art.title}}
-						<block  wx:if='{{currAudio[0].url}}' >
-							<icon wx:if='{{onPlay}}' class='material-icons text-blue-0' bindtap='playControl' data-art-time='{{art.time}}'>volume_up</icon>
-							<icon wx:else class='material-icons text-grey-1' bindtap='playControl' data-art-time='{{art.time}}'>volume_down</icon>
-						</block>
+                        <block wx:if='{{currAudio[0].url}}'>
+                            <icon wx:if='{{onPlay}}' class='material-icons text-blue-0' bindtap='playControl' data-art-time='{{art.time}}'>volume_up</icon>
+                            <icon wx:else class='material-icons text-grey-1' bindtap='playControl' data-art-time='{{art.time}}'>volume_down</icon>
+                        </block>
                     </view>
-					<!--内容  -->
+                    <!--内容  -->
                     <scroll-view scroll-y="true" style="height: {{windowHeight}}px;" scroll-into-view="{{id}}" scroll-with-animation="true" enable-back-to-top="true">
                         <block wx:for='{{art.sections}}' wx:for-index='j' wx:key='time'>
                             <view class="weui-article__section mb-2">
-								<!--时间  -->
-                                <view  wx:if='{{item.time}}'  id='{{currPart==item.time? "currentPart":""}}' class='weui-article__h3 {{currPart==item.time && onPlay?"text-blue-2":"text-grey-6"}}'>
+                                <!--时间  -->
+                                <view wx:if='{{item.time}}' id='{{currPart==item.time? "currentPart":""}}' class='weui-article__h3 {{currPart==item.time && onPlay?"text-blue-2":"text-grey-6"}}'>
                                     {{item.time}}
-                                    <icon class='material-icons {{currPart==item.time && onPlay?"text-green-0":"text-grey-1"}}' bindtap='playSection' data-art-id='{{art.id}}' data-art-url='{{art.url}}' data-art-time='{{item.time}}'>{{currPart==item.time && onPlay && currentTimeFormat[4]%2==0 ?"volume_mute":"volume_down"}}</icon>
+                                    <icon class='material-icons {{currPart==item.time && onPlay?"text-green-0":"text-grey-1"}}' bindtap='playSection' data-art-id='{{art.id}}'
+                                        data-art-url='{{art.url}}' data-art-time='{{item.time}}'>{{currPart==item.time && onPlay && currentTimeFormat[4]%2==0 ?"volume_mute":"volume_down"}}</icon>
                                 </view>
-								<!--文本  -->
+                                <!--文本  -->
                                 <view class="weui-article__p text-justify {{item.time && currPart==item.time && 'bg-cyan-0'}}">
                                     {{item.chapter}}
                                 </view>

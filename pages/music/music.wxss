@@ -22,3 +22,11 @@
     right: 60rpx;
     bottom: 30rpx;
 }
+
+.series {
+    flex-basis: 100rpx;
+}
+
+.border-bt {
+    border-bottom: 1px solid #e0e0e0;
+}
