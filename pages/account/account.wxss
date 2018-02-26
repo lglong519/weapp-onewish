@@ -1,41 +1,15 @@
 /* pages/userCenter/userCenter.wxss */
 
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 50rpx;
+.container {
+    font: '微软雅黑';
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+    width: 128rpx;
+    height: 128rpx;
 }
 
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.infoview {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.userCenter {
-    font-size: 38px;
-    margin: 100px 0;
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.logoutBtn {
-    width: 85%;
-}
-.logoutview {
-    align-self: stretch;
-    padding: 10px 0;
+.qrcode {
+    width: 70rpx;
+    height: 70rpx;
 }

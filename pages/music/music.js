@@ -38,11 +38,15 @@ Page({
         app.data.onPlay = false;
         this.setData({
           onPlay: false,
+          index: app.data.index,
+          type: app.data.type
         });
       } else {
         app.data.Audio.play();
         this.setData({
           onPlay: true,
+          index: app.data.index,
+          type: app.data.type
         });
       }
       return;
@@ -54,14 +58,16 @@ Page({
       app.data.Audio.play();
       this.setData({
         onPlay: true,
-        index: app.data.index
+        index: app.data.index,
+        type: app.data.type
       });
     } else {
       app.data.Audio.pause();
       app.data.onPlay = false;
       this.setData({
         onPlay: false,
-        index: app.data.index
+        index: app.data.index,
+        type: app.data.type
       });
     }
 

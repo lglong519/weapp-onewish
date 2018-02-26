@@ -29,6 +29,10 @@ Page({
 			windowHeight: appData.windowHeight
 		});
 	},
+	onReady(){
+		console.log('ready');
+		app.data.playOnload = this.onLoad;
+	},
 	playControl: app.Funs.playControl,
 	playSection(e) {
 		var dataset = e.currentTarget.dataset;
@@ -71,7 +75,7 @@ Page({
 			this.setData({
 				show: true
 			});
-		}, 200);
+		}, 10);
 	},
 	onHide() {
 		this.setData({

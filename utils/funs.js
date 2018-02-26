@@ -13,8 +13,9 @@ const globalData = () => {
 		Audio: null,//*
 		currAudio: null,
 		onPlay: false,//判断并设置audio状态，所有页面以app为准，page内onPlay自动跟随
-		playMode: wx.getStorageSync('playMode') || 'once',	//+storage->once,loop,list,listLoop,random,randomInfinite
-		timer: null
+		playMode: null,	//+storage->once,loop,list,listLoop,random,randomInfinite
+		timer: null,
+		audioBackstage: null
 	}
 }
 
@@ -27,8 +28,12 @@ const init = (app) => {
 
 	data.type = wx.getStorageSync('type') || 'articleZH';
 	data.index = wx.getStorageSync('index') || 0;
+	data.playMode = wx.getStorageSync('playMode') || 'once';
+	data.audioBackstage = wx.getStorageSync('audioBackstage') || false;
 	wx.setStorageSync('type', data.type);
 	wx.setStorageSync('index', data.index);
+	wx.setStorageSync('playMode', data.playMode);
+	wx.setStorageSync('audioBackstage', data.audioBackstage);
 
 	//+设置audioList
 	data.audioList = getAudioList(data.type);
@@ -37,12 +42,19 @@ const init = (app) => {
 	data.currAudio = data.audioList[data.index];
 	data.url = data.currAudio[0].url;
 	//+audio
-	data.Audio = data.Audio || wx.createInnerAudioContext();
+	if (data.audioBackstage) {
+		data.Audio = data.Audio || wx.getBackgroundAudioManager();
+	} else {
+		data.Audio = data.Audio || wx.createInnerAudioContext();
+	}
 	if (data.Audio.src) {
 		data.Audio.src == data.url || (data.Audio.src = data.url);
 	} else {
 		data.Audio.src = data.url
 	}
+	data.Audio.title = data.currAudio[0].title;
+	data.currAudio[0].author && (data.Audio.singer = data.currAudio[0].author);
+	data.currAudio[0].image && (data.Audio.coverImgUrl = data.currAudio[0].image);
 	wx.getSystemInfo({
 		success: function (res) {
 			data.windowHeight = res.windowHeight;
@@ -59,14 +71,14 @@ const init = (app) => {
 const resetData = (type, index) => {
 	const app = getApp();
 	let data = app.data;
-	data.Audio && data.Audio.stop();
 	wx.setStorageSync('type', type);
 	wx.setStorageSync('index', index);
-	data.onPlay = true;
-
 	if (type === data.type && index === data.index) {
+		data.onPlay = true;
 		return;
 	}
+	data.Audio && data.Audio.stop();
+	data.onPlay = true;
 	if (type !== data.type) {
 		// clearData(app);
 		data.type = type;
@@ -83,6 +95,10 @@ const resetData = (type, index) => {
 		data.currAudio = data.audioList[index];
 		data.url = data.currAudio[0].url;
 		data.Audio.src != data.url && (data.Audio.src = data.url);
+
+		data.Audio.title = data.currAudio[0].title;
+		data.currAudio[0].author && (data.Audio.singer = data.currAudio[0].author);
+		data.currAudio[0].image && (data.Audio.coverImgUrl = data.currAudio[0].image);
 	}
 }
 const switchToPlay = e => {
@@ -107,13 +123,13 @@ const playControl = () => {
 	}
 }
 
-const keepPlay = (app) => {
+const keepPlay = app => {
 	if (app.data.onPlay) {
 		app.data.Audio.pause();
 		app.data.Audio.play();
 	}
 }
-const getAudioList = (type) => {
+const getAudioList = type => {
 	switch (type) {
 		case 'articleZH': return articleZH;
 		case 'articleEN': return articleEN;
@@ -122,41 +138,52 @@ const getAudioList = (type) => {
 	}
 }
 const wxLogin = app => {
-	wx.getUserInfo({
-		success: res => {
-			app.data.userInfo = res.userInfo
-			if (app.userInfoReadyCallback) {
-				app.userInfoReadyCallback(res)
-			}
-		},
-		complete(res) {
-			if (/deny|fail/g.test(res.errMsg)) {
-				wx.removeStorageSync('userInfo');
-				wx.showModal({
-					content: '当前帐号未登录，\n为了更好的使用体验请登录，\n是否使用微信登录？',
-					complete(res) {
-						if (res.confirm) {
-							wx.openSetting({
-								complete(res) {
-									console.log(res);
-								}
-							});
+	return new Promise((resovle, reject) => {
+		wx.getUserInfo({
+			success: res => {
+				app.data.userInfo = res.userInfo
+				if (app.userInfoReadyCallback) {
+					app.userInfoReadyCallback(res)
+				}
+			},
+			complete(res) {
+				if (/deny|fail/g.test(res.errMsg)) {
+					wx.removeStorageSync('userInfo');
+					wx.showModal({
+						content: '当前帐号未登录，\n为了更好的使用体验请登录，\n是否使用微信登录？',
+						complete(res) {
+							if (res.confirm) {
+								wx.openSetting({
+									complete(res) {
+										if (res.authSetting['scope.userInfo']) {
+										} else {
+										}
+									}
+								});
+							}
+							if (res.cancel) {
+								wx.showToast({
+									title: '再会',
+									icon: 'success',
+									duration: 600
+								})
+							}
 						}
-						if (res.cancel) {
-							wx.showToast({
-								title: '再会',
-								icon: 'success',
-								duration: 600
-							})
-						}
-					}
-				});
-			} else {
-				wx.setStorageSync('userInfo', true);
+					});
+				} else {
+					wx.setStorageSync('userInfo', true);
+				}
+				if (app.data.userInfo) {
+					resovle(app.data.userInfo);
+				} else {
+					resovle(false);
+				}
 			}
-		}
+		})
 	})
+
 }
+
 const showRedDot = (app) => {
 	app.timer && clearInterval(app.timer);
 	app.timer = setInterval(() => {
@@ -197,20 +224,22 @@ const setAudioEvent = (app, that) => {
 	});
 
 	if (!data) {
-		Audio.onSeeking(() => {
-			console.log('onSeeking');
-			wx.showLoading();
-		});
-		Audio.onSeeked(() => {
-			console.log('onSeeked');
-			wx.hideLoading();
-			if (appData.onPlay) {
-				Audio.pause();
-				Audio.play();
-			} else {
-				Audio.play();
-			}
-		});
+		if (!appData.audioBackstage) {
+			Audio.onSeeking(() => {
+				console.log('onSeeking');
+				wx.showLoading();
+			});
+			Audio.onSeeked(() => {
+				console.log('onSeeked');
+				wx.hideLoading();
+				if (appData.onPlay) {
+					Audio.pause();
+					Audio.play();
+				} else {
+					Audio.play();
+				}
+			});
+		}
 		Audio.onError((err) => {
 			console.log('onError', err);
 			Audio.pause();
