@@ -7,7 +7,10 @@ Page({
 		mode: ['单曲播放', '单曲循环', '列表顺序', '列表循环', '列表随机', '列表随机循环', '全部随机'],
 		modeIcon: ['sync_disabled', 'sync', 'format_list_numbered', 'low_priority', 'wrap_text', 'format_line_spacing', 'crop_rotate'],
 		index: 0,
-		audioBackstage: wx.getStorageSync('audioBackstage')
+		audioBackstage: wx.getStorageSync('audioBackstage'),
+		hideTabBar: wx.getStorageSync('hideTabBar') || false,
+		showAnchor: wx.getStorageSync('showAnchor'),
+		showZoom: wx.getStorageSync('showZoom')
 	},
 	audioBackstageChange(e) {
 		this.setData({
@@ -27,6 +30,24 @@ Page({
 		}
 		app.Funs.init(app);
 		app.data.playOnload && app.data.playOnload();
+	},
+	hideTabBar(e) {
+		this.setData({
+			hideTabBar: e.detail.value
+		})
+		wx.setStorageSync('hideTabBar', e.detail.value);
+	},
+	showAnchor(e) {
+		this.setData({
+			showAnchor: e.detail.value
+		})
+		wx.setStorageSync('showAnchor', e.detail.value);
+	},
+	showZoom(e) {
+		this.setData({
+			showZoom: e.detail.value
+		})
+		wx.setStorageSync('showZoom', e.detail.value);
 	},
 	previewImage() {
 		wx.previewImage({

@@ -21,7 +21,9 @@ Page({
 		durationFormat: '00:00',
 		windowHeight: 0,
 		id: null,
-		show: false
+		show: false,
+		hideTabBar: false,
+		showAnchor: true
 	},
 	onLoad() {
 		app.Funs.setAudioEvent(app, this);
@@ -29,7 +31,7 @@ Page({
 			windowHeight: appData.windowHeight
 		});
 	},
-	onReady(){
+	onReady() {
 		console.log('ready');
 		app.data.playOnload = this.onLoad;
 	},
@@ -49,9 +51,41 @@ Page({
 		this.setData({
 			id: "currentPart"
 		});
+	},
+	zoom() {
+		if (this.data.hideTabBar) {
+			wx.showTabBar({
+				aniamtion: true
+			})
+			this.setData({
+				hideTabBar: false
+			});
+		} else {
+			wx.hideTabBar({
+				aniamtion: true
+			})
+			this.setData({
+				hideTabBar: true
+			});
+		}
 
 	},
 	onShow: function () {
+		if (wx.getStorageSync('hideTabBar')){
+			wx.hideTabBar({
+				aniamtion: true
+			})
+			this.setData({
+				hideTabBar: true
+			});
+		}else{
+			wx.showTabBar({
+				aniamtion: true
+			})
+			this.setData({
+				hideTabBar: false
+			});
+		}
 		wx.setTabBarStyle({
 			selectedColor: '#83c44e',
 			backgroundColor: appData.url ? '#C6C6C6' : '',
@@ -66,7 +100,8 @@ Page({
 			currAudio: appData.currAudio,
 			type: appData.type,
 			onPlay: appData.onPlay,
-			sectionTimes: sectionTimes || []
+			sectionTimes: sectionTimes || [],
+			showAnchor: wx.getStorageSync('showAnchor') === false ? false : true
 		});
 		this.setData({
 			hide: false

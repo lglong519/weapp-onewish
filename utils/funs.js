@@ -34,6 +34,8 @@ const init = (app) => {
 	wx.setStorageSync('index', data.index);
 	wx.setStorageSync('playMode', data.playMode);
 	wx.setStorageSync('audioBackstage', data.audioBackstage);
+	wx.getStorageSync('showAnchor') !== false && wx.setStorageSync('showAnchor', true);
+	wx.getStorageSync('showZoom') !== false && wx.setStorageSync('showZoom', true);
 
 	//+设置audioList
 	data.audioList = getAudioList(data.type);

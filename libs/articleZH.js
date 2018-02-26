@@ -66,7 +66,7 @@ module.exports = [
 	,
 	[{
 		title: '雨巷',
-		url: '',
+		url: 'null',
 		author: '戴望舒',
 		type: 'articleZH',
 		sections: [
@@ -81,7 +81,7 @@ module.exports = [
 			{ time: '', chapter: '丁香一样的芬芳，' },
 			{ time: '', chapter: '丁香一样的忧愁，' },
 			{ time: '', chapter: '在雨中哀怨，' },
-			{ time: '', chapter: '哀怨又彷(páng)徨；' },
+			{ time: '', chapter: '哀怨又彷徨；' },
 			{ time: '', chapter: '她彷徨在这寂寥的雨巷，' },
 			{ time: '', chapter: '撑着油纸伞' },
 			{ time: '', chapter: '像我一样，' },
