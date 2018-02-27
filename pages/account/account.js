@@ -3,9 +3,9 @@ const app = getApp();
 Page({
 	data: {
 		userInfo: null,
-		playMode: ['once', 'loop', 'list', 'listLoop', 'randomList', 'randomInfinite', 'randomAll'],
-		mode: ['单曲播放', '单曲循环', '列表顺序', '列表循环', '列表随机', '列表随机循环', '全部随机'],
-		modeIcon: ['sync_disabled', 'sync', 'format_list_numbered', 'low_priority', 'wrap_text', 'format_line_spacing', 'crop_rotate'],
+		playMode: app.data.modeIcon.mode,
+		mode: app.data.modeIcon.name,
+		modeIcon: app.data.modeIcon.list,
 		index: 0,
 		audioBackstage: wx.getStorageSync('audioBackstage'),
 		hideTabBar: wx.getStorageSync('hideTabBar') || false,
@@ -93,7 +93,8 @@ Page({
 			selectedColor: '#5287E9',
 		});
 		this.setData({
-			audioBackstage: wx.getStorageSync('audioBackstage')
+			audioBackstage: wx.getStorageSync('audioBackstage'),
+			index: app.data.modeIcon.index[wx.getStorageSync('playMode')]
 		})
 		if (app.data.userInfo) {
 			this.setData({

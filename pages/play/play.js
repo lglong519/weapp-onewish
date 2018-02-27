@@ -23,10 +23,36 @@ Page({
 		id: null,
 		show: false,
 		hideTabBar: false,
-		showAnchor: true
+		showAnchor: true,
+		showZoom: false,
+		animation: {},
+		onshow: true,
+		modeIcon: appData.modeIcon.list,
+		modeIndex: appData.modeIcon.index[wx.getStorageSync('playMode')]
 	},
 	onLoad() {
 		app.Funs.setAudioEvent(app, this);
+		appData.animation = wx.createAnimation({
+			duration: 600,
+			timingFunction: 'linear',
+			delay: 0,
+			transformOrigin: '50% 50% 0',
+			success: function (res) {
+				console.log("res")
+			}
+		})
+		var timer = null;
+		var n = 1;
+		setInterval(function () {
+			if (appData.onPlay && this.data.onshow) {
+				appData.animation.rotate(25 * n).step();
+				this.setData({
+					animation: appData.animation.export()
+				})
+				// console.log(appData.animation.currentTransform['rotate'].args[0], this.data.animation.actions[0].animates[0].args[0]);
+				n++;
+			}
+		}.bind(this), 600)
 		this.setData({
 			windowHeight: appData.windowHeight
 		});
@@ -71,14 +97,14 @@ Page({
 
 	},
 	onShow: function () {
-		if (wx.getStorageSync('hideTabBar')){
+		if (wx.getStorageSync('hideTabBar')) {
 			wx.hideTabBar({
 				aniamtion: true
 			})
 			this.setData({
 				hideTabBar: true
 			});
-		}else{
+		} else {
 			wx.showTabBar({
 				aniamtion: true
 			})
@@ -88,7 +114,7 @@ Page({
 		}
 		wx.setTabBarStyle({
 			selectedColor: '#83c44e',
-			backgroundColor: appData.url ? '#C6C6C6' : '',
+			// backgroundColor: appData.url ? '#C6C6C6' : '',
 			borderStyle: appData.url ? 'white' : ''
 		});
 		console.log('play onshow');
@@ -101,7 +127,10 @@ Page({
 			type: appData.type,
 			onPlay: appData.onPlay,
 			sectionTimes: sectionTimes || [],
-			showAnchor: wx.getStorageSync('showAnchor') === false ? false : true
+			showAnchor: wx.getStorageSync('showAnchor') === false ? false : true,
+			showZoom: wx.getStorageSync('showZoom'),
+			modeIndex: appData.modeIcon.index[wx.getStorageSync('playMode')],
+			onshow: true
 		});
 		this.setData({
 			hide: false
@@ -110,12 +139,13 @@ Page({
 			this.setData({
 				show: true
 			});
-		}, 10);
+		}, 100);
 	},
 	onHide() {
 		this.setData({
 			show: false,
-			hide: true
+			hide: true,
+			onshow: false
 		});
 	},
 	sliderChange(event) {
@@ -140,5 +170,22 @@ Page({
 	},
 	playForward() {
 		Audio.seek(this.data.currentTime + 5);
+	},
+	playModeChange(){
+		if (this.data.modeIndex < appData.modeIcon.list.length-1){
+			this.data.modeIndex++;
+		}else{
+			this.data.modeIndex=0;
+		}
+		this.setData({
+			modeIndex: this.data.modeIndex
+		});
+		wx.hideToast();
+		wx.showToast({
+			title: appData.modeIcon.name[this.data.modeIndex],
+			icon: 'none',
+			duration: 2000
+		})
+		wx.setStorageSync('playMode', appData.modeIcon.mode[this.data.modeIndex]);
 	}
 })

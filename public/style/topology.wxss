@@ -253,7 +253,7 @@ page,
 
 .px-1 {
     padding-left: .25em;
-    padding-right: 0;
+    padding-right: .25em;
 }
 
 .px-2 {
@@ -511,7 +511,7 @@ page,
 
 .mx-1 {
     margin-left: .25em;
-    margin-right: 0;
+    margin-right: .25em;
 }
 
 .mx-2 {

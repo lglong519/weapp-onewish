@@ -66,7 +66,7 @@ module.exports = [
 	,
 	[{
 		title: '雨巷',
-		url: 'null',
+		url: '',
 		author: '戴望舒',
 		type: 'articleZH',
 		sections: [

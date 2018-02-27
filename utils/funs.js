@@ -15,7 +15,13 @@ const globalData = () => {
 		onPlay: false,//判断并设置audio状态，所有页面以app为准，page内onPlay自动跟随
 		playMode: null,	//+storage->once,loop,list,listLoop,random,randomInfinite
 		timer: null,
-		audioBackstage: null
+		audioBackstage: null,
+		modeIcon: {
+			index: { 'once': 0, 'loop': 1, 'list': 2, 'listLoop': 3, 'randomList': 4, 'randomInfinite': 5, 'randomAll': 6 },
+			list: ['sync_disabled', 'repeat_one', 'format_list_numbered', 'low_priority', 'wrap_text', 'format_line_spacing', 'crop_rotate'],
+			mode: ['once', 'loop', 'list', 'listLoop', 'randomList', 'randomInfinite', 'randomAll'],
+			name: ['单曲播放', '单曲循环', '列表顺序', '列表循环', '列表随机', '列表随机循环', '全部随机']
+		}
 	}
 }
 
@@ -107,7 +113,9 @@ const switchToPlay = e => {
 	let dataset = e.currentTarget.dataset;
 	let app = getApp();
 	resetData(dataset.audioType, dataset.audioIndex);
-	app.data.Audio.play();
+	if (app.data.url) {
+		app.data.Audio.play();
+	}
 	wx.switchTab({
 		url: '/pages/play/play',
 	})
@@ -124,11 +132,12 @@ const playControl = () => {
 		app.data.Audio.play();
 	}
 }
-
 const keepPlay = app => {
-	if (app.data.onPlay) {
+	if (app.data.onPlay && app.data.url) {
 		app.data.Audio.pause();
 		app.data.Audio.play();
+	} else {
+		app.data.onPlay = false;
 	}
 }
 const getAudioList = type => {
@@ -189,11 +198,12 @@ const wxLogin = app => {
 const showRedDot = (app) => {
 	app.timer && clearInterval(app.timer);
 	app.timer = setInterval(() => {
-		if (app.data.onPlay) {
+		if (app.data.onPlay && app.data.url) {
 			wx.showTabBarRedDot({
 				index: 3
 			})
 		} else {
+			app.data.onPlay = false;
 			wx.hideTabBarRedDot({
 				index: 3
 			})
@@ -217,8 +227,9 @@ const setAudioEvent = (app, that) => {
 	}
 	Audio.onPlay(() => {
 		console.log('onPlay');
-		appData.onPlay = true;
 		wx.hideLoading();
+		if (!appData.url) { return }
+		appData.onPlay = true;
 		if (!data) { return }
 		that.setData({
 			onPlay: true
@@ -236,8 +247,8 @@ const setAudioEvent = (app, that) => {
 				wx.hideLoading();
 				if (appData.onPlay) {
 					Audio.pause();
-					Audio.play();
-				} else {
+				}
+				if (appData.url) {
 					Audio.play();
 				}
 			});
@@ -245,10 +256,12 @@ const setAudioEvent = (app, that) => {
 		Audio.onError((err) => {
 			console.log('onError', err);
 			Audio.pause();
+			/*
 			wx.showModal({
 				content: err.errMsg,
 				showCancel: false
 			});
+			*/
 		});
 	}
 
@@ -262,32 +275,35 @@ const setAudioEvent = (app, that) => {
 	Audio.onStop(pause);
 	Audio.onEnded(pause);
 
-	if (data) {
-		Audio.onTimeUpdate(() => {
-			if (parseInt(data.duration) != parseInt(Audio.duration)) {
+	Audio.onTimeUpdate(() => {
+		if (!appData.url) {
+			Audio.stop();
+			appData.onPlay = false;
+		}
+		if (!data) { return }
+		if (parseInt(data.duration) != parseInt(Audio.duration)) {
+			that.setData({
+				duration: Audio.duration,
+				durationFormat: toMinute(Audio.duration)
+			});
+		}
+		if (that.data.timeStamp) {
+			return;
+		}
+		let currentTimeFormat = toMinute(Audio.currentTime);
+		if (toMinute(data.currentTime) != currentTimeFormat) {
+			that.setData({
+				currentTime: Audio.currentTime,
+				currentTimeFormat
+			});
+			let currPart = getCurrPart(that.data.sectionTimes, Audio.currentTime);
+			if (currPart != that.data.currPart) {
 				that.setData({
-					duration: Audio.duration,
-					durationFormat: toMinute(Audio.duration)
+					currPart
 				});
 			}
-			if (that.data.timeStamp) {
-				return;
-			}
-			let currentTimeFormat = toMinute(Audio.currentTime);
-			if (toMinute(data.currentTime) != currentTimeFormat) {
-				that.setData({
-					currentTime: Audio.currentTime,
-					currentTimeFormat
-				});
-				let currPart = getCurrPart(that.data.sectionTimes, Audio.currentTime);
-				if (currPart != that.data.currPart) {
-					that.setData({
-						currPart
-					});
-				}
-			}
-		});
-	}
+		}
+	});
 }
 const toMinute = myTime => {
 	var minutes = parseInt(myTime / 60);
