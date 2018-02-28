@@ -32,7 +32,7 @@ Page({
 	},
 	onLoad() {
 		app.Funs.setAudioEvent(app, this);
-		
+
 	},
 	onReady() {
 		console.log('ready');
@@ -151,11 +151,29 @@ Page({
 	playForward() {
 		Audio.seek(this.data.currentTime + 5);
 	},
-	playModeChange(){
-		if (this.data.modeIndex < appData.modeIcon.list.length-1){
+	skip_previous() {
+		var newIndex;
+		if (appData.index > 0) {
+			newIndex = appData.index - 1;
+		} else {
+			newIndex = appData.audioList.length - 1;
+		}
+		prevOrNext(this, newIndex);
+	},
+	skip_next() {
+		var newIndex;
+		if (appData.index < appData.audioList.length - 1) {
+			newIndex = appData.index + 1;
+		} else {
+			newIndex = 0;
+		}
+		prevOrNext(this, newIndex);
+	},
+	playModeChange() {
+		if (this.data.modeIndex < appData.modeIcon.list.length - 1) {
 			this.data.modeIndex++;
-		}else{
-			this.data.modeIndex=0;
+		} else {
+			this.data.modeIndex = 0;
 		}
 		this.setData({
 			modeIndex: this.data.modeIndex
@@ -169,3 +187,19 @@ Page({
 		wx.setStorageSync('playMode', appData.modeIcon.mode[this.data.modeIndex]);
 	}
 })
+
+function prevOrNext(that, newIndex) {
+	app.Funs.resetData(appData.type, newIndex);
+	if (appData.url) {
+		appData.Audio.play();
+	}
+	if (appData.type.indexOf('article') > -1 && that.currAudio != appData.currAudio) {
+		var sectionTimes = appData.currAudio[0].sections.map(i => i.time);
+	}
+	that.setData({
+		currAudio: appData.currAudio,
+		type: appData.type,
+		onPlay: appData.onPlay,
+		sectionTimes: sectionTimes || [],
+	});
+}
