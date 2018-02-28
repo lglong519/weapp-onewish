@@ -21,7 +21,9 @@ const globalData = () => {
 			list: ['sync_disabled', 'repeat_one', 'format_list_numbered', 'low_priority', 'wrap_text', 'format_line_spacing', 'crop_rotate'],
 			mode: ['once', 'loop', 'list', 'listLoop', 'randomList', 'randomInfinite', 'randomAll'],
 			name: ['单曲播放', '单曲循环', '列表顺序', '列表循环', '列表随机', '列表随机循环', '全部随机']
-		}
+		},
+		animation: null,
+		turns: 1
 	}
 }
 
@@ -68,6 +70,18 @@ const init = (app) => {
 			data.windowHeight = res.windowHeight;
 		}
 	})
+	if (!data.animation) {
+		data.animation = wx.createAnimation({
+			duration: 1000,
+			timingFunction: 'linear',
+			delay: 0,
+			transformOrigin: '50% 50% 0',
+			success: function (res) {
+				console.log("createAnimation:success:", res)
+			}
+		})
+	}
+
 	setAudioEvent(app);
 	wxLogin(app);
 	keepPlay(app);
@@ -218,13 +232,6 @@ const setAudioEvent = (app, that) => {
 	}
 	let appData = app.data;
 	let Audio = app.data.Audio;
-	let pause = () => {
-		wx.hideLoading();
-		if (!data) { return }
-		that.setData({
-			onPlay: false
-		});
-	}
 	Audio.onPlay(() => {
 		console.log('onPlay');
 		wx.hideLoading();
@@ -256,25 +263,35 @@ const setAudioEvent = (app, that) => {
 		Audio.onError((err) => {
 			console.log('onError', err);
 			Audio.pause();
-			/*
-			wx.showModal({
-				content: err.errMsg,
-				showCancel: false
-			});
-			*/
 		});
 	}
 
 	Audio.onPause(() => {
+		console.log('onPause00');
 		wx.hideLoading();
 		if (!data) { return }
 		that.setData({
 			onPlay: false
 		});
 	});
-	Audio.onStop(pause);
-	Audio.onEnded(pause);
-
+	Audio.onStop(() => {
+		console.log('onStop');
+		wx.hideLoading();
+		appData.onPlay = false;
+		if (!data) { return }
+		that.setData({
+			onPlay: false
+		});
+	});
+	Audio.onEnded(() => {
+		console.log('ended');
+		appData.onPlay = false;
+		wx.hideLoading();
+		if (!data) { return }
+		that.setData({
+			onPlay: false
+		});
+	});
 	Audio.onTimeUpdate(() => {
 		if (!appData.url) {
 			Audio.stop();
@@ -292,10 +309,14 @@ const setAudioEvent = (app, that) => {
 		}
 		let currentTimeFormat = toMinute(Audio.currentTime);
 		if (toMinute(data.currentTime) != currentTimeFormat) {
-			that.setData({
-				currentTime: Audio.currentTime,
-				currentTimeFormat
-			});
+			if (appData.onPlay && data.onshow) {
+				appData.animation.rotate(40 * appData.turns++).step();
+				that.setData({
+					animation: appData.animation.export(),
+					currentTime: Audio.currentTime,
+					currentTimeFormat
+				})
+			}
 			let currPart = getCurrPart(that.data.sectionTimes, Audio.currentTime);
 			if (currPart != that.data.currPart) {
 				that.setData({

@@ -69,6 +69,6 @@
         <image src='{{currAudio[0].image || "../../public/images/2018fly.jpg"}}' mode='aspectFill' class='disc-image'></image>
     </view>
     <view class='z-index mt-4 text-white'>{{currAudio[0].title}}</view>
-    <view class='z-index text-white'>{{currAudio[0].author}}</view>
+    <view class='z-index mt-4 text-white'>{{currAudio[0].author}}</view>
     <image src='{{currAudio[0].image || "../../public/images/stars-128.jpeg"}}' mode='aspectFill' class='bg-music blur'></image>
 </view>

@@ -1,7 +1,7 @@
 // pages/play/play
 const app = getApp();
-const appData = app.data;
-const Audio = appData.Audio;
+let appData = app.data;
+let Audio = appData.Audio;
 let toMinute = app.Funs.toMinute;
 let toSecond = app.Funs.toSecond;
 let getCurrPart = app.Funs.getCurrPart;
@@ -32,34 +32,14 @@ Page({
 	},
 	onLoad() {
 		app.Funs.setAudioEvent(app, this);
-		appData.animation = wx.createAnimation({
-			duration: 600,
-			timingFunction: 'linear',
-			delay: 0,
-			transformOrigin: '50% 50% 0',
-			success: function (res) {
-				console.log("res")
-			}
-		})
-		var timer = null;
-		var n = 1;
-		setInterval(function () {
-			if (appData.onPlay && this.data.onshow) {
-				appData.animation.rotate(25 * n).step();
-				this.setData({
-					animation: appData.animation.export()
-				})
-				// console.log(appData.animation.currentTransform['rotate'].args[0], this.data.animation.actions[0].animates[0].args[0]);
-				n++;
-			}
-		}.bind(this), 600)
-		this.setData({
-			windowHeight: appData.windowHeight
-		});
+		
 	},
 	onReady() {
 		console.log('ready');
 		app.data.playOnload = this.onLoad;
+		this.setData({
+			windowHeight: appData.windowHeight
+		});
 	},
 	playControl: app.Funs.playControl,
 	playSection(e) {
