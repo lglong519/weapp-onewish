@@ -47,7 +47,6 @@ const init = (app) => {
 
 	//+设置audioList
 	data.audioList = getAudioList(data.type);
-	// console.log('list', data.audioList);
 
 	data.currAudio = data.audioList[data.index];
 	data.url = data.currAudio[0].url;
@@ -211,8 +210,22 @@ const wxLogin = app => {
 
 const showRedDot = (app) => {
 	app.timer && clearInterval(app.timer);
+	var i = 0, compare;
 	app.timer = setInterval(() => {
+		if (!app.data.url) {
+			app.data.Audio.stop();
+			app.data.onPlay = false;
+		}
 		if (app.data.onPlay && app.data.url) {
+			//检测播放状态下的实际播放状态，step=500ms
+			if (++i % 5 == 0) {
+				if (app.data.Audio.currentTime == compare) {
+					app.data.Audio.play();
+				} else {
+					compare = app.data.Audio.currentTime;
+				}
+			}
+
 			wx.showTabBarRedDot({
 				index: 3
 			})
@@ -222,7 +235,8 @@ const showRedDot = (app) => {
 				index: 3
 			})
 		}
-	}, 1000);
+
+	}, 100);
 }
 
 const setAudioEvent = (app, that) => {
@@ -267,7 +281,7 @@ const setAudioEvent = (app, that) => {
 	}
 
 	Audio.onPause(() => {
-		console.log('onPause00');
+		console.log('onPause');
 		wx.hideLoading();
 		if (!data) { return }
 		that.setData({
@@ -285,46 +299,69 @@ const setAudioEvent = (app, that) => {
 	});
 	Audio.onEnded(() => {
 		console.log('ended');
-		appData.onPlay = false;
 		wx.hideLoading();
-		if (!data) { return }
-		that.setData({
-			onPlay: false
-		});
-	});
-	Audio.onTimeUpdate(() => {
-		if (!appData.url) {
-			Audio.stop();
-			appData.onPlay = false;
-		}
-		if (!data) { return }
-		if (parseInt(data.duration) != parseInt(Audio.duration)) {
+		if (data) {
 			that.setData({
-				duration: Audio.duration,
-				durationFormat: toMinute(Audio.duration)
+				onPlay: false
 			});
-		}
-		if (that.data.timeStamp) {
-			return;
-		}
-		let currentTimeFormat = toMinute(Audio.currentTime);
-		if (toMinute(data.currentTime) != currentTimeFormat) {
-			if (appData.onPlay && data.onshow) {
-				appData.animation.rotate(40 * appData.turns++).step();
-				that.setData({
-					animation: appData.animation.export(),
-					currentTime: Audio.currentTime,
-					currentTimeFormat
-				})
+		} else {
+			appData.onPlay = false;
+			let playMode = wx.getStorageSync('playMode');
+
+
+			if (playMode == 'loop') {
+				if (appData.url) {
+					appData.Audio.play();
+				}
 			}
-			let currPart = getCurrPart(that.data.sectionTimes, Audio.currentTime);
-			if (currPart != that.data.currPart) {
-				that.setData({
-					currPart
-				});
+
+			if (playMode == 'list') {
+				if (appData.index < appData.modeIcon.mode.length - 1) {
+					let newIndex = appData.index + 1;
+					app.Funs.resetData(appData.type, newIndex);
+					if (appData.url) {
+						appData.Audio.play();
+					}
+				}
+			}
+
+			if (playMode == 'listLoop') {
+				let newIndex
+				if (appData.index < appData.modeIcon.mode.length - 1) {
+					newIndex = appData.index + 1;
+				} else {
+					newIndex = 0;
+				}
+				app.Funs.resetData(appData.type, newIndex);
+				if (appData.url) {
+					appData.Audio.play();
+				}
+			}
+
+			if (playMode == 'randomList') {
+
+			}
+
+			if (playMode == 'randomInfinite') {
+				let newIndex = parseInt(Math.random() * appData.modeIcon.mode.length);
+				app.Funs.resetData(appData.type, newIndex);
+				if (appData.url) {
+					appData.Audio.play();
+				}
+			}
+
+			if (playMode == 'randomAll') {
+				let types = ['articleZH', 'articleEN', 'classical', 'music'];
+				let newIndex = parseInt(Math.random() * appData.modeIcon.mode.length);
+				let typeIndex = parseInt(Math.random() * types.length);
+				app.Funs.resetData(types[typeIndex], newIndex);
+				if (appData.url) {
+					appData.Audio.play();
+				}
 			}
 		}
 	});
+
 }
 const toMinute = myTime => {
 	var minutes = parseInt(myTime / 60);

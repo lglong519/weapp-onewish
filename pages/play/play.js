@@ -17,7 +17,7 @@ Page({
 		currentTime: 0,
 		currentTimeFormat: '00:00',
 		timeStamp: 0,
-		duration: 0,
+		duration: Audio.duration,
 		durationFormat: '00:00',
 		windowHeight: 0,
 		id: null,
@@ -28,7 +28,10 @@ Page({
 		animation: {},
 		onshow: true,
 		modeIcon: appData.modeIcon.list,
-		modeIndex: appData.modeIcon.index[wx.getStorageSync('playMode')]
+		modeIndex: appData.modeIcon.index[wx.getStorageSync('playMode')],
+		modeName: appData.modeIcon.name,
+		showToast: false,
+		modeTimer: null
 	},
 	onLoad() {
 		app.Funs.setAudioEvent(app, this);
@@ -36,10 +39,43 @@ Page({
 	},
 	onReady() {
 		console.log('ready');
+		var that = this;
+		var data = this.data;
 		app.data.playOnload = this.onLoad;
 		this.setData({
 			windowHeight: appData.windowHeight
 		});
+		setInterval(() => {
+			if (!data) { return }
+			if (parseInt(data.duration) != parseInt(Audio.duration)) {
+				that.setData({
+					duration: Audio.duration,
+					durationFormat: toMinute(Audio.duration)
+				});
+			}
+			if (that.data.timeStamp) {
+				return;
+			}
+
+			let currentTimeFormat = toMinute(Audio.currentTime);
+
+			if (toMinute(data.currentTime) != currentTimeFormat) {
+				if (appData.onPlay && data.onshow) {
+					appData.animation.rotate(40 * appData.turns++).step();
+					that.setData({
+						animation: appData.animation.export(),
+						currentTime: Audio.currentTime,
+						currentTimeFormat
+					})
+				}
+				let currPart = getCurrPart(that.data.sectionTimes, Audio.currentTime);
+				if (currPart != that.data.currPart) {
+					that.setData({
+						currPart
+					});
+				}
+			}
+		}, 100);
 	},
 	playControl: app.Funs.playControl,
 	playSection(e) {
@@ -170,20 +206,22 @@ Page({
 		prevOrNext(this, newIndex);
 	},
 	playModeChange() {
+		this.data.modeTimer && clearTimeout(this.data.modeTimer);
 		if (this.data.modeIndex < appData.modeIcon.list.length - 1) {
 			this.data.modeIndex++;
 		} else {
 			this.data.modeIndex = 0;
 		}
 		this.setData({
-			modeIndex: this.data.modeIndex
+			modeIndex: this.data.modeIndex,
+			showToast: true
 		});
-		wx.hideToast();
-		wx.showToast({
-			title: appData.modeIcon.name[this.data.modeIndex],
-			icon: 'none',
-			duration: 2000
-		})
+		var that = this;
+		this.data.modeTimer = setTimeout(() => {
+			that.setData({
+				showToast: false
+			});
+		}, 2000);
 		wx.setStorageSync('playMode', appData.modeIcon.mode[this.data.modeIndex]);
 	}
 })

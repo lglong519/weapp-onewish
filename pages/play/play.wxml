@@ -8,7 +8,7 @@
     </view>
     <view class='text-center play-btn flex-row align-center'>
         <view class='pl-4'>
-            <icon class='material-icons text-24' bindtap='playModeChange'>{{modeIcon[modeIndex]}}</icon>
+            <icon class='material-icons text-24 text-grey' bindtap='playModeChange'>{{modeIcon[modeIndex]}}</icon>
         </view>
         <view class='flex'>
             <icon class='material-icons text-40' bindtap='skip_previous'>skip_previous</icon>
@@ -71,4 +71,7 @@
     <view class='z-index mt-4 text-white'>{{currAudio[0].title}}</view>
     <view class='z-index mt-4 text-white'>{{currAudio[0].author}}</view>
     <image src='{{currAudio[0].image || "../../public/images/stars-128.jpeg"}}' mode='aspectFill' class='bg-music blur'></image>
+</view>
+<view wx:if='{{showToast}}' class='playmode-toast'>
+    <view class='mode-name'>{{modeName[modeIndex]}}</view>
 </view>

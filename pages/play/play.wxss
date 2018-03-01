@@ -53,6 +53,9 @@ page {
 .play-btn icon:not(.text-green-0) {
     color: #fff;
 }
+.play-btn .text-grey{
+	opacity: .6
+}
 
 .play-btn icon:active {
     color: #83c44e;
@@ -112,4 +115,21 @@ page {
     width: 80%;
     height: 80%;
     border-radius: 50%;
+}
+
+.playmode-toast{
+	display: flex;
+	z-index: 100;
+	position: fixed;
+	left: 0;
+	bottom:200rpx;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+}
+.mode-name{
+	padding: .8em 1.2em;
+	background: rgba(0, 0, 0, 0.3);
+	border-radius: 10rpx;
+	color: #fff;
 }
