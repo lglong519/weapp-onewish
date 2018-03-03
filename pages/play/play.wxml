@@ -1,7 +1,7 @@
 <!--pages/play.wxml-->
 <!--音乐控制器  -->
-<view wx:if='{{currAudio[0].url}}' class='playcontroller mb-2 {{hide&&"hide"}} {{show&&"show"}} {{type !=="articleZH" && type !=="articleEN" && "bg-transparent"}}'>
-    <view class='flex-row'>
+<view wx:if='{{currAudio[0].url}}' class='playcontroller {{hide&&"hide"}} {{show&&"show"}} {{type !=="articleZH" && type !=="articleEN" && "bg-transparent"}} {{rollup && "rollup"}}'>
+    <view class='flex-row {{rollup && "opacity-0"}}'>
         <view class='currentTime text-white pt-3 pl-2'>{{currentTimeFormat}}</view>
         <slider class='flex' bindchange="sliderChange" bindchanging='sliderChanging' value="{{currentTime}}" max='{{duration}}' block-size='12' activeColor='#5287E9' block-color='#FDE0E9' />
         <view class='currentTime text-white pt-3 pr-2'>{{durationFormat}}</view>
@@ -18,7 +18,7 @@
             <icon class='material-icons text-40' bindtap='skip_next'>skip_next</icon>
         </view>
         <view class='pr-1'>
-            <icon class='material-icons text-30' bindtap=''>more_vert</icon>
+            <icon class='material-icons text-30' bindtap='rollup'>more_vert</icon>
         </view>
     </view>
 </view>

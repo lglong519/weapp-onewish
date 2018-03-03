@@ -31,22 +31,25 @@ Page({
 		modeIndex: appData.modeIcon.index[wx.getStorageSync('playMode')],
 		modeName: appData.modeIcon.name,
 		showToast: false,
-		modeTimer: null
+		modeTimer: null,
+		rollup: false
 	},
 	onLoad() {
 		app.Funs.setAudioEvent(app, this);
-
 	},
 	onReady() {
 		console.log('ready');
 		var that = this;
 		var data = this.data;
 		app.data.playOnload = this.onLoad;
+		app.data.onShow = this.onShow;
 		this.setData({
 			windowHeight: appData.windowHeight
 		});
+		var i = 0;
 		setInterval(() => {
-			if (!data) { return }
+			if (!Audio.src || !appData.url) { return }
+
 			if (parseInt(data.duration) != parseInt(Audio.duration)) {
 				that.setData({
 					duration: Audio.duration,
@@ -57,7 +60,18 @@ Page({
 				return;
 			}
 
+
 			let currentTimeFormat = toMinute(Audio.currentTime);
+
+			if (!appData.onPlay && data.onshow && i++ % 10 == 0) {
+				if (toMinute(data.currentTime) != currentTimeFormat) {
+					that.setData({
+						currentTimeFormat,
+						currentTime: Audio.currentTime
+					});
+				}
+			}
+
 
 			if (toMinute(data.currentTime) != currentTimeFormat) {
 				if (appData.onPlay && data.onshow) {
@@ -113,6 +127,9 @@ Page({
 
 	},
 	onShow: function () {
+		if (Audio !== getApp().data.Audio) {
+			Audio = getApp().data.Audio;
+		}
 		if (wx.getStorageSync('hideTabBar')) {
 			wx.hideTabBar({
 				aniamtion: true
@@ -136,7 +153,10 @@ Page({
 		console.log('play onshow');
 		//如果是文章类型，设置章节时间列表
 		if (appData.type.indexOf('article') > -1 && this.currAudio != appData.currAudio) {
-			var sectionTimes = appData.currAudio[0].sections.map(i => i.time);
+			let sections = appData.currAudio[0].sections;
+			if (sections) {
+				var sectionTimes = sections.map(i => i.time);
+			}
 		}
 		this.setData({
 			currAudio: appData.currAudio,
@@ -146,11 +166,10 @@ Page({
 			showAnchor: wx.getStorageSync('showAnchor') === false ? false : true,
 			showZoom: wx.getStorageSync('showZoom'),
 			modeIndex: appData.modeIcon.index[wx.getStorageSync('playMode')],
-			onshow: true
-		});
-		this.setData({
+			onshow: true,
 			hide: false
 		});
+
 		setTimeout(() => {
 			this.setData({
 				show: true
@@ -188,22 +207,10 @@ Page({
 		Audio.seek(this.data.currentTime + 5);
 	},
 	skip_previous() {
-		var newIndex;
-		if (appData.index > 0) {
-			newIndex = appData.index - 1;
-		} else {
-			newIndex = appData.audioList.length - 1;
-		}
-		prevOrNext(this, newIndex);
+		app.Funs.skip_previous(this, app);
 	},
 	skip_next() {
-		var newIndex;
-		if (appData.index < appData.audioList.length - 1) {
-			newIndex = appData.index + 1;
-		} else {
-			newIndex = 0;
-		}
-		prevOrNext(this, newIndex);
+		app.Funs.skip_next(this, app);
 	},
 	playModeChange() {
 		this.data.modeTimer && clearTimeout(this.data.modeTimer);
@@ -223,21 +230,11 @@ Page({
 			});
 		}, 2000);
 		wx.setStorageSync('playMode', appData.modeIcon.mode[this.data.modeIndex]);
+	},
+	rollup() {
+		this.setData({
+			rollup: !this.data.rollup
+		});
 	}
 })
 
-function prevOrNext(that, newIndex) {
-	app.Funs.resetData(appData.type, newIndex);
-	if (appData.url) {
-		appData.Audio.play();
-	}
-	if (appData.type.indexOf('article') > -1 && that.currAudio != appData.currAudio) {
-		var sectionTimes = appData.currAudio[0].sections.map(i => i.time);
-	}
-	that.setData({
-		currAudio: appData.currAudio,
-		type: appData.type,
-		onPlay: appData.onPlay,
-		sectionTimes: sectionTimes || [],
-	});
-}

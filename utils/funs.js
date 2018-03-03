@@ -57,9 +57,11 @@ const init = (app) => {
 		data.Audio = data.Audio || wx.createInnerAudioContext();
 	}
 	if (data.Audio.src) {
-		data.Audio.src == data.url || (data.Audio.src = data.url);
+		data.Audio.src == data.url || (data.url && (data.Audio.src = data.url));
 	} else {
-		data.Audio.src = data.url
+		if (!data.audioBackstage) {
+			data.url && (data.Audio.src = data.url);
+		}
 	}
 	data.Audio.title = data.currAudio[0].title;
 	data.currAudio[0].author && (data.Audio.singer = data.currAudio[0].author);
@@ -76,7 +78,6 @@ const init = (app) => {
 			delay: 0,
 			transformOrigin: '50% 50% 0',
 			success: function (res) {
-				console.log("createAnimation:success:", res)
 			}
 		})
 	}
@@ -142,7 +143,10 @@ const playControl = () => {
 		wx.showLoading({
 			title: '音频加载中...'
 		});
-		app.data.Audio.play();
+		if (app.data.url && app.data.Audio.src != app.data.url) {
+			app.data.Audio.src = app.data.url;
+		}
+		app.data.Audio.src && app.data.Audio.play();
 	}
 }
 const keepPlay = app => {
@@ -212,7 +216,7 @@ const showRedDot = (app) => {
 	app.timer && clearInterval(app.timer);
 	var i = 0, compare;
 	app.timer = setInterval(() => {
-		if (!app.data.url) {
+		if (!app.data.url && !app.data.Audio.src) {
 			app.data.Audio.stop();
 			app.data.onPlay = false;
 		}
@@ -283,6 +287,9 @@ const setAudioEvent = (app, that) => {
 	Audio.onPause(() => {
 		console.log('onPause');
 		wx.hideLoading();
+		if (appData.audioBackstage) {
+			appData.onPlay = false;
+		}
 		if (!data) { return }
 		that.setData({
 			onPlay: false
@@ -304,13 +311,23 @@ const setAudioEvent = (app, that) => {
 			that.setData({
 				onPlay: false
 			});
+		}
+		var bool = false;
+		if (appData.audioBackstage) {
+			bool = true;
 		} else {
+			if (data) {
+				bool = false;
+			} else {
+				bool = true;
+			}
+		}
+		if (bool) {
 			appData.onPlay = false;
 			let playMode = wx.getStorageSync('playMode');
-
-
 			if (playMode == 'loop') {
 				if (appData.url) {
+					appData.Audio.src = appData.url;
 					appData.Audio.play();
 				}
 			}
@@ -318,10 +335,12 @@ const setAudioEvent = (app, that) => {
 			if (playMode == 'list') {
 				if (appData.index < appData.modeIcon.mode.length - 1) {
 					let newIndex = appData.index + 1;
-					app.Funs.resetData(appData.type, newIndex);
+					resetData(appData.type, newIndex);
+					appData.onPlay = true;
 					if (appData.url) {
 						appData.Audio.play();
 					}
+					app.data.onShow();
 				}
 			}
 
@@ -332,10 +351,11 @@ const setAudioEvent = (app, that) => {
 				} else {
 					newIndex = 0;
 				}
-				app.Funs.resetData(appData.type, newIndex);
+				resetData(appData.type, newIndex);
 				if (appData.url) {
 					appData.Audio.play();
 				}
+				app.data.onShow();
 			}
 
 			if (playMode == 'randomList') {
@@ -344,25 +364,76 @@ const setAudioEvent = (app, that) => {
 
 			if (playMode == 'randomInfinite') {
 				let newIndex = parseInt(Math.random() * appData.modeIcon.mode.length);
-				app.Funs.resetData(appData.type, newIndex);
+				resetData(appData.type, newIndex);
 				if (appData.url) {
 					appData.Audio.play();
 				}
+				app.data.onShow();
 			}
-
 			if (playMode == 'randomAll') {
 				let types = ['articleZH', 'articleEN', 'classical', 'music'];
 				let newIndex = parseInt(Math.random() * appData.modeIcon.mode.length);
 				let typeIndex = parseInt(Math.random() * types.length);
-				app.Funs.resetData(types[typeIndex], newIndex);
+				resetData(types[typeIndex], newIndex);
 				if (appData.url) {
 					appData.Audio.play();
 				}
+
+				app.data.onShow();
 			}
 		}
 	});
-
+	if (appData.audioBackstage) {
+		Audio.onPrev(() => {
+			skip_previous(that, app);
+		});
+		Audio.onNext(() => {
+			skip_next(that, app);
+		});
+	}
 }
+const skip_previous = (that, app) => {
+	var newIndex;
+	let appData = app.data;
+	if (appData.index > 0) {
+		newIndex = appData.index - 1;
+	} else {
+		newIndex = appData.audioList.length - 1;
+	}
+	_prevOrNext(that, app, newIndex);
+}
+
+const skip_next = (that, app) => {
+	var newIndex;
+	let appData = app.data;
+	if (appData.index < appData.audioList.length - 1) {
+		newIndex = appData.index + 1;
+	} else {
+		newIndex = 0;
+	}
+	_prevOrNext(that, app, newIndex);
+}
+
+function _prevOrNext(that, app, newIndex) {
+	resetData(app.data.type, newIndex);
+	if (app.data.url) {
+		app.data.Audio.play();
+	}
+	if (that) {
+		if (app.data.type.indexOf('article') > -1 && that.currAudio != app.data.currAudio) {
+			var sectionTimes = app.data.currAudio[0].sections.map(i => i.time);
+		}
+		that.setData({
+			currAudio: app.data.currAudio,
+			type: app.data.type,
+			onPlay: app.data.onPlay,
+			sectionTimes: sectionTimes || [],
+		});
+	} else {
+		app.data.onShow();
+	}
+}
+
 const toMinute = myTime => {
 	var minutes = parseInt(myTime / 60);
 	var seconds = parseInt(myTime - 60 * minutes);
@@ -405,5 +476,7 @@ module.exports = {
 	setAudioEvent,
 	toMinute,
 	toSecond,
-	getCurrPart
+	getCurrPart,
+	skip_previous,
+	skip_next
 }

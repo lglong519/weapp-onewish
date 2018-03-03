@@ -1,5 +1,5 @@
 // pages/account/account.js
-const app = getApp();
+let app = getApp();
 Page({
 	data: {
 		userInfo: null,
@@ -7,7 +7,7 @@ Page({
 		mode: app.data.modeIcon.name,
 		modeIcon: app.data.modeIcon.list,
 		index: 0,
-		audioBackstage: wx.getStorageSync('audioBackstage'),
+		audioBackstage: null,
 		hideTabBar: wx.getStorageSync('hideTabBar') || false,
 		showAnchor: wx.getStorageSync('showAnchor'),
 		showZoom: wx.getStorageSync('showZoom')
@@ -17,19 +17,30 @@ Page({
 			audioBackstage: e.detail.value
 		})
 		wx.setStorageSync('audioBackstage', e.detail.value);
-		try {
-			app.data.Audio.destroy();
-		} catch (err) {
-			app.data.Audio.stop();
-			app.data.Audio = null;
+		let playStatus = app.data.onPlay;
+		let currentTime = app.data.Audio.currentTime;
+		if (playStatus) {
+			app.data.onPlay = false;
+			app.data.Audio.pause();
 		}
+
 		if (this.data.audioBackstage) {
 			app.data.Audio = wx.getBackgroundAudioManager();
 		} else {
 			app.data.Audio = wx.createInnerAudioContext();
 		}
+		if (playStatus && 'webUrl' in app.data.Audio) {
+			app.data.Audio.src = app.data.url;
+		}
 		app.Funs.init(app);
+		app = getApp();
 		app.data.playOnload && app.data.playOnload();
+
+		if (playStatus && app.data.Audio.src) {
+			app.data.onPlay = true;
+			app.data.Audio.play();
+			currentTime && setTimeout(() => { app.data.Audio.seek(currentTime) });
+		}
 	},
 	hideTabBar(e) {
 		this.setData({

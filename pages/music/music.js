@@ -29,8 +29,6 @@ Page({
     });
   },
   playControl(e) {
-    console.log('playControl-1');
-
     let dataset = e.currentTarget.dataset;
     if (app.data.type == dataset.audioType && app.data.index == dataset.audioIndex) {
       if (this.data.onPlay) {
@@ -51,8 +49,6 @@ Page({
       }
       return;
     }
-    console.log('playControl-2');
-
     app.Funs.resetData(dataset.audioType, dataset.audioIndex);
     if (app.data.onPlay) {
       app.data.Audio.play();
@@ -70,6 +66,9 @@ Page({
         type: app.data.type
       });
     }
-
+  },
+  onPullDownRefresh: function () {
+    this.onShow();
+    wx.stopPullDownRefresh()
   }
 })
