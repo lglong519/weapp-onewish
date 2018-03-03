@@ -32,7 +32,9 @@ Page({
 		modeName: appData.modeIcon.name,
 		showToast: false,
 		modeTimer: null,
-		rollup: false
+		rollup: false,
+		showTrans: null,
+		showTransIndex: null
 	},
 	onLoad() {
 		app.Funs.setAudioEvent(app, this);
@@ -235,6 +237,21 @@ Page({
 		this.setData({
 			rollup: !this.data.rollup
 		});
+	},
+	showTrans(e) {
+		var dataset = e.currentTarget.dataset;
+		if (this.data.showTransIndex == dataset.showTransIndex) {
+			this.setData({
+				showTrans: this.data.currAudio[0].title,
+				showTransIndex: -1
+			});
+		} else {
+			this.setData({
+				showTrans: this.data.currAudio[0].title,
+				showTransIndex: dataset.showTransIndex
+			});
+		}
+
 	}
 })
 

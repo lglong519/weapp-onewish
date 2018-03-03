@@ -116,7 +116,7 @@ const resetData = (type, index) => {
 		data.index = index;
 		data.currAudio = data.audioList[index];
 		data.url = data.currAudio[0].url;
-		data.Audio.src != data.url && (data.Audio.src = data.url);
+		data.url && data.Audio.src != data.url && (data.Audio.src = data.url);
 
 		data.Audio.title = data.currAudio[0].title;
 		data.currAudio[0].author && (data.Audio.singer = data.currAudio[0].author);

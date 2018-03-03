@@ -87,6 +87,11 @@ page,
     color: #2196f3;
 }
 
+.text-blue-3 {
+    /*m*/
+    color: #3586BC;
+}
+
 
 /* 纯色background */
 

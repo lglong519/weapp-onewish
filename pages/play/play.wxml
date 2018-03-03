@@ -54,6 +54,18 @@
                                 <view class="weui-article__p text-justify {{item.time && currPart==item.time && 'bg-cyan-0'}}">
                                     {{item.chapter}}
                                 </view>
+
+                                <!--译文  -->
+                                <block wx:if='{{item.trans}}'>
+                                    <view class='weui-article__h3 text-blue-3 flex-row align-center' bindtap='showTrans' data-show-trans-index='{{j}}'>
+                                        译文
+                                        <text class='trans-down ml-1 {{showTrans==art.title && showTransIndex==j ? "trans-up" : ""}}' ></text>
+                                    </view>
+                                    <!--文本  -->
+                                    <view wx:if='{{showTrans==art.title && showTransIndex==j}}' class="weui-article__p text-justify text-grey">
+                                        {{item.trans}}
+                                    </view>
+                                </block>
                             </view>
                         </block>
                     </scroll-view>
