@@ -7,7 +7,7 @@ module.exports = [
          {
             time: '00:00', chapter: `Unfortunately , a crime was about to be committed but at that moment Lesley
 was unaware of the impending(即将发生的, 迫近的) event, which would affect her
-life so drastically(极端地, 彻底地) for the next years.` },
+life so drastically(极端地, 彻底地) for the next two years.` },
          {
             time: '00:23', chapter: `For the moment at least, her holiday at the cottage had been ideal. She had
 spent many idle hours relaxing on the deck , reading ,eat ing a sandwich when
@@ -213,7 +213,51 @@ remain as a part of this renewed relationship in the memory.`
       url: 'http://online1.tingclass.net/lesson/shi0529/0000/834/3.mp3',
       type: 'articleEN',
       sections: [
-         { time: '00:00', chapter: `` },
+         {
+            "time": "",
+            "chapter": "La Cuesta Encantada (The Enchanted[使用魔法迷惑] Castle) is one of the most remarkable displays of power and passion in the world. This marvelous tourist site now known as Hearst San Simeon State Historical Monument is better known as Hearst Castle. It is located six hours south of San Francisco and five hours north of Los Angeles. Sheltered by the mountains in northern San Luis Obispo County, the complex of 165rooms and 127 acres of gardens, terraces(露台), pools, fountains and footpaths draws approximately 800,000 visitors annually. To understand the castle, you have to understand the man who built it, William Randolph Hearst. And to understand the man, you have to understand the land upon which he built his dream.",
+            "trans": "魔幻城堡是世界上最著名的展示才能与激情的名胜之一。这个奇迹般的游览地，就是现在著名的赫斯特圣西蒙国家历史博物馆，它作为赫斯特城堡，则更为有名。它位于旧金山以南6小时、洛杉矶以北5小时车程的地方。这座隐蔽在圣路易斯?奥比斯波郡北部群山之中的综合建筑有165个房间，占地127英亩，有花园、游廊、水池、喷泉和小径，每年吸引大约80万名游客来到这里。要了解这座城堡，你就得了解建造它的那个人——威廉·伦道夫·赫斯特，而要了解这个人，你就得了解他把梦想建在其上的这块土地。"
+         },
+         {
+            "time": "",
+            "chapter": "Born on April 29, 1863, William Randolph Hearst was the only child of Gorge Hearst and his wife, Phoebe. George was a multimillionaire(千万富翁) who amassed(积聚) his fortune through partnerships(合作关系) in three of the ever largest mining discoveries of copper, silver, and gold ores. In 1865, George began to accumulate parcels of land by obtaining 46,000 acres of the Piedra Blanco Ranch on California’s Central Coast. There he began a successful cattle ranch(大农场), eventually enlarging it to 250,000 acres stretching 50 miles along the coast.",
+            "trans": "威廉·伦道夫·赫斯，生于1863年4月29日，是乔治?赫斯特和他的妻子菲比唯一的孩子。乔治是一个千万富翁，他通过合伙参与三个曾经是最大的铜矿、银矿和金矿的发现和开采，积聚起大量财富。1865年，乔治得到了在加利福尼亚海岸的46000英亩的皮亚得拉布兰可牧场，开始积聚大片土地。在那里，他开始了对养牛场的成功经营，并最终将它扩大到沿着50英里海岸的250，000英亩。"
+         },
+         {
+            "time": "",
+            "chapter": "William loved the ranch where he spent his summer vacations as a youngster and a youth, playing in the rugged canyons(峡谷), descending the cliffs and camping in colorful Arab-style tents in the mountains with his family.",
+            "trans": "威廉热爱这个青年时期渡过暑假的牧场。在崎岖不平的溪谷里游玩，攀登悬崖，和家人一起在山里华美的阿拉伯式的帐篷里野营。"
+         },
+         {
+            "time": "",
+            "chapter": "Phoebe was delighted in exposing her darling child to the beauties and wonders of the world and spared no expense doing so. During one of their adventures, an 18-month tour of the historic palaces and castles of Europe, William began a lifelong love of collecting. With his first acquisitions, German picture books, he embarked(着手,开始工作) on a 78-year session of excessive spending. He confessed to a love of the finer things in life and, as he had a bottomless(不见底的) purse, would never deny himself anything he wanted.",
+            "trans": "菲比很喜欢让她心爱的孩子去认识这个美丽而奇妙的世界，花费多少都无所谓。在一次冒险活动期间，他们用18个月游览了欧洲历史上著名的宫殿和城堡，从那时起威廉开始养成收集的终身爱好。他从最初收集德国的图画书开始，进行了长达78年的超级消费。他承认一生中对精美物品的痴迷和热爱，而且因为有一个用不完的钱包，他对想要的任何东西从不吝惜金钱。"
+         },
+         {
+            "time": "",
+            "chapter": "In 1887, while William was at Harvard University, he decided to take over the small newspaper, the San Francisco Examiner, which his father had accepted as payment for a gambling(赌博) debt several years earlier. George would have preferred that his son be involved in the mining and ranching interests, but William declined this offer and was given ownership of the Examiner in March 1887. He was determined to increase the popularity(普遍,流行) of the paper and acquire the best equipment and writers available. William’s resolve to succeed inspired him to publish juicy(有趣的) tales of vice and stories full of drama and motivation(积极性,动机). In 1895, he purchased the New York Morning Journal, putting him in direct competition with the distinguished(杰出的) Joseph Pulitzer and a circulation(传播,发行) war began.",
+            "trans": "1887年，当威廉在哈佛大学读书时，他决定接管一家小报纸《旧金山问询报》，几年前他的父亲将其作为一笔赌债接收了下来。乔治更希望他的儿子把兴趣放在采矿和经营牧场上，但威廉拒绝了这个建议并于1887年3月接手成为《问询报》的主人。他决定购置最好的设备，邀请最好的作者撰稿，提升报纸的声望。\n威廉渴望成功的决心，促使他出版有趣的下流传闻和充满戏剧性、引人入胜的故事。1895年，他买下《纽约晨报》，与著名的约瑟夫?普利策展开直接的竞争，开始了一场扩大发行量的商战。"
+         },
+         {
+            "time": "",
+            "chapter": "Both the Hearst and Pulitzer newspapers started to include sensational(耸人听闻的) stories about the Cuban Insurrection(起义). The stories greatly exaggerated claims of Spanish troops placing Cubans in concentration camps, forcing them to live under substandard conditions, disease-ridden, starving and dying. This style of reporting became known as “Yellow Journalism(新闻事件)”. The newspapers were transformed as the scope of the news broadened and became less conservative. Circulation soared as the public could get enough of the banner headlines and abundant illustrations. At the time, many people believed William actually might have initiated(开始,发动) the Spanish-American War to encourage sales. According to one report, when one of his correspondents, Frederick Remington, requested to return from Havana, William responded that if Remington would furnish the pictures, William would furnish the war. He was once quoted in an editorial as saying, “Make the news thorough Print all the news. Condense it if necessary. Frequently it is better when intelligently(聪明的) condensed.”",
+            "trans": "赫斯特和普利策的报纸都开始刊登有关古巴起义的耸人听闻的故事。这些故事极大地夸大了西班牙部队的行为：他们把古巴人关进集中营，迫使他们在恶劣的条件下生活，饱受疾病、饥饿和死亡的折磨。这种报道形式成了有名的“黄色新闻”。报纸在向扩大新闻范围方面转变，并变得不那么保守了。因为能够使公众获得足够的头条新闻和丰富的插图，发行量激增。那时，很多人相信威廉实际上可能会发动西班牙——美国战争以增加发行量。据一篇报道说，当他的一个通讯记者弗雷德里克雷明顿请求从哈瓦那回来时，威廉回答说如果雷明顿能提供图片，他就可以发起这场战争。曾有一篇社论引用过他的格言：“跟踪新闻到底。报道所有新闻。必要时浓缩新闻。浓缩后的新闻常常更出色。”"
+         },
+         {
+            "time": "",
+            "chapter": "Another classic example of his influence occurred when; merely months after he advocated political assassination(暗杀) in an editorial, American President McKinley was assassinated.\nAs an intelligent and dynamic business man, William generated increased readership by employing some of the most talented(天才的) writers in the United States, recruiting figures from the literary community, like Mark Twain and Stephen Crane, and the previously mentioned illustrator, Frederick Remington. He also showed his initiative when he chartered a yacht(快艇), equipped it as a miniature(小型的) newspaper headquarters, anchored off the coast of Cuba, and led his army of reporters into the field.",
+            "trans": "关于受他影响的另一个典型例子是，他在一篇社论中鼓吹政治暗杀，仅仅几个月后，麦金利总统就遇刺身亡。作为一个聪明能干的商人，威廉通过雇佣美国最有才华的作者，从文学团体中聘用大人物，像马克?吐温和斯蒂芬·克莱恩，以及前面提到过的插图画家弗雷德里克?雷明顿，造就了不断增长的读者群。他还显示了他的创新能力。当时，他包租了一条游艇，把装备成一个小型的报社总部，停在古巴海岸边，让他的采访队伍进入战场。"
+         },
+         {
+            "time": "",
+            "chapter": "William’s interests led him to follow in his father’s footsteps, inspiring him to enter into politics. He was elected to the U.S. Congress as a senator representing the State of New York in 1902 and served until 1907. He was a candidate for the office of mayor of New York City and governor of New York State, but failed in both of these attempts.",
+            "trans": "威廉的兴趣爱好引领他、激励他继承父业进入政界。1902年作为纽约州的代表，他以参议员的身份被选进美国国会，一起任职到1907年。他还是纽约市市长和纽约州州长职位的候选人，但两次努力都失败了。"
+         },
+         {
+            "time": "",
+            "chapter": "While honeymooning in Europe after his marriage to Millicent Wilson in 1903, he expanded his publishing empire with Motor Magazine. The Hearst Corporation grew to comprise a total of 12 newspapers, including the Examiner, and 25 magazines, including Cosmopolitan. Not satisfied with just his publishing enterprises, he expanded his business operations into radio, and later produced movie newsreels(新闻纪录片). (To Be Continued)",
+            "trans": "1903年与米莉森特?威尔逊结婚。在欧洲渡蜜月期间，他以《汽车杂志》扩张他出版帝国的疆土。赫斯特公司迅速成长以来，总共有包括《问询报》在内的12种报纸，和包括《大都会》在内的25种杂志。他并不满足于出版行业，还把他的事业扩展到电台，后来还生产新闻记录片。(待续)"
+         }
       ]
    }]
    ,
@@ -222,7 +266,76 @@ remain as a part of this renewed relationship in the memory.`
       url: 'http://online1.tingclass.net/lesson/shi0529/0000/834/4.mp3',
       type: 'articleEN',
       sections: [
-         { time: '00:00', chapter: `` },
+         {
+            "time": "",
+            "chapter": "This influential media giant was not without his faults. His prejudices were common knowledge. His career was blemished(玷污) by his offensive remarks about Spaniards, Japanese, Filipinos, and Russians. He printed lies, forged documents, falsified(歪曲) stories of violence, wrote provocative editorials, and published sensational cartoons and photographs to support his opinions.",
+            "trans": "这个有巨大影响的媒体巨人也不是没有缺点。他的偏见是众所周知的。他对西班牙人、日本人、菲律宾人和俄罗斯人的攻击性评论是对他职业的玷污。为支持自己的观点，他刊载谎言，伪造文献，编选暴力故事，写煽动性的社论，出版蛊惑人心的卡通和照片。"
+         },
+         {
+            "time": "",
+            "chapter": "William hated minorities. He took advantage of every opportunity to heighten racial tensions. His real motive for his hatred of Mexicans may have been the loss of 800,000 acres of prime timber land to the Mexican outlaw(逃犯), Pancho Villa. His papers described them as marijuana-smoking, job-stealing, lazy, wicked, and violent degenerates(堕落). Some suggest he saw the Mexicans as a threat to his empire.",
+            "trans": "威廉憎恨少数民族。他利用一切机会加剧种族间的紧张关系。他憎恨墨西哥人的真正原因，可能是由于那个墨西哥逃犯Pancho Villa让他损失了800,000英亩的原始树林。他的报纸把他们描绘成抽大麻、磨洋工、懒惰、邪恶和喜欢暴力的堕落者。有人说他认为墨西哥人对他的帝国是一个威胁。"
+         },
+         {
+            "time": "",
+            "chapter": "During this period, William met and fell in love with a young actress, Marion Davies. Millicent, his wife and the mother of his five sons, including a set of twins, refused to dissolve the marriage, which obliged William to “live in sin” with the woman whom the tour guides refer to as his “friend” or “companion”.",
+            "trans": "在这个时期，威廉遇见了年轻的女演员马里恩戴维斯并爱上了她。他的妻子，他5个儿子其中有一对双胞胎的母亲米莉森特，拒绝解除婚姻，迫使威廉与那个女人过着姘居的生活，导游提到她时就说是他的“朋友”或“同伴”。"
+         },
+         {
+            "time": "",
+            "chapter": "With the death of his mother in 1919, William inherited the beloved quarter-million-acre ranch. At first, he planned to build modest ranch house on his favorite campsite(野营的) but as he became more involved in the project, his vision of a monument to display his collections gained momentum(动力). Working closely with family architect, Julia Morgan, William created a glorious and extraordinary castle-like structure, blending Spanish, European, and Californian architectural styles. Huge warehouses(仓库) were built in San Simeon to store the shiploads of splendid antiques, including entire carved ceilings and walls hung with enormous tapestries(挂毯). They could be installed in the completed rooms. Landscaping integrated exotic(外来的,奇异的) plants, hedges, and trees with native flora(植物群落). As William was in his 60’s, he had the insight to know he couldn’t wait for them to grow, but he was optimistic. He ordered tons of fertile topsoil to cover the grounds to a depth of five feet and full-grown specimens of the plants were trucked up the mountain for planting. With thousands of acres of land covered with grassland, trees, natural ponds, and man-made reservoirs available for use, William stocked the estate with herds of rare oxen and deer, and flocks of sheep and lambs. These animals flourished as they were allowed to wander freely. Larger, more dangerous beasts, including tigers, ostriches, buffalo, yaks, emus, kangaroos, llamas, zebras and giraffes were enclosed in the largest private zoo in the world.",
+            "trans": "1919年，他母亲去世，威廉继承了那个他深爱着的25万英亩的牧场。起初，他计划在他最喜欢的宿营地建一所普通的低矮平房，但当他更多地介入这个工程时，建一个纪念馆来展示他的收藏品的想法占了上风。威廉与家庭建筑师朱莉亚?摩根进一步密切协作，创造了一种气派显赫的像城堡一样的结构，整合了西班牙、欧洲和加利福尼亚的建筑风格。在圣西蒙创造了巨大的仓库存放成船的贵重古董，全部雕花的天花板以及用巨大挂毯装饰的墙壁。它们可以安置到已完工的房间里来。把外来的植物、灌木和树木结合进当地的植物种群，进一步美化景观。威廉已经60多岁了，他清楚地知道他可能等不到它们长大，但他是乐观的。他定购了成吨肥沃的表层土，覆盖地面达5英尺深，把这些植物长好的样品用卡车运到山上种植。\n在可以利用的数千英亩的土地上，有草地、树林、天然水池和人工水库，威廉在庄园里放养了珍稀的牛群和鹿群，还有一群群的绵羊和小羊羔。因为允许它们自由漫游，这些动物健壮而活跃。那些大家伙，比较危险的野兽，包括老虎、鸵鸟、水牛、牦牛、鸸鹋(产于澳洲的大型鸟)、袋鼠、骆驼、斑马和长颈鹿，则被关在这个世界上最大的私人动物园里。"
+         },
+         {
+            "time": "",
+            "chapter": "The “complex” was ready for occupancy(占有) in 1927, but additions continued until 1947. Eventually it comprised the main house and three cottages, all of which are furnished with a variety of valuable antiques. Even the lavatories were specially equipped. William’s favorite room was said to be the library with its collections of more than 5,000 books, ancient Greek vases, and an antique Spanish ceiling suspended(悬挂的) by cables so it will sway in the event of an earthquake (all the antique furnishings and treasures are anchored as a precaution as this is earthquake country).",
+            "trans": "那座“综合性建筑”在1927年就已经可以使用，但扩建工程一直持续到1947年。最后，它包含了一幢主楼和三栋别墅，每一座的家具配备都使用各种贵重的古董。连厕所的设施都很特别。威廉最喜欢的房间据说是图书室，里面有收藏的5，000多本书籍，古希腊的花瓶，以及一个用缆索悬吊起来的古代西班牙吊顶，一旦发生地震，吊顶就会摇摆(所有的古代家具和珍宝都被事先用铰链固定住，因为这是一个多地震的国家)。"
+         },
+         {
+            "time": "",
+            "chapter": "In the ‘20s, ‘30s, and ‘40s, William loved part-time at the estate with his mistress, Marion Davies. They entertained to an excessive extent. To be invited to the castle was a privilege. Movie stars, politicians, businessmen, and even royalty(皇室成员) were frequent guests. Many of these guests, including a British lord, Sir Charles Kingsford-Smith, Amelia Ear hart, and Charles Lindbergh, flew to the ranch, landing on the private(私人的) airstrip(飞机跑道).",
+            "trans": "20年代到40年代，威廉时常与他的情人马里恩?戴维斯居住于此。他们待客极尽奢华。被邀请到城堡是一种殊荣。电影明星、政治家、商人，还有皇室成员都是他们的常客。这些客人当中的很多人，包括一名英国的勋爵、查尔斯?金福特?史密斯先生、阿梅莉亚?埃尔哈特、查尔斯?林德伯格，曾直接飞到这个庄园，降落在这里的私人飞机跑道上。"
+         },
+         {
+            "time": "",
+            "chapter": "Life on the “hill” was never dull. The visitors stayed in the main house or the cottages, depending on their prominence(重要) or their intimacy(亲密) with the family and were free to roam(漫游) the grounds, go riding on their choice of horses on the property. Company was expected, however, to meet in the main drawing room at 7:30 p.m. sharp, principally (主要地) to amuse their host. Dinner was a formal affair beginning at 9:00 p.m. this meal was held in the immense dining room, the walls of which are lined with priceless panels from ancient European cathedrals (大教堂). Following dinner, movies were shown in the private theater, starting at 11:00.",
+            "trans": "“山”上的生活从来都不乏味。来访者按他们的显赫程度或与这个家庭的亲密关系，或住在主楼里，或住在别墅中，在园子里自由散步，去马厩里挑匹马来骑，到水池里去游泳，或者在这块领地上的私人球场上玩高尔夫球。不过，大家还是急切期盼着晚上7点30分在主画室里同主人相见，显然主要是想让他们的主人高兴。宴会是一项正式的活动，在晚上9点开始。这顿饭在巨大的餐厅进行，餐厅墙壁是用来自古代欧洲天主教堂的珍贵的镶板拼成的。饭后，在私人影院上映电影，11点开始。"
+         },
+         {
+            "time": "",
+            "chapter": "There were, however, three rules guests had to follow: do not get drunk; do not swear or tell off-color jokes; sleep in separate bedrooms if an unmarried couple. Food was not allowed in the rooms. If you wanted to eat, you could visit the kitchen… if you could find it.",
+            "trans": "不过，有三条规矩客人必须遵守：不能醉酒;不能赌咒或开伤风败俗的玩笑;还没结婚的一对恋人要睡在不同的卧室。食物不能带进房间。如果你想吃东西，可以到厨房去……只要你找得到。"
+         },
+         {
+            "time": "",
+            "chapter": "Although William was closely involved in all aspects of the construction and decoration of the mansion(大厦,宅邸), he continued his business and social interest. No stranger to scandal, in November 1924, he found himself in the topic of headlines. The most enduring rumor was that, during a party on his yacht, he had found Marion kissing Charlie Chaplin. In a fit of jealousy he took a shot at Chaplin, missed, and accidentally his Thomas Ince, killing him. However, even though the morning papers carried the story, the evening paper and successive editions printed that Ince had died of acute indigestion(消化不良).",
+            "trans": "尽管威廉积极参与了这所豪宅的建设和装饰的各个方向，他仍然在继续他的商业和社交活动。对流言蜚语习以为常的他，1924年11月，发现自己上了头条新闻。那是一个流行已久的谣言：在游艇上的一次聚会上，他发现马里恩在亲吻查里?卓别林，他妒火中烧，于是向卓别林开了一枪，偏了，却意外地击中了托马斯·因斯，杀死了他。不过，尽管早上的报纸登载了这个故事，但晚上的报纸和更多的版面就登出因斯死于急性消化不良。"
+         },
+         {
+            "time": "",
+            "chapter": "In 1945, William initiated the Hearst Foundation and created the California Charities Foundation in 1948 (the name was changed to the William Randolph Hearst Foundation soon after his death in 1951). The Great Depression took its toll on even the wealthiest and William Randolph Hearst was no exception. His fantastically(荒诞的) decadent lifestyle couldn’t last forever, and gradually his finances began to suffer, beginning the next chapter in the saga(传奇) of excesses. He came close to being bankrupt but Marion rescued him from debt, unselfishly selling her jewels and some other property to raise over a million dollars.",
+            "trans": "1945年，威廉建立赫斯特基金会。1948年创立加利福尼亚慈善基金会(在他1951年去世后不久，改为威廉·伦道夫·赫斯特基金会)。大萧条对即使是最富有的人都会带来损失，威廉·伦道夫也不例外。他那种荒诞放纵的生活方式不能再继续下去了，他的财政开始逐渐吃紧。这种放荡生活的下一篇章开始了。就在他行将破产的时候，马里恩在把他从债务中挽救出来。她无私地卖掉了她的珠宝和一些其他的地产，筹集了100多万美元。"
+         },
+         {
+            "time": "",
+            "chapter": "In 1947, due to his poor health, he was forced to move permanently to Beverly Hills. Marion looked after him during this time, seldom leaving his side. When he died in 1951 at the age of 88, she was shunned(避开) by his family and forbidden to attend his funeral.",
+            "trans": "1947年，由于健康状况恶化，他被迫永久地住在贝弗莉山上。马里恩在此期间一直照顾他，几乎没有离开过他的身边。当他于1951年88岁去世时，她却被他的家庭有意避开，并被禁止参加葬礼。"
+         },
+         {
+            "time": "",
+            "chapter": "The castle, its furnishings, the artworks in the gallery, and 127 acres of land were given to the state of California in 1957. Since that time, the California Department of Parks and Recreation has kept the castle open to tourists.",
+            "trans": "这座城堡，连同里面的家具设施，走廊里的艺术品，以及127英亩的土地在1957年给了加利福尼亚政府。从那时起，加利福尼亚公园和娱乐部一直把这座城堡向游人开放。"
+         },
+         {
+            "time": "",
+            "chapter": "Today a visit to the estate begins near the site of the old airstrip. Guests are transported to the top of the hill via bus. One can still see the signs giving wandering animals the “right-of-way” on the lanes. Deer, cattle, and sheep often halt the buses’ progress up or down the mountain as they meander(漫游) to the salt licks.",
+            "trans": "今天游览到这个庄园，起点就在旧飞机跑道所在位置附近。客人们乘巴士到山顶。路上，仍然可以看见让放养的动物们“优先通行”的标示牌。鹿、牛和羊悠闲地在盐渍地舔食时，常常迫使正在行驶的上下山巴士停下来。"
+         },
+         {
+            "time": "",
+            "chapter": "Depending on the tour one chooses, guides escort(护送,陪同) the public through a variety of rooms, gardens, cottages, and pools. The luxury of a bygone(过去的) era is evident at every turn. From the moment you arrive at the stairway to the Neptune Pool until you bid farewell to your guides at the magnificent, golden and blue Roman Pool, you are reminded that a man had a dream. He had power and influence. Furthermore, he was prosperous enough to achieve his objectives and implement his dream.",
+            "trans": "根据你选好的路线，导游会陪你经过各种房间、花园、别墅和水池。处处显现出昔日的奢华。从到达通向尼普顿水池楼梯的那一刻起，到在金碧辉煌的罗马水池边对导游说再见，你会一直想起一个有梦想的人。他有才能和影响力。而且他曾经飞黄腾达，能够达到他的目的并实现他的梦想。"
+         }
       ]
    }]
    ,

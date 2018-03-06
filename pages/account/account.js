@@ -13,16 +13,19 @@ Page({
 		showZoom: wx.getStorageSync('showZoom')
 	},
 	audioBackstageChange(e) {
+		app = getApp();
 		this.setData({
 			audioBackstage: e.detail.value
 		})
 		wx.setStorageSync('audioBackstage', e.detail.value);
 		let playStatus = app.data.onPlay;
 		let currentTime = app.data.Audio.currentTime;
-		if (playStatus) {
-			app.data.onPlay = false;
-			app.data.Audio.pause();
+		let audioSrc;
+		if (app.data.Audio.src) {
+			audioSrc = app.data.Audio.src;
 		}
+		app.data.onPlay = false;
+		app.data.Audio.stop();
 
 		if (this.data.audioBackstage) {
 			app.data.Audio = wx.getBackgroundAudioManager();
@@ -36,10 +39,20 @@ Page({
 		app = getApp();
 		app.data.playOnload && app.data.playOnload();
 
-		if (playStatus && app.data.Audio.src) {
+		console.log('playStatus', playStatus);
+		console.log('audioSrc', audioSrc);
+
+		if (playStatus && audioSrc) {
+			app.data.Audio.src = audioSrc;
 			app.data.onPlay = true;
 			app.data.Audio.play();
-			currentTime && setTimeout(() => { app.data.Audio.seek(currentTime) });
+			app.data.Audio.onPlay(function () {
+				console.log('currentTime', currentTime);
+				if (currentTime){
+					app.data.Audio.seek(currentTime)
+					currentTime=null;
+				}
+			});
 		}
 	},
 	hideTabBar(e) {

@@ -37,7 +37,7 @@ Page({
 		showTransIndex: null
 	},
 	onLoad() {
-		app.Funs.setAudioEvent(app, this);
+		app.Funs.setAudioEvent(getApp(), this);
 	},
 	onReady() {
 		console.log('ready');

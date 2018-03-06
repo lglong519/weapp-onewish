@@ -143,6 +143,12 @@ const playControl = () => {
 		wx.showLoading({
 			title: '音频加载中...'
 		});
+		console.log('app.data.Audio.src', app.data.Audio.src);
+		console.log('app.data.url', app.data.url);
+		console.log('app.data.Audio', app.data.Audio);
+		if (app.data.audioBackstage) {
+			app.data.Audio.src = app.data.url;
+		}
 		if (app.data.url && app.data.Audio.src != app.data.url) {
 			app.data.Audio.src = app.data.url;
 		}
@@ -217,7 +223,7 @@ const showRedDot = (app) => {
 	var i = 0, compare;
 	app.timer = setInterval(() => {
 		if (!app.data.url && !app.data.Audio.src) {
-			app.data.Audio.stop();
+			app.data.Audio.pause();
 			app.data.onPlay = false;
 		}
 		if (app.data.onPlay && app.data.url) {
@@ -298,11 +304,13 @@ const setAudioEvent = (app, that) => {
 	Audio.onStop(() => {
 		console.log('onStop');
 		wx.hideLoading();
+		/*
 		appData.onPlay = false;
 		if (!data) { return }
 		that.setData({
 			onPlay: false
 		});
+		*/
 	});
 	Audio.onEnded(() => {
 		console.log('ended');
