@@ -1,7 +1,7 @@
 <!--pages/play.wxml-->
 <!--音乐控制器  -->
 <view wx:if='{{currAudio[0].url}}' class='playcontroller {{hide&&"hide"}} {{show&&"show"}} {{type !=="articleZH" && type !=="articleEN" && "bg-transparent"}} {{rollup && "rollup"}}'>
-    <view class='flex-row {{rollup && "opacity-0"}}'>
+    <view wx:if='{{!rollup}}' class='flex-row'>
         <view class='currentTime text-white pt-3 pl-2'>{{currentTimeFormat}}</view>
         <slider class='flex' bindchange="sliderChange" bindchanging='sliderChanging' value="{{currentTime}}" max='{{duration}}' block-size='12' activeColor='#5287E9' block-color='#FDE0E9' />
         <view class='currentTime text-white pt-3 pr-2'>{{durationFormat}}</view>
@@ -58,8 +58,8 @@
                                 <!--译文  -->
                                 <block wx:if='{{item.trans}}'>
                                     <view class='weui-article__h3 text-blue-3 flex-row align-center' bindtap='showTrans' data-show-trans-index='{{j}}'>
-                                        译文
-                                        <text class='trans-down ml-1 {{showTrans==art.title && showTransIndex==j ? "trans-up" : ""}}' ></text>
+                                        <icon class='material-icons'>g_translate</icon>
+                                        <text class='trans-down ml-1 {{showTrans==art.title && showTransIndex==j ? "trans-up" : ""}}'></text>
                                     </view>
                                     <!--文本  -->
                                     <view wx:if='{{showTrans==art.title && showTransIndex==j}}' class="weui-article__p text-justify text-grey">

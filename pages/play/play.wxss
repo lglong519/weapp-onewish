@@ -40,6 +40,7 @@ page {
 
 .rollup {
     left: -90%;
+    border-radius: 100rpx;
 }
 
 .hide {
@@ -139,18 +140,18 @@ page {
     color: #fff;
 }
 
-.trans-down{
-	width: 0;
-	height: 0;
-	border: 6px solid transparent;
-	border-top-color: #3586BC;
-	box-sizing: border-box;
-	margin-top:6px;
+.trans-down {
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-top-color: #3586bc;
+    box-sizing: border-box;
+    margin-top: 6px;
 }
 
-.trans-up{
-	border-top-color: transparent;
-	border-bottom-color: #3586BC;
-	margin-top:0;
-	margin-bottom:6px;
+.trans-up {
+    border-top-color: transparent;
+    border-bottom-color: #3586bc;
+    margin-top: 0;
+    margin-bottom: 6px;
 }

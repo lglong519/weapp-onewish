@@ -39,18 +39,18 @@ Page({
 		app = getApp();
 		app.data.playOnload && app.data.playOnload();
 
-		console.log('playStatus', playStatus);
-		console.log('audioSrc', audioSrc);
+		// console.log('playStatus', playStatus);
+		// console.log('audioSrc', audioSrc);
 
 		if (playStatus && audioSrc) {
 			app.data.Audio.src = audioSrc;
 			app.data.onPlay = true;
 			app.data.Audio.play();
 			app.data.Audio.onPlay(function () {
-				console.log('currentTime', currentTime);
-				if (currentTime){
+				// console.log('currentTime', currentTime);
+				if (currentTime) {
 					app.data.Audio.seek(currentTime)
-					currentTime=null;
+					currentTime = null;
 				}
 			});
 		}

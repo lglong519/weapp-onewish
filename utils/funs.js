@@ -65,7 +65,7 @@ const init = (app) => {
 	}
 	data.Audio.title = data.currAudio[0].title;
 	data.currAudio[0].author && (data.Audio.singer = data.currAudio[0].author);
-	data.currAudio[0].image && (data.Audio.coverImgUrl = data.currAudio[0].image);
+	data.Audio.coverImgUrl = data.currAudio[0].image ? data.currAudio[0].image : 'https://lglong519.github.io/test/images/panda-music.jpg';
 	wx.getSystemInfo({
 		success: function (res) {
 			data.windowHeight = res.windowHeight;
@@ -120,7 +120,8 @@ const resetData = (type, index) => {
 
 		data.Audio.title = data.currAudio[0].title;
 		data.currAudio[0].author && (data.Audio.singer = data.currAudio[0].author);
-		data.currAudio[0].image && (data.Audio.coverImgUrl = data.currAudio[0].image);
+		data.Audio.coverImgUrl = data.currAudio[0].image ? data.currAudio[0].image : 'https://lglong519.github.io/test/images/panda-music.jpg';
+
 	}
 }
 const switchToPlay = e => {
@@ -146,12 +147,10 @@ const playControl = () => {
 		console.log('app.data.Audio.src', app.data.Audio.src);
 		console.log('app.data.url', app.data.url);
 		console.log('app.data.Audio', app.data.Audio);
-		if (app.data.audioBackstage) {
-			app.data.Audio.src = app.data.url;
-		}
 		if (app.data.url && app.data.Audio.src != app.data.url) {
 			app.data.Audio.src = app.data.url;
 		}
+
 		app.data.Audio.src && app.data.Audio.play();
 	}
 }
