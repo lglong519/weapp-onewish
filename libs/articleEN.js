@@ -5,134 +5,80 @@ module.exports = [
       type: 'articleEN',
       sections: [
          {
-            time: '00:00', chapter: `Unfortunately , a crime was about to be committed but at that moment Lesley
-was unaware of the impending(即将发生的, 迫近的) event, which would affect her
-life so drastically(极端地, 彻底地) for the next two years.` },
-         {
-            time: '00:23', chapter: `For the moment at least, her holiday at the cottage had been ideal. She had
-spent many idle hours relaxing on the deck , reading ,eat ing a sandwich when
-she was hungry and in the evening watching the sky turn from brilliant orange
-to peach and finally to pale purple , eventually the light becoming dim . It was
-about this time that the mist would begin to rise from the cool water hiding in
-the dense forest that hugged(环绕,拥抱) the shoreline(海岸线). Late evening
-dew(露水) glistened(闪耀,反光) on every bush and soon the loons' (潜鸟) call
-would resound (回响) across the water . She decided to take on last dip in the
-lake. As the cool night air touched her arms. She gave a little shiver and decided
-it was time to move inside.`
+            "time": "00: 00",
+            "chapter": "Unfortunately , a crime was about to be committed but at that moment Lesley was unaware of the impending(即将发生的, 迫近的) event, which would affect her life so drastically(极端地, 彻底地) for the next two years.",
+            "trans": "一项犯罪就要得逞了。而不幸的是，就在那时，莱斯利对即将发生的事毫无察觉。这件事将彻底改变她此后两年的生活。"
          },
          {
-            time: '01:26', chapter: `This was to be her last evening alone as Jeff, her former mate, would be
-returning Zac to her early in the morning. As the case in many marriages these
-days, problems had arisen between Lesley and Jeff, but they did not extend to
-Zac. He was a good kid, just entering kindergarten. The couple had come to a
-mutual agreement , as dictated by the legal custody(监管,保管) agreement .It
-stated that each parent would share Zac's care every second weekend and this
-had been her weekend to be alone.`
+            "time": "00: 23",
+            "chapter": "For the moment at least, her holiday at the cottage had been ideal. She had spent many idle hours relaxing on the deck , reading ,eat ing a sandwich when she was hungry and in the evening watching the sky turn from brilliant orange to peach and finally to pale purple , eventually the light becoming dim . It was about this time that the mist would begin to rise from the cool water hiding in the dense forest that hugged(环绕,拥抱) the shoreline(海岸线). Late evening dew(露水) glistened(闪耀,反光) on every bush and soon the loons' (潜鸟) call would resound (回响) across the water . She decided to take on last dip in the lake. As the cool night air touched her arms. She gave a little shiver and decided it was time to move inside.",
+            "trans": "至少在那个时候，她在小别墅的假期还是很惬意的。她在平台上度过了很多闲适轻松的时光，读书、饿了吃块三明治;晚上，看着天空由鲜橙色变为桃红色，然后变为淡紫色，最后光线终于黯淡下来。就在这时，薄雾开始从隐藏在环绕岸边的密林里的冷水中升起;再晚些，灌木上的露珠开始闪烁，不久，潜水鸟的叫声就会在水面上回荡起来。她决定在湖里最后再泡一会儿。当她的手臂触到夜晚凉爽的空气时，不禁有些发抖，于是她决定该是回到屋里去的时候了。"
          },
          {
-            time: '02:05', chapter: `Jeff was an architect, with a high-profile reputation, who worked in downtown
-Toronto, a partner in a private corporation which mostly did consultant work for
-the university. Lesley‟s company had been hired to advertise the new science
-complex in order to raise corporate(公司的) money for the proposed building.
-She liked her work and she harbored a secret ambition to manage her divis ion
-of the company some day.`
+            "time": "01: 26",
+            "chapter": "This was to be her last evening alone as Jeff, her former mate, would be returning Zac to her early in the morning. As the case in many marriages these days, problems had arisen between Lesley and Jeff, but they did not extend to Zac. He was a good kid, just entering kindergarten. The couple had come to a mutual agreement , as dictated by the legal custody(监管,保管) agreement .It stated that each parent would share Zac's care every second weekend and this had been her weekend to be alone.",
+            "trans": "这是她在家中独处的最后一个晚上，因为她的前夫杰夫会在早上把扎克送回来。与当时许多婚姻情况一样，莱斯利和杰夫之间出现了许多问题，但并未影响到扎克。他是个好孩子，刚刚上幼儿园。他们达成了一个依法监护的协议，协议规定双亲每两个周末轮换照顾孩子，这是她独处的周末。"
          },
          {
-            time: '02:38', chapter: `After a whirlwind(旋风般的) courtship(求爱,热恋) and a fairytale wedding the
-couple had settled down to an urban lifestyle. However, after three years and
-one child the dreamlike marriage came smashing down. One disadvantage(不
-利条件) of being young and ambitious(有抱负的) was that both of them needed to
-devote untold hours to their busy schedules. As a result of these late hours,
-Lesley became suspicious(猜疑的) of Jeff‟s after hours activities. She accused
-him of making her part of a love triangle. The who le miserable scene was to set
-the proceedings(过程,诉讼,诉讼程序) for an ugly(不愉快的) divorce in motion.`
+            "time": "02: 05",
+            "chapter": "Jeff was an architect, with a high-profile reputation, who worked in downtown Toronto, a partner in a private corporation which mostly did consultant work for the university. Lesley‟s company had been hired to advertise the new science complex in order to raise corporate(公司的) money for the proposed building. She liked her work and she harbored a secret ambition to manage her divis ion of the company some day.",
+            "trans": "杰夫是个建筑师，名声很大，在多伦多市区工作，是一家私人公司的合伙人，该公司主要为大学做咨询工作。莱斯利的公司已经接下了为新的科学综合大楼做广告的工作，以便为计划中的大楼筹集合作基金。她喜欢她的工作，并且心怀抱负：有一天她要管理这个部门。"
          },
          {
-            time: '03:24', chapter: `Daydreaming(幻想,白日梦) about those earlier days would not help tonight. So
-with a shrug of her shoulders she tackled the advertising assignment she
-needed to complete. Tomorrow would be a busy day with Zac arriving home.`
+            "time": "02: 38",
+            "chapter": "After a whirlwind(旋风般的) courtship(求爱,热恋) and a fairytale wedding the couple had settled down to an urban lifestyle. However, after three years and one child the dreamlike marriage came smashing down. One disadvantage(不 利条件) of being young and ambitious(有抱负的) was that both of them needed to devote untold hours to their busy schedules. As a result of these late hours, Lesley became suspicious(猜疑的) of Jeff‟s after hours activities. She accused him of making her part of a love triangle. The who le miserable scene was to set the proceedings(过程,诉讼,诉讼程序) for an ugly(不愉快的) divorce in motion.",
+            "trans": "在一段旋风般的热恋和一个童话式的婚礼之后，夫妻俩定居下来，过起了都市生活。然而，在过了三年并有了孩子之后，这段梦幻般的婚姻开始破裂了。年轻而又雄心勃勃的不利之处，就是两个人都要把数不清的时间花在忙不完的事业上。由于经常工作到很晚，莱斯利开始怀疑杰夫工作之余的活动，她指责他让她成了三角爱情的一部分。事情发展到最痛苦的场面就是提出不愉快的离婚诉讼。"
          },
          {
-            time: '03:40', chapter: `The next day, as the morning wore on, Lesley became more and more
-agitated(烦躁), and her mood became apprehensive(忧虑的,不安的), when Jeff
-did not appear. When noon hour arrived and he still had not appeared, she
-started making some phone calls. None of their mutual friends had either seen
-or talked with Jeff that day. Until today, Jeff had always been very punctual
-about returning the boy at the appointed time. Lesley felt a knot forming in her
-stomach as a crazy thought persisted at the back of her mind. She was
-absolutely sure something was wrong.`
+            "time": "03: 24",
+            "chapter": "Daydreaming(幻想,白日梦) about those earlier days would not help tonight. So with a shrug of her shoulders she tackled the advertising assignment she needed to complete. Tomorrow would be a busy day with Zac arriving home.",
+            "trans": "那些对最初美好时光的回忆，对今夜也无济于事。于是，她耸了耸肩，着手处理她必须完成的广告业务。明天扎克到家后将会非常忙碌。"
          },
          {
-            time: '04:22', chapter: `Jeff sat with his head bowed. He was undecided what to do. The domestic
-arrangement with his former wife was proving to be awkward. He was frustratedat being able to see his son only on weekends and felt he was always making
-concessions to accommodate(适应,迁就) Lesley‟s work schedule. Every meeting
-was turning into a competition for the boy‟s affection. His one desire was to take
-Zac away for good. The enormous decision to undert ake this plan appeared to
-be presenting itself. Today he would depart for a conference in California. This
-appeared to be a marvelous opportunity to take the boy and leave the country
-for good. He bet that he could pack sufficient baggage into his vehicle and then
-disappears across the border, gaining entry the U.S.A. He gave little thought to
-whatsoever of the fact this act could lead to his conviction if he was tracked
-down by the cops.`
+            "time": "03: 40",
+            "chapter": "The next day, as the morning wore on, Lesley became more and more agitated(烦躁), and her mood became apprehensive(忧虑的,不安的), when Jeff did not appear. When noon hour arrived and he still had not appeared, she started making some phone calls. None of their mutual friends had either seen or talked with Jeff that day. Until today, Jeff had always been very punctual about returning the boy at the appointed time. Lesley felt a knot forming in her stomach as a crazy thought persisted at the back of her mind. She was absolutely sure something was wrong.",
+            "trans": "第二天，随着上午的时间慢慢逝去，莱斯利越来越感到不安。杰夫没有出现，她变得焦躁起来。到了中午，他还没出现，于是她开始打电话。他们共同的朋友都说那天没看见他，也没和他通过电话。以前，杰夫总是非常准时地将孩子送回来。一种不祥的想法在下意识地困扰着她，莱斯利感到恐惧。她绝对肯定是出事了。"
          },
          {
-            time: '05:34', chapter: `Meanwhile, for Lesley the nightmare continued to unfold(展现,显露) as the
-reality of the situation deepened. After 48 hours, the spokesman for the district
-police department assured her they would investigate Zac‟s disappearance. Her
-faith that justice would be realized was faint. The shock of the past two days‟
-events made her realize that possibly her son would become one more statistic
-in the missing children file. The police completed a preliminary survey after
-asking hundreds of detailed(详细的) questions. Hot lines proved fruitless(无结果
-的).`
+            "time": "04: 22",
+            "chapter": "Jeff sat with his head bowed. He was undecided what to do. The domestic arrangement with his former wife was proving to be awkward. He was frustratedat being able to see his son only on weekends and felt he was always making concessions to accommodate(适应,迁就) Lesley‟s work schedule. Every meeting was turning into a competition for the boy‟s affection. His one desire was to take Zac away for good. The enormous decision to undert ake this plan appeared to be presenting itself. Today he would depart for a conference in California. This appeared to be a marvelous opportunity to take the boy and leave the country for good. He bet that he could pack sufficient baggage into his vehicle and then disappears across the border, gaining entry the U.S.A. He gave little thought to whatsoever of the fact this act could lead to his conviction if he was tracked down by the cops.",
+            "trans": "杰夫低头坐着，他不知该做些什么。和前妻商定的对家庭的安排看来是蠢笨的，只能在周末看看儿子令他沮丧极了。为了莱斯利的工作安排，他觉得一直在迁就。每次相见都变成一场争夺“孩子到底爱谁”的竞争。他有一个心愿就是把扎克永远带走，现在就应做出实施这个计划的重大决定了。今天，他要前往加利福尼亚参加一个会议，这显然是一个带走孩子，永远离开这个国家的绝好机会。他确信他能够把足够多的行李装上车，然后跨过边境，进入美国后就消失掉。如果被警察抓住，这种行为是可以构成犯罪的，可他不再多想了。"
          },
          {
-            time: '06:19', chapter: `Meanwhile, over the next year there were countless vis its and interviews at the
-police station and her home. The police appeared to be making no progress in
-tracking Zac‟s whereabouts(行踪). As the days passed, Lesley‟s frustration(挫败)
-mounted and she felt a sense of alarm. Eventually, she decided to take the
-initiat ive in continuing the search and she began to use well-established child
-find agencies. At times, boosted by hopes, she appeared to be on the right trail
-with a sense of disgust, but her hopes were dashed at the final moment. These
-obstacles hope. After Zac‟s picture was circulated nationwide, telephone calls
-followed from strangers reporting sightings(被看见的人或事物) of a Zac look alike.`
+            "time": "05: 34",
+            "chapter": "Meanwhile, for Lesley the nightmare continued to unfold(展现,显露) as the reality of the situation deepened. After 48 hours, the spokesman for the district police department assured her they would investigate Zac‟s disappearance. Her faith that justice would be realized was faint. The shock of the past two days‟ events made her realize that possibly her son would become one more statistic in the missing children file. The police completed a preliminary survey after asking hundreds of detailed(详细的) questions. Hot lines proved fruitless(无结果 的).",
+            "trans": "与此同时，对于莱斯利，随着事件真相的不断深入，噩梦也在继续显现。48小时后，地区警察部门发言人向她保证，他们将对扎克的失踪展开调查。她对正义会得到伸张的信心减弱了。最近两天发生的事使她认识到，他的儿子很可能成为失踪儿童名单中增加的又一个新数字。在询问了许许多多的细节问题之后，警察完成了初步调查。热线电话丝毫没有结果。"
          },
          {
-            time: '07:20', chapter: `Month by month her plan evolved into a campaign equal to a full-scale battle
-plan. She paid an exceedingly high fee for specialized help, such as the services
-of an attorney. Lesley became determined to target every major city where Jeff
-normally contracted business. As the months slopped by, Lesley‟s exhaustion
-became noticeable in her eyes. Her cheeks became hollow pits. Most days she
-felt as though she did not have an ounce of energy left because proof of Zac‟s
-existence seemed impossible to find.`
+            "time": "06: 19",
+            "chapter": "Meanwhile, over the next year there were countless vis its and interviews at the police station and her home. The police appeared to be making no progress in tracking Zac‟s whereabouts(行踪). As the days passed, Lesley‟s frustration(挫败) mounted and she felt a sense of alarm. Eventually, she decided to take the initiat ive in continuing the search and she began to use well-established child find agencies. At times, boosted by hopes, she appeared to be on the right trail with a sense of disgust, but her hopes were dashed at the final moment. These obstacles hope. After Zac‟s picture was circulated nationwide, telephone calls followed from strangers reporting sightings(被看见的人或事物) of a Zac look alike.",
+            trans: '在接下来的一年多时间里，她在警察局和家中接受了无数次的访问和会见。在寻找礼物的下落上，警察似乎并没有取得什么进展。时间一天天地过去，莱斯利感到日益失望，她有一种恐慌的感觉。终于，她决定要争取主动，继续找寻，她开始求助于专门的儿童寻找机构。有时，尽管感到有些厌烦，由于希望的驱使，她还是加入到搜寻线索的行列，但她的希望都在最后时刻破灭了。这些挫折只会令她更坚定不放弃寻找或不丧失希望的决心。扎克的照片在全国传阅，不断有陌生人打来电话，报告说看见了像扎克模样了人。'
          },
          {
-            time: '08:06', chapter: `Another year passed and her hopes dimmed. Unexpectedly, late in August a
-promising lead brought her to Los Angeles.`
+            "time": "07: 20",
+            "chapter": "Month by month her plan evolved into a campaign equal to a full-scale battle plan. She paid an exceedingly high fee for specialized help, such as the services of an attorney. Lesley became determined to target every major city where Jeff normally contracted business. As the months slopped by, Lesley‟s exhaustion became noticeable in her eyes. Her cheeks became hollow pits. Most days she felt as though she did not have an ounce of energy left because proof of Zac‟s existence seemed impossible to find.",
+            trans: '一月又一月，她参与活动的计划安排相当于一场大规模的战役部署。她出高薪请专家帮忙，例如聘请代理人为她服务。莱斯利开始决定在杰夫平日联系生意的每一个主要城市去寻找目标。几个月过去了，从莱斯利的眼里，可以明显感觉到她的确精疲力竭了。她的脸颊深深地凹了下去。大多数日子里，她觉得好像一点儿精力也没有了，因为证明扎克还在的证据看来是不可能找到了。'
          },
          {
-            time: '08:16', chapter: `The interior of the bar was dark. Her quest to locate Jeff and Zac had taken two
-years. She had paid private investigators in American currency to help her
-locate her ex-husband. In her handbag she carried the necessary proof that
-would identify her to the authorities if she was successful in being able to bring
-Zac home again, to Canada. She had been impatient for this moment to arrive
-for so long and yet now she just wanted to secure her son with a minimum of
-fuss. Now, right on cue, a tall stranger slipped into the bar and sat down. One
-glimpse told her it was Jeff. He looked weary(疲劳的) and older but definitely
-familiar. A chill ran up her spine(脊椎,脊柱). Close to success, she refused to
-concede defeat. It was the time to remedy the enormous sadness. This time she
-wanted a guarantee of success. She stared straight ahead with a vacant look,
-trying to grasp the important moment. Vivid scenes, from the pass two years‟
-search, flashed(思想等的闪现) through her mind.`
+            "time": "08: 06",
+            "chapter": "Another year passed and her hopes dimmed. Unexpectedly, late in August a promising lead brought her to Los Angeles.",
+            trans: '又一年过去了，她的希望变得更加渺茫。但出乎意料，八月底，一个很有希望的线索把她带到洛杉矶。'
          },
          {
-            time: '09:35', chapter: `The following day, happily for Lesley, the headline of the local paper read,
-“Father turns over child, Mother slams system.”`
+            "time": "08: 16",
+            "chapter": "The interior of the bar was dark. Her quest to locate Jeff and Zac had taken two years. She had paid private investigators in American currency to help her locate her ex-husband. In her handbag she carried the necessary proof that would identify her to the authorities if she was successful in being able to bring Zac home again, to Canada. She had been impatient for this moment to arrive for so long and yet now she just wanted to secure her son with a minimum of fuss. Now, right on cue, a tall stranger slipped into the bar and sat down. One glimpse told her it was Jeff. He looked weary(疲劳的) and older but definitely familiar. A chill ran up her spine(脊椎,脊柱). Close to success, she refused to concede defeat. It was the time to remedy the enormous sadness. This time she wanted a guarantee of success. She stared straight ahead with a vacant look, trying to grasp the important moment. Vivid scenes, from the pass two years‟ search, flashed(思想等的闪现) through her mind.",
+            "trans": "酒吧里面很暗。追寻杰夫和扎克和下落已经花了她现年时间。她付费给在美国的私家侦察机构，帮她查找前夫的下落。在她的手提包里，有可以向当局证明的必要材料，一旦成功，她就可以将扎克带回家，回到加拿大。她焦急地等待着这一刻的到来已经很久了，而现在她只想找回她的儿子，发行量不要出什么乱子。就在这个时候，一个高个的陌生人溜进酒吧坐下来。她一眼就认出那是杰夫。他看起来很疲惫，显得更苍老了，但还是相当熟悉。一阵寒气掠过她的背脊。马上就要成功了!她拒绝承认失败，这正是治疗巨大伤痛的时刻。这次，她要确保成功。她带着迷茫的神情凝视着前方，努力要抓住这重要的时刻。过去两年的搜寻情景，一幕幕清晰地在她的脑海中闪现。"
          },
          {
-            time: '09:48', chapter: `Lesley and Zac‟s subsequent life could now resume some form of normalcy(正
-常状态), however, the stress and strain of the past two years would always
-remain as a part of this renewed relationship in the memory.`
+            "time": "09: 35",
+            "chapter": 'The following day, happily for Lesley, the headline of the local paper read, “Father turns over child, Mother slams system.”',
+            "trans": "翌日，使莱斯利感到高兴的是当地报纸的头条新闻：“父亲将孩子送回，母亲猛烈抨击体制”。"
          },
+         {
+            "time": "09: 48",
+            "chapter": "Lesley and Zac‟s subsequent life could now resume some form of normalcy(正 常状态), however, the stress and strain of the past two years would always remain as a part of this renewed relationship in the memory.",
+            "trans": "至于莱斯利和扎克后来的生活，现在可能恢复到某种正常状态了。然而，过去两年的压力和紧张将成为这种重新恢复起来的关系中的一部分，永远留在记忆里。"
+         }
       ]
    }],
    [{
@@ -996,7 +942,41 @@ remain as a part of this renewed relationship in the memory.`
       url: 'http://online1.tingclass.net/lesson/shi0529/0000/834/11.mp3',
       type: 'articleEN',
       sections: [
-         { time: '00:00', chapter: `` },
+         {
+            "time": "",
+            "chapter": "Today the wind and rain drove fiercely against my apartment window. It was the tail end of a typhoon(台风). Every year, as the calendar indicates the approach of autumn, these destructive tropical(热带的) storms account for both death and destruction along Asia’s coasts. On an average there may be fifteen such storms every year. Although many civilians adopt a casual attitude towards these events, awareness is advisable.",
+            "trans": "今天暴风雨不在击打着我的寓所窗户，不过台风就要结束了。每年当日历提示秋天来临时，这些破坏性极强的热带风暴就会给亚洲沿海地区，带来人员伤亡和财产损失。平均每年可能有15次这样的暴风雨。面对这些灾难，很多居民抱着漫不经心的态度，但提高防范意识才是明智的。"
+         },
+         {
+            "time": "",
+            "chapter": "As the water dripped from my balcony and accumulated into free-flowing rivers on the road beneath, I was reminded of the extreme weather that affected the residents of North America. Hurricanes(飓风), tornadoes(龙卷风), snowstorms, ice storms and electrical storms are all examples of extreme weather that may challenge an entire community. Each storm is unique in character, contributing its own particular fascination(魔力) and fear.",
+            "trans": "雨水从阳台上滴落下来，在下面的道路上汇聚成肆意流淌的水流。这使我联想到侵扰北美居民的那些极端恶劣的气候。飓风、龙卷风、雪暴、冰暴和雷暴，都是可能威胁到整个社会的极端的气候现象。每次风暴都有其独特的特点，展现出特有的魔力和恐怖景象。"
+         },
+         {
+            "time": "",
+            "chapter": "Every fall hurricanes slam the United States coast. They upset boats, fell mature trees, wash away sections of public beaches and often cause death. Fortunately with the advantage of modern prior warning systems authorities are able to keep the chaos to a minimum. Regardless, some sectors of the population still ignore the warnings. The burden of rescuing these irresponsible(不负责的) adults falls on the authorities. Mean while government budgets are strained. To assemble enough aid to assure assistance for all regions in a country stretches finances.",
+            "trans": "每年秋天，飓风都要猛烈攻击美国海岸。它们打翻船只，刮倒大树，冲毁成片的公共海滩，还常常造成人员伤亡。所幸的是，由于有了先进的预警系统，当局能够将这种混乱不堪的状况降到最低限度。但不管怎样，还是有一部分人忽视这些警告。营救这些不负责任的成年人的重任就落在了当局身上。这时，政府预算就显得很勉强。要调集足够的物资，保证为一个国家的所有地区提供帮助，使得财政吃紧。"
+         },
+         {
+            "time": "",
+            "chapter": "Hurricanes seldom reach Ontario, Canada, but in 1954 Hurricane Hazel exposed the residents of Toronto to an awful night of flooding and terror. Responding to the disaster required the supreme effort of all the rescue departments.",
+            "trans": "飓风很少影响到加拿大的安大略省。但在1954年，黑兹尔飓风却使多伦多的居民遭遇了一个充满灌水和恐惧的可怕夜晚。为了应付那次灾难，所有救援机构都尽了最大的努力。"
+         },
+         {
+            "time": "",
+            "chapter": "In Ontario where a brush(严酷的) winter extends from November until April, snowstorms are regular occurrence. People adjust their travel plans, sports activities and especially their mode of dress when the weather forecasters predict a severe snowstorm. Automobile drivers must be more cautious under these circumstances. Snow removal becomes a major expense for northern cities. Families adjust their weekend plans and stay together at home, sitting safely in front of a blazing(炽烧的) fire, and viewing a video, the beauty of fluffy(蓬松的) white snow can be appreciated when it blankets(覆盖) stately evergreens(常青树) standing against a deep blue sky.",
+            "trans": "在安大略，严酷的冬天从十一月一直延续到四月，常常有暴风雪。当气象预报员预报说有恶劣的暴风雪时，人们就得调整他们的旅游和体育运动计划，特别是调整他们的衣着。汽车驾驶员在这样的环境里必须更加小心。除雪成了北方城市的主要开支之一。家庭调整了他们的周末休假计划，一起呆在家里，安全地坐在炽热的炉火前观看录像。当挺拔的常青树上挂满蓬松的白雪时，人们就可以欣赏在深蓝色天空衬托下的美丽雪景了。"
+         },
+         {
+            "time": "",
+            "chapter": "In 1998, Ontario residents were crippled by a severe ice storm. People’s lives came to a grinding halt when power lines crumpled(瘫痪) under the weight of the ice. People lived without electricity for weeks. Remote parts of the province resumed normal living conditions after several months. Rocks, trees and lakes abound(大量的) in the Canadian Shield(地盾) area of Ontario. Electrical storms provide spectacular entertainment for summer evenings. Zigzag(锯齿形的) bolts of lightening flash across the sky the clap of thunder echoes across the water. Each storm provides a remarkable drama, one without parallel in nature.",
+            "trans": "1998年，安大略的居民又遭受了一场残酷的冰暴的蹂躏。电力线路在冰冻的重压下瘫痪了，人们的生命受到严重威胁。好几个星期，人们的生活中没有电。该省的偏远地区几个月后生活才恢复正常。安大略的加拿大地盾区有大量的岩石、树木和湖泊。夏天夜晚，雷暴会上演蔚为壮观的好戏。锯齿形的道道闪电相继划破长空，声声雷鸣在水面上回响。每次暴风雨都是一次大自然的绝无仅有的精彩演出。"
+         },
+         {
+            "time": "",
+            "chapter": "When individuals encounter the impressive forces of nature we are reminded that we are indeed weak and insignificant(无意义的,无关紧要的)!",
+            "trans": "当遭遇到令人难忘的大自然的暴力时，人们就会想到人类的确是柔弱无力而又微不足道的。"
+         }
       ]
    }],
    [{
@@ -1004,7 +984,76 @@ remain as a part of this renewed relationship in the memory.`
       url: 'http://online1.tingclass.net/lesson/shi0529/0000/834/12.mp3',
       type: 'articleEN',
       sections: [
-         { time: '00:00', chapter: `` },
+         {
+            "time": "",
+            "chapter": "The Duet Tape [管道胶带]\nAmong the contents of the toolboxes of most people in the western world you would expect to find a hammer and nails, a drill, screwdrivers(螺丝起子) and some screws. But if you were to ask people from North America what the most useful item in their toolboxes was, the majority of people would undoubtedly tell you that it was duct(输送管) tape. Indeed, it has become an indispensable addition to every person’s perception of what constitutes necessity.",
+            "trans": "在西方，多数人的工具箱中，你可望找到一把锤子和一些钉子，一把钻子，几把螺丝刀和一些螺丝钉。不过，你要是问北美人什么是他们工具栏里最有用的东西，多数人会肯定地告诉你那是管道胶带。的确，在每个人认为必备的东西中，管道胶带已经是必不可少的物品了。"
+         },
+         {
+            "time": "",
+            "chapter": "Maybe you have never heard of duct tape. It is the brand name of a tape. Not only is it a tape, but also it is a special kind of tape.The name of the tape comes from the fact that it was designed as an insulating(绝缘的) tape that can be used in duct work (channels or conduits[导管] that are used for heat to travel through to get to different areas of a building). Incredible though it seems, someone actually put a picture of a duck on the packaging of the tape from one manufacturer perhaps just as a joke or maybe because the design artist did not understand the origin of the name. Neither the word duck nor duct was on the label. Presumably, it was assumed that everyone could identify the product.",
+            "trans": "也许你还没有听说过管道胶带。它是一种带子的商标名称。它不仅是带子，而且是一种很特殊的带子。\n这种带子原是用于管道工程(用于将热能传送到大楼各个部分的管道或导管)的一种绝缘密封带子，并由此而得名。尽管看来不可思议，但确实有人将一幅鸭子的照片放在了一家生产这种带子的产品包装上。这也许只是一个玩笑，抑或是包装设计师不懂这个名称的由来。标签上既没有鸭子也没有管道字样。大概每个人都是能认得这种产品。"
+         },
+         {
+            "time": "",
+            "chapter": "You can recognize the genuine tape because of its silver grey color. The color was likely chosen because it closely resembles the color of the pipes the color of the pipes it would be used on. That was the primary intended use of the tape. It was unlikely that the inventor realized how many other uses could be found for this product.Ingenious(善于创造发明的) people have found many alternative uses for this tape. The binder(粘合剂) on the tape is of good quality and it will stick to most surfaces. The tape is of great strength. It is impossible to tear the tape. It must be cut. The durable nature of the tape is one of its main assets(益处,优点).It comes in a variety of widths and the length of the tape on the roll will vary as well. The number of centimeters wide and the number of meters long will determine the price of the roll.",
+            "trans": "你可以认出这种真正的带子，它是银灰色的。之所以选择这种颜色，很可能是因为它与管道的颜色相似。那才是为这种带子设计的主要用途。发明人未必想到人们可能会为它找到许多其他用途。聪明的人们发现了这种带子的许多其他用途。这种带子上的粘合剂质量很好，能够粘着在大多数物体的表面。带子的强度很大，不可能被撕破，所以必须用刀切割。耐久性是这种带子的最可贵之处。它被制成多种宽度，一卷带子的长度也可以变化。一卷带子有几厘米宽和几米长决定了它的价格。"
+         },
+         {
+            "time": "",
+            "chapter": "The duct tape is acquiring fame as the number of its uses for it exceeds the thoughts possible. The number of uses for this tape will amaze you. One internet Website(环球网的站点) started out trying to identify 101 uses for the duct tape and the list has well over 200 uses on it now. Maybe there are an infinite number of uses. Some of the items it lists involve an imagination but others are quite genuine. Not even a kindergarten student requires instruction on how to use it. One idea seems to generate(产生,引起) another, inspired by the unique way someone else has decided to make use of the tape. However, some of the uses are not feasible to execute. For instance, the use of the tape as a bandage is not recommended. It could cause injury when it is removed. You must evaluate the list with a sense of humor as some of the uses could embarrass a person. The commercial value of the tape is undoubtedly tremendous with huge profits resulting from the sales. The product practically promotes itself without much need for publicity.",
+            "trans": "管道胶带之所以有名，在于它的用途超出人们的想象，多得让人吃惊。一个互联网站最开始为这种带子列举了101种用途，而现在这个清单上已经超过200种了。可能有数不完的用途。在这个清单上有的用途可能只是一种想象，但其他一些用途确实是相当实在的。甚至幼儿园的学童不用教就可以学会怎样使用。别人以独特的方式使用带子的富有灵感的一个念头似乎会引发另外的想法。不过，有些用途是不可行的。例如，将这种带子作为绷带就不值得推荐。去掉它时会造成伤害。你必须带着幽默感去评价这份清单，因为有些用途会给人带来麻烦。这咱带子的商业价值毫无疑问是巨大的，能带来丰厚的销售利润。实际上，这种产品不需要广泛宣传，本身就可以促销。"
+         },
+         {
+            "time": "",
+            "chapter": "Sometimes you see people, usually male rather than female, wearing shirts that have a slogan(标语) written on them that says, “I can fix anything”——and then there is a picture of a duct tape below the saying. The implication presumably is that the duct tape replaces skill.Another good marketing strategy(策略,战略) that people enjoy is the use of a calendar. There is one page on the calendar for every day of the year and each page shows and describes a new use of the duct tape.",
+            "trans": "有时候你看到人们，通常是男性而非女性，穿的衬衫上写着：“我能维修一切”的字样，下面有张管道胶带的图片。其含义当然是这种管道胶带能取代技能。另一个人们惯用的有效营销策略是利用日历。有种日历上一年中的每一天都有单独一页，每页上都展示和说明管道胶带的一种新用途。"
+         },
+         {
+            "time": "",
+            "chapter": "One of the typical uses of the duct tape is to repair a leak in a faucet(龙头) or water tap. If the hose(水龙软管) of a vacuum cleaner has a hole in it, the duct tape will come to rescue(援救,救助). Almost every household in North America has at least one roll of duct tape. People keep it handy and use it to repair almost everything. No one would think it necessary to justify the purchase of extra rolls of tape, so the sales continue to increase.",
+            "trans": "管道胶带的一个典型的用途是修理水龙头。如果真空吸尘器上面的软管有个洞，管道胶带就派上用场了。几乎北美的每个家庭都至少有一卷管道胶带。人们身边有了它，可以修理几乎所有东西。人人都认为购买额外的带子是必要的，所以销量在继续攀升。"
+         },
+         {
+            "time": "",
+            "chapter": "Many people like to boast about how often they use the tape. They say that the usage of duct tape has allowed them to simplify their life and to decrease the cost of repairs.\nIt can be used indoors in the interior of a house but there are abundant uses outside the house as well. If there is a chip out of a glass object, the duct tape can be used to protect the user from being injured. Repairing or reinforcing a joint on an aluminum ladder that a person is using would be a valuable use of the tape.",
+            "trans": "许多人喜欢夸耀他们是如何经常地使用这种带子。他们说使用管道胶带简化了他们的生活，并且减少了修理费用。它不仅可用于室内，在室外也有广泛的用途。比如玻璃制品破裂后产生碎片，管道胶带可用于保护使用者不受伤害。修理或加固一个人正在使用的铝制梯子的接头时，可以利用这种带子。"
+         },
+         {
+            "time": "",
+            "chapter": "The tape has proved to be bargain. Even if the manufacturers charged twice as much for the tape, it would still be a best seller in the western world. The retail price is very reasonable. In addition it is convenient to store, and despite the number of apparent uses, people are always finding more ways to utilize it. It has become a vital item for every household.",
+            "trans": "这种带子的确是廉价品。即使厂家把售价提高一倍，它在西方仍然是畅销货。它的零售价非常合理。此外，它容易储存，虽然有许多明显的用途，人们仍然可以发现更多新的使用方法。它已经成为每个家庭必备的物品。"
+         },
+         {
+            "time": "",
+            "chapter": "The glue on the tape is a wonderful adhesive(粘着的) agent and will bond well to anything from a piece of crystal to the handle of a broom. There have been reports of people using the tape to trap insects. Crickets(蟋蟀), for example, were found stuck to the tape by one person. Maybe the glue was able to attract them or maybe they just were in the wrong place. Criminals have been known to use the tape on their victims. During a robbery, a robber used the duct tape on the witnesses to keep them from reporting the crime until he had escaped. It was apparent that the robber came armed with the duct tape, anticipating the need for its use.",
+            "trans": "这种带子的粘胶是一种极好的粘合剂，它能牢固地粘接到任何东西上，不论是一块水晶还是一个扫帚把。据报道，有人用这种带子诱捕昆虫。例如有人曾用带子粘住蟋蟀。也许是这种粘胶对昆虫有吸引力，也可能只是认错了地方。罪犯们也知道将这种带子用于受害者。在一次抢劫中，一个劫犯用管道胶带将目击者粘住，使他们不能去报案，直到罪犯逃之夭夭。显然，那个劫犯是带着管道胶带来的，事先考虑到它的用途。"
+         },
+         {
+            "time": "",
+            "chapter": "One evening a sea breeze was causing a window on a campus dormitory to crash repeatedly as the clasp(钩子) on it had been broken. The Duct tape put a swift end to the nuisance of the constant banging. Although it was obvious it was not a permanent solution of the problem, nevertheless, the temporary use of the duct tape was appreciated until the window could be replaced or someone could install a better latch.",
+            "trans": "一天晚上，一阵海风使校园宿舍的一扇窗子碰来碰去，响个不停，因为上面的钩子坏了。管道胶带很快就止住宅楼了那讨厌的持续不断的碰撞声。尽管那显然不是解决问题的长远之计，但在换掉那扇窗子或有人为它安装一个好插销之前，仍不失为一种值得赞许的临时办法。"
+         },
+         {
+            "time": "",
+            "chapter": "You can even accomplish repairs on vehicles, which sometimes means the difference between being stopped in traffic or being able to continue your journey. Many motorists(汽车司机) have had to resort to the use of the duct tape in an emergency situation. Drivers often keep a roll of duct tape in the trunk of their car for that reason. It is a tremendous relief when you are able to wrap a piece of duct tape around a leaking hose that you discover at a time when it is not convenient to replace it. Thanks to the duct tape, the driver can become mobile again. The fear of being stranded(束手无策的) on a lonely stretch of highway is lessened when you carry a duct tape.",
+            "trans": "你甚至可以成功地修理交通工具，有时候这就决定了你是停止前进还是继续你的行程。许多机动车驾驶员在紧急情况下不得不求助于管道胶带。为此，驾驶员们常常在他们的车厢里放上一卷管道胶带。当你发现管子漏了，又不便于更换，而你却能够用一段管道胶带包缠好时，该是多么的惬意啊。用了管道胶带，驾驶员又可以上路了。只要你备有管道胶带，对在公路的偏僻路段上束手无策的担心就会少多了。"
+         },
+         {
+            "time": "",
+            "chapter": "Other forms of transportation make good use of the tape as well. Usage for it can be found on boats, and also on airplanes. For instance, a sky driver once reported that jumping out of a small airplane did not scare her as much as riding in a small plane that appeared to have lots of duct tape.",
+            "trans": "在其他的交通方式上管道胶带也有它的用途。在船上有它的用途，在飞机上也有。比如，一个跳伞运动员曾说，如果所乘的小飞机上同时还载有很多管道胶带的话，从小飞机上跳出来比乘坐小飞机还安全。"
+         },
+         {
+            "time": "",
+            "chapter": "Sports and recreational activities make good use of this tape as well. If you’re audio cassette player will not stay closed, use a piece of duct tape to position the tape holder. It might look odd but it will serve the purpose. If a hockey stick needs to be taped, use duct tape!",
+            "trans": "运动和娱乐活动也是这种带子的用武之地。如果你的盒式磁带放音机不紧，就用一节管道胶带固定磁带卡吧。看起来有点怪怪的，却很管用。如果曲棍球棍需要用带子包缠，那就用管道胶带吧!运动员们，不管是职业的还是业余的，都喜欢用它。"
+         },
+         {
+            "time": "",
+            "chapter": "It can be used to compress a package, making more cargo fit in a carrier. You can use it repair a leaky toilet, or to fix a crack on a toilet seat. If you wrap duct tape around a newspaper, it can be used to make a dog’s chew toy. If you get an opportunity to use this product, you will also discover many uses for it and you will agree that it is one of the world’s best inventions.",
+            "trans": "它可以用来压紧包裹，使得一件行李中装进更多的东西。可以用它修补漏水的马桶，修理马桶座圈的裂缝。如果用管道胶带缠卷一张报纸，就可以用做狗嚼棒。你要是有机会使用这种产品，并发现它的许多用途，你就会同意说它是世界上最好的发明之一。"
+         }
       ]
    }],
    [{
@@ -1012,7 +1061,76 @@ remain as a part of this renewed relationship in the memory.`
       url: 'http://online1.tingclass.net/lesson/shi0529/0000/834/13.mp3',
       type: 'articleEN',
       sections: [
-         { time: '00:00', chapter: `` },
+         {
+            "time": "",
+            "chapter": "Norman Bethune: a Canadian Hero in China",
+            "trans": "[诺尔曼·白求恩：一个在中国的加拿大英雄]"
+         },
+         {
+            "time": "",
+            "chapter": "Norman Bethune was born in Graven Hurst, Ontario, Canada in 1890. His family had a long history of human service, a fact that undoubtedly shaped his life in later years. From the outset, as a young university student, he developed a mission, or goal in life, of compassion(怜悯) and commitment to helping the less fortunate to find freedom from the chains of poverty. In earnest, he developed a selflessness(无私) that dominated his whole life, but not without personal sacrifice. He was in a troubled marriage that consequently ended in divorce. Progressive medicine and humanitarian(人道主义的) deeds became the sole purposes of his life. Understandably, his much younger wife, Frances, could not tolerate this situation.",
+            "trans": "诺尔曼·白求恩于1890年出生在加拿大安大略省的格雷文赫斯特。他的家族有从事公共事业的悠久历史，这毫无疑问地影响了他以后的发展。从一开始，他还是一个青年大学生的时候，他就立下志向，他的丛生目标就是要有一颗怜悯之心，承担起社会责任，帮助不幸的人们摆脱贫困的桎梏，获得自由。他坚定不移地培养了一种无私的精神，这种精神贯穿他的一生，从不考虑个人的得失。他有一次不成功的婚姻，最终以离婚收场。他生活中的唯一目的是让医术精益求精和积极从事人道主义活动。在这种情况下，可想而知，比他年轻得多的妻子弗朗西斯是难以接受的。"
+         },
+         {
+            "time": "",
+            "chapter": "From 1911to 1912, Bethune worked as a lumberjack and teacher in a remote area of Ontario. He taught at “Frontier College”, a unique school that provided basic education to adult workers at the lumber camps. During the First World War, he became a stretcher(担架)-bearer (helping to carry the wounded from the battlefields). He, himself, was wounded by shrapnel(流弹) (fragments of exploding shells). He was confined, as a patient, to hospitals for months, receiving therapy and recuperating(复原) from his injuries. After the war, he completed his internship(实习医师期) at the hospital for sick children in London, England, leading to a certificate as “A Fellow of the Royal College of Surgeons(外科医生)”.",
+            "trans": "1911年到1912年，白求恩在安大略的一个偏远地区做一名伐木工和教师。他在“边疆学院”教书。那是一所专门为伐木营地的成年工人提供基础教育的学校。第一次大战期间，他成了一名担架手(帮助从战场上运送伤员)。他自己也被流弹(爆炸后弹壳的碎片)所伤。作为一个病人，他不得不在医院住了几个月，接受治疗，等待伤口康复。战后，他在英国伦敦的儿童医院完成了实习医师期，领到了“皇家外科医学院会员”的资格证书。"
+         },
+         {
+            "time": "",
+            "chapter": "Later, in the United States, Bethune came in contact with poverty and deprivation(落后), but his skills as a doctor also attracted wealthy patients who were willing to pay for services usually denied to the poor. He began to appreciate how money was corrupting(腐蚀,使堕落) the medical system. He developed an acute concern for the unattended(未被注意的) medical needs and suffering among the poor. His mission was to relieve, as much as he could, the plight(困境) of the less fortunate. He was appalled(使震惊) at the indifference shown by governments to these conditions. It was at his time that his own health suffered a setback([疾病的]复发). He had developed tuberculosis(肺结核) of the left lung and had to undergo a successful but dangerous operation. This episode with his health had a tremendous impact on his life. It stimulated an interest in thoracic(胸的) medicine, especially the surgical(外科的) aspects in this field and for a couple of years he worked at a tuberculosis hospital in the United States.",
+            "trans": "之后，在美国，白求恩就与贫穷和落后联系在一起了。但他的医术也吸引了富有的病人，他们可以付钱来得到那些通常拒绝对穷人进行的治疗。他认识到金钱是如何腐蚀医疗系统的，并开始急切地关注被人忽视的穷人中的医疗需求和苦难。他的使命就是尽其所能地使不幸的人们摆脱困境。他对政府漠视这些情况感到震惊。也就在这时，他自己的健康开始恶化。他的左肺染上了肺结核，于是他进行了一次成功但很危险的手术。健康上出现的这一段插曲，对他的一生产生了极大的影响。这激发了他对心胸科医学，特别是该领域的外科方面的兴趣，促使他在美国的一家肺病医院工作了几年。"
+         },
+         {
+            "time": "",
+            "chapter": "Following this interval in the United States, in 1929, he began to specialize in thoracic medicine at the Royal Victoria Hospital in Montreal. He also began to write in medical journals, outlining new surgical techniques. Later, he invented developed and refined surgical instruments.\nIn 1935, he journeyed to the Soviet Union to attend the International Physiological Congress. The Communist Parties of Canada and the United States had made arrangements for him to go. By this time, Bethune had become a member of the Communist Party of Canada. Returning to Canada, he was convinced, more than ever, that democratic societies needed to develop publicly financed health care for all of their citizens. Bethune had earlier set up a free medical clinic in Montreal. His conscience dictated that he should work for this goal.",
+            "trans": "在美国工作的这段时间之后，1929年，他开始成为蒙特利尔的皇家维多利亚医院胸科医学专家。他开始在医学杂志上撰写文章介绍新的外科技术。后来，他发明、研究并改进了外科仪器。1935年，他到苏联访问，出席国际生理学大会，是加拿大共产党和美国共产党安排他去的。那时，白求恩已经是一名加拿大共产党员。回到加拿大后，他更加深信民主国家需要建立针对所有公民的公共健康保障体系。早些时候白求恩在蒙特利尔建了一所免费诊所。他的良心支配着他为这些目标而工作。"
+         },
+         {
+            "time": "",
+            "chapter": "The Struggle of the Spanish Republic against Fascist(法西斯主义着) aggression took him to Spain for a medical adventure and challenge. In Madrid, he pioneered a mobile blood transfusion(输血) unit in the field. He collected blood, which was then transported to where it was needed for the wounded along the 600-mile battlefront. These efforts were reported to have reduced deaths from war by up to 75%. Thousands of people owed their lives to Dr. Bethune. His bedside manner became legendary, and it was another measure of this man.",
+            "trans": "后来，西班牙共和国反抗法西斯侵略的斗争使他来到西班牙进行一次医学上的冒险和挑战。在马德里，他首创了一家战地流动血站。他收集血液，然后沿600英里的前线送到伤员需要的地方。据所道，这些努力将战争中的死亡率减少到75%。成千上万的人感谢白求恩大夫挽救了他们的生命。他对待病人的态度也享有盛名，它也是这个人物的另一个侧面。"
+         },
+         {
+            "time": "",
+            "chapter": "He returned to Canada to go on a speaking tour to raise money for humanitarian efforts among the Spanish people. During this circuit of speaking engagements, Bethune elaborated eloquently(口才流利的) on the desperate needs of these people. His ability to communicate effectively made this tour a success. His undisputed(无可置辩的) talents were attracting widespread attention. Dr. Bethune became the ultimate international volunteer to help less fortunate people whatever he could. In the meantime, Japan was resuming its aggression against China. The decade of the 1930’s was the era of Fascist aggression throughout the world. Bethune’s knowledge of the long history of western aggression and exploitation in China made him conclude that his services were needed there.",
+            "trans": "他回到加拿大继续巡回演讲，为西班牙人民的人道主义需要筹集资金。在这次巡回演讲期间，白求恩竭尽所能，详细描述了那里的人民的迫切需要。他那卓越的交际能力使得这次巡回演讲获得成功。他的勿庸置疑的才能引起了广泛注意，白求恩大夫成了杰出的国际志愿者，竭尽所能帮助不幸的人民。与此同时，日本开始入侵中国。19世纪30年代是法西斯肆虐全世界的时期。白求恩知道西方对中国长期进行侵略和剥削的历史，这让他认定那里需要他的服务。"
+         },
+         {
+            "time": "",
+            "chapter": "In January 1938, he sailed to Mainland China. He stated that he refused to condone(宽恕) (or support) wars which greedy men make against others. He went on to say that Spain and China respectively were parts of the same battle (against Fascism). The Japanese had chased the Chinese into the northwest part of the latter’s country. Mao Tsedung met Bethune only once, but they remained acquaintances by correspondence.",
+            "trans": "1938年1月，他乘船来到中国大陆。他说，他无法容忍贪婪的人所发动的侵害另一部分人的战争。他继续宣讲西班牙和中国都是同一场战争(反对法西斯主义)的组成部分。日本人已经把中国人逼近到了中国的西北部。毛泽东只与白求恩见过一面，但他们通过书信保持联系。"
+         },
+         {
+            "time": "",
+            "chapter": "Bethune almost immediately set out for the hazardous(复杂危险的) surroundings of the mountain ranges of Yen an. In the company of the Eighth Route Army, Bethune practiced his profession as best as he could. There were no mobile units and there was a desperate need to recruit medical trainees and convey his knowledge and skills to meet the needs of the soldiers. Consequently, there was an urgent requirement for illustrated medical manuals.",
+            "trans": "白求恩立即投身到延安山区复杂危险的环境中。在八路军的协助下，白求恩尽其所能地发挥他的专业特长。没有移动的设备，急需征召实习医生，将他的知识和技能传授给他们，以满足部队的需要。相应的，还急需带图解的医疗手册。"
+         },
+         {
+            "time": "",
+            "chapter": "Both soldiers and peasants required a good deal of medical attention. Again, under very trying(难受的,费劲的) conditions, and with a lot of nerve, determination and courage, Bethune and his crew of Chinese assistants were eventually able to establish and coordinate over twenty medical and nursing teaching hospitals. Because of shortages of personnel and other difficulties, Bethune himself routinely operated for days without reasonable breaks. In one period, he worked continually for sixty-nine hours on a total of one hundred and fifteen patients. His ability to endure such hard conditions and retain his sanity(头脑清醒) was little short of a miracle(奇迹). It was under these conditions that his life became abruptly(突然的) doomed(注定). In October of 1939, possible suffering from extreme fatigue, he accidentally cut his left hand with the blade of his scalpel(解剖刀). Without proper medical supplies and with germs everywhere, his hand became infected and blood poisoning (a disease called septicemia) spread. He died on November 12, 1939.\nDr. Norman Bethune’s stature ([思想的] 境界, 高度) became even greater in death. The affection of the Chinese people for him swelled Emotions ran high upon the news of his death. His capacity to move people, and his insight into humanity was never so evident as during this period. The Chinese people were extremely grateful that such a man had crossed their paths.",
+            "trans": "士兵和农民们都需要医疗。为此，在极端困难的情况下，凭着胆识、决心和勇气，白求恩和他的中国助手们终于建立和配备了20多所医疗和护理教学医院。由于人员短缺和其他困难，白求恩自己整天还要照例进行手术，休息不足。有段时间，他为115个病人连续工作了69个小时。他忍受这种艰苦条件和保持头脑清醒的能力真是一个奇迹。这样的条件注定了他突如其来的命运。1939年，也许是极度疲劳的缘故，他意外地被他的解剖刀片割破了左手。没有必需的药品，到处是细菌，他手上的伤口因而受到感染，血液中毒(一种叫做败血病的疾病)扩散开来。他于1939年11月12日去世。诺尔曼·白求恩大夫的崇高精神在他去世后影响更加深远。中国人民更加热爱他。他去世的消息使人们非常悲痛。他激励人们的这种能力和他对人道主义的洞察力从来都不像这时如此的明显。中国人民非常感谢这位把足迹留在他们土地上的人。"
+         },
+         {
+            "time": "",
+            "chapter": "During this solemn time, tributes to Bethune came from many parts of the world. He was described as an activist, a writer, a teacher, an administrator, and above all, a great doctor. Mao said of him, “… We must all learn the spirit of absolute selflessness from him.”",
+            "trans": "在这个庄严的时刻，对白求恩的悼念来自全世界。他被称为活动家、作家、教师、管理者，还有最主要的，是一个伟大的医生。毛泽东说“……我们必须学习他毫不利已的精神”。"
+         },
+         {
+            "time": "",
+            "chapter": "After a very simple funeral, as he, had requested, Dr. Norman Bethune was buried in the Mausoleum (陵墓) of the Martyrs in Shih Chia Chuang, southeast of Beijing. The Chinese named a medical school and a hospital in his memory. Many other memorials have been erected in his memory over the years.One ironic(具有讽刺意味的) tragedy of all of this was that, up until 1973, Dr. Bethune had never received much recognition from his native country of Canada. Furthermore, he was not even acknowledged for his accomplishments, presumably because of his communist connection. In 1973, Prime Minister Pierre Trudeau, another Canadian who had spent a good deal of time in China in his earlier years, convinced his Government to purchase the Bethune house in Graven Hurst, Ontario, and dedicated(把…用于) it as “Bethune Memorial House”.",
+            "trans": "在一个按他本人生前要求的非常简单的葬礼之后，诺尔曼?白求恩大夫埋葬在北京东南的石家庄的烈士陵墓。中国人以他的名字命名了一所医学院和一所医院。多年来，各地建了许多怀念他的纪念碑和纪念馆。\n与此相反，具有讽刺意味的是，直到1973年，白求恩大夫还没有在他的祖国加拿大得到应有的承认。甚至于连他的造诣都不被认可(可能是因为他是共产主义者的关系)。1975年，皮尔·特鲁多总理，早年在中国度过很长时间的另一位加拿大人，说服了他的政府，买下了安大略省格雷文赫斯特的白求恩的房子，用作“白求恩纪念馆”。"
+         },
+         {
+            "time": "",
+            "chapter": "Dr. Bethune’s impact on medicine was not singular. His career was very comprehensive, as noted above, as he attained an extraordinary list of accomplishments of highest merit. Among his many goals, was one goal that was not fulfilled until after his death? In 1938, while in china, he recommended a universal health system for Canada. Ironically, Donald Sutherland, the Canadian actor who played Bethune in the movie about the latter’s life, called “Bethune: the Making of a Hero”, had been married to the daughter of Douglas. Douglas, when he was the Socialist Premier of Saskatchewan, a western province in Canada, set up a social medicine scheme in his province. Later, in the 1960’s, as a Member of Parliament in the national government, Douglas Played a significant role in establishing a national health system. He later became known as the father of Canada’s Medicare system, as it was eventually called.",
+            "trans": "白求恩大夫在医学上的影响是多方面的。如上所述，他的职业生活涉及面十分广泛，他取得了一系列卓越成就。在他的许多目标中，有一个直到他去世之后才完成。1938年，还在中国的时候，他建议在加拿大建立全民保健制度。巧合得很，在一部关于白求恩生平的电影“英雄白求恩”中扮演白求恩的加拿大演员，唐纳德萨瑟兰，娶了道格拉斯的女儿。道格拉斯在担任萨斯喀彻温省(加拿大西部的一个省份)社会党总理时，在该省建立了社会医疗制度。后来，在20世纪60年代，作为中央政府的一名国会议员，道格拉斯在建立全国卫生保健制度的过程中扮演了一个很重要的角色。他最后成为著名的加拿大医疗保险制度的创始人。"
+         },
+         {
+            "time": "",
+            "chapter": "Bethune is probably best known for his introduction of the mobile blood bank to the battlefield, and giving blood transfusions(输血) in the midst of heavy fighting. China worships him almost as a saint. Upon his death, the Chinese gave him a fond farewell. The charity of his soul still lives on among many Chinese. As Canadian teachers in China, we are often greeted by Chinese people, who make references of praise to this Great Canadian Doctor and humanitarian. Unfortunately, many Canadians know little about the incredible work for humanity undertaken by this remarkable man. This decent, in many ways, simple man was, indeed, one of the great world ambassadors who fought for the poor and less fortunate.",
+            "trans": "或许，白求恩因为他首次把流动血站引进战场并在激烈战斗当中进行输血治疗而声名远播。中国几乎尊他为圣人。对于他的去世，中国人表示了深切地悼念。他的博爱精神仍然活在许多中国人的心中。作为在中国的加拿大教师，我们常常受到中国人的礼遇，他们经常提到并赞扬这位伟大的加拿大医生和人道主义者。不幸的是，许多加拿大人对这位非凡的人所从事过的难以置信的人道主义工作知之甚少。这位正派朴素的人，的确是一位与贫穷和不幸做斗争的伟大的国际大使。"
+         }
       ]
    }],
    [{
@@ -1020,7 +1138,121 @@ remain as a part of this renewed relationship in the memory.`
       url: 'http://online1.tingclass.net/lesson/shi0529/0000/834/14.mp3',
       type: 'articleEN',
       sections: [
-         { time: '00:00', chapter: `` },
+         {
+            "time": "",
+            "chapter": "What will our world be like in the future? Can we look ahead twenty five years and dream about the transformations that will take place? The scholars who make it their business to try to predict the future are not all in agreement about what the future holds. If you visit displays at places like Disney world, you can get a glimpse of what some of the predictions are for our lives. As we fantasize(幻想) about what our life might be like a few decades from now, we can speculate about different aspects of our lives.",
+            "trans": "我们的世界未来会是什么样?我们能预测未来的25年并设想将会发生什么变化吗?未来到底有些什么特征，以预测未来为职业的学者们意见也并非一致。如果你到像迪斯尼世界这样的地方去观赏一下，就会得到一些关于对我们生活的一种大体的预测。当我们幻想从现在开始几十年后我们的生活会是什么样子时，我们会推断出我们生活的各个方面。"
+         },
+         {
+            "time": "",
+            "chapter": "Personal [个人生活]\nClothing styles change from year to year and also from culture to culture. Do you think that we will have sleeves in our shirts and blouses? Will we wear socks to protect our feet? Will plastic gloves be used routinely as part of everyday life to avoid transmission of germs(细菌)? Will we still use buttons to fasten our clothing? Will we all wear the same kind of jeans or pants (like a uniform) or will each culture be different? What textiles will be used in manufacturing our clothing? Will a type of nylon fabric be used in an effort to make our clothing more durable? Synthetic fibers which will not fade can be produced in bright colors such as pink and purple in addition to all the other colors of the rainbow.",
+            "trans": "服装式样年年在变，一种文化习俗与另一种文化习俗之间也各不相同。你认为我们的衬衣和上衣还会有袖子吗?我们还会穿袜子保护我们的脚吗?在日常生活中我们会使用塑胶手套来避免细菌的传播吗?我们还会用扣子来固定我们的衣服吗?我们都穿同样的牛仔裤或短裤(像制服一样)，还是有各种不同的文化品位?什么样的纺织品会用来做我们的服装?是否会有一种更耐用的尼龙布?不褪色的合成纤维会以粉红色和紫色等各种鲜艳的色彩制造出来，而且是和彩虹的各种颜色一起吧。"
+         },
+         {
+            "time": "",
+            "chapter": "When it comes to matters of personal cleanliness, will we soak in a bath? Will we spray ourselves with water or some other substance in a shower? Will we have a choice of which to use? Will we go to visit a barber for a haircut or will we be able to control the growth of our hair? If growth of a beard could be slowed, the daily ritual(老规矩) of shaving would be unnecessary for men.",
+            "trans": "在涉及到个人卫生方面，我们还会泡在浴缸里吗?我们会在淋浴时喷水还是一些其他物质?我们有使用的选择吗?我们还会去理发店理发或者我们能控制头发的生长?如果胡须的生长速度可以减慢，那男人就无须按老规矩天天刮胡子了。"
+         },
+         {
+            "time": "",
+            "chapter": "Health [保健]\nIn the western world the number of people who smoke cigars or cigarettes has diminished(减少,递减) substantially in the last several years. Maybe the use of tobacco will be eliminated completely. Will we be able to heal illnesses and diseases as soon as the symptoms are identified?",
+            "trans": "在西方近几年抽雪茄和香烟的人数已明显下降。也许，烟草的消费会完全消亡。我们能够一发现症状就治愈这一疾病、解除疾病吗?"
+         },
+         {
+            "time": "",
+            "chapter": "A cure for cancer would be considered a miracle. Could the disease be conquered with adequate commitment of federal funds to furnish financial resources? Accomplishment of this project would be a triumph of enormous proportions. It would be equivalent to sending several rockets to Mars simultaneously(同时). It would improve the welfare of all humanity(人类). Instead of using a thermometer to take our temperature, maybe we will have sensors(传感器) implanted in our bodies that will be read by a personal health care monitor. The machine could tell us if we are in need of more oxygen in our blood or if the food we just ate in difficult to digest because of too much acid in our stomachs. Will an appointment with a doctor be automatic if we are in need of treatment or will that profession become obsolete(消亡的)?",
+            "trans": "治愈癌症被认为是一个奇迹。在有专项联邦基金保证财力的情况下，能够战胜这种疾病吗?这项工程的完成将是一个巨大的成功，这相当于同时向火星发射几枚火箭。这将造福于全人类。我们也许会带有植入体内的传感器，可以由个人健康检测器据此读出数据，无需用体温计来测量我们的体温。仪器会告诉我们是否需要在血液里增加氧气，是否由于胃酸过多而使我们刚吃的食物难于消化。如果我们需要治疗就会自动找医生，还是医生这个职业会消失?"
+         },
+         {
+            "time": "",
+            "chapter": "The monitor might also have the ability to prescribe a lifestyle program for us. A woman might be able to determine if she is pregnant from the use of this machine. A remedy for a sore limb might be verified if the person is uncertain how to treat it. A sore throat, a cough or a stiff neck might also be diagnosed and treatment prescribed. Tension in parts of our body can be caused by stress and precautions and preventative(预防性的) steps could be recommended.",
+            "trans": "检测器可能有能力为我们设计生命程序。女人或许能够使用这种仪器确定是否怀孕。如果一个人不知道如何治疗肢体疼痛，通过仪器可找到对它的治疗方法。喉咙痛、咳嗽或斜颈也可能诊断出来并指出治疗方法。由于压力导致身体某部分紧张，其预防步骤也可以推荐给你。"
+         },
+         {
+            "time": "",
+            "chapter": "A machine might be used for the administration of medicine as well. Could you adjust to the idea of having an injection given to you by a robot using a needle? In fact, the precise dosage might be easier to attain using this method. It seems logical to make use of equipment that evaluate symptoms and interpret data if the performance proves reliable.",
+            "trans": "机器可能会用于药品管理上。你能够接受一个机器人用针管对你进行注射吗?事实上使用这种方法更容易获得精确的剂量。如果证明性能可靠，使用仪器来评价症状、解读数据，看来是可行的。"
+         },
+         {
+            "time": "",
+            "chapter": "Critical illnesses could be diagnosed earlier and we could be confident that even the diagnosis of a complex disease could be clarified and the disease could be treated before it becomes fatal. Supposing a life-threatening virus could be controlled, by inference viruses would no longer constitute a threat to our well-being.",
+            "trans": "危险病症能够较早地诊断出来。我们相信即使对一个复杂病症的诊断也能够做到清楚明了，准确无误，并在它变得致使以前对其进行治疗。"
+         },
+         {
+            "time": "",
+            "chapter": "The concept or idea of people living to an extremely old age has been suggested. Will the consequence of that possibility be that people could also maintain their intellect as they age?\nWill people be able to make arrangements to have their body or its parts used after they die? The donation would help others to have some of their body parts replaced. Will people still have funerals and be buried in a grave as is the current custom or will cremation(火葬) be the common practice?",
+            "trans": "假如一种致使的病毒能够得到控制，可以推测，病毒将不再对我们的健康产生威胁。人们会活得很长的概念或观点已经被提出来了。这种可能性能够表明人上了年纪后，智力依然保持吗?人们能够达成协议，在他们死后使用他们的身体或身体的某一部分吗?这些捐献将帮助他人移植身体的某些器官。人们还会像现在的传统那样举行葬礼，埋进坟墓里，或者火葬会更普遍吗?"
+         },
+         {
+            "time": "",
+            "chapter": "If we wear corrective lenses now, perhaps our vision could be improved or restored through laser surgery. We would no longer need to wear glasses. The tragedy of a stroke and the resulting mental disability(伤残,残疾) could be prevented if a monitor could analyze the person’s condition and recommend changes in lifestyle or treatment that could avert(预防) a stroke or a heart attack.",
+            "trans": "如果我们现在带上矫正镜，或通过激光手术我们的视力就会改善或恢复。我们将不再需要带眼镜了。如果监控器能够分析出人的健康状况，并且建议改变可能导致中风或心脏病发作的生活方式，提出避免中风和心脏病发作的治疗方法，中风这样的不幸及其引发的智力障碍就可以预防。"
+         },
+         {
+            "time": "",
+            "chapter": "An ambulance equipped with sophisticated portable medical diagnostic equipment could have the ability to assess multiple injuries of the victim of an accident. Recovery would be assisted by the provision of prompt treatment.",
+            "trans": "一辆配备有精密便携式医疗诊断设备的救护车能诊断出事故受害者的多种伤势。而及时进行的处理有助于伤者的康复。"
+         },
+         {
+            "time": "",
+            "chapter": "The prospect of a joint that swells, being treated by a restraint that causes lack of motion, is not a new idea, but will a synthetic joint be used to replace the joint instead of being treated in the current familiar way? Will replacement of a hip joint become more commonplace? Could a doctor operate on one of our organs without having to invade our bodies? Could surgery be performed with the aid of a small that it would be measured in millimeters? The opening required to insert the camera into our body would be tiny.",
+            "trans": "治疗关节肿痛的前景不是一个什么新的观念，用抑制病痛的办法治疗会导致暂时无法活动，那么会使用合成关节取代我们现在流行的处理方法吗?更换髋关节会变得很平常吗?医生能够不触及人体就能对某个器官动手术吗?手术能够借助小型照相机进行吗?照相机镜头的直径可能小到毫米以下吗?那样，需要将照相机送入人体体内的武器将会非常小。"
+         },
+         {
+            "time": "",
+            "chapter": "Could a microscope be used in the study of biology to watch the development of a specimen of synthetic bacteria and then the specimen is used to create a treatment for the disease being studied?",
+            "trans": "显微镜会用于生物学研究来观察合成细菌标本的培育，然后将标本用于制造出一种与所研究的疾病有关的治疗方法吗?"
+         },
+         {
+            "time": "",
+            "chapter": "Food [食物]\nOur diet might contain come of the same foods that we eat now. Will we still use flour to make a loaf of bread? Maybe there will be ways to preserve our food so that bread never goes stale. Will we still eat common food combinations such as liver and onions? Will our favorite meal be roast beef or sausage and be cooked with cabbage? Will a typical breakfast menu include toast and jam? Maybe we will have a substitute for butter which tastes good.",
+            "trans": "我们的食谱可能包括我们今天正在吃的某些食物。我们还会用面粉做面包吗?也许，会有防止我们的食物变质的办法来使面包保持原味。我们还会吃像肝和洋葱这样的普通混合食物吗?我们最喜欢的饭会是烤牛肉或香肠和卷心菜一起煮吗?典型的早餐会包括土司和果酱吗?也许我们会有替代黄油的美味食品。"
+         },
+         {
+            "time": "",
+            "chapter": "Food might not be purchased from a grocer or from a supermarket. Instead, as customers, we might order our food, using the internet and have it delivered to our residences. Maybe an automatic recorder would be placed when food is removed from a refrigerator. Preparation of food might be eliminated but because people enjoy eating, maybe there will be the option of nourishing our bodies through food or using some other means. Perhaps a series of pills will provide adequate nourishment. Fruits such as grapes, peaches or pears might still be available in several forms such as frozen or dried for our consumption. Candy would be difficult to give up for anyone who enjoys eating sweets. Pie for dessert is a favorite with some people and maybe a way will be found to produce a pie that tastes good and yet will be a healthy food for us to eat. A hot bowl of soup not only nourishes but also comforts people and we would not want to relinquish(放弃) that. Protein sources that have not been used before will become evident.",
+            "trans": "食品不需要从杂货店或超级商场购买。取而代之的是，作为顾客，我们可以使用互联网定购食物并把它送到我们的住处。也许，当食品从冰箱里取出时可以自动记录下来。备制食品可能会没有必要了，但因为人们喜欢吃，也许可以通过选择食品或者其他方式为我们的身体提供营养。也许，一系列药丸就可以提供足够的营养。我们仍然可能吃像葡萄、桃子或梨这样的水果，以冰冻或干缩等几种形式进行消费。要放弃糖果对喜欢吃甜食的人来说是很难的。作为饭后甜点的馅饼是一些人喜欢的东西，可能会找到一种方法来生产一种馅饼，味道很好同时还是一种我们食用的保健食品。一碗热汤不仅有营养而且使人舒心，我们是不会舍弃的。从前没见过的蛋白质资源将随处可见。"
+         },
+         {
+            "time": "",
+            "chapter": "Provision of a ham and cheese sandwich for lunch might be available through a special appliance that takes our food order and prepares the food and delivers it to us. Ice-cream could be made, with the option of using either artificial sweetener or sugar. Will we fry foods like bacon and steak or will we be able to cook them by other means? We could combine foods such as peas and carrots with garlic to gain an abundant supply of vitamins from one dish.",
+            "trans": "一种特殊的设备，能接受我们的食品定单、制作食物并把它送到我们面前，我们就可以在午餐时吃到火腿和乳酪三明治。冰淇淋可以选用人造甜料或糖来制造。我们会油炸像咸肉和牛排这样的食物，还是用其他方法来烹调它们?我们可以把像豌豆、胡萝卜和大蒜这样的食品结合在一起，一道菜就可以提供足够的维生素。"
+         },
+         {
+            "time": "",
+            "chapter": "Household [家庭]\nWhat kind of accommodations will we enjoy? We are used to having more than adequate housing so we would not enjoy having to convert to a smaller residence. The access to our homes might be controlled for security reasons. Our entry might be gained by having a computer read our fingerprint(指纹) to see if it will correspond to detect if the right person is trying to enter the residence. Some suggestions are that it would be better to use the print of a thumb so the thumbprint would be used instead of a fingerprint. Both are a possibility.",
+            "trans": "我们会喜欢什么样的住宅?我们习惯于拥有较大的住宅，不喜欢换到较小的地方住。为了安全，进入我们的家时应该受到监控。要进去，需要由电脑读出我们的指纹，看你是否与记录相符合，以察明想要进入住宅的人是否适当。有人建议，最好使用指纹，因此拇指指纹将会代替指纹。两者都是可能的选择。"
+         },
+         {
+            "time": "",
+            "chapter": "Our garbage will be put in a garbage disposal unit that will eliminate the need for trash collection. Light bulbs will seldom need to be replaced, as they will be made to last a minimum of five and a maximum of ten years. To decorate our homes, we might just give a description of what we want and have it completed by an interior decorator(装修工) with little interaction required from us. We could have our choice of background music played throughout the house, or varied from room to room. We might hear a symphony(交响乐) orchestra in one room and jazz in another. Will we have the luxury of having a maid do our cleaning or will that be unnecessary, as our home will become self-cleaning? Will we use soap and water to do our laundry or will another method that is friendly to the environment be developed? Will we use a furnace to heat our home or will we control the micro climate indoors by the use of solar power?",
+            "trans": "我们的垃圾将放进垃圾处理器，不再需要收集垃圾。几乎不需要更换灯泡，因为制造出的灯泡至少可以使用5-10年。想装修我们的家，只需要提供我们所想要的样子，就可以全部让室内设计师完成，不用我们操心。我们可以在一个房间听交响乐，在另一个房间听爵士乐。我们还有必要雇一个女仆为我们清理房间呢，或者根本就不需要，因为我们的家已变成自我清洁式的?我们会使用肥皂或水洗衣服，还是会开发出一种对环境有利的新方法?我们会使用炉子为房间供暖，还是使用太阳能来控制室内的小气候?"
+         },
+         {
+            "time": "",
+            "chapter": "For people who live in a home in the suburbs will the tedious chore(家庭杂务) of mowing(割草) the lawn be accomplished in an efficient way by a robotic mower? Will weeds in our grass merely vanish as the mower emits a time release chemical to destroy them?",
+            "trans": "对于家住在市郊的人，除草这种单调乏味的杂务会由机器人除草器这种有效的方法完成吗?在除草机定时释放一种化学药品时，我们草地上的杂草是否会被杀死?"
+         },
+         {
+            "time": "",
+            "chapter": "Transportation [交通]\nWill we float over highways or drive on the road surface as we do now? Will the cost of a gallon of fuel still be our concern? What will our vehicles look like? Will the profile of our automobiles look like the shape of space age aircraft? Will the notion of using paint to protect the car’s exterior be obsolete? Perhaps the coating on the car will give a durable shine and we will never to wax or polish it. What kind of battery will we use to power our car? Will we still have a mechanic repair our car at a service garage or will robots that are computerized(用计算机处理) do it? Will the motor be powered by a new kind of petroleum product or by hydrogen? Will the cars still be equipped with horns as a warning signal or will a new device be available? Will there be a gauge(测量仪表) to warn us if our speed is too fast or will radar be used to guide the car so that driver error is no longer a concern?",
+            "trans": "我们会漂浮在公路上，还是像现在一样在路面上驾驶?燃油的价格还是我们所要关心的吗?我们的交通工具会是什么样?我们汽车的外形看起来像太空时代的飞行器吗?使用油漆保护车子外表的观点会过时吗?也许，车的涂层会保持持久的光泽，永远不需要为车上蜡或进行擦拭。我们会使用什么样的电池作为汽车的动力?我们会在维修车库请机械师修理汽车，还是让电脑控制的机器人来做?发动机是用一种新的石油产品还是用氢气来驱动?汽车仍然配备喇叭作为警告信号还是使用一种新的装置?如果车速太快，会有一种装置警示我们，还是使用雷达引导汽车使得驾驶失误不再是一个问题?"
+         },
+         {
+            "time": "",
+            "chapter": "Electronics [电子器件]\nWill we be able to play any musical instrument such as a guitar easily with a process the machine teaches us? Will other media, such as movies, be interactive? Will we have access to optical discs that can be played by laser? Digital images will more closely imitate reality. They will be so realistic that it will be virtually impossible to tell them from the real thing. Our enjoyment of watching a video will be enhanced by the quality of the images. Will we have equipment capable of manipulating ideas, eliminating the need for journalists to write and edit the news? Will computer software be available to modify what we type so that our errors are corrected automatically? Will computer hardware include massive amounts of memory that will allow us to file an enormous amount of material?",
+            "trans": "我们可能借用机器教学程序使学习吉他等乐器更为容易吗?其他媒体，比如电影，可以是互动的吗?我们可以拥有由激光播放的光盘吗?数字影像会更真实地模拟现实。事实上，他们是如此逼真，你不可能将他们从真实的东西中区分出来。图像质量高会增加我们观看视频的乐趣。我们会有能够处理思想而不再需要记者去编写新闻的设备吗?电脑软件能够对我们的输入进行优化从而自动改正我们的错误吗?电脑硬件是否会有更大的存储量，使我们能处理非常多的资料?"
+         },
+         {
+            "time": "",
+            "chapter": "Will we be in the habit of carrying a small device with us that can be used as a cell phone, a fax, a microphone and an internet connection?",
+            "trans": "我们会习惯于随身携带一件小装置，能够用作移动电话、传真、麦克风和上网吗?"
+         },
+         {
+            "time": "",
+            "chapter": "Summary [总结]\nLook at the world around you and consider some of the concepts discussed in this document. Careful observation will lead you to the conclusion that many of these things have already happened. I urge you to reread each paragraph of this article to see if perhaps they are all things that are available somewhere in the world currently. If that is the case, then you will agree that the future is now!",
+            "trans": "看看你周围的世界，考虑一下本文中讨论的某些概念。仔细观察，你就会得出结论，上述的很多理想已经实现了。我劝你把本文中的每一段再读一遍，看看是否都能在世界上的某个地方遇到。如果事实的确如此，那么你就会同意未来就是现在!"
+         }
       ]
    }],
    [{
@@ -1028,7 +1260,81 @@ remain as a part of this renewed relationship in the memory.`
       url: 'http://online1.tingclass.net/lesson/shi0529/0000/834/15.mp3',
       type: 'articleEN',
       sections: [
-         { time: '00:00', chapter: `` },
+         {
+            "time": "",
+            "chapter": "With great anticipation, China is busily preparing for the 2008 Summer Olympic Games. Beijing will be added to a long list of the great cities that have invited the world to honor the world’s greatest athletes in the modern ear of the Olympic Games. China will also become part of an important, rich heritage that goes back more than 2000 years.",
+            "trans": "中国正满怀期望，积极为2008年夏季奥运会做准备。北京将成为有幸举办奥运会的伟大城市之一，届时她将邀请全世界来嘉奖世界上最伟大的运动员。中国也将成为这个有2000多年历史，重要而丰富的传统的一部分。"
+         },
+         {
+            "time": "",
+            "chapter": "The origins of the ancient Olympic Games tend to be submerged in sea of Greek myths. One popular myth suggests that Pelops, a prince from Lydia, in Asia Minor (nowadays Turkey), won the hand of a princess by unfairly defeating a competing suitor in a chariot race. The loser was to be condemned to beheading. The prince rigged his opponent’s chariot to crash during the race. Later, the chariot did crash, killing the driver. The princess became Pelop’s bride, and he instituted the Olympic Games to celebrate his victory. However, others claimed that the first Olympic event was a funeral festival to honor his dead competitor.",
+            "trans": "古代奥运会的起源很容易就被淹没在浩瀚的希腊神话中。一个广为流传的神话说，珀罗普斯，小亚细亚(现在的土耳其)的吕底亚的一个王子，在一次战车比赛中用欺骗手段击败了求婚对手，赢得了一位公主的婚约。当时失败者会被判斩首，而对手的战车被王子做了手脚使其在比赛中被撞毁。后来，车毁人亡。那位公主成了珀罗普斯的新娘，他创立了奥林匹克运动会庆祝他的胜利。不过，另外一些人则声称第一次奥运会是为纪念他死去的对手而举行的葬礼。"
+         },
+         {
+            "time": "",
+            "chapter": "Another myth involved Hercules, the mythical strong man. Hercules was the son of Zeus, the Greek god, and one of the god’s mistresses. Hera, Zeus’ wife, and also his sister, was very upset. She attempted in many ways, to kill Hercules as a baby. Hercules survived. Later, after he had married, Hera successfully put a spell on him, demanding that he kill his wife. Because he was the son of the god, Zeus, Hercules was destined to become a god himself. In order to accomplish this, Hercules had to be cleansed of his wife’s murder. To do this, he was directed to perform twelve difficult labors. If he successfully completed these, he would become an immortal god, like his father.",
+            "trans": "另一个神话是有关赫尔克里斯的，一个神话中的大力士。他是希腊主神宙斯和他的一个情妇的儿子。赫拉，宙斯的妻子，也是他的姐姐，非常气愤。在赫尔克里斯还是个婴儿时，赫拉就使用了很多方法要杀死他。但赫尔克里斯幸存下来。后来，在他结婚后，赫拉成功地对他施以诅咒，让他杀死他的妻子。因为他是宙斯的儿子，赫尔克里斯自己注定也会成为一个神。为了做到这一点，他必须洗清他谋杀妻子的罪名。为此，他被要求要完成十二件艰巨的大事。如果他成功地完成了这些任务，他就会像他父亲一样，成为不朽的神。"
+         },
+         {
+            "time": "",
+            "chapter": "One of the majestic labors was to clean the stables of the King of Elis, in the impossibly brief period of one day. The king had huge stables with very large herds of cattle. Hercules asked the king to give him one tenth of his cattle, if he completed the task in one day. The king, perhaps humoring Hercules, or perhaps believing that this task couldn’t possibly be done in one day, agreed. In one day, Hercules diverted two rivers through the barns, cleaning them, but he did not receive the cattle that were promised in the deal. Hercules waged a successful war on the King, sacking Elis. He introduced the Olympic Games to celebrate this victory and to honor his father, Zeus, who lived on nearby Mount Olympus. The myth also suggests that Hercules measured out the stade, a footrace event of about 200 meters (or the length of the stadium).",
+            "trans": "其中一项任务是，在短短的一天之内清洁好艾丽斯国王的马厩，这几乎是不可能的事。艾丽斯国王的马群非常大，所以他有一个巨大的马厩。赫尔克里斯提出，如果他在一天之内完成了任务，国王就给他十分之一的马群。也许是觉得赫尔克里斯有点可笑，认为他根本不可能在一天内完成任务，国王就答应了。在这一天里，赫尔克里斯把两条小河引过来，将马厩冲洗干净，但没有得到承诺的马群。赫尔克里斯于是发动了一场战争，洗劫了艾丽斯。他举行了奥林匹克运动会来庆祝这次胜利和表示对父亲宙斯的敬仰。他的父亲宙斯就住在附近的奥林匹斯山上。这个神话还说，赫尔克里斯测量了运动场的长度，一个两百米长的跑道(或一个露天运动场的长度)。"
+         },
+         {
+            "time": "",
+            "chapter": "As today, athletes in the ancient world were popular and had tremendous impact on the society of their day. The goal of the well-disciplined, physically trim athletes was to be the best. The champion athlete assumed a position of honor and privilege in Greek society. The status of a triumphant athlete also enhanced the reputation of his home city-state. Every young Greek boy who pursued the dream of being an Olympic champion some day envied the athletes. An important part of a Greek school boy’s curriculum was vigorous physical training in gymnasium.",
+            "trans": "像今天一样，古代的运动员很受欢迎，对他们那个时代的社会也有很大的影响。训练有素、身材匀称的运动员的目标是成为最好的运动员。冠军运动员会得到荣誉，在古希腊拥有特权。获胜运动员的地位也会增强自己家乡城市的名望。每一个希腊小伙子都羡慕那些运动员，梦想有一天自己成为奥林匹克冠军。古希腊学校里男孩子的课程里很重要的一部分就是在体育馆内上体育课。"
+         },
+         {
+            "time": "",
+            "chapter": "The ancient Olympic Games, which began in 776 BC, lasted for over 1100 years. In 394 AD, the Christian Roman Emperor Theodosius abolished the games, as pagan festivals. At that time the Roman Empire was in decline. The modern Olympics have been around for only a little over 100 years, sine 1896. The Olympics of 776BC was the first, for which there is a written record, but it is believed that these events existed before this. There is evidence to show that athletic contests took place in Ancient Egypt and in the ancient Minoan civilization on the island of Crete.",
+            "trans": "古代奥运会始于公元前776年，延续了1100多年。公元394年，基督教罗马皇帝狄奥多西将其视为异教徒的节日予以废除。那时的罗马帝国正在衰落。现代奥林匹克运动会从1896年开始，才100多年。公元前776年的奥运会是有文字记录的第一届，但人们相信在此之前这项运动就已经存在了。有证据表明在古埃及和克利特岛上的古弥诺斯文化中就举行过体育比赛。"
+         },
+         {
+            "time": "",
+            "chapter": "A plain called Olympia, in the small city-state of Elis was the site of the original Greek games. At the beginning of every four years, a period called an Olympiad, a major religious festival with athletic competition, took place at Olympia. In ancient Greece, the early Olympics did not rotate from city to city, but were permanently hosted at Olympia, the place from which the name Olympics originated. If wars were taking place at the time, as there usually were, a truce would be made during the military conflicts, soldiers would drop their swords and shields and accompany their opponents on a safe passage to Olympia, to enthusiastically participate in the games. After the games, the athletes would return to the battlefields with their companions, pick up their weapons and resume military engagements with their enemies, often fighting to the death, the athletic competitors whom they confronted only a few days or weeks before.",
+            "trans": "在小城邦艾丽斯的奥林匹亚平原，就是古代希腊运动会的场地。每4年的年初，这个期间叫做“四年周期”，伴随体育比赛，要在奥林匹亚举行盛大的宗教节日。在古希腊，早期奥运会不是一个个城市轮流，而总是在奥林匹亚举行，“奥运会”因此得名。到时如果发生战争(这是常有的事)，对抗的军队之间就会休战，战士们丢下他们的剑和盾牌，与他们的对手一起，安全地来到奥林匹亚，参加狂热的运动会。运动会后，运动员们将与他们的同伴一起重返战场，拿起武器，与他们的敌人，也就是仅仅几天或几个星期前相遇的体育竞赛对手，继续交战，常常会战斗到死。"
+         },
+         {
+            "time": "",
+            "chapter": "In the beginning, only free Greek-speaking male athletes could participate in the games, women, slaves, and foreigners were banned from competition. Women were even barred as spectators, not for sexual reasons, but for from 720 BC the male athletes were usually naked down to their bare feet when they participated. Olympia was a sacred place for men only, a place to worship Zeus, the principal Greek god. However, women were not completely excluded from competitive sports, as they had their own games, every four years as well, called the Heraea, after Hera, the wife of Zeus.",
+            "trans": "起初，只有讲希腊语的自由男运动员可以参加运动会，妇女、奴隶和外国人是不允许参加竞赛的，甚至不准妇女观看。这并非性别的原因，而是因为从公元前720年开始，男运动员在参加比赛时常常从头到脚都是赤裸的。奥林匹亚是只让男人参加的宗教圣地，是崇拜希腊主神宙斯的地方。然而妇女并没有完全被排斥在体育比赛之外，她们有自己的运动会，也是每四年举行一次，叫做赫拉亚，以宙斯的妻子赫拉命名。"
+         },
+         {
+            "time": "",
+            "chapter": "The first number of Olympic Games had only one event, called the stade. By the late 8th century BC, events included running, wrestling, boxing, pancratium (a mixture of boxing and wrestling), chariot racing, a footrace with heavy armor, and the pentathlon. The only official prize earned by the champion, was a crown of wild olive branches. Unofficially, some athletes received valuable prizes, including large sums of money from their home city-states. As in modern times, ancient athletes, even though they made pledges of fairness in competition, sought our every advantage, legal or illegal, in order to win. Even then, the concept of amateurism, for which there were no rules in ancient times, and the zeal for the competitive spirit were often sacrificed for the more selfish materialistic considerations.",
+            "trans": "最初的奥运会只有一个项目，叫做“斯泰底”。在公元前8世纪末，比赛项目包括赛跑、摔跤、拳击、角斗(摔跤和拳击并用)、赛车、负重跑和五项全能运动。冠军赢得的唯一正式奖品是一个野橄榄树枝编的桂冠。非正式地，有些运动员得到有价值的奖品，包括他们家乡城邦给的大笔奖金。像现代一样，古代的运动员，尽管他们发誓要公平竞赛，但是为了取胜，他们会设法获取各种优势，不管是合法的还是非法的。即使在那时，业余的概念——对此古代没有规定——和对体育精神的追求常常为了自私自利的物质报酬而受到亵渎。"
+         },
+         {
+            "time": "",
+            "chapter": "By the 6th century BC, athletes began to specialize in particular sports, and even began to hire coaches. Special diets and new innovated kinds of physical conditioning became popular. Protein, from meat and beans in particular, became the popular nutritional need of Olympic athletes. The rules for events became more numerous and more strictly enforced. For example, a false start of a running event might have been followed by a whipping of the violator. Penalties usually included fines for most violations. It was said that the elegant, elaborate bronze statues of Zeus that lined the route to the Olympic Stadium in the fourth century BC, were financed by revenue created by fines imposed on athletes. Some athletes even became free agents, negotiating and hiring themselves out to the highest bidder, to win races and money for their sponsors. One rather peculiar practice that surrounded the chariot race event was that the owners, rather than the drivers of the chariots, received the honors and prizes. Some owners entered numerous chariots in the same event to increase their chances of winning. To the amusement of Olympic historians, Emperor Nero (famous for burning Rome) apparently entered a chariot race in which he fell from his chariot and did not finish, but still received the champion’s crown of olive branches. Who could argue with the Emperor?",
+            "trans": "到了公元前6世纪，运动员开始专攻个别项目，甚至开始雇佣教练。专门的饮食和独特的身体训练方法开始流行起来。蛋白质，特别是肉类和豆类，成了流行的奥林匹克运动会需要的营养品。体育项目的规则变得复杂起来，也更加严格了。例如，赛跑比赛的偷跑者可能会受到鞭笞的惩罚。惩罚通常包括对多数违规者的罚款。据说，公元前4世纪，摆放在奥林匹克运动场的入口处的、精心制作的庄严的宙斯青铜像，就是对运动员的罚款得来的收入提供的经费。一些运动员甚至成为自由代理人，与出价最高者谈判并被其雇佣，为他们的赞助人赢得比赛和金钱。与赛车比赛有关的一个相当特别的惯例是，赛车的主人而不是赛车手得到荣誉和奖品。为了增加获胜的机会，一些人在一次比赛中投入许多辆赛车。令奥林匹克历史学家感到好笑的是，显而易见尼实禄皇帝(有名的罗马暴君)还参加了一次赛车，比赛中从车中摔了出来，没有赛完，但还是得到了冠军的橄榄枝桂冠。谁敢和皇帝竞争呢?"
+         },
+         {
+            "time": "",
+            "chapter": "By the 4th century BC, the Greek-only restriction on participation was eased as the Olympic organizers accepted athletes from overseas, from such territories as Egypt and Libya on the African continent. Many city-states even provided financial support and facilities for athletes so that they could concentrate full time on training, sometimes for more that a year before the games.",
+            "trans": "到公元前4世纪，只准讲希腊语的人参加比赛的限制被放宽了，奥林匹克的组织者接受了来自海外的运动员，如从非洲大陆的埃及和利比亚这样的领地来的人。许多城邦甚至为运动员提供财政支持和设施，使他们能够把全部时间都用在训练上;有时，训练在运动会前一年多就开始了。"
+         },
+         {
+            "time": "",
+            "chapter": "The ancient Olympics were a strange mix of a religious pilgrimage and a forum for intense athletic competition. As mentioned above,, Emperor Theodosius tried to permanently put an end to the games as pagan exercises, but they emerged again in 1896 after an interval of more than 1600 years. The Olympics maintained a religious theme from the beginning, varying in degree over time. The events were originally dedicated to the worship of gods and heroes, especially deceased heroes. They were, at times, called funeral games (as mentioned in Homer’s Iliad), and sometimes fertility festivals. The games gradually in the worship of the prominent cult of Zeus, the chief god. Today, the Olympics Games are secular events.",
+            "trans": "古代奥运会是宗教朝圣和激烈的体育比赛的奇特组合。如上所述，狄奥多西皇帝试图终止这种被当作异教徒活动的运动会，但它们在中断了1600多年后的1896年又出现了。奥运会保留了最初的宗教主题，但随着时间的推移，发生了不同程度的变化。比赛项目的设立最初是为了崇拜众神和英雄，特别是死去的英雄。有时，它们被叫做“葬礼”活动(如荷马的《伊利亚特》所提到的)，有时叫做丰收庆典。运动会在祭拜主神宙斯的活动中逐渐达到高潮。而今天奥运会的运动都是与宗教无关的比赛项目。"
+         },
+         {
+            "time": "",
+            "chapter": "The most prominent symbols of the Olympic Games today did not originate in classical times. The Olympic torch was an innovation in 1916. The five rings were originally introduced to represent the first five Olympics of the modern era from 1896 to 1912. In 1920 the rings were revived to represent the five continents with North and South America being represented by one ring. The 1936 Olympics in Nazi Germany, was the site of the first lighting of the Olympic flame.",
+            "trans": "现代奥运会最突出的象征并不是来源于古典时代。奥林匹克火炬是1916年的创新，而引进五环最初是表示从1896年到1912年的头五届现代奥运会。1920年，这些环重新被用来代表包括五个大陆，南北美洲用其中一个环表示。在纳粹德国举行的1936年奥运会，是第一次点燃奥林匹克圣火的地方。"
+         },
+         {
+            "time": "",
+            "chapter": "The spirit of intense competition in association with heroism and national pride, remain major themes of the Olympics today, much as they were over 2000 years ago. Today, countries send their best, amateur and professional alike, to compete for the highest honors. Athletes also still try to find an advantage to give a better performance than all other competitors, sometimes, unfortunately, not always following the rules.",
+            "trans": "几乎与2000多年前一样，与英雄主义、民族自豪感相联系的努力拼搏的精神仍然是现代奥运会的主题。今天，每个国家派出他们最好的选手，不管是业余的还是职业的，来争夺最高的荣誉。运动员们仍然要想方设法取得优势，以胜过其他选手。不幸的是，有时候也会不遵守规则。"
+         },
+         {
+            "time": "",
+            "chapter": "Every four years, or every two years when one includes the winter Olympics, which began in 1924, the world focuses on a human event that represents the good of humanity. Motivated for a couple of weeks, in those years, people and nations try to forget their troubles, put aside their differences and conflicts, and become part of a vast promotion of good global relations and cooperation. One sometimes wonders if the Olympics serve as a safety valve in international human relations, attributing to a collective sanity in a world that, not unlike that of ancient times, is perpetually the scene of conflict, strife, and human misery. Certainly one would like to think that that is the case. If not, one can always hope.",
+            "trans": "从1924年开始，每隔四年(如果你把冬季奥运会算进来的话则为每隔两年)，全世界的注意力都集中到这一表现人性好的一面的人类活动上。在这些年中的两个星期里，各国各民族设法忘掉他们的烦恼，撇开他们的分歧和冲突，参与到这个促进世界关系发展向前和合作的运动中。有人也许会想，在这个与古代没有什么两样，永远是冲突、斗争、悲剧的世界上，奥运会是否可以成为国际关系的安全阀，来唤醒人们共同的良知。人们当然愿意相信事实就是这样。如果不是，人们总是可以希望如此。"
+         }
       ]
    }]
 

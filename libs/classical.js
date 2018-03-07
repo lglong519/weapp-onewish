@@ -60,4 +60,33 @@ module.exports = [
       type: 'classical',
       image: 'https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=94c0a17a9225bc313f5009ca3fb6e6d4/8b82b9014a90f603cab8e8f33212b31bb051ed7e.jpg'
    }]
+   ,
+   [{
+      title: "舒伯特小夜曲",
+      author: '李斯特改',
+      url: 'http://tm3dfds.yusi.tv/uuauth/UUAuth/wymp3/2015/10/11/202312_7080668.mp3?a5279aada517a7e89948f3031ba06d11',
+      type: 'classical'
+   }]
+   ,
+   [{
+      title: "萤火虫之舞",
+      author: '萤火虫',
+      url: 'http://tm3dfds.yusi.tv/uuauth/UUAuth/wymp3/2015/10/11/202312_7080668.mp3?a5279aada517a7e89948f3031ba06d11',
+      type: 'classical',
+      image: 'https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=5b4f46b7700e0cf3b4fa46a96b2f997a/d058ccbf6c81800ad2c562abb33533fa828b4777.jpg'
+   }]
+   ,
+   [{
+      title: "梦里的故事",
+      author: 'Richard Clayderman',
+      url: 'http://tm3dfds.yusi.tv/uuauth/UUAuth/wymp3/2017/7/26/992975_2017726135355_8121_135556_6793344.mp3?a5279aada517a7e89948f3031ba06d11',
+      type: 'classical'
+   }]
+   ,
+   [{
+      title: "克罗地亚狂想曲",
+      author: 'Maksim·Mrvica',
+      url: 'http://tm3dfds.yusi.tv/uuauth/UUAuth/wymp3/2017/7/25/992975_2017725165117_7570_165445_8468608.mp3?a5279aada517a7e89948f3031ba06d11',
+      type: 'classical'
+   }]
 ]
