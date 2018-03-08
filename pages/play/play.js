@@ -232,6 +232,10 @@ Page({
 			});
 		}, 2000);
 		wx.setStorageSync('playMode', appData.modeIcon.mode[this.data.modeIndex]);
+		wx.removeStorageSync('randomList');
+		if (this.data.onPlay){
+			app.Funs.createRandomIndex();
+		}
 	},
 	rollup() {
 		this.setData({

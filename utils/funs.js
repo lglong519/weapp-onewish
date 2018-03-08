@@ -116,8 +116,8 @@ const resetData = (type, index) => {
 		data.index = index;
 		data.currAudio = data.audioList[index];
 		data.url = data.currAudio[0].url;
-		data.url && data.Audio.src != data.url && (data.Audio.src = data.url);
-
+		data.audioBackstage && (data.Audio = wx.getBackgroundAudioManager());
+		data.url && (data.Audio.src = data.url);
 		data.Audio.title = data.currAudio[0].title;
 		data.currAudio[0].author && (data.Audio.singer = data.currAudio[0].author);
 		data.Audio.coverImgUrl = data.currAudio[0].image ? data.currAudio[0].image : 'https://lglong519.github.io/test/images/panda-music.jpg';
@@ -144,9 +144,12 @@ const playControl = () => {
 		wx.showLoading({
 			title: '音频加载中...'
 		});
-		console.log('app.data.Audio.src', app.data.Audio.src);
-		console.log('app.data.url', app.data.url);
-		console.log('app.data.Audio', app.data.Audio);
+		if (wx.getStorageSync('ended')) {
+			app.data.Audio = wx.getBackgroundAudioManager();
+			wx.removeStorageSync('ended')
+			app.data.Audio.src = app.data.url;
+			app.data.Audio.play()
+		}
 		if (app.data.url && app.data.Audio.src != app.data.url) {
 			app.data.Audio.src = app.data.url;
 		}
@@ -258,7 +261,9 @@ const setAudioEvent = (app, that) => {
 	Audio.onPlay(() => {
 		console.log('onPlay');
 		wx.hideLoading();
+		wx.removeStorageSync('ended');
 		if (!appData.url) { return }
+		createRandomIndex();
 		appData.onPlay = true;
 		if (!data) { return }
 		that.setData({
@@ -303,6 +308,7 @@ const setAudioEvent = (app, that) => {
 	Audio.onStop(() => {
 		console.log('onStop');
 		wx.hideLoading();
+		wx.setStorageSync('ended', true);
 		/*
 		appData.onPlay = false;
 		if (!data) { return }
@@ -321,6 +327,7 @@ const setAudioEvent = (app, that) => {
 		}
 		var bool = false;
 		if (appData.audioBackstage) {
+			wx.setStorageSync('ended', true);
 			bool = true;
 		} else {
 			if (data) {
@@ -340,7 +347,7 @@ const setAudioEvent = (app, that) => {
 			}
 
 			if (playMode == 'list') {
-				if (appData.index < appData.modeIcon.mode.length - 1) {
+				if (appData.index < appData.audioList.length - 1) {
 					let newIndex = appData.index + 1;
 					resetData(appData.type, newIndex);
 					appData.onPlay = true;
@@ -353,7 +360,7 @@ const setAudioEvent = (app, that) => {
 
 			if (playMode == 'listLoop') {
 				let newIndex
-				if (appData.index < appData.modeIcon.mode.length - 1) {
+				if (appData.index < appData.audioList.length - 1) {
 					newIndex = appData.index + 1;
 				} else {
 					newIndex = 0;
@@ -366,11 +373,22 @@ const setAudioEvent = (app, that) => {
 			}
 
 			if (playMode == 'randomList') {
-
+				let list = wx.getStorageSync('randomList') || [];;
+				list && list.shift();
+				if (list.length) {
+					wx.setStorageSync('randomList', list);
+					resetData(appData.type, list[0]);
+					if (appData.url) {
+						appData.Audio.play();
+					}
+					app.data.onShow();
+				} else {
+					wx.removeStorageSync('randomList');
+				}
 			}
 
 			if (playMode == 'randomInfinite') {
-				let newIndex = parseInt(Math.random() * appData.modeIcon.mode.length);
+				let newIndex = parseInt(Math.random() * appData.audioList.length);
 				resetData(appData.type, newIndex);
 				if (appData.url) {
 					appData.Audio.play();
@@ -379,13 +397,13 @@ const setAudioEvent = (app, that) => {
 			}
 			if (playMode == 'randomAll') {
 				let types = ['articleZH', 'articleEN', 'classical', 'music'];
-				let newIndex = parseInt(Math.random() * appData.modeIcon.mode.length);
 				let typeIndex = parseInt(Math.random() * types.length);
+				appData.audioList = getAudioList(types[typeIndex]);
+				let newIndex = parseInt(Math.random() * appData.audioList.length);
 				resetData(types[typeIndex], newIndex);
 				if (appData.url) {
 					appData.Audio.play();
 				}
-
 				app.data.onShow();
 			}
 		}
@@ -469,6 +487,28 @@ const getCurrPart = (sectionTime, currentTime) => {
 	}
 	return '00:00'
 }
+const createRandomIndex = () => {
+	let appData = getApp().data
+	if (wx.getStorageSync('playMode') == 'randomList') {
+		if (!wx.getStorageSync('randomList')) {
+			let count = appData.audioList.length - 1;
+			let initNo = [];
+			while (count >= 0) {
+				initNo.unshift(count--);
+			}
+			initNo.splice(appData.index, 1);
+			let randomList = [];
+			(function getRandomNo() {
+				if (initNo.length > 0) {
+					randomList = randomList.concat(initNo.splice(parseInt(Math.random() * initNo.length), 1));
+					getRandomNo();
+				}
+			})();
+			randomList.unshift(appData.index);
+			wx.setStorageSync('randomList', randomList);
+		}
+	}
+}
 module.exports = {
 	articleZH,
 	articleEN,
@@ -485,5 +525,6 @@ module.exports = {
 	toSecond,
 	getCurrPart,
 	skip_previous,
-	skip_next
+	skip_next,
+	createRandomIndex
 }

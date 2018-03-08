@@ -23,5 +23,8 @@ Page({
 		wx.setTabBarStyle({
 			selectedColor: '#73A0C2',
 		});
+	},
+	onShareAppMessage(){
+		
 	}
 })

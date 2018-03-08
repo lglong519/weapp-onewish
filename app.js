@@ -3,6 +3,7 @@ import Funs from './utils/funs'
 App({
     onLaunch: function () {
         console.log(1, 'onLaunch');
+		wx.removeStorageSync('randomList');
     },
     onShow() {
         Funs.init(this);

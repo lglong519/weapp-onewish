@@ -83,7 +83,11 @@ Page({
 			index: e.detail.value
 		})
 		var that = this;
-		wx.setStorageSync('playMode', that.data.playMode[that.data.index])
+		wx.setStorageSync('playMode', that.data.playMode[that.data.index]);
+		wx.removeStorageSync('randomList');
+		if (app.data.onPlay) {
+			app.Funs.createRandomIndex();
+		}
 	},
 	logoutEvent() {
 		var that = this;
