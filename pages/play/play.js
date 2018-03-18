@@ -25,7 +25,6 @@ Page({
 		hideTabBar: false,
 		showAnchor: true,
 		showZoom: false,
-		animation: {},
 		onshow: true,
 		modeIcon: appData.modeIcon.list,
 		modeIndex: appData.modeIcon.index[wx.getStorageSync('playMode')],
@@ -74,12 +73,9 @@ Page({
 				}
 			}
 
-
 			if (toMinute(data.currentTime) != currentTimeFormat) {
 				if (appData.onPlay && data.onshow) {
-					appData.animation.rotate(40 * appData.turns++).step();
 					that.setData({
-						animation: appData.animation.export(),
 						currentTime: Audio.currentTime,
 						currentTimeFormat
 					})
@@ -233,7 +229,7 @@ Page({
 		}, 2000);
 		wx.setStorageSync('playMode', appData.modeIcon.mode[this.data.modeIndex]);
 		wx.removeStorageSync('randomList');
-		if (this.data.onPlay){
+		if (this.data.onPlay) {
 			app.Funs.createRandomIndex();
 		}
 	},

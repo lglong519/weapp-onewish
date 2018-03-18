@@ -21,9 +21,7 @@ const globalData = () => {
 			list: ['sync_disabled', 'repeat_one', 'format_list_numbered', 'low_priority', 'wrap_text', 'format_line_spacing', 'crop_rotate'],
 			mode: ['once', 'loop', 'list', 'listLoop', 'randomList', 'randomInfinite', 'randomAll'],
 			name: ['单曲播放', '单曲循环', '列表顺序', '列表循环', '列表随机', '列表随机循环', '全部随机']
-		},
-		animation: null,
-		turns: 1
+		}
 	}
 }
 
@@ -71,16 +69,6 @@ const init = (app) => {
 			data.windowHeight = res.windowHeight;
 		}
 	})
-	if (!data.animation) {
-		data.animation = wx.createAnimation({
-			duration: 1000,
-			timingFunction: 'linear',
-			delay: 0,
-			transformOrigin: '50% 50% 0',
-			success: function (res) {
-			}
-		})
-	}
 
 	setAudioEvent(app);
 	wxLogin(app);

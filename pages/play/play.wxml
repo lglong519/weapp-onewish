@@ -76,7 +76,7 @@
 </view>
 <!--music  -->
 <view wx:else class="page page-music flex-column align-center">
-    <view class='z-index disc-wrapper' animation="{{animation}}"  bindtap='playControl'>
+    <view class='z-index disc-wrapper rotation {{!show || !onPlay &&"animation-paused"}}'   bindtap='playControl'>
         <image src='../../public/images/disc.png' mode='aspectFit' class='disc'></image>
         <image src='{{currAudio[0].image || "../../public/images/2018fly.jpg"}}' mode='aspectFill' class='disc-image'></image>
     </view>
