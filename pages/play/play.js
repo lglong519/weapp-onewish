@@ -33,7 +33,9 @@ Page({
 		modeTimer: null,
 		rollup: false,
 		showTrans: null,
-		showTransIndex: null
+		showTransIndex: null,
+		lyric: app.Funs.lyric,
+		lyrics: []
 	},
 	onLoad() {
 		app.Funs.setAudioEvent(getApp(), this);
@@ -156,6 +158,12 @@ Page({
 				var sectionTimes = sections.map(i => i.time);
 			}
 		}
+		let lrc = app.Funs.lyricFormat(this.data.lyric[appData.currAudio[0].id]);
+		let lyrics = [];
+		lrc.lyricTimeTable.forEach(item => {
+			lrc.text[item] && lyrics.push(lrc.text[item]);
+		})
+
 		this.setData({
 			currAudio: appData.currAudio,
 			type: appData.type,
@@ -165,7 +173,8 @@ Page({
 			showZoom: wx.getStorageSync('showZoom'),
 			modeIndex: appData.modeIcon.index[wx.getStorageSync('playMode')],
 			onshow: true,
-			hide: false
+			hide: false,
+			lyrics
 		});
 
 		setTimeout(() => {

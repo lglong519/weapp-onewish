@@ -2,6 +2,7 @@ import articleZH from '../libs/articleZH.js';
 import articleEN from '../libs/articleEN.js';
 import classical from '../libs/classical.js';
 import music from '../libs/music.js';
+import lyric from '../libs/lyric.js';
 
 //定义全局变量
 const globalData = () => {
@@ -116,14 +117,14 @@ const resetData = (type, index) => {
 	}
 }
 function _recentView(type, index) {
-	let views=1;
-	let record = JSON.stringify({ type, index});
+	let views = 1;
+	let record = JSON.stringify({ type, index });
 	let recentViews = JSON.parse(JSON.stringify(wx.getStorageSync('recentViews')).replace(/,\\"views\\":\d+/g, ''));
 	let ifRecord = recentViews.indexOf(record);
 	recentViews = wx.getStorageSync('recentViews');
 	if (ifRecord > -1) {
-		var item =JSON.parse(recentViews.splice(ifRecord, 1));
-		views=++item.views ||1;
+		var item = JSON.parse(recentViews.splice(ifRecord, 1));
+		views = ++item.views || 1;
 	}
 	record = JSON.stringify({ type, index, views });
 	recentViews.push(record);
@@ -474,6 +475,7 @@ const toMinute = myTime => {
 }
 const toSecond = myTime => {
 	var reg = /[:：]/;
+	myTime = myTime.replace(/[\[\]\s]/g, '');
 	if (!reg.test(myTime)) {
 		return myTime;
 	}
@@ -515,11 +517,40 @@ const createRandomIndex = () => {
 		}
 	}
 }
+
+const lyricFormat = lyric => {
+	let arr = lyric.split('\n');
+	let text = {};
+	let lyricTimeTable = [0];
+	arr.forEach(item => {
+		let content = item.replace(/\[\d+([^\]]*)?\d+\]/g, '');
+		let time = item.replace(content, '').replace(/\s/g, '');
+		let timeTable = time.match(/\[([^\]]*)?\]/g);
+		if (timeTable) {
+			timeTable.forEach(val => {
+				let seconds = toSecond(val);
+				text[seconds] = content;
+				lyricTimeTable.push(seconds);
+			})
+		} else {
+			if (text[0]) {
+				text[0] = text[0] + '\n' + content;
+			}
+			text[0] = content
+		}
+	});
+	lyricTimeTable.sort((a, b) => a - b)
+	return {
+		lyricTimeTable,
+		text
+	}
+}
 module.exports = {
 	articleZH,
 	articleEN,
 	classical,
 	music,
+	lyric,
 	init,
 	keepPlay,
 	switchToPlay,
@@ -532,5 +563,6 @@ module.exports = {
 	getCurrPart,
 	skip_previous,
 	skip_next,
-	createRandomIndex
+	createRandomIndex,
+	lyricFormat
 }

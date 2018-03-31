@@ -76,14 +76,20 @@
 </view>
 <!--music  -->
 <view wx:else class="page page-music flex-column align-center">
-    <view class='z-index disc-wrapper rotation {{!show || !onPlay ? "animation-paused" : ""}}'   bindtap='playControl'>
+    <view class='z-index disc-wrapper rotation {{!show || !onPlay ? "animation-paused" : ""}}' bindtap='playControl'>
         <image src='../../public/images/disc.png' mode='aspectFit' class='disc'></image>
         <image src='{{currAudio[0].image || "../../public/images/2018fly.jpg"}}' mode='aspectFill' class='disc-image'></image>
     </view>
+    <image src='{{currAudio[0].image || "../../public/images/stars-128.jpeg"}}' mode='aspectFill' class='bg-music blur'></image>
     <view class='z-index mt-4 text-white'>{{currAudio[0].title}}</view>
     <view class='z-index mt-4 text-white'>{{currAudio[0].author}}</view>
-    <image src='{{currAudio[0].image || "../../public/images/stars-128.jpeg"}}' mode='aspectFill' class='bg-music blur'></image>
+    <view class='z-index mt-4 text-white'>
+        <scroll-view scroll-y="true" style="height: 226rpx;">
+            <view wx:for='{{lyrics}}' wx:key='item' class='text-center'>{{item}}</view>
+        </scroll-view>
+    </view>
 </view>
+<!--提示  -->
 <view wx:if='{{showToast}}' class='playmode-toast'>
     <view class='mode-name'>{{modeName[modeIndex]}}</view>
 </view>
