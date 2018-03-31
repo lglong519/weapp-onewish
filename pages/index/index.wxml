@@ -21,4 +21,32 @@
             <text>Articles</text>
         </view>
     </view>
+
+    <view class="weui-flex py-3 bg-white mt-4">
+        <view>
+            <icon class='material-icons ml-3 mr-2 text-green-0'>visibility</icon>
+            <text class='weight-600 text-black'>最近浏览</text>
+        </view>
+    </view>
+
+    <view class='my-1 recent-views'>
+        <block wx:for='{{recentViews}}' wx:for-index='i' wx:key='item'>
+            <block wx:if='{{i<10}}' wx:for='{{ libs[item.type][item.index] }}' wx:for-item='inner' wx:for-index='j' wx:key='content'>
+                <view class='flex-row justify-between align-center text-center bg-white py-1' bindtap='playControl' data-audio-type='{{item.type}}' data-audio-index='{{item.index}}'>
+                    <view class='series'>{{i}}</view>
+                    <image wx:if='{{inner.image}}' src='{{inner.image}}' mode='aspectFit' class='view-img mr-3'></image>
+                    <view class="flex flex-row justify-between align-center border-bt">
+                        <view class="flex flex-column  align-start my-2">
+                            <text class="mb-1 weight-700">{{inner.title}}</text>
+                            <view class='flex-row justify-between align-center text-grey text-12'>
+                                <text class='mr-4'>{{inner.author}}</text>
+                                <text>{{item.views}}</text>
+                                <icon class='material-icons  text-10 ml-1 headset'>headset</icon>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </block>
+    </view>
 </view>

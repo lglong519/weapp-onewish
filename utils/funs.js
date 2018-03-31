@@ -42,6 +42,7 @@ const init = (app) => {
 	wx.setStorageSync('audioBackstage', data.audioBackstage);
 	wx.getStorageSync('showAnchor') !== false && wx.setStorageSync('showAnchor', true);
 	wx.getStorageSync('showZoom') !== false && wx.setStorageSync('showZoom', true);
+	wx.getStorageSync('recentViews') || wx.setStorageSync('recentViews', [])
 
 	//+设置audioList
 	data.audioList = getAudioList(data.type);
@@ -93,10 +94,12 @@ const resetData = (type, index) => {
 		// clearData(app);
 		data.type = type;
 		data.audioList = getAudioList(type);
+		_recentView(type, index);
 		_();
 	} else {
 		//如果只是索引改了
 		if (index !== data.index) {
+			_recentView(type, index);
 			_();
 		}
 	}
@@ -111,6 +114,20 @@ const resetData = (type, index) => {
 		data.Audio.coverImgUrl = data.currAudio[0].image ? data.currAudio[0].image : 'https://lglong519.github.io/test/images/panda-music.jpg';
 
 	}
+}
+function _recentView(type, index) {
+	let views=1;
+	let record = JSON.stringify({ type, index});
+	let recentViews = JSON.parse(JSON.stringify(wx.getStorageSync('recentViews')).replace(/,\\"views\\":\d+/g, ''));
+	let ifRecord = recentViews.indexOf(record);
+	recentViews = wx.getStorageSync('recentViews');
+	if (ifRecord > -1) {
+		var item =JSON.parse(recentViews.splice(ifRecord, 1));
+		views=++item.views ||1;
+	}
+	record = JSON.stringify({ type, index, views });
+	recentViews.push(record);
+	wx.setStorageSync('recentViews', recentViews);
 }
 const switchToPlay = e => {
 	let dataset = e.currentTarget.dataset;
@@ -331,6 +348,7 @@ const setAudioEvent = (app, that) => {
 				if (appData.url) {
 					appData.Audio.src = appData.url;
 					appData.Audio.play();
+					_recentView(appData.type, appData.index);
 				}
 			}
 

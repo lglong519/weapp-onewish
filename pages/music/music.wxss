@@ -6,6 +6,7 @@
     height: 320rpx;
     background-color: rgba(41, 37, 52, 0.8);
     color: #fff;
+	box-sizing: border-box;
 }
 
 .classical {

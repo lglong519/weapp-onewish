@@ -58,7 +58,7 @@ module.exports = [[{
    title: '大桥上',
    author: '汪峰',
    id: 25638213,
-   url: 'http://music.163.com/song/media/outer/url?id=25638213.mp3',
+   url: 'http://dl.stream.qqmusic.qq.com/C400003MGzqC4KN21l.m4a?vkey=9A04F3489A3E6B840B0E0467E93B9E57972A2AB46803478DEB85C7CD5D891957032E41E585FC737D495CFC2EBA2512045CEAF936CD38FBB0&guid=9146403020&uin=0&fromtag=66',
    type: 'music',
    image: 'http://p1.music.126.net/A9E42udDaYWsYe7b1-zufw==/19008357021247600.jpg'
 }],
@@ -213,4 +213,20 @@ module.exports = [[{
    url: 'http://music.163.com/song/media/outer/url?id=186623.mp3',
    type: 'music',
    image: 'http://p1.music.126.net/LlKBr4ppRnw-RVyGEO2ptg==/68169720934901.jpg'
+}],
+[{
+   title: '春夏秋冬',
+   author: '张国荣',
+   id: 186453,
+   url: 'http://music.163.com/song/media/outer/url?id=186453.mp3',
+   type: 'music',
+   image: 'http://p1.music.126.net/LlKBr4ppRnw-RVyGEO2ptg==/68169720934901.jpg'
+}],
+[{
+   title: '女人想什么',
+   author: '关淑怡/泳儿/陈逸璇',
+   id: 234241,
+   url: 'http://music.163.com/song/media/outer/url?id=234241.mp3',
+   type: 'music',
+   image: 'https://p1.music.126.net/lbw-yf6yGwJ36BN_106G4w==/663005511592765.jpg?imageView&thumbnail=360y360&quality=75&tostatic=0'
 }]]
