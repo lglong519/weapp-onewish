@@ -59,6 +59,7 @@ const init = (app) => {
 	if (data.Audio.src) {
 		data.Audio.src == data.url || (data.url && (data.Audio.src = data.url));
 	} else {
+		// 避免第一次加载 audioBackstage 自动播放
 		if (!data.audioBackstage) {
 			data.url && (data.Audio.src = data.url);
 		}
@@ -141,7 +142,9 @@ const switchToPlay = e => {
 		url: '/pages/play/play',
 	})
 }
-const playControl = () => {
+// const playControl = () => {
+// 箭头函数 上下文 根据定义环境而定，与执行环境无关
+function playControl() {
 	let app = getApp();
 	if (app.data.onPlay) {
 		app.data.Audio.pause();
@@ -159,8 +162,12 @@ const playControl = () => {
 		if (app.data.url && app.data.Audio.src != app.data.url) {
 			app.data.Audio.src = app.data.url;
 		}
-
 		app.data.Audio.src && app.data.Audio.play();
+	}
+	if (this.data.onPlay != app.data.onPlay) {
+		this.setData({
+			onPlay: app.data.onPlay
+		});
 	}
 }
 const keepPlay = app => {
@@ -455,11 +462,13 @@ function _prevOrNext(that, app, newIndex) {
 		if (app.data.type.indexOf('article') > -1 && that.currAudio != app.data.currAudio) {
 			var sectionTimes = app.data.currAudio[0].sections.map(i => i.time);
 		}
+		let lyrics = lyricFormat(that.data.lyric[app.data.currAudio[0].id]);
 		that.setData({
 			currAudio: app.data.currAudio,
 			type: app.data.type,
 			onPlay: app.data.onPlay,
 			sectionTimes: sectionTimes || [],
+			lyrics
 		});
 	} else {
 		app.data.onShow();
@@ -474,6 +483,9 @@ const toMinute = myTime => {
 	return minutes + ':' + seconds;
 }
 const toSecond = myTime => {
+	if (typeof (myTime) == 'number') {
+		return myTime;
+	}
 	var reg = /[:：]/;
 	myTime = myTime.replace(/[\[\]\s]/g, '');
 	if (!reg.test(myTime)) {
@@ -482,16 +494,19 @@ const toSecond = myTime => {
 	var arr = myTime.split(reg);
 	return arr[0] * 60 + arr[1] * 1;
 }
-const getCurrPart = (sectionTime, currentTime) => {
-	for (var j = 0; j < sectionTime.length; j++) {
-		if (j == sectionTime.length - 1) {
-			if (toSecond(currentTime) >= toSecond(sectionTime[j])) {
-				return sectionTime[j];
-			}
+/**
+ * 
+ */
+const getCurrPart = (sectionTimes, currentTime) => {
+	let i = sectionTimes.length - 1;
+	if (typeof (i) != 'number' || isNaN(i)) {
+		throw new TypeError('i is not a Number');
+	}
+	while (i > 0) {
+		if (toSecond(currentTime) >= toSecond(sectionTimes[i])) {
+			return sectionTimes[i];
 		}
-		if (toSecond(currentTime) >= toSecond(sectionTime[j]) && toSecond(currentTime) < toSecond(sectionTime[j + 1])) {
-			return sectionTime[j];
-		}
+		i--;
 	}
 	return '00:00'
 }
@@ -519,30 +534,43 @@ const createRandomIndex = () => {
 }
 
 const lyricFormat = lyric => {
+	if (!lyric) {
+		return {
+			lyricTimeTable: [],
+			lyricJson: {},
+			lyricList: []
+		}
+	}
 	let arr = lyric.split('\n');
-	let text = {};
+	let lyricJson = {};
 	let lyricTimeTable = [0];
 	arr.forEach(item => {
-		let content = item.replace(/\[\d+([^\]]*)?\d+\]/g, '');
-		let time = item.replace(content, '').replace(/\s/g, '');
+		let text = item.replace(/\[\d+([^\]]*)?\d+\]/g, '');
+		let time = item.replace(text, '').replace(/\s/g, '');
 		let timeTable = time.match(/\[([^\]]*)?\]/g);
 		if (timeTable) {
 			timeTable.forEach(val => {
 				let seconds = toSecond(val);
-				text[seconds] = content;
+				lyricJson[seconds] = {};
+				lyricJson[seconds]['text'] = text;
+				lyricJson[seconds]['time'] = seconds;
 				lyricTimeTable.push(seconds);
 			})
 		} else {
-			if (text[0]) {
-				text[0] = text[0] + '\n' + content;
+			if (lyricJson[0]) {
+				lyricJson[0]['text'] = lyricJson[0]['text'] + '\n' + text;
+			} else {
+				lyricJson[0] = {};
+				lyricJson[0]['text'] = text
+				lyricJson[0]['time'] = 0;
 			}
-			text[0] = content
 		}
 	});
 	lyricTimeTable.sort((a, b) => a - b)
 	return {
 		lyricTimeTable,
-		text
+		lyricJson,
+		lyricList: Object.values(lyricJson)
 	}
 }
 module.exports = {

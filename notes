@@ -16,4 +16,13 @@ storage 只对app onShow 有效
 		switchToPlay
 			├── resetData//重置storage，写入当前页面type index，update appData，onPlay = true;
 			└── switchTab
-			
+数据更新：
+	play：{
+		sectionTimes ：[ onshow,skip_previous,skip_next ]
+		lyrics ：[ onshow,skip_previous,skip_next ]
+	}			
+错误提示：
+	set audioBackstage fail：src：null
+	原因：是因为设置了 audioBackstage 但没有设置对应的src，这一步在 page onShow 时检测，
+	如果不需要页面一加载自动播放音乐这个错误可以忽略
+	

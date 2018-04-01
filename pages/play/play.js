@@ -35,7 +35,9 @@ Page({
 		showTrans: null,
 		showTransIndex: null,
 		lyric: app.Funs.lyric,
-		lyrics: []
+		lyrics: null,
+		currLyric: 0,
+		lyricIndex: 'lyric0'
 	},
 	onLoad() {
 		app.Funs.setAudioEvent(getApp(), this);
@@ -83,9 +85,30 @@ Page({
 					})
 				}
 				let currPart = getCurrPart(that.data.sectionTimes, Audio.currentTime);
+				let currLyric = getCurrPart(that.data.lyrics.lyricTimeTable, Audio.currentTime);
+				currLyric == '00:00' && (currLyric=0);
+				if (currPart != that.data.currPart && currLyric != that.data.currLyric) {
+					let index = that.data.lyrics.lyricTimeTable.indexOf(currLyric);
+					let lyricIndex = 'lyric' + (index > 2 ? index - 3 : 0);
+					that.setData({
+						currPart,
+						currLyric,
+						lyricIndex
+					});
+					return;
+				}
 				if (currPart != that.data.currPart) {
 					that.setData({
 						currPart
+					});
+					return;
+				}
+				if (currLyric != that.data.currLyric) {
+					let index = that.data.lyrics.lyricTimeTable.indexOf(currLyric);
+					let lyricIndex = 'lyric' + (index > 2 ? index - 3 : 0);
+					that.setData({
+						currLyric,
+						lyricIndex
 					});
 				}
 			}
@@ -127,6 +150,14 @@ Page({
 
 	},
 	onShow: function () {
+		wx.setNavigationBarColor({
+			frontColor: '#ffffff',
+			backgroundColor: appData.type == 'music' || appData.type == 'classical' ? '#514e5a' : '#9CE65F',
+			animation: {
+				duration: 400,
+				timingFunc: 'easeIn'
+			}
+		})
 		if (Audio !== getApp().data.Audio) {
 			Audio = getApp().data.Audio;
 		}
@@ -158,11 +189,7 @@ Page({
 				var sectionTimes = sections.map(i => i.time);
 			}
 		}
-		let lrc = app.Funs.lyricFormat(this.data.lyric[appData.currAudio[0].id]);
-		let lyrics = [];
-		lrc.lyricTimeTable.forEach(item => {
-			lrc.text[item] && lyrics.push(lrc.text[item]);
-		})
+		let lyrics = app.Funs.lyricFormat(this.data.lyric[appData.currAudio[0].id]);
 
 		this.setData({
 			currAudio: appData.currAudio,

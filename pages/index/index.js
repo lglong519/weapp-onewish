@@ -10,7 +10,7 @@ Page({
 			classical: app.Funs.classical,
 			music: app.Funs.music
 		},
-		recentViews:[]
+		recentViews: []
 	},
 	toArticles(e) {
 		let dataset = e.currentTarget.dataset;
@@ -30,9 +30,8 @@ Page({
 		wx.setTabBarStyle({
 			selectedColor: '#73A0C2',
 		});
-		
-		let recentViews=wx.getStorageSync('recentViews').reverse();
-		recentViews.forEach((item, i)=>{
+		let recentViews = wx.getStorageSync('recentViews').reverse();
+		recentViews.forEach((item, i) => {
 			recentViews[i] = JSON.parse(item);
 		})
 		this.setData({
@@ -45,6 +44,9 @@ Page({
 	playControl(e) {
 		let dataset = e.currentTarget.dataset;
 		app.Funs.resetData(dataset.audioType, dataset.audioIndex);
+		if (app.data.url && app.data.Audio.src != app.data.url) {
+			app.data.Audio.src = app.data.url;
+		}
 		app.data.Audio.play();
 		this.onShow();
 	}
