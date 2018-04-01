@@ -97,4 +97,12 @@ module.exports = [
       type: 'classical',
       image: 'https://p1.music.126.net/8tRQuPlNjFAuXLrb6d4gWg==/109951162976208315.jpg?param=130y130'
    }]
+   ,
+   [{
+      title: "I'm Forrest ... Forrest Gump",
+      author: 'Alan Silvestri',
+      url: 'http://music.163.com/song/media/outer/url?id=16306280.mp3',
+      type: 'classical',
+      image: 'https://p1.music.126.net/lR2yhlx1fUTX9qzWLf7I9A==/748767418522546.jpg?param=130y130'
+   }]
 ]
