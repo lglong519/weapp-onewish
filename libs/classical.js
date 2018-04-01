@@ -89,4 +89,12 @@ module.exports = [
       url: 'http://tm3dfds.yusi.tv/uuauth/UUAuth/wymp3/2017/7/25/992975_2017725165117_7570_165445_8468608.mp3?a5279aada517a7e89948f3031ba06d11',
       type: 'classical'
    }]
+   ,
+   [{
+      title: "海",
+      author: '小周',
+      url: 'http://music.163.com/song/media/outer/url?id=490997744.mp3',
+      type: 'classical',
+      image: 'https://p1.music.126.net/8tRQuPlNjFAuXLrb6d4gWg==/109951162976208315.jpg?param=130y130'
+   }]
 ]

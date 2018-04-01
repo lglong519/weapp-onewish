@@ -73,6 +73,12 @@ Page({
 		})
 		wx.setStorageSync('showZoom', e.detail.value);
 	},
+	hideRecentViews(e) {
+		this.setData({
+			showRecentViews: e.detail.value
+		})
+		wx.setStorageSync('hideRecentViews', !e.detail.value);
+	},
 	previewImage() {
 		wx.previewImage({
 			urls: ['https://lglong519.github.io/test/images/qrcode.jpg']
@@ -122,7 +128,8 @@ Page({
 		});
 		this.setData({
 			audioBackstage: wx.getStorageSync('audioBackstage'),
-			index: app.data.modeIcon.index[wx.getStorageSync('playMode')]
+			index: app.data.modeIcon.index[wx.getStorageSync('playMode')],
+			showRecentViews: !wx.getStorageSync('hideRecentViews')
 		})
 		if (app.data.userInfo) {
 			this.setData({

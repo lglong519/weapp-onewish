@@ -35,7 +35,9 @@ Page({
 			recentViews[i] = JSON.parse(item);
 		})
 		this.setData({
-			recentViews
+			recentViews,
+			hideRecentViews: wx.getStorageSync('hideRecentViews'),
+			visibility_off: wx.getStorageSync('hideRecentViews')
 		});
 	},
 	onShareAppMessage() {
@@ -46,8 +48,38 @@ Page({
 		app.Funs.resetData(dataset.audioType, dataset.audioIndex);
 		if (app.data.url && app.data.Audio.src != app.data.url) {
 			app.data.Audio.src = app.data.url;
+			app.Funs.updateAudioInfo(app.data);
 		}
 		app.data.Audio.play();
 		this.onShow();
+	},
+	onPullDownRefresh: function () {
+		this.onShow();
+		wx.stopPullDownRefresh()
+	},
+	hideRecentViews(){
+		let that=this;
+		that.setData({
+			visibility_off: true
+		});
+		wx.showModal({
+			title: '提示',
+			content: '是否关闭最近浏览？',
+			success: function (res) {
+				if (res.confirm) {
+					setTimeout(()=>{
+						that.setData({
+							hideRecentViews: true
+						});
+						wx.setStorageSync('hideRecentViews', true)
+					},1200)
+				} else if (res.cancel) {
+					that.setData({
+						visibility_off: false
+					});
+				}
+			}
+		})
+		
 	}
 })

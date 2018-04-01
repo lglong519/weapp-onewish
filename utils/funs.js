@@ -43,6 +43,7 @@ const init = (app) => {
 	wx.setStorageSync('audioBackstage', data.audioBackstage);
 	wx.getStorageSync('showAnchor') !== false && wx.setStorageSync('showAnchor', true);
 	wx.getStorageSync('showZoom') !== false && wx.setStorageSync('showZoom', true);
+	wx.getStorageSync('hideRecentViews') !== true && wx.setStorageSync('hideRecentViews', false);
 	wx.getStorageSync('recentViews') || wx.setStorageSync('recentViews', [])
 
 	//+设置audioList
@@ -64,9 +65,7 @@ const init = (app) => {
 			data.url && (data.Audio.src = data.url);
 		}
 	}
-	data.Audio.title = data.currAudio[0].title;
-	data.currAudio[0].author && (data.Audio.singer = data.currAudio[0].author);
-	data.Audio.coverImgUrl = data.currAudio[0].image ? data.currAudio[0].image : 'https://lglong519.github.io/test/images/panda-music.jpg';
+	updateAudioInfo(data);
 	wx.getSystemInfo({
 		success: function (res) {
 			data.windowHeight = res.windowHeight;
@@ -502,7 +501,7 @@ const getCurrPart = (sectionTimes, currentTime) => {
 	if (typeof (i) != 'number' || isNaN(i)) {
 		throw new TypeError('i is not a Number');
 	}
-	while (i > 0) {
+	while (i >= 0) {
 		if (toSecond(currentTime) >= toSecond(sectionTimes[i])) {
 			return sectionTimes[i];
 		}
@@ -543,9 +542,12 @@ const lyricFormat = lyric => {
 	}
 	let arr = lyric.split('\n');
 	let lyricJson = {};
-	let lyricTimeTable = [0];
+	let lyricTimeTable = [];
 	arr.forEach(item => {
 		let text = item.replace(/\[\d+([^\]]*)?\d+\]/g, '');
+		if (!text) {
+			return
+		}
 		let time = item.replace(text, '').replace(/\s/g, '');
 		let timeTable = time.match(/\[([^\]]*)?\]/g);
 		if (timeTable) {
@@ -560,6 +562,7 @@ const lyricFormat = lyric => {
 			if (lyricJson[0]) {
 				lyricJson[0]['text'] = lyricJson[0]['text'] + '\n' + text;
 			} else {
+				lyricTimeTable.push(0);
 				lyricJson[0] = {};
 				lyricJson[0]['text'] = text
 				lyricJson[0]['time'] = 0;
@@ -570,8 +573,13 @@ const lyricFormat = lyric => {
 	return {
 		lyricTimeTable,
 		lyricJson,
-		lyricList: Object.values(lyricJson)
+		lyricList: Object.values(lyricJson).sort((a, b) => a.time - b.time)
 	}
+}
+const updateAudioInfo = (data) => {
+	data.Audio.title = data.currAudio[0].title;
+	data.currAudio[0].author && (data.Audio.singer = data.currAudio[0].author);
+	data.Audio.coverImgUrl = data.currAudio[0].image ? data.currAudio[0].image : 'https://lglong519.github.io/test/images/panda-music.jpg';
 }
 module.exports = {
 	articleZH,
@@ -592,5 +600,6 @@ module.exports = {
 	skip_previous,
 	skip_next,
 	createRandomIndex,
-	lyricFormat
+	lyricFormat,
+	updateAudioInfo
 }

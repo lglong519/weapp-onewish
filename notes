@@ -24,5 +24,6 @@ storage 只对app onShow 有效
 错误提示：
 	set audioBackstage fail：src：null
 	原因：是因为设置了 audioBackstage 但没有设置对应的src，这一步在 page onShow 时检测，
-	如果不需要页面一加载自动播放音乐这个错误可以忽略
+	如果不需要页面一加载自动播放音乐这个错误可以忽略,
+	重新设置src时要把image一起设置，系统栏否则看不到缩略图
 	

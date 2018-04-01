@@ -16,6 +16,6 @@
 .headset {
     margin-top: -12px;
 }
-.recent-views>view:active{
+.recent-views>view:active,.btns>view:active{
 	background-color: rgba(217, 233, 255, .3)
 }

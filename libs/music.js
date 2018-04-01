@@ -1,4 +1,11 @@
 module.exports = [[{
+   title: '追梦赤子心',
+   author: 'GALA',
+   id: 355992,
+   url: 'http://music.163.com/song/media/outer/url?id=355992.mp3',
+   type: 'music',
+   image: 'https://p1.music.126.net/XDncptlBJ4_LN3hLBx-8aw==/19061133579343591.jpg?param=130y130'
+}], [{
    title: '夕阳无限好',
    author: '陈奕迅',
    id: 66272,

@@ -89,7 +89,7 @@ Page({
 				currLyric == '00:00' && (currLyric=0);
 				if (currPart != that.data.currPart && currLyric != that.data.currLyric) {
 					let index = that.data.lyrics.lyricTimeTable.indexOf(currLyric);
-					let lyricIndex = 'lyric' + (index > 2 ? index - 3 : 0);
+					let lyricIndex = 'lyric' + (index > 1 ? index - 2 : 0);
 					that.setData({
 						currPart,
 						currLyric,
@@ -105,7 +105,7 @@ Page({
 				}
 				if (currLyric != that.data.currLyric) {
 					let index = that.data.lyrics.lyricTimeTable.indexOf(currLyric);
-					let lyricIndex = 'lyric' + (index > 2 ? index - 3 : 0);
+					let lyricIndex = 'lyric' + (index > 1 ? index - 2 : 0);
 					that.setData({
 						currLyric,
 						lyricIndex

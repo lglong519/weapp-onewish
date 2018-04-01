@@ -3,7 +3,7 @@
     <view>
         <image src='../../public/images/2018fly.jpg' mode='widthFix' class='banner-img'></image>
     </view>
-    <view class='flex-row  text-center bg-white py-4'>
+    <view class='flex-row  text-center bg-white py-4 btns'>
         <view class='xs3 flex-column ' bindtap='toArticles' data-type='articleZH'>
             <icon class='material-icons text-orange-3 text-30'>import_contacts</icon>
             <text>文章</text>
@@ -22,14 +22,15 @@
         </view>
     </view>
 
-    <view class="weui-flex py-3 bg-white mt-4">
+    <view wx:if='{{!hideRecentViews}}' class="weui-flex py-3 bg-white mt-4">
         <view>
-            <icon class='material-icons ml-3 mr-2 text-green-0'>visibility</icon>
+            <icon wx:if='{{!visibility_off}}' class='material-icons ml-3 mr-2 text-green-0'  bindtap='hideRecentViews'>visibility</icon>
+			<icon wx:else  class='material-icons ml-3 mr-2 text-red-0'>visibility_off</icon>
             <text class='weight-600 text-black'>最近浏览</text>
         </view>
     </view>
 
-    <view class='my-1 recent-views'>
+    <view wx:if='{{!hideRecentViews}}' class='my-1 recent-views'>
         <block wx:for='{{recentViews}}' wx:for-index='i' wx:key='item'>
             <block wx:if='{{i<10}}' wx:for='{{ libs[item.type][item.index] }}' wx:for-item='inner' wx:for-index='j' wx:key='content'>
                 <view class='flex-row justify-between align-center text-center bg-white py-1' bindtap='playControl' data-audio-type='{{item.type}}' data-audio-index='{{item.index}}'>
