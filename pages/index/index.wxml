@@ -3,29 +3,53 @@
     <view>
         <image src='../../public/images/2018fly.jpg' mode='widthFix' class='banner-img'></image>
     </view>
-    <view class='flex-row  text-center bg-white py-4 btns'>
-        <view class='xs3 flex-column ' bindtap='toArticles' data-type='articleZH'>
-            <icon class='material-icons text-orange-3 text-30'>import_contacts</icon>
-            <text>文章</text>
-        </view>
-        <view class='xs3 flex-column' bindtap='toMusic' data-type='music'>
-            <icon class='material-icons text-green-0 text-30'>audiotrack</icon>
-            <text>歌单</text>
-        </view>
-        <view class='xs3 flex-column' bindtap='toMusic' data-type='classical'>
-            <icon class='material-icons text-blue-1 text-30'>straighten</icon>
-            <text>轻音乐</text>
-        </view>
-        <view class='xs3 flex-column' bindtap='toArticles' data-type='articleEN'>
-            <icon class='material-icons text-red-0 text-30'>sort_by_alpha</icon>
-            <text>Articles</text>
-        </view>
-    </view>
 
+    <swiper circular='true' class='swiper'>
+        <swiper-item>
+            <view class='flex-row  text-center bg-white py-4 btns'>
+                <view class='xs3 flex-column ' bindtap='toArticles' data-type='articleZH'>
+                    <icon class='material-icons text-orange-3 text-30'>import_contacts</icon>
+                    <text>文章</text>
+                </view>
+                <view class='xs3 flex-column' bindtap='toMusic' data-type='music'>
+                    <icon class='material-icons text-green-0 text-30'>audiotrack</icon>
+                    <text>歌单</text>
+                </view>
+                <view class='xs3 flex-column' bindtap='toMusic' data-type='classical'>
+                    <icon class='material-icons text-blue-1 text-30'>straighten</icon>
+                    <text>轻音乐</text>
+                </view>
+                <view class='xs3 flex-column' bindtap='toArticles' data-type='articleEN'>
+                    <icon class='material-icons text-red-0 text-30'>sort_by_alpha</icon>
+                    <text>Articles</text>
+                </view>
+            </view>
+        </swiper-item>
+        <swiper-item>
+            <view class='flex-row  text-center bg-white py-4 btns'>
+                <view class='xs3 flex-column ' bindtap='toArticles' data-type='articleZH'>
+                    <icon class='material-icons text-orange-3 text-30'>import_contacts</icon>
+                    <text>文章</text>
+                </view>
+                <view class='xs3 flex-column' bindtap='toMusic' data-type='music'>
+                    <icon class='material-icons text-green-0 text-30'>audiotrack</icon>
+                    <text>歌单</text>
+                </view>
+                <view class='xs3 flex-column' bindtap='toMusic' data-type='classical'>
+                    <icon class='material-icons text-blue-1 text-30'>straighten</icon>
+                    <text>轻音乐</text>
+                </view>
+                <view class='xs3 flex-column' bindtap='toArticles' data-type='articleEN'>
+                    <icon class='material-icons text-red-0 text-30'>sort_by_alpha</icon>
+                    <text>Articles</text>
+                </view>
+            </view>
+        </swiper-item>
+    </swiper>
     <view wx:if='{{!hideRecentViews}}' class="weui-flex py-3 bg-white mt-4">
         <view>
-            <icon wx:if='{{!visibility_off}}' class='material-icons ml-3 mr-2 text-green-0'  bindtap='hideRecentViews'>visibility</icon>
-			<icon wx:else  class='material-icons ml-3 mr-2 text-red-0'>visibility_off</icon>
+            <icon wx:if='{{!visibility_off}}' class='material-icons ml-3 mr-2 text-green-0' bindtap='hideRecentViews'>visibility</icon>
+            <icon wx:else class='material-icons ml-3 mr-2 text-red-0'>visibility_off</icon>
             <text class='weight-600 text-black'>最近浏览</text>
         </view>
     </view>
@@ -34,9 +58,9 @@
         <block wx:for='{{recentViews}}' wx:for-index='i' wx:key='item'>
             <block wx:if='{{i<10}}' wx:for='{{ libs[item.type][item.index] }}' wx:for-item='inner' wx:for-index='j' wx:key='content'>
                 <view class='flex-row justify-between align-center text-center bg-white py-1' bindtap='playControl' data-audio-type='{{item.type}}' data-audio-index='{{item.index}}'>
-                    <view class='series'>{{i}}</view>
+                    <view class='series color-{{random[i]}}'>{{i}}</view>
                     <image wx:if='{{inner.image}}' src='{{inner.image}}' mode='aspectFit' class='view-img mr-3'></image>
-                    <view class="flex flex-row justify-between align-center border-bt">
+                    <view class="flex flex-row justify-between align-center border-bt-{{random[i]}}">
                         <view class="flex flex-column  align-start my-2">
                             <text class="mb-1 weight-700">{{inner.title}}</text>
                             <view class='flex-row justify-between align-center text-grey text-12'>

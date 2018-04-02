@@ -31,40 +31,60 @@ page {
    width: 100%;
    background-color: rgba(0, 0, 0, 0.3);
    z-index: 100;
-   transition: all 0.6s;
+   transition: bottom 0.6s;
 }
 
 .bg-transparent {
    background-color: transparent;
 }
 
-.rollup {
+.rollin {
    border-radius: 100rpx;
-   left: -90%;
-   animation: rollup 0.8s forwards;
+   animation: rollin 0.8s forwards;
 }
 
-@keyframes rollup {
+@keyframes rollin {
    0% {
       left: 0;
    }
    70% {
-      left: -100%;
+      left: -110%;
    }
    100% {
       left: -90%;
    }
 }
 
-@keyframes rolldown {
+.rollout {
+   border-radius: 100rpx;
+   animation: rollout 0.8s forwards;
+}
+
+@keyframes rollout {
    0% {
       left: -90%;
    }
    30% {
-      left: -100%;
+      left: -110%;
+   }
+   70% {
+      left: 10%;
    }
    100% {
       left: 0;
+   }
+}
+
+.show-timeline {
+   animation: showTimeline 0.8s forwards;
+}
+
+@keyframes showTimeline {
+   0% {
+      opacity: 0;
+   }
+   100% {
+      opacity: 1;
    }
 }
 

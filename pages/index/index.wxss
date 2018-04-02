@@ -19,3 +19,7 @@
 .recent-views>view:active,.btns>view:active{
 	background-color: rgba(217, 233, 255, .3)
 }
+
+.swiper{
+	height: 150rpx;
+}

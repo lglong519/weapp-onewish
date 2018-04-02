@@ -21,7 +21,7 @@ Page({
 		durationFormat: '00:00',
 		windowHeight: 0,
 		id: null,
-		show: false,
+		show: true,
 		hideTabBar: false,
 		showAnchor: true,
 		showZoom: false,
@@ -200,20 +200,12 @@ Page({
 			showZoom: wx.getStorageSync('showZoom'),
 			modeIndex: appData.modeIcon.index[wx.getStorageSync('playMode')],
 			onshow: true,
-			hide: false,
 			lyrics
 		});
-
-		setTimeout(() => {
-			this.setData({
-				show: true
-			});
-		}, 100);
+			
 	},
 	onHide() {
 		this.setData({
-			show: false,
-			hide: true,
 			onshow: false
 		});
 	},

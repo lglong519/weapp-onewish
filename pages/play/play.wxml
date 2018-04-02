@@ -1,9 +1,10 @@
 <!--pages/play.wxml-->
 <!--音乐控制器  -->
-<view wx:if='{{currAudio[0].url}}' class='playcontroller {{hide&&"hide"}} {{show&&"show"}} {{type !=="articleZH" && type !=="articleEN" && "bg-transparent"}} {{rollup && "rollup"}}'>
-    <view wx:if='{{!rollup}}' class='flex-row'>
+<view wx:if='{{currAudio[0].url}}' class='playcontroller {{hide&&"hide"}} {{show&&"show"}} {{type !=="articleZH" && type !=="articleEN" && "bg-transparent"}} {{rollup ? "rollin" : "rollout"}}'>
+    <view wx:if='{{!rollup}}' class='flex-row show-timeline'>
         <view class='currentTime text-white pt-3 pl-2'>{{currentTimeFormat}}</view>
-        <slider class='flex' bindchange="sliderChange" bindchanging='sliderChanging' value="{{currentTime}}" max='{{duration}}' block-size='12' activeColor='#5287E9' block-color='#FDE0E9' />
+        <slider class='flex' bindchange="sliderChange" bindchanging='sliderChanging' value="{{currentTime}}" max='{{duration}}' block-size='12'
+            activeColor='#5287E9' block-color='#FDE0E9' />
         <view class='currentTime text-white pt-3 pr-2'>{{durationFormat}}</view>
     </view>
     <view class='text-center play-btn flex-row align-center'>
@@ -23,7 +24,8 @@
     </view>
 </view>
 
-<icon wx:if='{{showZoom}}' class='material-icons text-30 text-grey zoom {{type !=="articleZH" && type !=="articleEN" && "text-white"}}' bindtap='zoom'>{{hideTabBar?"select_all":"zoom_out_map"}}</icon>
+<icon wx:if='{{showZoom}}' class='material-icons text-30 text-grey zoom {{type !=="articleZH" && type !=="articleEN" && "text-white"}}'
+    bindtap='zoom'>{{hideTabBar?"select_all":"zoom_out_map"}}</icon>
 
 <!--文章  -->
 <view class="page" wx:if='{{type=="articleZH" || type=="articleEN"}}'>
@@ -48,7 +50,8 @@
                                 <!--时间  -->
                                 <view wx:if='{{item.time}}' id='{{currPart==item.time? "currentPart":""}}' class='weui-article__h3 {{currPart==item.time && onPlay?"text-blue-2":"text-grey-6"}}'>
                                     {{item.time}}
-                                    <icon class='material-icons {{currPart==item.time && onPlay?"text-green-0":"text-grey-1"}}' bindtap='playSection' data-art-id='{{art.id}}' data-art-url='{{art.url}}' data-art-time='{{item.time}}'>{{currPart==item.time && onPlay && currentTimeFormat[4]%2==0 ?"volume_mute":"volume_down"}}</icon>
+                                    <icon class='material-icons {{currPart==item.time && onPlay?"text-green-0":"text-grey-1"}}' bindtap='playSection' data-art-id='{{art.id}}'
+                                        data-art-url='{{art.url}}' data-art-time='{{item.time}}'>{{currPart==item.time && onPlay && currentTimeFormat[4]%2==0 ?"volume_mute":"volume_down"}}</icon>
                                 </view>
                                 <!--文本  -->
                                 <view class="weui-article__p text-justify {{item.time && currPart==item.time && 'bg-cyan-0'}}">
@@ -85,7 +88,8 @@
     <view class='z-index mt-3 text-white'>{{currAudio[0].author}}</view>
     <view class='z-index mt-4 text-white'>
         <scroll-view scroll-y="true" style="height: 216rpx;" scroll-into-view="{{lyricIndex}}" scroll-with-animation="true" enable-back-to-top="true">
-            <view wx:for='{{lyrics.lyricList}}' wx:key='{{item.time}}' wx:for-index='i' class='text-center {{item.time==currLyric && "text-green-0"}}' id='lyric{{i}}' >{{item.text}}</view>
+            <view wx:for='{{lyrics.lyricList}}' wx:key='{{item.time}}' wx:for-index='i' class='text-center {{item.time==currLyric && "text-green-0"}}'
+                id='lyric{{i}}'>{{item.text}}</view>
         </scroll-view>
     </view>
 </view>

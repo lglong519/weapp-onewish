@@ -30,14 +30,19 @@ Page({
 		wx.setTabBarStyle({
 			selectedColor: '#73A0C2',
 		});
-		let recentViews = wx.getStorageSync('recentViews').reverse();
+		let recentViews = wx.getStorageSync('recentViews').reverse().slice(0, 10);
 		recentViews.forEach((item, i) => {
 			recentViews[i] = JSON.parse(item);
-		})
+		});
+		let random=[];
+		for(var i=0;i<10;i++){
+			random.push(parseInt(Math.random()*10));
+		}
 		this.setData({
 			recentViews,
 			hideRecentViews: wx.getStorageSync('hideRecentViews'),
-			visibility_off: wx.getStorageSync('hideRecentViews')
+			visibility_off: wx.getStorageSync('hideRecentViews'),
+			random
 		});
 	},
 	onShareAppMessage() {
