@@ -156,10 +156,12 @@ function playControl() {
 			app.data.Audio = wx.getBackgroundAudioManager();
 			wx.removeStorageSync('ended')
 			app.data.Audio.src = app.data.url;
+			updateAudioInfo(app.data);
 			app.data.Audio.play()
 		}
 		if (app.data.url && app.data.Audio.src != app.data.url) {
 			app.data.Audio.src = app.data.url;
+			updateAudioInfo(app.data);
 		}
 		app.data.Audio.src && app.data.Audio.play();
 	}
