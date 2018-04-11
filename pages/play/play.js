@@ -124,7 +124,20 @@ Page({
 			currArt: dataset.artTime,
 			onPlay: true
 		});
+		if (app.data.url && app.data.Audio.src != app.data.url) {
+			app.data.Audio.src = app.data.url;
+			app.Funs.updateAudioInfo(app.data);
+		}
+		app.data.Audio.play();
 		Audio.seek(sec || 0);
+		// 背景播放等待300毫秒
+		if (appData.audioBackstage) {
+			wx.showLoading();
+			setTimeout(()=>{
+				wx.hideLoading();
+				Audio.seek(sec || 0);
+			},300)
+		}
 	},
 	toSection() {
 		this.setData({
