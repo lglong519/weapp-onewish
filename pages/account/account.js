@@ -16,7 +16,7 @@ Page({
 		app = getApp();
 		this.setData({
 			audioBackstage: e.detail.value
-		})
+		});
 		wx.setStorageSync('audioBackstage', e.detail.value);
 		let playStatus = app.data.onPlay;
 		let currentTime = app.data.Audio.currentTime;
@@ -49,7 +49,7 @@ Page({
 			app.data.Audio.onPlay(function () {
 				// console.log('currentTime', currentTime);
 				if (currentTime) {
-					app.data.Audio.seek(currentTime)
+					app.data.Audio.seek(currentTime);
 					currentTime = null;
 				}
 			});
@@ -58,36 +58,36 @@ Page({
 	hideTabBar(e) {
 		this.setData({
 			hideTabBar: e.detail.value
-		})
+		});
 		wx.setStorageSync('hideTabBar', e.detail.value);
 	},
 	showAnchor(e) {
 		this.setData({
 			showAnchor: e.detail.value
-		})
+		});
 		wx.setStorageSync('showAnchor', e.detail.value);
 	},
 	showZoom(e) {
 		this.setData({
 			showZoom: e.detail.value
-		})
+		});
 		wx.setStorageSync('showZoom', e.detail.value);
 	},
 	hideRecentViews(e) {
 		this.setData({
 			showRecentViews: e.detail.value
-		})
+		});
 		wx.setStorageSync('hideRecentViews', !e.detail.value);
 	},
 	previewImage() {
 		wx.previewImage({
 			urls: ['https://lglong519.github.io/test/images/qrcode.jpg']
-		})
+		});
 	},
 	tapPlayMode(e) {
 		this.setData({
 			index: e.detail.value
-		})
+		});
 		var that = this;
 		wx.setStorageSync('playMode', that.data.playMode[that.data.index]);
 		wx.removeStorageSync('randomList');
@@ -105,11 +105,11 @@ Page({
 						complete(res) {
 							if (res.authSetting['scope.userInfo']) {
 							} else {
-								wx.removeStorageSync('userInfo')
+								wx.removeStorageSync('userInfo');
 								app.data.userInfo = null;
 								that.setData({
 									userInfo: null
-								})
+								});
 							}
 						}
 					});
@@ -130,17 +130,17 @@ Page({
 			audioBackstage: wx.getStorageSync('audioBackstage'),
 			index: app.data.modeIcon.index[wx.getStorageSync('playMode')],
 			showRecentViews: !wx.getStorageSync('hideRecentViews')
-		})
+		});
 		if (app.data.userInfo) {
 			this.setData({
 				userInfo: app.data.userInfo
-			})
+			});
 		} else {
 			app.Funs.wxLogin(app).then(res => {
 				that.setData({
 					userInfo: res
-				})
+				});
 			});
 		}
 	},
-})
+});

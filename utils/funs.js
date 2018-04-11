@@ -4,17 +4,17 @@ import classical from '../libs/classical.js';
 import music from '../libs/music.js';
 import lyric from '../libs/lyric.js';
 
-//定义全局变量
+// 定义全局变量
 const globalData = () => {
 	return {
-		type: null,	//*storage->articleZH/articleEN/classical/music
-		index: null,//*storage
-		audioList: null,//*
-		url: null,//*
-		Audio: null,//*
+		type: null,	// storage->articleZH/articleEN/classical/music
+		index: null,//* storage
+		audioList: null,//* 
+		url: null,//* 
+		Audio: null,//* 
 		currAudio: null,
-		onPlay: false,//判断并设置audio状态，所有页面以app为准，page内onPlay自动跟随
-		playMode: null,	//+storage->once,loop,list,listLoop,random,randomInfinite
+		onPlay: false,// 判断并设置audio状态，所有页面以app为准，page内onPlay自动跟随
+		playMode: null,	// +storage->once,loop,list,listLoop,random,randomInfinite
 		timer: null,
 		audioBackstage: null,
 		modeIcon: {
@@ -23,8 +23,8 @@ const globalData = () => {
 			mode: ['once', 'loop', 'list', 'listLoop', 'randomList', 'randomInfinite', 'randomAll'],
 			name: ['单曲播放', '单曲循环', '列表顺序', '列表循环', '列表随机', '列表随机循环', '全部随机']
 		}
-	}
-}
+	};
+};
 
 /**
  * @description initialize app.data
@@ -44,14 +44,14 @@ const init = (app) => {
 	wx.getStorageSync('showAnchor') !== false && wx.setStorageSync('showAnchor', true);
 	wx.getStorageSync('showZoom') !== false && wx.setStorageSync('showZoom', true);
 	wx.getStorageSync('hideRecentViews') !== true && wx.setStorageSync('hideRecentViews', false);
-	wx.getStorageSync('recentViews') || wx.setStorageSync('recentViews', [])
+	wx.getStorageSync('recentViews') || wx.setStorageSync('recentViews', []);
 
-	//+设置audioList
+	// +设置audioList
 	data.audioList = getAudioList(data.type);
 
 	data.currAudio = data.audioList[data.index];
 	data.url = data.currAudio[0].url;
-	//+audio
+	// +audio
 	if (data.audioBackstage) {
 		data.Audio = data.Audio || wx.getBackgroundAudioManager();
 	} else {
@@ -70,16 +70,16 @@ const init = (app) => {
 		success: function (res) {
 			data.windowHeight = res.windowHeight;
 		}
-	})
+	});
 
 	setAudioEvent(app);
 	wxLogin(app);
 	keepPlay(app);
 	showRedDot(app);
 	console.log('init');
-}
+};
 
-//重置所有数据
+// 重置所有数据
 const resetData = (type, index) => {
 	const app = getApp();
 	let data = app.data;
@@ -98,7 +98,7 @@ const resetData = (type, index) => {
 		_recentView(type, index);
 		_();
 	} else {
-		//如果只是索引改了
+		// 如果只是索引改了
 		if (index !== data.index) {
 			_recentView(type, index);
 			_();
@@ -115,7 +115,7 @@ const resetData = (type, index) => {
 		data.Audio.coverImgUrl = data.currAudio[0].image ? data.currAudio[0].image : 'https://lglong519.github.io/test/images/panda-music.jpg';
 
 	}
-}
+};
 function _recentView(type, index) {
 	let views = 1;
 	let record = JSON.stringify({ type, index });
@@ -139,8 +139,8 @@ const switchToPlay = e => {
 	}
 	wx.switchTab({
 		url: '/pages/play/play',
-	})
-}
+	});
+};
 // const playControl = () => {
 // 箭头函数 上下文 根据定义环境而定，与执行环境无关
 function playControl() {
@@ -154,10 +154,10 @@ function playControl() {
 		});
 		if (wx.getStorageSync('ended')) {
 			app.data.Audio = wx.getBackgroundAudioManager();
-			wx.removeStorageSync('ended')
+			wx.removeStorageSync('ended');
 			app.data.Audio.src = app.data.url;
 			updateAudioInfo(app.data);
-			app.data.Audio.play()
+			app.data.Audio.play();
 		}
 		if (app.data.url && app.data.Audio.src != app.data.url) {
 			app.data.Audio.src = app.data.url;
@@ -178,22 +178,22 @@ const keepPlay = app => {
 	} else {
 		app.data.onPlay = false;
 	}
-}
+};
 const getAudioList = type => {
 	switch (type) {
-		case 'articleZH': return articleZH;
-		case 'articleEN': return articleEN;
-		case 'classical': return classical;
-		default: return music
+	case 'articleZH': return articleZH;
+	case 'articleEN': return articleEN;
+	case 'classical': return classical;
+	default: return music;
 	}
-}
+};
 const wxLogin = app => {
 	return new Promise((resovle, reject) => {
 		wx.getUserInfo({
 			success: res => {
-				app.data.userInfo = res.userInfo
+				app.data.userInfo = res.userInfo;
 				if (app.userInfoReadyCallback) {
-					app.userInfoReadyCallback(res)
+					app.userInfoReadyCallback(res);
 				}
 			},
 			complete(res) {
@@ -216,7 +216,7 @@ const wxLogin = app => {
 									title: '再会',
 									icon: 'success',
 									duration: 600
-								})
+								});
 							}
 						}
 					});
@@ -229,10 +229,10 @@ const wxLogin = app => {
 					resovle(false);
 				}
 			}
-		})
-	})
+		});
+	});
 
-}
+};
 
 const showRedDot = (app) => {
 	app.timer && clearInterval(app.timer);
@@ -243,7 +243,7 @@ const showRedDot = (app) => {
 			app.data.onPlay = false;
 		}
 		if (app.data.onPlay && app.data.url) {
-			//检测播放状态下的实际播放状态，step=500ms
+			// 检测播放状态下的实际播放状态，step=500ms
 			if (++i % 5 == 0) {
 				if (app.data.Audio.currentTime == compare) {
 					app.data.Audio.play();
@@ -254,21 +254,21 @@ const showRedDot = (app) => {
 
 			wx.showTabBarRedDot({
 				index: 3
-			})
+			});
 		} else {
 			app.data.onPlay = false;
 			wx.hideTabBarRedDot({
 				index: 3
-			})
+			});
 		}
 
 	}, 100);
-}
+};
 
 const setAudioEvent = (app, that) => {
 	let data;
 	if (that) {
-		data = that.data
+		data = that.data;
 	}
 	let appData = app.data;
 	let Audio = app.data.Audio;
@@ -276,10 +276,10 @@ const setAudioEvent = (app, that) => {
 		console.log('onPlay');
 		wx.hideLoading();
 		wx.removeStorageSync('ended');
-		if (!appData.url) { return }
+		if (!appData.url) { return; }
 		createRandomIndex();
 		appData.onPlay = true;
-		if (!data) { return }
+		if (!data) { return; }
 		that.setData({
 			onPlay: true
 		});
@@ -314,7 +314,7 @@ const setAudioEvent = (app, that) => {
 		if (appData.audioBackstage) {
 			appData.onPlay = false;
 		}
-		if (!data) { return }
+		if (!data) { return; }
 		that.setData({
 			onPlay: false
 		});
@@ -374,7 +374,7 @@ const setAudioEvent = (app, that) => {
 			}
 
 			if (playMode == 'listLoop') {
-				let newIndex
+				let newIndex;
 				if (appData.index < appData.audioList.length - 1) {
 					newIndex = appData.index + 1;
 				} else {
@@ -388,7 +388,7 @@ const setAudioEvent = (app, that) => {
 			}
 
 			if (playMode == 'randomList') {
-				let list = wx.getStorageSync('randomList') || [];;
+				let list = wx.getStorageSync('randomList') || [];
 				list && list.shift();
 				if (list.length) {
 					wx.setStorageSync('randomList', list);
@@ -431,7 +431,7 @@ const setAudioEvent = (app, that) => {
 			skip_next(that, app);
 		});
 	}
-}
+};
 const skip_previous = (that, app) => {
 	var newIndex;
 	let appData = app.data;
@@ -441,7 +441,7 @@ const skip_previous = (that, app) => {
 		newIndex = appData.audioList.length - 1;
 	}
 	_prevOrNext(that, app, newIndex);
-}
+};
 
 const skip_next = (that, app) => {
 	var newIndex;
@@ -452,7 +452,7 @@ const skip_next = (that, app) => {
 		newIndex = 0;
 	}
 	_prevOrNext(that, app, newIndex);
-}
+};
 
 function _prevOrNext(that, app, newIndex) {
 	resetData(app.data.type, newIndex);
@@ -482,25 +482,25 @@ const toMinute = myTime => {
 	minutes = minutes < 10 ? '0' + minutes : minutes;
 	seconds = seconds < 10 ? '0' + seconds : seconds;
 	return minutes + ':' + seconds;
-}
+};
 const toSecond = myTime => {
-	if (typeof (myTime) == 'number') {
+	if (typeof (myTime) === 'number') {
 		return myTime;
 	}
 	var reg = /[:：]/;
-	myTime = myTime.replace(/[\[\]\s]/g, '');
+	myTime = myTime.replace(/[[\]\s]/g, '');
 	if (!reg.test(myTime)) {
 		return myTime;
 	}
 	var arr = myTime.split(reg);
 	return arr[0] * 60 + arr[1] * 1;
-}
+};
 /**
  * 
  */
 const getCurrPart = (sectionTimes, currentTime) => {
 	let i = sectionTimes.length - 1;
-	if (typeof (i) != 'number' || isNaN(i)) {
+	if (typeof (i) !== 'number' || isNaN(i)) {
 		throw new TypeError('i is not a Number');
 	}
 	while (i >= 0) {
@@ -509,10 +509,10 @@ const getCurrPart = (sectionTimes, currentTime) => {
 		}
 		i--;
 	}
-	return '00:00'
-}
+	return '00:00';
+};
 const createRandomIndex = () => {
-	let appData = getApp().data
+	let appData = getApp().data;
 	if (wx.getStorageSync('playMode') == 'randomList') {
 		if (!wx.getStorageSync('randomList')) {
 			let count = appData.audioList.length - 1;
@@ -532,7 +532,7 @@ const createRandomIndex = () => {
 			wx.setStorageSync('randomList', randomList);
 		}
 	}
-}
+};
 
 const lyricFormat = lyric => {
 	if (!lyric) {
@@ -540,7 +540,7 @@ const lyricFormat = lyric => {
 			lyricTimeTable: [],
 			lyricJson: {},
 			lyricList: []
-		}
+		};
 	}
 	let arr = lyric.split('\n');
 	let lyricJson = {};
@@ -548,7 +548,7 @@ const lyricFormat = lyric => {
 	arr.forEach(item => {
 		let text = item.replace(/\[\d+([^\]]*)?\d+\]/g, '');
 		if (!text) {
-			return
+			return;
 		}
 		let time = item.replace(text, '').replace(/\s/g, '');
 		let timeTable = time.match(/\[([^\]]*)?\]/g);
@@ -559,30 +559,30 @@ const lyricFormat = lyric => {
 				lyricJson[seconds]['text'] = text;
 				lyricJson[seconds]['time'] = seconds;
 				lyricTimeTable.push(seconds);
-			})
+			});
 		} else {
 			if (lyricJson[0]) {
 				lyricJson[0]['text'] = lyricJson[0]['text'] + '\n' + text;
 			} else {
 				lyricTimeTable.push(0);
 				lyricJson[0] = {};
-				lyricJson[0]['text'] = text
+				lyricJson[0]['text'] = text;
 				lyricJson[0]['time'] = 0;
 			}
 		}
 	});
-	lyricTimeTable.sort((a, b) => a - b)
+	lyricTimeTable.sort((a, b) => a - b);
 	return {
 		lyricTimeTable,
 		lyricJson,
 		lyricList: Object.values(lyricJson).sort((a, b) => a.time - b.time)
-	}
-}
+	};
+};
 const updateAudioInfo = (data) => {
 	data.Audio.title = data.currAudio[0].title;
 	data.currAudio[0].author && (data.Audio.singer = data.currAudio[0].author);
 	data.Audio.coverImgUrl = data.currAudio[0].image ? data.currAudio[0].image : 'https://lglong519.github.io/test/images/panda-music.jpg';
-}
+};
 module.exports = {
 	articleZH,
 	articleEN,
@@ -604,4 +604,4 @@ module.exports = {
 	createRandomIndex,
 	lyricFormat,
 	updateAudioInfo
-}
+};

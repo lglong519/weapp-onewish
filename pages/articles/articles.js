@@ -1,4 +1,4 @@
-//index.js
+// index.js
 import { switchToPlay } from '../../utils/funs.js';
 const app = getApp();
 
@@ -10,7 +10,7 @@ Page({
 			selectedColor: '#FFB13F',
 			backgroundColor: '#EBE1D5',
 			borderStyle: 'white'
-		})
+		});
 		this.setData({
 			articles: wx.getStorageSync('audioType') == 'articleEN' ? app.Funs.articleEN : app.Funs.articleZH,
 			type: app.data.type,
@@ -20,7 +20,7 @@ Page({
 	},
 	onPullDownRefresh: function () {
 		this.onShow();
-		wx.stopPullDownRefresh()
+		wx.stopPullDownRefresh();
 	}
 
-})
+});

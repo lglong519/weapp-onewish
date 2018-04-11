@@ -1,4 +1,4 @@
-//index.js
+// index.js
 const app = getApp();
 
 Page({
@@ -17,14 +17,14 @@ Page({
 		wx.setStorageSync('audioType', dataset.type);
 		wx.switchTab({
 			url: '/pages/articles/articles',
-		})
+		});
 	},
 	toMusic(e) {
 		let dataset = e.currentTarget.dataset;
 		wx.setStorageSync('audioType', dataset.type);
 		wx.switchTab({
 			url: '/pages/music/music',
-		})
+		});
 	},
 	onShow: function () {
 		wx.setTabBarStyle({
@@ -34,9 +34,9 @@ Page({
 		recentViews.forEach((item, i) => {
 			recentViews[i] = JSON.parse(item);
 		});
-		let random=[];
-		for(var i=0;i<10;i++){
-			random.push(parseInt(Math.random()*10));
+		let random = [];
+		for (var i = 0; i < 10; i++) {
+			random.push(parseInt(Math.random() * 10));
 		}
 		this.setData({
 			recentViews,
@@ -60,10 +60,10 @@ Page({
 	},
 	onPullDownRefresh: function () {
 		this.onShow();
-		wx.stopPullDownRefresh()
+		wx.stopPullDownRefresh();
 	},
-	hideRecentViews(){
-		let that=this;
+	hideRecentViews() {
+		let that = this;
 		that.setData({
 			visibility_off: true
 		});
@@ -72,19 +72,18 @@ Page({
 			content: '是否关闭最近浏览？',
 			success: function (res) {
 				if (res.confirm) {
-					setTimeout(()=>{
+					setTimeout(() => {
 						that.setData({
 							hideRecentViews: true
 						});
-						wx.setStorageSync('hideRecentViews', true)
-					},1200)
+						wx.setStorageSync('hideRecentViews', true);
+					}, 1200);
 				} else if (res.cancel) {
 					that.setData({
 						visibility_off: false
 					});
 				}
 			}
-		})
-		
+		});
 	}
-})
+});

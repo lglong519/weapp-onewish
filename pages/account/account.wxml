@@ -18,7 +18,7 @@
         </view>
     </picker>
 
-	  <view class="weui-flex justify-between py-3 bg-white">
+    <view class="weui-flex justify-between py-3 bg-white">
         <view>
             <icon class='material-icons ml-3 mr-2 text-orange-3'>phonelink_ring</icon>
             <text class='weight-600 text-black'>后台播放</text>
@@ -53,12 +53,12 @@
     <view class="weui-flex justify-between py-3 bg-white">
         <view>
             <icon wx:if='{{showRecentViews}}' class='material-icons ml-3 mr-2 text-green-0'>visibility</icon>
-            <icon wx:else  class='material-icons ml-3 mr-2 text-orange-3'>visibility_off</icon>
+            <icon wx:else class='material-icons ml-3 mr-2 text-orange-3'>visibility_off</icon>
             <text class='weight-600 text-black'>最近浏览</text>
         </view>
         <switch class='mx-3' checked='{{showRecentViews}}' bindchange="hideRecentViews"></switch>
     </view>
-  
+
 
     <view wx:if='{{userInfo}}' class="weui-flex py-3 bg-white mt-4" bindtap='logoutEvent'>
         <view>

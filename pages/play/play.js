@@ -8,10 +8,10 @@ let getCurrPart = app.Funs.getCurrPart;
 
 Page({
 	data: {
-		currAudio: [],//页面数据
-		type: null,//判断页面类型
-		onPlay: false,//判断播放器和musice和article的状态
-		//page data
+		currAudio: [],// 页面数据
+		type: null,// 判断页面类型
+		onPlay: false,// 判断播放器和musice和article的状态
+		// page data
 		sectionTimes: [],
 		currPart: '',
 		currentTime: 0,
@@ -53,7 +53,7 @@ Page({
 		});
 		var i = 0;
 		setInterval(() => {
-			if (!Audio.src || !appData.url) { return }
+			if (!Audio.src || !appData.url) { return; }
 
 			if (parseInt(data.duration) != parseInt(Audio.duration)) {
 				that.setData({
@@ -82,11 +82,11 @@ Page({
 					that.setData({
 						currentTime: Audio.currentTime,
 						currentTimeFormat
-					})
+					});
 				}
 				let currPart = getCurrPart(that.data.sectionTimes, Audio.currentTime);
 				let currLyric = getCurrPart(that.data.lyrics.lyricTimeTable, Audio.currentTime);
-				currLyric == '00:00' && (currLyric=0);
+				currLyric == '00:00' && (currLyric = 0);
 				if (currPart != that.data.currPart && currLyric != that.data.currLyric) {
 					let index = that.data.lyrics.lyricTimeTable.indexOf(currLyric);
 					let lyricIndex = 'lyric' + (index > 1 ? index - 2 : 0);
@@ -133,10 +133,10 @@ Page({
 		// 背景播放等待300毫秒
 		if (appData.audioBackstage) {
 			wx.showLoading();
-			setTimeout(()=>{
+			setTimeout(() => {
 				wx.hideLoading();
 				Audio.seek(sec || 0);
-			},300)
+			}, 300);
 		}
 	},
 	toSection() {
@@ -148,14 +148,14 @@ Page({
 		if (this.data.hideTabBar) {
 			wx.showTabBar({
 				aniamtion: true
-			})
+			});
 			this.setData({
 				hideTabBar: false
 			});
 		} else {
 			wx.hideTabBar({
 				aniamtion: true
-			})
+			});
 			this.setData({
 				hideTabBar: true
 			});
@@ -170,21 +170,21 @@ Page({
 				duration: 400,
 				timingFunc: 'easeIn'
 			}
-		})
+		});
 		if (Audio !== getApp().data.Audio) {
 			Audio = getApp().data.Audio;
 		}
 		if (wx.getStorageSync('hideTabBar')) {
 			wx.hideTabBar({
 				aniamtion: true
-			})
+			});
 			this.setData({
 				hideTabBar: true
 			});
 		} else {
 			wx.showTabBar({
 				aniamtion: true
-			})
+			});
 			this.setData({
 				hideTabBar: false
 			});
@@ -195,7 +195,7 @@ Page({
 			borderStyle: appData.url ? 'white' : ''
 		});
 		console.log('play onshow');
-		//如果是文章类型，设置章节时间列表
+		// 如果是文章类型，设置章节时间列表
 		if (appData.type.indexOf('article') > -1 && this.currAudio != appData.currAudio) {
 			let sections = appData.currAudio[0].sections;
 			if (sections) {
@@ -215,7 +215,7 @@ Page({
 			onshow: true,
 			lyrics
 		});
-			
+
 	},
 	onHide() {
 		this.setData({
@@ -238,7 +238,7 @@ Page({
 			currentTime: sliderValue.value,
 			timeStamp: 1
 		});
-	},//后退5s
+	},// 后退5s
 	playBackward() {
 		Audio.seek(this.data.currentTime - 5);
 	},
@@ -294,5 +294,5 @@ Page({
 		}
 
 	}
-})
+});
 
