@@ -206,7 +206,9 @@ const wxLogin = app => {
 								wx.openSetting({
 									complete(res) {
 										if (res.authSetting['scope.userInfo']) {
+											//
 										} else {
+											//
 										}
 									}
 								});

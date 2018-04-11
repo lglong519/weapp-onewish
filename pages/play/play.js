@@ -53,6 +53,11 @@ Page({
 		});
 		var i = 0;
 		setInterval(() => {
+			if (this.data.onPlay != app.data.onPlay) {
+				this.setData({
+					onPlay: app.data.onPlay
+				});
+			}
 			if (!Audio.src || !appData.url) { return; }
 
 			if (parseInt(data.duration) != parseInt(Audio.duration)) {
@@ -64,7 +69,6 @@ Page({
 			if (that.data.timeStamp) {
 				return;
 			}
-
 
 			let currentTimeFormat = toMinute(Audio.currentTime);
 
