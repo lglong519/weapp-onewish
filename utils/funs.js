@@ -34,7 +34,7 @@ const init = app => {
 	data.type = wx.getStorageSync('type') || 'articleZH';
 	data.index = wx.getStorageSync('index') || 0;
 	data.playMode = wx.getStorageSync('playMode') || 'once';
-	data.audioBackstage = wx.getStorageSync('audioBackstage') || false;
+	data.audioBackstage = wx.getStorageSync('audioBackstage') !== false || true;
 	wx.setStorageSync('type', data.type);
 	wx.setStorageSync('index', data.index);
 	wx.setStorageSync('playMode', data.playMode);
@@ -306,6 +306,7 @@ const setAudioEvent = (app, that) => {
 		}
 		Audio.onError(err => {
 			console.log('onError', err);
+			app.data.onPlay = false;
 			Audio.pause();
 		});
 	}

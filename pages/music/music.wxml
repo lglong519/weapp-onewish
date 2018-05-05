@@ -16,8 +16,8 @@
             <view wx:else class='series'>{{i+1}}</view>
             <view class="flex flex-row justify-between align-center border-bt">
                 <view class="flex flex-column align-start my-2" bindtap='switchToPlay' data-audio-type='{{item[0].type}}' data-audio-index='{{i}}'>
-                    <text class="mb-1 weight-700">{{item[0].title}}</text>
-                    <text class="text-grey text-12">{{item[0].author}}</text>
+                    <text class="mb-1 weight-700 text-left">{{item[0].title}}</text>
+                    <text class="text-grey text-12 text-left">{{item[0].author}}</text>
                 </view>
                 <icon bindtap='playControl' class='material-icons pr-4 text-grey' data-audio-type='{{item[0].type}}' data-audio-index='{{i}}'>{{onPlay && type==item[0].type && index==i?'pause_circle_outline':'play_circle_outline' }}</icon>
             </view>

@@ -1,4 +1,11 @@
 module.exports = [[{
+	title: '妈亚咪呀 (Intro)',
+	author: 'GALA',
+	id: 355967,
+	url: 'http://music.163.com/song/media/outer/url?id=355967.mp3',
+	type: 'music',
+	image: 'https://p1.music.126.net/XDncptlBJ4_LN3hLBx-8aw==/19061133579343591.jpg?param=130y130'
+}], [{
 	title: '追梦赤子心',
 	author: 'GALA',
 	id: 355992,

@@ -10,7 +10,42 @@ Page({
 			classical: app.Funs.classical,
 			music: app.Funs.music
 		},
-		recentViews: []
+		recentViews: [],
+		itemList: [
+			[
+				{
+					bindtap: 'toArticles',
+					dataType: 'articleZH',
+					className: 'text-orange-3',
+					icon: 'import_contacts',
+					text: '文章'
+				},
+				{
+					bindtap: 'toMusic',
+					dataType: 'music',
+					className: 'text-green-0',
+					icon: 'audiotrack',
+					text: '歌单'
+				},
+				{
+					bindtap: 'toMusic',
+					dataType: 'classical',
+					className: 'text-blue-1',
+					icon: 'straighten',
+					text: '轻音乐'
+				},
+				{
+					bindtap: 'toArticles',
+					dataType: 'articleEN',
+					className: 'text-red-0',
+					icon: 'sort_by_alpha',
+					text: 'Articles'
+				}
+			]
+		]
+	},
+	onLoad () {
+		updateItems.bind(this)(0);
 	},
 	toArticles (e) {
 		let dataset = e.currentTarget.dataset;
@@ -85,5 +120,28 @@ Page({
 				}
 			}
 		});
+	},
+	swiperChange (e) {
+		let { current } = e.detail;
+		updateItems.bind(this)(current);
 	}
 });
+
+function updateItems (index) {
+	let pre = index - 1;
+	let next = index + 1;
+	if (pre < 0) {
+		pre = 2;
+	}
+	if (next > 2) {
+		pre = 0;
+	}
+	let { itemList } = this.data;
+	itemList[next] = itemList[index].slice(1);
+	itemList[next].push(itemList[index][0]);
+	itemList[pre] = itemList[index].slice(0, -1);
+	itemList[pre].unshift(itemList[index].slice(-1)[0]);
+	this.setData({
+		itemList
+	});
+}

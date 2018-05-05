@@ -160,10 +160,10 @@ page {
 
 .disc-image {
    position: absolute;
-   left: 10%;
-   top: 10%;
-   width: 80%;
-   height: 80%;
+   left: 18%;
+   top: 18%;
+   width: 64%;
+   height: 64%;
    border-radius: 50%;
 }
 

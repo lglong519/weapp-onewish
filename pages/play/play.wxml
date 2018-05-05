@@ -77,7 +77,7 @@
         </block>
     </view>
 </view>
-<!--music  -->
+<!--music disc -->
 <view wx:else class="page page-music flex-column align-center">
     <view class='z-index disc-wrapper rotation {{!onshow || !onPlay ? "animation-paused" : ""}}' bindtap='playControl'>
         <image src='../../public/images/disc.png' mode='aspectFit' class='disc'></image>

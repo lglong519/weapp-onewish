@@ -4,48 +4,29 @@
         <image src='../../public/images/2018fly.jpg' mode='widthFix' class='banner-img'></image>
     </view>
 
-    <swiper circular='true' class='swiper'>
-        <swiper-item>
+    <swiper circular="true" class="swiper" bindchange="swiperChange">
+        <swiper-item wx:for="{{itemList}}" wx:key='item'>
             <view class='flex-row  text-center bg-white py-4 btns'>
-                <view class='xs3 flex-column ' bindtap='toArticles' data-type='articleZH'>
-                    <icon class='material-icons text-orange-3 text-30'>import_contacts</icon>
-                    <text>文章</text>
+                <view class='xs3 flex-column ' bindtap='{{item[0].bindtap}}' data-type='{{item[0].dataType}}'>
+                    <icon class='material-icons text-30 {{item[0].className}}'>{{item[0].icon}}</icon>
+                    <text>{{item[0].text}}</text>
                 </view>
-                <view class='xs3 flex-column' bindtap='toMusic' data-type='music'>
-                    <icon class='material-icons text-green-0 text-30'>audiotrack</icon>
-                    <text>歌单</text>
+                <view class='xs3 flex-column ' bindtap='{{item[1].bindtap}}' data-type='{{item[1].dataType}}'>
+                    <icon class='material-icons text-30 {{item[1].className}}'>{{item[1].icon}}</icon>
+                    <text>{{item[1].text}}</text>
                 </view>
-                <view class='xs3 flex-column' bindtap='toMusic' data-type='classical'>
-                    <icon class='material-icons text-blue-1 text-30'>straighten</icon>
-                    <text>轻音乐</text>
+                <view class='xs3 flex-column ' bindtap='{{item[2].bindtap}}' data-type='{{item[2].dataType}}'>
+                    <icon class='material-icons text-30 {{item[2].className}}'>{{item[2].icon}}</icon>
+                    <text>{{item[2].text}}</text>
                 </view>
-                <view class='xs3 flex-column' bindtap='toArticles' data-type='articleEN'>
-                    <icon class='material-icons text-red-0 text-30'>sort_by_alpha</icon>
-                    <text>Articles</text>
-                </view>
-            </view>
-        </swiper-item>
-        <swiper-item>
-            <view class='flex-row  text-center bg-white py-4 btns'>
-                <view class='xs3 flex-column ' bindtap='toArticles' data-type='articleZH'>
-                    <icon class='material-icons text-orange-3 text-30'>import_contacts</icon>
-                    <text>文章</text>
-                </view>
-                <view class='xs3 flex-column' bindtap='toMusic' data-type='music'>
-                    <icon class='material-icons text-green-0 text-30'>audiotrack</icon>
-                    <text>歌单</text>
-                </view>
-                <view class='xs3 flex-column' bindtap='toMusic' data-type='classical'>
-                    <icon class='material-icons text-blue-1 text-30'>straighten</icon>
-                    <text>轻音乐</text>
-                </view>
-                <view class='xs3 flex-column' bindtap='toArticles' data-type='articleEN'>
-                    <icon class='material-icons text-red-0 text-30'>sort_by_alpha</icon>
-                    <text>Articles</text>
+                <view class='xs3 flex-column ' bindtap='{{item[3].bindtap}}' data-type='{{item[3].dataType}}'>
+                    <icon class='material-icons text-30 {{item[3].className}}'>{{item[3].icon}}</icon>
+                    <text>{{item[3].text}}</text>
                 </view>
             </view>
         </swiper-item>
     </swiper>
+
     <view wx:if='{{!hideRecentViews}}' class="weui-flex py-3 bg-white mt-4">
         <view>
             <icon wx:if='{{!visibility_off}}' class='material-icons ml-3 mr-2 text-green-0' bindtap='hideRecentViews'>visibility</icon>
@@ -61,9 +42,9 @@
                     <view class='series color-{{random[i]}}'>{{i}}</view>
                     <image wx:if='{{inner.image}}' src='{{inner.image}}' mode='aspectFit' class='view-img mr-3'></image>
                     <view class="flex flex-row justify-between align-center border-bt-{{random[i]}}">
-                        <view class="flex flex-column  align-start my-2">
-                            <text class="mb-1 weight-700">{{inner.title}}</text>
-                            <view class='flex-row justify-between align-center text-grey text-12'>
+                        <view class="flex flex-column align-start my-2">
+                            <text class="mb-1 weight-700 text-left">{{inner.title}}</text>
+                            <view class='flex-row align-center text-grey text-12'>
                                 <text class='mr-4'>{{inner.author}}</text>
                                 <text>{{item.views}}</text>
                                 <icon class='material-icons  text-10 ml-1 headset'>headset</icon>
