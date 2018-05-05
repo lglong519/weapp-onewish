@@ -12,7 +12,7 @@ Page({
 		showAnchor: wx.getStorageSync('showAnchor'),
 		showZoom: wx.getStorageSync('showZoom')
 	},
-	audioBackstageChange(e) {
+	audioBackstageChange (e) {
 		app = getApp();
 		this.setData({
 			audioBackstage: e.detail.value
@@ -46,7 +46,7 @@ Page({
 			app.data.Audio.src = audioSrc;
 			app.data.onPlay = true;
 			app.data.Audio.play();
-			app.data.Audio.onPlay(function () {
+			app.data.Audio.onPlay(() => {
 				// console.log('currentTime', currentTime);
 				if (currentTime) {
 					app.data.Audio.seek(currentTime);
@@ -55,55 +55,56 @@ Page({
 			});
 		}
 	},
-	hideTabBar(e) {
+	hideTabBar (e) {
 		this.setData({
 			hideTabBar: e.detail.value
 		});
 		wx.setStorageSync('hideTabBar', e.detail.value);
 	},
-	showAnchor(e) {
+	showAnchor (e) {
 		this.setData({
 			showAnchor: e.detail.value
 		});
 		wx.setStorageSync('showAnchor', e.detail.value);
 	},
-	showZoom(e) {
+	showZoom (e) {
 		this.setData({
 			showZoom: e.detail.value
 		});
 		wx.setStorageSync('showZoom', e.detail.value);
 	},
-	hideRecentViews(e) {
+	hideRecentViews (e) {
 		this.setData({
 			showRecentViews: e.detail.value
 		});
 		wx.setStorageSync('hideRecentViews', !e.detail.value);
 	},
-	previewImage() {
+	previewImage () {
 		wx.previewImage({
 			urls: ['https://lglong519.github.io/test/images/qrcode.jpg']
 		});
 	},
-	tapPlayMode(e) {
+	tapPlayMode (e) {
 		this.setData({
 			index: e.detail.value
 		});
-		var that = this;
+		let that = this;
 		wx.setStorageSync('playMode', that.data.playMode[that.data.index]);
 		wx.removeStorageSync('randomList');
 		if (app.data.onPlay) {
 			app.Funs.createRandomIndex();
 		}
 	},
-	logoutEvent() {
-		var that = this;
+	logoutEvent () {
+		let that = this;
 		wx.showModal({
 			content: '是否退出当前帐号？',
-			complete(res) {
+			complete (res) {
 				if (res.confirm) {
 					wx.openSetting({
-						complete(res) {
+						complete (res) {
 							if (res.authSetting['scope.userInfo']) {
+								//
 							} else {
 								wx.removeStorageSync('userInfo');
 								app.data.userInfo = null;
@@ -117,12 +118,12 @@ Page({
 			}
 		});
 	},
-	loginEvent() {
+	loginEvent () {
 		app.Funs.wxLogin(app);
 		this.onShow();
 	},
-	onShow: function () {
-		var that = this;
+	onShow () {
+		let that = this;
 		wx.setTabBarStyle({
 			selectedColor: '#5287E9',
 		});

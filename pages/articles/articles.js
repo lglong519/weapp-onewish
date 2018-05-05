@@ -5,7 +5,7 @@ const app = getApp();
 Page({
 	data: {},
 	switchToPlay,
-	onShow: function () {
+	onShow () {
 		wx.setTabBarStyle({
 			selectedColor: '#FFB13F',
 			backgroundColor: '#EBE1D5',
@@ -18,7 +18,7 @@ Page({
 			onPlay: app.data.onPlay
 		});
 	},
-	onPullDownRefresh: function () {
+	onPullDownRefresh () {
 		this.onShow();
 		wx.stopPullDownRefresh();
 	}

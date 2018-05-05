@@ -12,21 +12,21 @@ Page({
 		},
 		recentViews: []
 	},
-	toArticles(e) {
+	toArticles (e) {
 		let dataset = e.currentTarget.dataset;
 		wx.setStorageSync('audioType', dataset.type);
 		wx.switchTab({
 			url: '/pages/articles/articles',
 		});
 	},
-	toMusic(e) {
+	toMusic (e) {
 		let dataset = e.currentTarget.dataset;
 		wx.setStorageSync('audioType', dataset.type);
 		wx.switchTab({
 			url: '/pages/music/music',
 		});
 	},
-	onShow: function () {
+	onShow () {
 		wx.setTabBarStyle({
 			selectedColor: '#73A0C2',
 		});
@@ -35,7 +35,7 @@ Page({
 			recentViews[i] = JSON.parse(item);
 		});
 		let random = [];
-		for (var i = 0; i < 10; i++) {
+		for (let i = 0; i < 10; i++) {
 			random.push(parseInt(Math.random() * 10));
 		}
 		this.setData({
@@ -45,10 +45,10 @@ Page({
 			random
 		});
 	},
-	onShareAppMessage() {
+	onShareAppMessage () {
 
 	},
-	playControl(e) {
+	playControl (e) {
 		let dataset = e.currentTarget.dataset;
 		app.Funs.resetData(dataset.audioType, dataset.audioIndex);
 		if (app.data.url && app.data.Audio.src != app.data.url) {
@@ -58,11 +58,11 @@ Page({
 		app.data.Audio.play();
 		this.onShow();
 	},
-	onPullDownRefresh: function () {
+	onPullDownRefresh () {
 		this.onShow();
 		wx.stopPullDownRefresh();
 	},
-	hideRecentViews() {
+	hideRecentViews () {
 		let that = this;
 		that.setData({
 			visibility_off: true
@@ -70,7 +70,7 @@ Page({
 		wx.showModal({
 			title: '提示',
 			content: '是否关闭最近浏览？',
-			success: function (res) {
+			success (res) {
 				if (res.confirm) {
 					setTimeout(() => {
 						that.setData({

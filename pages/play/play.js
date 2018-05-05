@@ -1,16 +1,13 @@
 // pages/play/play
 const app = getApp();
-let appData = app.data;
-let Audio = appData.Audio;
-let toMinute = app.Funs.toMinute;
-let toSecond = app.Funs.toSecond;
-let getCurrPart = app.Funs.getCurrPart;
+
+let { data: appData, data: { Audio }, Funs: { toMinute, toSecond, getCurrPart } } = app;
 
 Page({
 	data: {
-		currAudio: [],// 页面数据
-		type: null,// 判断页面类型
-		onPlay: false,// 判断播放器和musice和article的状态
+		currAudio: [], // 页面数据
+		type: null, // 判断页面类型
+		onPlay: false, // 判断播放器和musice和article的状态
 		// page data
 		sectionTimes: [],
 		currPart: '',
@@ -39,26 +36,28 @@ Page({
 		currLyric: 0,
 		lyricIndex: 'lyric0'
 	},
-	onLoad() {
+	onLoad () {
 		app.Funs.setAudioEvent(getApp(), this);
 	},
-	onReady() {
+	onReady () {
 		console.log('ready');
-		var that = this;
-		var data = this.data;
+		let that = this;
+		let data = this.data;
 		app.data.playOnload = this.onLoad;
 		app.data.onShow = this.onShow;
 		this.setData({
 			windowHeight: appData.windowHeight
 		});
-		var i = 0;
+		let i = 0;
 		setInterval(() => {
 			if (this.data.onPlay != app.data.onPlay) {
 				this.setData({
 					onPlay: app.data.onPlay
 				});
 			}
-			if (!Audio.src || !appData.url) { return; }
+			if (!Audio.src || !appData.url) {
+				return;
+			}
 
 			if (parseInt(data.duration) != parseInt(Audio.duration)) {
 				that.setData({
@@ -119,8 +118,8 @@ Page({
 		}, 100);
 	},
 	playControl: app.Funs.playControl,
-	playSection(e) {
-		var dataset = e.currentTarget.dataset;
+	playSection (e) {
+		let dataset = e.currentTarget.dataset;
 		if (dataset.artTime) {
 			var sec = toSecond(dataset.artTime);
 		}
@@ -143,12 +142,12 @@ Page({
 			}, 300);
 		}
 	},
-	toSection() {
+	toSection () {
 		this.setData({
-			id: "currentPart"
+			id: 'currentPart'
 		});
 	},
-	zoom() {
+	zoom () {
 		if (this.data.hideTabBar) {
 			wx.showTabBar({
 				aniamtion: true
@@ -166,7 +165,7 @@ Page({
 		}
 
 	},
-	onShow: function () {
+	onShow () {
 		wx.setNavigationBarColor({
 			frontColor: '#ffffff',
 			backgroundColor: appData.type == 'music' || appData.type == 'classical' ? '#514e5a' : '#9CE65F',
@@ -213,7 +212,7 @@ Page({
 			type: appData.type,
 			onPlay: appData.onPlay,
 			sectionTimes: sectionTimes || [],
-			showAnchor: wx.getStorageSync('showAnchor') === false ? false : true,
+			showAnchor: wx.getStorageSync('showAnchor') !== false,
 			showZoom: wx.getStorageSync('showZoom'),
 			modeIndex: appData.modeIcon.index[wx.getStorageSync('playMode')],
 			onshow: true,
@@ -221,13 +220,13 @@ Page({
 		});
 
 	},
-	onHide() {
+	onHide () {
 		this.setData({
 			onshow: false
 		});
 	},
-	sliderChange(event) {
-		var sliderValue = event.detail;
+	sliderChange (event) {
+		let sliderValue = event.detail;
 		this.setData({
 			currentTimeFormat: toMinute(sliderValue.value),
 			currentTime: sliderValue.value,
@@ -235,27 +234,27 @@ Page({
 		});
 		Audio.seek(sliderValue.value);
 	},
-	sliderChanging(event) {
+	sliderChanging (event) {
 		let sliderValue = event.detail;
 		this.setData({
 			currentTimeFormat: toMinute(sliderValue.value),
 			currentTime: sliderValue.value,
 			timeStamp: 1
 		});
-	},// 后退5s
-	playBackward() {
+	}, // 后退5s
+	playBackward () {
 		Audio.seek(this.data.currentTime - 5);
 	},
-	playForward() {
+	playForward () {
 		Audio.seek(this.data.currentTime + 5);
 	},
-	skip_previous() {
+	skip_previous () {
 		app.Funs.skip_previous(this, app);
 	},
-	skip_next() {
+	skip_next () {
 		app.Funs.skip_next(this, app);
 	},
-	playModeChange() {
+	playModeChange () {
 		this.data.modeTimer && clearTimeout(this.data.modeTimer);
 		if (this.data.modeIndex < appData.modeIcon.list.length - 1) {
 			this.data.modeIndex++;
@@ -266,7 +265,7 @@ Page({
 			modeIndex: this.data.modeIndex,
 			showToast: true
 		});
-		var that = this;
+		let that = this;
 		this.data.modeTimer = setTimeout(() => {
 			that.setData({
 				showToast: false
@@ -278,13 +277,13 @@ Page({
 			app.Funs.createRandomIndex();
 		}
 	},
-	rollup() {
+	rollup () {
 		this.setData({
 			rollup: !this.data.rollup
 		});
 	},
-	showTrans(e) {
-		var dataset = e.currentTarget.dataset;
+	showTrans (e) {
+		let dataset = e.currentTarget.dataset;
 		if (this.data.showTransIndex == dataset.showTransIndex) {
 			this.setData({
 				showTrans: this.data.currAudio[0].title,
@@ -299,4 +298,3 @@ Page({
 
 	}
 });
-

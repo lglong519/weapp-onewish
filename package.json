@@ -1,0 +1,23 @@
+{
+  "name": "weapp-onewish",
+  "version": "1.0.0",
+  "description": ">To be continue",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lglong519/weapp-today.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lglong519/weapp-today/issues"
+  },
+  "homepage": "https://github.com/lglong519/weapp-today#readme",
+  "devDependencies": {
+    "eslint-config-lglong519": "github:lglong519/eslint-config"
+  }
+}

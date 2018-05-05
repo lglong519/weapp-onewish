@@ -6,7 +6,7 @@ Page({
 		audioType: null
 	},
 	switchToPlay: app.Funs.switchToPlay,
-	onShow: function () {
+	onShow () {
 		this.setData({
 			audioType: wx.getStorageSync('audioType') == 'music' && 'music' || 'classical'
 		});
@@ -28,7 +28,7 @@ Page({
 			onPlay: app.data.onPlay
 		});
 	},
-	playControl(e) {
+	playControl (e) {
 		let dataset = e.currentTarget.dataset;
 		if (app.data.type == dataset.audioType && app.data.index == dataset.audioIndex) {
 			if (this.data.onPlay) {
@@ -67,7 +67,7 @@ Page({
 			});
 		}
 	},
-	onPullDownRefresh: function () {
+	onPullDownRefresh () {
 		this.onShow();
 		wx.stopPullDownRefresh();
 	}

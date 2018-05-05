@@ -1,20 +1,19 @@
 // app.js
 import Funs from './utils/funs';
 App({
-	onLaunch: function () {
+	onLaunch () {
 		console.log(1, 'onLaunch');
 		wx.removeStorageSync('randomList');
 	},
-	onShow() {
+	onShow () {
 		Funs.init(this);
 		console.log(2, 'onShow');
 	},
-	onHide() {
+	onHide () {
 		console.log(3, 'onHide');
 	},
-	onUnlaunch() {
+	onUnlaunch () {
 		console.log(4, 'onUnlaunch');
 	},
 	Funs
-
 });

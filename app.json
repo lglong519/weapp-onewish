@@ -1,51 +1,50 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/articles/articles",
-        "pages/play/play",
-        "pages/account/account",
-        "pages/music/music"
-    ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#73A0C2",
-        "navigationBarTitleText": "WeChat",
-        "navigationBarTextStyle": "white"
-    },
-    "tabBar": {
-		"color":"#999",
-        "list": [
-            {
-                "pagePath": "pages/index/index",
-                "iconPath": "public/icons/home.png",
-                "selectedIconPath": "public/icons/home01.png",
-                "text": "首页"
-            },
+	"pages": [
+		"pages/index/index",
+		"pages/articles/articles",
+		"pages/play/play",
+		"pages/account/account",
+		"pages/music/music"
+	],
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#73A0C2",
+		"navigationBarTitleText": "WeChat",
+		"navigationBarTextStyle": "white"
+	},
+	"tabBar": {
+		"color": "#999",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "public/icons/home.png",
+				"selectedIconPath": "public/icons/home01.png",
+				"text": "首页"
+			},
 			{
 				"pagePath": "pages/music/music",
 				"iconPath": "public/icons/audiotrack.png",
 				"selectedIconPath": "public/icons/audiotrack01.png",
 				"text": "音乐"
 			},
-            {
-                "pagePath": "pages/articles/articles",
-                "iconPath": "public/icons/book.png",
-                "selectedIconPath": "public/icons/book01.png",
-                "text": "文章"
-            },
-			
-            {
-                "pagePath": "pages/play/play",
-                "iconPath": "public/icons/queue_music.png",
-                "selectedIconPath": "public/icons/queue_music01.png",
-                "text": "播放"
-            },
-            {
-                "pagePath": "pages/account/account",
-                "iconPath": "public/icons/User.png",
-                "selectedIconPath": "public/icons/User01.png",
-                "text": "我的"
-            }
-        ]
-    }
+			{
+				"pagePath": "pages/articles/articles",
+				"iconPath": "public/icons/book.png",
+				"selectedIconPath": "public/icons/book01.png",
+				"text": "文章"
+			},
+			{
+				"pagePath": "pages/play/play",
+				"iconPath": "public/icons/queue_music.png",
+				"selectedIconPath": "public/icons/queue_music01.png",
+				"text": "播放"
+			},
+			{
+				"pagePath": "pages/account/account",
+				"iconPath": "public/icons/User.png",
+				"selectedIconPath": "public/icons/User01.png",
+				"text": "我的"
+			}
+		]
+	}
 }
