@@ -1,0 +1,26 @@
+<!--pages/music/music.wxml-->
+<view class="page relative" style='left:{{swiperX}}' bind:touchstart="swiperTouchstart" bind:touchmove="swiperTouchmove" bind:touchend="swiperTouchend" >
+    <view wx:if='{{audioType =="music"}}' class='banner flex-row align-center pl-4'>
+        <image class='ml-4' mode='aspectFit' src='http://p3.music.126.net/_ybcEpYdUVxuCct1yQwpyg==/109951163093420045.jpg?param=200y200'></image>
+        <text class='ml-4 pt-4 text-20 self-start'>我已见过银河\n但我只爱一颗星</text>
+        <icon class='material-icons headset'>headset</icon>
+    </view>
+    <view wx:if='{{audioType =="classical"}}' class='banner flex-row align-center pl-4 classical'>
+        <image class='ml-4' mode='aspectFit' src='http://p4.music.126.net/EiXMkopL2JhN45fbUG8zeA==/18497084116263735.jpg?param=200y200'></image>
+        <text class='ml-4 pt-4 text-20 self-start'>不苟活而生\n唯信念而死</text>
+        <icon class='material-icons headset'>headset</icon>
+    </view>
+    <block wx:for='{{audioList}}' wx:for-index='i' wx:key='title'>
+        <view class='flex-row justify-between align-center text-center bg-white py-1'>
+            <icon wx:if='{{onPlay && type==item[0].type && index==i }}' class='material-icons series text-red-1'>volume_up</icon>
+            <view wx:else class='series'>{{i+1}}</view>
+            <view class="flex flex-row justify-between align-center border-bt">
+                <view class="flex flex-column align-start my-2" bindtap='switchToPlay' data-audio-type='{{item[0].type}}' data-audio-index='{{i}}'>
+                    <text class="mb-1 weight-700 text-left">{{item[0].title}}</text>
+                    <text class="text-grey text-12 text-left">{{item[0].author}}</text>
+                </view>
+                <icon bindtap='playControl' class='material-icons pr-4 text-grey' data-audio-type='{{item[0].type}}' data-audio-index='{{i}}'>{{onPlay && type==item[0].type && index==i?'pause_circle_outline':'play_circle_outline' }}</icon>
+            </view>
+        </view>
+    </block>
+</view>

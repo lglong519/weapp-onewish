@@ -1,0 +1,15 @@
+/* pages/userCenter/userCenter.wxss */
+
+.container {
+    font: '微软雅黑';
+}
+
+.userinfo-avatar {
+    width: 128rpx;
+    height: 128rpx;
+}
+
+.qrcode {
+    width: 70rpx;
+    height: 70rpx;
+}

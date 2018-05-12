@@ -1,0 +1,29 @@
+
+
+storage 只对app onShow 有效
+	1.获取type，加载audioList
+	2.获取index，设置当前audio
+	
+进入aritcle
+	调用app.data
+	1.设置{
+			articles//[]->页面内容
+			index//点亮对应行的背景色
+			onPlay//高亮title
+		}
+	2.wxml 绑定type 和 index
+	3.articles列表点击事件
+		switchToPlay
+			├── resetData//重置storage，写入当前页面type index，update appData，onPlay = true;
+			└── switchTab
+数据更新：
+	play：{
+		sectionTimes ：[ onshow,skip_previous,skip_next ]
+		lyrics ：[ onshow,skip_previous,skip_next ]
+	}			
+错误提示：
+	set audioBackstage fail：src：null
+	原因：是因为设置了 audioBackstage 但没有设置对应的src，这一步在 page onShow 时检测，
+	如果不需要页面一加载自动播放音乐这个错误可以忽略,
+	重新设置src时要把image一起设置，系统栏否则看不到缩略图
+	

@@ -1,0 +1,9 @@
+/**index.wxss**/
+
+page {
+    background: linear-gradient(to bottom, #f8f4ee, #EBE1D5);
+	background-attachment: fixed; 
+}
+.bg-orange-0{
+	background-color: rgba(255, 246, 238, .7);
+}

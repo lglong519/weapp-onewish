@@ -1,0 +1,25 @@
+/**index.wxss**/
+
+.banner-img {
+    width: 100%;
+}
+
+.series {
+    flex-basis: 100rpx;
+}
+
+.view-img {
+    max-width: 80rpx;
+    max-height: 80rpx;
+}
+
+.headset {
+    margin-top: -12px;
+}
+.recent-views>view:active,.btns>view:active{
+	background-color: rgba(217, 233, 255, .3)
+}
+
+.swiper{
+	height: 150rpx;
+}

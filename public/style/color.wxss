@@ -1,0 +1,413 @@
+/*colors  */
+
+page,
+.container {
+   color: #555;
+   background-color: #f7f7f7;
+}
+
+/* text */
+
+/* 纯色text */
+
+.text-white {
+   color: white;
+}
+
+.text-black {
+   color: black;
+}
+
+.text-red {
+   color: red;
+}
+
+.text-green {
+   color: green;
+}
+
+.text-yellow {
+   color: yellow;
+}
+
+.text-pink {
+   color: pink;
+}
+
+.text-cyan {
+   color: cyan;
+}
+
+.text-gray {
+   color: gray;
+}
+
+.text-grey {
+   color: grey;
+}
+
+/*灰色  */
+
+.text-grey-0 {
+   color: #f7f7f7;
+}
+
+.text-grey-1 {
+   color: #BABABA;
+}
+
+.text-grey-3 {
+   color: #333;
+}
+
+.text-grey-6 {
+   color: #666;
+}
+
+.text-grey-9 {
+   color: #999;
+}
+
+/*蓝色  */
+
+.text-blue-0 {
+   color: #60ACFF;
+}
+
+.text-blue-1 {
+   color: #3D83F8;
+}
+
+.text-blue-2 {
+   /*m*/
+   color: #2196f3;
+}
+
+.text-blue-3 {
+   /*m*/
+   color: #3586BC;
+}
+
+/* 纯色background */
+
+.bg-transparent {
+   background-color: transparent;
+}
+
+.bg-white {
+   background-color: white;
+}
+
+.bg-black {
+   background-color: black;
+}
+
+.bg-red {
+   background-color: red;
+}
+
+.bg-green {
+   background-color: green;
+}
+
+.bg-yellow {
+   background-color: yellow;
+}
+
+.bg-pink {
+   background-color: pink;
+}
+
+.bg-cyan {
+   background-color: cyan;
+}
+
+.bg-gray {
+   background-color: gray;
+}
+
+.bg-grey {
+   background-color: grey;
+}
+
+/* --------------------------------------------pure background */
+
+/*灰色  */
+
+.text-grey-0 {
+   color: #f7f7f7;
+}
+
+.text-grey-1 {
+   color: #BABABA;
+}
+
+.text-grey-3 {
+   color: #333;
+}
+
+.text-grey-6 {
+   color: #666;
+}
+
+.text-grey-9 {
+   color: #999;
+}
+
+/*蓝色  */
+
+.text-blue-0 {
+   color: #60ACFF;
+}
+
+.text-blue-1 {
+   color: #3D83F8;
+}
+
+.text-blue-2 {
+   /*m*/
+   color: #2196f3;
+}
+
+/*青色  */
+
+.text-cyan-0 {
+   color: #edf4ed;
+}
+
+.text-cyan-1 {
+   /*m*/
+   color: #00c0a5;
+}
+
+/* 绿色 */
+
+.text-green-0 {
+   /*m*/
+   color: #83c44e;
+}
+
+.text-green-1 {
+   color: #072;
+}
+
+/*橙色  */
+
+.text-orange-0 {
+   /*bg-b*/
+   color: #fff6ee;
+}
+
+.text-orange-1 {
+   /*bg*/
+   color: #fbe9d9;
+}
+
+.text-orange-2 {
+   /*border*/
+   color: #fad5b5;
+}
+
+.text-orange-3 {
+   /*tx*/
+   color: #F1B140;
+}
+
+.text-orange-4 {
+   /*m*/
+   color: #ffac13;
+}
+
+/*红色  */
+
+.text-red-0 {
+   color: #FF765D;
+}
+
+.text-red-1 {
+   /* m */
+   color: #e53935;
+}
+
+/* --------------------------------------------text */
+
+/* ++++++++++++++++++++++++++++++++++++++++++++background */
+
+/* background */
+
+/*灰色  */
+
+.bg-grey-0 {
+   background-color: #f7f7f7;
+}
+
+.bg-grey-1 {
+   background-color: #BABABA;
+}
+
+.bg-grey-3 {
+   background-color: #333;
+}
+
+.bg-grey-6 {
+   background-color: #666;
+}
+
+.bg-grey-9 {
+   background-color: #999;
+}
+
+/*蓝色  */
+
+.bg-blue-0 {
+   background-color: #60ACFF;
+}
+
+.bg-blue-1 {
+   background-color: #3D83F8;
+}
+
+.bg-blue-2 {
+   /*m*/
+   background-color: #2196f3;
+}
+
+/*青色  */
+
+.bg-cyan-0 {
+   background-color: #edf4ed;
+}
+
+.bg-cyan-1 {
+   /*m*/
+   background-color: #00c0a5;
+}
+
+/* 绿色 */
+
+.bg-green-0 {
+   /*m*/
+   background-color: #83c44e;
+}
+
+.bg-green-1 {
+   background-color: #072;
+}
+
+/*橙色  */
+
+.bg-orange-0 {
+   /*bg-b*/
+   background-color: #fff6ee;
+}
+
+.bg-orange-1 {
+   /*bg*/
+   background-color: #fbe9d9;
+}
+
+.bg-orange-2 {
+   /*border*/
+   background-color: #fad5b5;
+}
+
+.bg-orange-2 {
+   /*tx*/
+   background-color: #F1B140;
+}
+
+.bg-orange-3 {
+   /*m*/
+   background-color: #ffac13;
+}
+
+/*红色  */
+
+.bg-red-0 {
+   background-color: #FF765D;
+}
+
+.bg-red-1 {
+   /* m */
+   background-color: #e53935;
+}
+
+.border-bt-0 {
+   border-bottom: 1px solid #ffac13;
+}
+
+.border-bt-1 {
+   border-bottom: 1px solid #2196f3;
+}
+
+.border-bt-2 {
+   border-bottom: 1px solid #83c44e;
+}
+
+.border-bt-3 {
+   border-bottom: 1px solid #00c0a5;
+}
+
+.border-bt-4 {
+   border-bottom: 1px solid #fad5b5;
+}
+
+.border-bt-5 {
+   border-bottom: 1px solid #e53935;
+}
+
+.border-bt-6 {
+   border-bottom: 1px solid #6ae9e2;
+}
+
+.border-bt-7 {
+   border-bottom: 1px solid pink;
+}
+
+.border-bt-8 {
+   border-bottom: 1px solid #60ACFF;
+}
+
+.border-bt-9 {
+   border-bottom: 1px solid #FF765D;
+}
+
+.color-0 {
+   color: #ffac13;
+}
+
+.color-1 {
+   color: #2196f3;
+}
+
+.color-2 {
+   color: #83c44e;
+}
+
+.color-3 {
+   color: #00c0a5;
+}
+
+.color-4 {
+   color: #fad5b5;
+}
+
+.color-5 {
+   color: #e53935;
+}
+
+.color-6 {
+   color: #6ae9e2;
+}
+
+.color-7 {
+   color: pink;
+}
+
+.color-8 {
+   color: #60ACFF;
+}
+
+.color-9 {
+   color: #FF765D;
+}
