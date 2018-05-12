@@ -1,6 +1,13 @@
 // pages/account/account.js
 let app = getApp();
-Page({
+const PageSwiper = require('../../utils/pageSwiper');
+const swiper = PageSwiper({
+	prev: '/pages/play/play',
+	next: '/pages/index/index',
+	type: 'switchTab'
+});
+
+Page(Object.assign(swiper, {
 	data: {
 		userInfo: null,
 		playMode: app.data.modeIcon.mode,
@@ -81,7 +88,10 @@ Page({
 	},
 	previewImage () {
 		wx.previewImage({
-			urls: ['https://lglong519.github.io/test/images/qrcode.jpg']
+			urls: [
+				'https://lglong519.github.io/test/images/qrcode.jpg',
+				'https://lglong519.github.io/test/images/qrcode-test.jpg'
+			]
 		});
 	},
 	tapPlayMode (e) {
@@ -144,4 +154,4 @@ Page({
 			});
 		}
 	},
-});
+}));

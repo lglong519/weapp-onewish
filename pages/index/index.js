@@ -1,7 +1,13 @@
 // index.js
 const app = getApp();
+const PageSwiper = require('../../utils/pageSwiper');
+const swiper = PageSwiper({
+	prev: '/pages/account/account',
+	next: '/pages/music/music',
+	type: 'switchTab'
+});
 
-Page({
+Page(Object.assign(swiper, {
 	data: {
 		articles: [],
 		libs: {
@@ -125,7 +131,7 @@ Page({
 		let { current } = e.detail;
 		updateItems.bind(this)(current);
 	}
-});
+}));
 
 function updateItems (index) {
 	let pre = index - 1;

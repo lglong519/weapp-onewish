@@ -1,5 +1,5 @@
 <!--pages/music/music.wxml-->
-<view class="page">
+<view class="page relative" style='left:{{swiperX}}' bind:touchstart="swiperTouchstart" bind:touchmove="swiperTouchmove" bind:touchend="swiperTouchend" >
     <view wx:if='{{audioType =="music"}}' class='banner flex-row align-center pl-4'>
         <image class='ml-4' mode='aspectFit' src='http://p3.music.126.net/_ybcEpYdUVxuCct1yQwpyg==/109951163093420045.jpg?param=200y200'></image>
         <text class='ml-4 pt-4 text-20 self-start'>我已见过银河\n但我只爱一颗星</text>

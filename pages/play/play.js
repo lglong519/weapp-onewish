@@ -1,9 +1,15 @@
 // pages/play/play
 const app = getApp();
+const PageSwiper = require('../../utils/pageSwiper');
+const swiper = PageSwiper({
+	prev: '/pages/articles/articles',
+	next: '/pages/account/account',
+	type: 'switchTab'
+});
 
 let { data: appData, data: { Audio }, Funs: { toMinute, toSecond, getCurrPart } } = app;
 
-Page({
+Page(Object.assign(swiper, {
 	data: {
 		currAudio: [], // 页面数据
 		type: null, // 判断页面类型
@@ -296,5 +302,6 @@ Page({
 			});
 		}
 
-	}
-});
+	},
+	onShareAppMessage () {}
+}));

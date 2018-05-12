@@ -1,5 +1,5 @@
 <!--pages/account/account.wxml-->
-<view class="container">
+<view class="container relative" style='left:{{swiperX}}' bind:touchstart="swiperTouchstart" bind:touchmove="swiperTouchmove" bind:touchend="swiperTouchend" >
     <view wx:if='{{userInfo}}' class="weui-flex justify-between align-center py-3 bg-white mt-4 px-4">
         <view class='weui-flex align-center'>
             <image bindtap="bindViewTap" class="userinfo-avatar mx-4" src="{{userInfo.avatarUrl}}" background-size="cover"></image>

@@ -1,7 +1,13 @@
 // pages/music/music.js
 const app = getApp();
+const PageSwiper = require('../../utils/pageSwiper');
+const swiper = PageSwiper({
+	prev: '/pages/index/index',
+	next: '/pages/articles/articles',
+	type: 'switchTab'
+});
 
-Page({
+Page(Object.assign(swiper, {
 	data: {
 		audioType: null,
 		timer: null
@@ -75,4 +81,4 @@ Page({
 		this.onShow();
 		wx.stopPullDownRefresh();
 	}
-});
+}));

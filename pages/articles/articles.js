@@ -1,8 +1,14 @@
 // index.js
 import { switchToPlay } from '../../utils/funs.js';
 const app = getApp();
+const PageSwiper = require('../../utils/pageSwiper');
+const swiper = PageSwiper({
+	prev: '/pages/music/music',
+	next: '/pages/play/play',
+	type: 'switchTab'
+});
 
-Page({
+Page(Object.assign(swiper, {
 	data: {},
 	switchToPlay,
 	onShow () {
@@ -23,4 +29,4 @@ Page({
 		wx.stopPullDownRefresh();
 	}
 
-});
+}));

@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="page">
+<view class="page relative" style='left:{{swiperX}}' bind:touchstart="swiperTouchstart" bind:touchmove="swiperTouchmove" bind:touchend="swiperTouchend" >
     <view>
         <image src='../../public/images/2018fly.jpg' mode='widthFix' class='banner-img'></image>
     </view>

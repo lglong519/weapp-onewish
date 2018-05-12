@@ -16,6 +16,11 @@ page {
     box-sizing: border-box;
 }
 
+.relative{
+	position: relative;
+	transition: left .1s linear;
+}
+
 .text-center {
     text-align: center;
 }
