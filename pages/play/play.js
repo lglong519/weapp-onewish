@@ -93,13 +93,14 @@ Page(Object.assign(swiper, {
 						currentTimeFormat
 					});
 				}
-				let currPart = getCurrPart(that.data.sectionTimes, Audio.currentTime);
-				let currLyric = getCurrPart(that.data.lyrics.lyricTimeTable, Audio.currentTime);
+				let [currPart, eqIndex] = getCurrPart(that.data.sectionTimes, Audio.currentTime);
+				let [currLyric] = getCurrPart(that.data.lyrics.lyricTimeTable, Audio.currentTime);
 				currLyric == '00:00' && (currLyric = 0);
 				if (currPart != that.data.currPart && currLyric != that.data.currLyric) {
 					let index = that.data.lyrics.lyricTimeTable.indexOf(currLyric);
 					let lyricIndex = 'lyric' + (index > 1 ? index - 2 : 0);
 					that.setData({
+						eqIndex,
 						currPart,
 						currLyric,
 						lyricIndex
@@ -108,6 +109,7 @@ Page(Object.assign(swiper, {
 				}
 				if (currPart != that.data.currPart) {
 					that.setData({
+						eqIndex,
 						currPart
 					});
 					return;

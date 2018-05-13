@@ -514,9 +514,16 @@ const getCurrPart = (sectionTimes, currentTime) => {
 	if (typeof i !== 'number' || isNaN(i)) {
 		throw new TypeError('i is not a Number');
 	}
+	let eqIndex = true;
 	while (i >= 0) {
-		if (toSecond(currentTime) >= toSecond(sectionTimes[i])) {
-			return sectionTimes[i];
+		if (!sectionTimes[i]) {
+			eqIndex = false;
+		}
+		let eqCurrentTime = toSecond(currentTime) >= toSecond(sectionTimes[i]);
+		if (!eqCurrentTime) {
+			eqIndex = true;
+		} else if (sectionTimes[i]) {
+			return [sectionTimes[i], eqIndex];
 		}
 		i--;
 	}

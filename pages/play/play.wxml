@@ -55,7 +55,7 @@
 													data-art-url='{{art.url}}' data-art-time='{{item.time}}'>{{currPart==item.time && onPlay && currentTimeFormat[4]%2==0 ?"volume_mute":"volume_down"}}</icon>
 										</view>
 										<!--文本  -->
-										<view class="weui-article__p text-justify {{item.time && currPart==item.time && 'bg-cyan-0'}}">
+										<view class="weui-article__p text-justify {{item.time && currPart==item.time && eqIndex && 'bg-cyan-0'}}">
 												{{item.chapter}}
 										</view>
 
