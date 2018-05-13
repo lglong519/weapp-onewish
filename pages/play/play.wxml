@@ -1,103 +1,100 @@
 <!--pages/play.wxml-->
-<view class="relative" style='left:{{swiperX}}' bind:touchstart="swiperTouchstart" bind:touchmove="swiperTouchmove" bind:touchend="swiperTouchend" >
 
-	<!--音乐控制器  -->
-	<view wx:if='{{currAudio[0].url}}' class='playcontroller {{hide&&"hide"}} {{show&&"show"}} {{type !=="articleZH" && type !=="articleEN" && "bg-transparent"}} {{rollup ? "rollin" : "rollout"}}'>
-		<view wx:if='{{!rollup}}' class='flex-row show-timeline'>
-			<view class='currentTime text-white pt-3 pl-2'>{{currentTimeFormat}}</view>
-			<slider class='flex' bindchange="sliderChange" bindchanging='sliderChanging' value="{{currentTime}}" max='{{duration}}' block-size='12'
-					activeColor='#5287E9' block-color='#FDE0E9' />
-			<view class='currentTime text-white pt-3 pr-2'>{{durationFormat}}</view>
+<!--音乐控制器  -->
+<view wx:if='{{currAudio[0].url}}' class='playcontroller {{hide&&"hide"}} {{show&&"show"}} {{type !=="articleZH" && type !=="articleEN" && "bg-transparent"}} {{rollup ? "rollin" : "rollout"}}'>
+	<view wx:if='{{!rollup}}' class='flex-row show-timeline'>
+		<view class='currentTime text-white pt-3 pl-2'>{{currentTimeFormat}}</view>
+		<slider class='flex' bindchange="sliderChange" bindchanging='sliderChanging' value="{{currentTime}}" max='{{duration}}' block-size='12'
+				activeColor='#5287E9' block-color='#FDE0E9' />
+		<view class='currentTime text-white pt-3 pr-2'>{{durationFormat}}</view>
+	</view>
+	<view class='text-center play-btn flex-row align-center'>
+		<view class='pl-4'>
+				<icon class='material-icons text-24 text-grey' bindtap='playModeChange'>{{modeIcon[modeIndex]}}</icon>
 		</view>
-		<view class='text-center play-btn flex-row align-center'>
-			<view class='pl-4'>
-					<icon class='material-icons text-24 text-grey' bindtap='playModeChange'>{{modeIcon[modeIndex]}}</icon>
-			</view>
-			<view class='flex'>
-					<icon class='material-icons text-40' bindtap='skip_previous'>skip_previous</icon>
-					<icon class='material-icons text-40' bindtap='playBackward'>fast_rewind</icon>
-					<icon class='material-icons text-50 mx-1' bindtap='playControl'>{{onPlay?"pause_circle_outline":"play_circle_outline"}}</icon>
-					<icon class='material-icons text-40' bindtap='playForward'>fast_forward</icon>
-					<icon class='material-icons text-40' bindtap='skip_next'>skip_next</icon>
-			</view>
-			<view class='pr-1'>
-					<icon class='material-icons text-30' bindtap='rollup'>more_vert</icon>
-			</view>
+		<view class='flex'>
+				<icon class='material-icons text-40' bindtap='skip_previous'>skip_previous</icon>
+				<icon class='material-icons text-40' bindtap='playBackward'>fast_rewind</icon>
+				<icon class='material-icons text-50 mx-1' bindtap='playControl'>{{onPlay?"pause_circle_outline":"play_circle_outline"}}</icon>
+				<icon class='material-icons text-40' bindtap='playForward'>fast_forward</icon>
+				<icon class='material-icons text-40' bindtap='skip_next'>skip_next</icon>
+		</view>
+		<view class='pr-1'>
+				<icon class='material-icons text-30' bindtap='rollup'>more_vert</icon>
 		</view>
 	</view>
+</view>
 
-	<icon wx:if='{{showZoom}}' class='material-icons text-30 text-grey zoom {{type !=="articleZH" && type !=="articleEN" && "text-white"}}'
-		bindtap='zoom'>{{hideTabBar?"select_all":"zoom_out_map"}}</icon>
+<icon wx:if='{{showZoom}}' class='material-icons text-30 text-grey zoom {{type !=="articleZH" && type !=="articleEN" && "text-white"}}'
+	bindtap='zoom'>{{hideTabBar?"select_all":"zoom_out_map"}}</icon>
 
-	<!--文章  -->
-	<view class="page" wx:if='{{type=="articleZH" || type=="articleEN"}}'>
-		<!-- 跳转 -->
-		<icon wx:if='{{currAudio[0].url && showAnchor}}' class='material-icons anchor text-30 text-grey' bindtap='toSection'>play_for_work</icon>
-		<view class="page__bd">
-			<block wx:for='{{currAudio}}' wx:for-item='art' wx:for-index='i' wx:key='title'>
-					<view class="weui-article">
-						<view class="weui-article__section">
-							<!--标题  -->
-							<view class="weui-article__title text-orange-3 text-18 mb-2">
-									{{art.title}}
-									<block wx:if='{{currAudio[0].url}}'>
-										<icon wx:if='{{onPlay}}' class='material-icons text-blue-0' bindtap='playControl' data-art-time='{{art.time}}'>volume_up</icon>
-										<icon wx:else class='material-icons text-grey-1' bindtap='playControl' data-art-time='{{art.time}}'>volume_down</icon>
-									</block>
-							</view>
-							<!--内容  -->
-							<scroll-view scroll-y="true" style="height: {{windowHeight}}px;" scroll-into-view="{{id}}" scroll-with-animation="true" enable-back-to-top="true">
-									<block wx:for='{{art.sections}}' wx:for-index='j' wx:key='time'>
-										<view class="weui-article__section mb-2">
-											<!--时间  -->
-											<view wx:if='{{item.time}}' id='{{currPart==item.time? "currentPart":""}}' class='weui-article__h3 {{currPart==item.time && onPlay?"text-blue-2":"text-grey-6"}}'>
-													{{item.time}}
-													<icon class='material-icons {{currPart==item.time && onPlay?"text-green-0":"text-grey-1"}}' bindtap='playSection' data-art-id='{{art.id}}'
-														data-art-url='{{art.url}}' data-art-time='{{item.time}}'>{{currPart==item.time && onPlay && currentTimeFormat[4]%2==0 ?"volume_mute":"volume_down"}}</icon>
-											</view>
-											<!--文本  -->
-											<view class="weui-article__p text-justify {{item.time && currPart==item.time && 'bg-cyan-0'}}">
-													{{item.chapter}}
-											</view>
-
-											<!--译文  -->
-											<block wx:if='{{item.trans}}'>
-													<view class='weui-article__h3 text-blue-3 flex-row align-center' bindtap='showTrans' data-show-trans-index='{{j}}'>
-														<icon class='material-icons'>g_translate</icon>
-														<text class='trans-down ml-1 {{showTrans==art.title && showTransIndex==j ? "trans-up" : ""}}'></text>
-													</view>
-													<!--文本  -->
-													<view wx:if='{{showTrans==art.title && showTransIndex==j}}' class="weui-article__p text-justify text-grey">
-														{{item.trans}}
-													</view>
-											</block>
-										</view>
-									</block>
-							</scroll-view>
+<!--文章  -->
+<view class="page relative" wx:if='{{type=="articleZH" || type=="articleEN"}}' style='left:{{swiperX}}' bind:touchstart="swiperTouchstart" bind:touchmove="swiperTouchmove" bind:touchend="swiperTouchend" >
+	<!-- 跳转 -->
+	<icon wx:if='{{currAudio[0].url && showAnchor}}' class='material-icons anchor text-30 text-grey' bindtap='toSection'>play_for_work</icon>
+	<view class="page__bd">
+		<block wx:for='{{currAudio}}' wx:for-item='art' wx:for-index='i' wx:key='title'>
+				<view class="weui-article">
+					<view class="weui-article__section">
+						<!--标题  -->
+						<view class="weui-article__title text-orange-3 text-18 mb-2">
+								{{art.title}}
+								<block wx:if='{{currAudio[0].url}}'>
+									<icon wx:if='{{onPlay}}' class='material-icons text-blue-0' bindtap='playControl' data-art-time='{{art.time}}'>volume_up</icon>
+									<icon wx:else class='material-icons text-grey-1' bindtap='playControl' data-art-time='{{art.time}}'>volume_down</icon>
+								</block>
 						</view>
-					</view>
-			</block>
-		</view>
-	</view>
-	<!--music disc -->
-	<view wx:else class="page page-music flex-column align-center">
-		<view class='z-index disc-wrapper rotation {{!onshow || !onPlay ? "animation-paused" : ""}}' bindtap='playControl'>
-			<image src='../../public/images/disc.png' mode='aspectFit' class='disc'></image>
-			<image src='{{currAudio[0].image || "../../public/images/2018fly.jpg"}}' mode='aspectFill' class='disc-image'></image>
-		</view>
-		<image src='{{currAudio[0].image || "../../public/images/stars-128.jpeg"}}' mode='aspectFill' class='bg-music blur'></image>
-		<view class='z-index mt-4 text-white'>{{currAudio[0].title}}</view>
-		<view class='z-index mt-3 text-white'>{{currAudio[0].author}}</view>
-		<view class='z-index mt-4 text-white'>
-			<scroll-view scroll-y="true" style="height: 216rpx;" scroll-into-view="{{lyricIndex}}" scroll-with-animation="true" enable-back-to-top="true">
-					<view wx:for='{{lyrics.lyricList}}' wx:key='{{item.time}}' wx:for-index='i' class='text-center {{item.time==currLyric && "text-green-0"}}'
-						id='lyric{{i}}'>{{item.text}}</view>
-			</scroll-view>
-		</view>
-	</view>
-	<!--提示  -->
-	<view wx:if='{{showToast}}' class='playmode-toast'>
-		<view class='mode-name'>{{modeName[modeIndex]}}</view>
-	</view>
+						<!--内容  -->
+						<scroll-view scroll-y="true" style="height: {{windowHeight}}px;" scroll-into-view="{{id}}" scroll-with-animation="true" enable-back-to-top="true">
+								<block wx:for='{{art.sections}}' wx:for-index='j' wx:key='time'>
+									<view class="weui-article__section mb-2">
+										<!--时间  -->
+										<view wx:if='{{item.time}}' id='{{currPart==item.time? "currentPart":""}}' class='weui-article__h3 {{currPart==item.time && onPlay?"text-blue-2":"text-grey-6"}}'>
+												{{item.time}}
+												<icon class='material-icons {{currPart==item.time && onPlay?"text-green-0":"text-grey-1"}}' bindtap='playSection' data-art-id='{{art.id}}'
+													data-art-url='{{art.url}}' data-art-time='{{item.time}}'>{{currPart==item.time && onPlay && currentTimeFormat[4]%2==0 ?"volume_mute":"volume_down"}}</icon>
+										</view>
+										<!--文本  -->
+										<view class="weui-article__p text-justify {{item.time && currPart==item.time && 'bg-cyan-0'}}">
+												{{item.chapter}}
+										</view>
 
+										<!--译文  -->
+										<block wx:if='{{item.trans}}'>
+												<view class='weui-article__h3 text-blue-3 flex-row align-center' bindtap='showTrans' data-show-trans-index='{{j}}'>
+													<icon class='material-icons'>g_translate</icon>
+													<text class='trans-down ml-1 {{showTrans==art.title && showTransIndex==j ? "trans-up" : ""}}'></text>
+												</view>
+												<!--文本  -->
+												<view wx:if='{{showTrans==art.title && showTransIndex==j}}' class="weui-article__p text-justify text-grey">
+													{{item.trans}}
+												</view>
+										</block>
+									</view>
+								</block>
+						</scroll-view>
+					</view>
+				</view>
+		</block>
+	</view>
+</view>
+<!--music disc -->
+<view wx:else class="page page-music flex-column align-center relative" style='left:{{swiperX}}' bind:touchstart="swiperTouchstart" bind:touchmove="swiperTouchmove" bind:touchend="swiperTouchend" >
+	<view class='z-index disc-wrapper rotation {{!onshow || !onPlay ? "animation-paused" : ""}}' bindtap='playControl'>
+		<image src='../../public/images/disc.png' mode='aspectFit' class='disc'></image>
+		<image src='{{currAudio[0].image || "../../public/images/2018fly.jpg"}}' mode='aspectFill' class='disc-image'></image>
+	</view>
+	<image src='{{currAudio[0].image || "../../public/images/stars-128.jpeg"}}' mode='aspectFill' class='bg-music blur'></image>
+	<view class='z-index mt-4 text-white'>{{currAudio[0].title}}</view>
+	<view class='z-index mt-3 text-white'>{{currAudio[0].author}}</view>
+	<view class='z-index mt-4 text-white'>
+		<scroll-view scroll-y="true" style="height: 216rpx;" scroll-into-view="{{lyricIndex}}" scroll-with-animation="true" enable-back-to-top="true">
+				<view wx:for='{{lyrics.lyricList}}' wx:key='{{item.time}}' wx:for-index='i' class='text-center {{item.time==currLyric && "text-green-0"}}'
+					id='lyric{{i}}'>{{item.text}}</view>
+		</scroll-view>
+	</view>
+</view>
+<!--提示  -->
+<view wx:if='{{showToast}}' class='playmode-toast'>
+	<view class='mode-name'>{{modeName[modeIndex]}}</view>
 </view>

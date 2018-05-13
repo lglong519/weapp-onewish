@@ -74,6 +74,15 @@ const init = app => {
 	wxLogin(app);
 	keepPlay(app);
 	showRedDot(app);
+	if (wx.getStorageSync('hideTabBar')) {
+		wx.hideTabBar({
+			aniamtion: true
+		});
+	} else {
+		wx.showTabBar({
+			aniamtion: true
+		});
+	}
 	console.log('init');
 };
 

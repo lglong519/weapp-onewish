@@ -5,14 +5,13 @@ const config = require('../config');
  * @param {String} params.prev page on the left side
  * @param {String} params.next page on the right side
  * @param {String} params.type switchTab reLaunch redirectTo navigateTo
- * @see {wxml} <view class='relative' style='left:{{swiperX}}' bind:touchstart="swiperTouchstart" bind:touchmove="swiperTouchmove" bind:touchend="swiperTouchend"
- >
+ * @see {wxml} <view class='relative' style='left:{{swiperX}}' bind:touchstart="swiperTouchstart" bind:touchmove="swiperTouchmove" bind:touchend="swiperTouchend">
  */
 module.exports = params => {
 	if (!params || !params.prev || !params.next || !params.type) {
 		throw new TypeError('Invalid params');
 	}
-	const _temp = {
+	return {
 		swiperData: {
 			startAt: 0,
 			startX: 0,
@@ -65,5 +64,4 @@ module.exports = params => {
 			wx[params.type]({ url });
 		}
 	};
-	return _temp;
 };

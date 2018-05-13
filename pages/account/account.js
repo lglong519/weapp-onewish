@@ -67,6 +67,15 @@ Page(Object.assign(swiper, {
 			hideTabBar: e.detail.value
 		});
 		wx.setStorageSync('hideTabBar', e.detail.value);
+		if (this.data.hideTabBar) {
+			wx.hideTabBar({
+				aniamtion: true
+			});
+		} else {
+			wx.showTabBar({
+				aniamtion: true
+			});
+		}
 	},
 	showAnchor (e) {
 		this.setData({
@@ -133,7 +142,6 @@ Page(Object.assign(swiper, {
 		this.onShow();
 	},
 	onShow () {
-		let that = this;
 		wx.setTabBarStyle({
 			selectedColor: '#5287E9',
 		});
@@ -148,9 +156,18 @@ Page(Object.assign(swiper, {
 			});
 		} else {
 			app.Funs.wxLogin(app).then(res => {
-				that.setData({
+				this.setData({
 					userInfo: res
 				});
+			});
+		}
+		if (this.data.hideTabBar) {
+			wx.hideTabBar({
+				aniamtion: true
+			});
+		} else {
+			wx.showTabBar({
+				aniamtion: true
 			});
 		}
 	},
