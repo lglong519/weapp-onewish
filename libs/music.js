@@ -1,4 +1,13 @@
-module.exports = [[{
+module.exports = [
+	[{
+		title: '一家火锅店',
+		author: '上海彩虹室内合唱团/万能图书馆',
+		id: 543987598,
+		url: 'http://music.163.com/song/media/outer/url?id=543987598.mp3',
+		type: 'music',
+		image: 'http://p1.music.126.net/owSiQH4zS50Jh6ngFvlmSw==/109951163183626800.jpg?param=130y130'
+	}],
+[{
 	title: '妈亚咪呀 (Intro)',
 	author: 'GALA',
 	id: 355967,
