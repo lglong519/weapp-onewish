@@ -509,6 +509,11 @@ const toSecond = myTime => {
 	return arr[0] * 60 + arr[1] * 1;
 };
 
+/**
+ *@description eqIndex 为了当前元素后面是否紧邻着 time 为空的元素
+ *如果兄弟元素一个或者连续多个的 time 为空，则只有当前元素会显示播放图标，
+ *且当前元素和兄弟元素不管是否正在播放，只点亮图标不点亮背景色
+ */
 const getCurrPart = (sectionTimes, currentTime) => {
 	let i = sectionTimes.length - 1;
 	if (typeof i !== 'number' || isNaN(i)) {
