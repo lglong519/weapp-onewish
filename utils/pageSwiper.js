@@ -20,18 +20,23 @@ module.exports = params => {
 			endY: 0,
 			moving: false
 		},
-		swiperTouchstart (e) {
+		swiperTouchstart(e) {
 			this.swiperData.startAt = e.timeStamp;
 			this.swiperData.startX = e.touches[0].pageX;
 			this.swiperData.startY = e.touches[0].pageY;
 			this.swiperData.moving = false;
 		},
-		swiperTouchmove (e) {
-			let beforeX = this.swiperData.endX;
-			let currentX = e.touches[0].pageX;
-			let basicY = this.swiperData.startY;
-			let currentY = e.touches[0].pageY;
-			if (Math.abs(currentX - beforeX) < 5 || Math.abs(currentY - basicY) > config.SWIPER.MAX_Y) {
+		swiperTouchmove(e) {
+			let { endX: beforeX, startY: basicY, startX } = this.swiperData;
+			let { pageX: currentX, pageY: currentY } = e.touches[0];
+			if (Math.abs(currentY - basicY) > config.SWIPER.MAX_Y) {
+				this.swiperData.endX = startX;
+				this.setData({
+					swiperX: '0'
+				});
+				return;
+			}
+			if (Math.abs(currentX - beforeX) < 5) {
 				return;
 			}
 			this.swiperData.endX = currentX;
@@ -42,7 +47,7 @@ module.exports = params => {
 				swiperX: (currentX - this.swiperData.startX) * 1.5 + 'rpx'
 			});
 		},
-		swiperTouchend (e) {
+		swiperTouchend(e) {
 			if (this.data.swiperX) {
 				this.setData({
 					swiperX: 0

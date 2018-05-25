@@ -145,9 +145,9 @@ page {
 }
 
 .disc-wrapper {
-   width: 240px;
-   height: 240px;
-   margin-top: 120rpx;
+   width: 480rpx;
+   height: 480rpx;
+   margin-top: 80rpx;
    border-radius: 50%;
 }
 
