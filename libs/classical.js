@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	[{
 		title: '奇异恩典(邂逅版) - Amazing Grace',
 		author: 'John Newton',

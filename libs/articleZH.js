@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	[{
 		title: '岳阳楼记',
 		url: 'http://song.gushiwen.org/mp3/jiangweiwei/47916.mp3',

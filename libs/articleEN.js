@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	[{
 		title: '1 A Question of Rights',
 		url: 'http://online1.tingclass.net/lesson/shi0529/0000/834/1.mp3',

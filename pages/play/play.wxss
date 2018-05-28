@@ -217,3 +217,7 @@ page {
       transform: rotate(360deg);
    }
 }
+
+.auto-hide{
+	margin-bottom:-100rpx;
+}

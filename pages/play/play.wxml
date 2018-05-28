@@ -1,7 +1,7 @@
 <!--pages/play.wxml-->
 
 <!--音乐控制器  -->
-<view wx:if='{{currAudio[0].url}}' class='playcontroller {{hide&&"hide"}} {{show&&"show"}} {{type !=="articleZH" && type !=="articleEN" && "bg-transparent"}} {{rollup ? "rollin" : "rollout"}}'>
+<view wx:if='{{currAudio[0].url}}' class='playcontroller {{hide&&"hide"}} {{show&&"show"}} {{type !=="articleZH" && type !=="articleEN" && "bg-transparent"}} {{rollup ? "rollin" : "rollout"}} {{ waitTime<0 && "auto-hide"}}' bindtap="touchScreen">
 	<view wx:if='{{!rollup}}' class='flex-row show-timeline'>
 		<view class='currentTime text-white pt-3 pl-2'>{{currentTimeFormat}}</view>
 		<slider class='flex' bindchange="sliderChange" bindchanging='sliderChanging' value="{{currentTime}}" max='{{duration}}' block-size='12'
@@ -29,7 +29,7 @@
 	bindtap='zoom'>{{hideTabBar?"select_all":"zoom_out_map"}}</icon>
 
 <!--文章  -->
-<view class="page relative" wx:if='{{type=="articleZH" || type=="articleEN"}}' style='left:{{swiperX}}' bind:touchstart="swiperTouchstart" bind:touchmove="swiperTouchmove" bind:touchend="swiperTouchend" >
+<view class="page relative" wx:if='{{type=="articleZH" || type=="articleEN"}}' style='left:{{swiperX}}' bind:touchstart="swiperTouchstart" bind:touchmove="swiperTouchmove" bind:touchend="swiperTouchend" bindtap="touchScreen">
 	<!-- 跳转 -->
 	<icon wx:if='{{currAudio[0].url && showAnchor}}' class='material-icons anchor text-30 text-grey' bindtap='toSection'>play_for_work</icon>
 	<view class="page__bd">
@@ -79,7 +79,7 @@
 	</view>
 </view>
 <!--music disc -->
-<view wx:else class="page page-music flex-column align-center relative" style='left:{{swiperX}}' bind:touchstart="swiperTouchstart" bind:touchmove="swiperTouchmove" bind:touchend="swiperTouchend" >
+<view wx:else class="page page-music flex-column align-center relative" style='left:{{swiperX}}' bind:touchstart="swiperTouchstart" bind:touchmove="swiperTouchmove" bind:touchend="swiperTouchend" bindtap="touchScreen">
 	<view class='z-index disc-wrapper rotation {{!onshow || !onPlay ? "animation-paused" : ""}}' bindtap='playControl'>
 		<image src='../../public/images/disc.png' mode='aspectFit' class='disc'></image>
 		<image src='{{currAudio[0].image || "../../public/images/2018fly.jpg"}}' mode='aspectFill' class='disc-image'></image>

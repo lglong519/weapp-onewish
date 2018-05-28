@@ -6,6 +6,7 @@ const swiper = PageSwiper({
 	next: '/pages/account/account',
 	type: 'switchTab'
 });
+import { LAG_TIME } from '../../config';
 
 let { data: appData, data: { Audio }, Funs: { toMinute, toSecond, getCurrPart } } = app;
 
@@ -40,12 +41,13 @@ Page(Object.assign(swiper, {
 		lyric: app.Funs.lyric,
 		lyrics: null,
 		currLyric: 0,
-		lyricIndex: 'lyric0'
+		lyricIndex: 'lyric0',
+		waitTime: LAG_TIME,
 	},
-	onLoad () {
+	onLoad() {
 		app.Funs.setAudioEvent(getApp(), this);
 	},
-	onReady () {
+	onReady() {
 		console.log('ready');
 		let that = this;
 		let data = this.data;
@@ -54,8 +56,15 @@ Page(Object.assign(swiper, {
 		this.setData({
 			windowHeight: appData.windowHeight
 		});
-		let i = 0;
+		let i = 1, n = 1;
 		setInterval(() => {
+			if (n++ % 10 == 0) {
+				this.data.waitTime -= 1000;
+				this.data.waitTime < 0 && (this.data.waitTime = -1);
+				this.setData({
+					waitTime: this.data.waitTime
+				});
+			}
 			if (this.data.onPlay != app.data.onPlay) {
 				this.setData({
 					onPlay: app.data.onPlay
@@ -126,7 +135,7 @@ Page(Object.assign(swiper, {
 		}, 100);
 	},
 	playControl: app.Funs.playControl,
-	playSection (e) {
+	playSection(e) {
 		let dataset = e.currentTarget.dataset;
 		if (dataset.artTime) {
 			var sec = toSecond(dataset.artTime);
@@ -150,12 +159,12 @@ Page(Object.assign(swiper, {
 			}, 300);
 		}
 	},
-	toSection () {
+	toSection() {
 		this.setData({
 			id: 'currentPart'
 		});
 	},
-	zoom () {
+	zoom() {
 		if (this.data.hideTabBar) {
 			wx.showTabBar({
 				aniamtion: true
@@ -173,7 +182,7 @@ Page(Object.assign(swiper, {
 		}
 
 	},
-	onShow () {
+	onShow() {
 		wx.setNavigationBarColor({
 			frontColor: '#ffffff',
 			backgroundColor: appData.type == 'music' || appData.type == 'classical' ? '#514e5a' : '#9CE65F',
@@ -228,12 +237,12 @@ Page(Object.assign(swiper, {
 		});
 
 	},
-	onHide () {
+	onHide() {
 		this.setData({
 			onshow: false
 		});
 	},
-	sliderChange (event) {
+	sliderChange(event) {
 		let sliderValue = event.detail;
 		this.setData({
 			currentTimeFormat: toMinute(sliderValue.value),
@@ -242,7 +251,7 @@ Page(Object.assign(swiper, {
 		});
 		Audio.seek(sliderValue.value);
 	},
-	sliderChanging (event) {
+	sliderChanging(event) {
 		let sliderValue = event.detail;
 		this.setData({
 			currentTimeFormat: toMinute(sliderValue.value),
@@ -250,19 +259,19 @@ Page(Object.assign(swiper, {
 			timeStamp: 1
 		});
 	}, // 后退5s
-	playBackward () {
+	playBackward() {
 		Audio.seek(this.data.currentTime - 5);
 	},
-	playForward () {
+	playForward() {
 		Audio.seek(this.data.currentTime + 5);
 	},
-	skip_previous () {
+	skip_previous() {
 		app.Funs.skip_previous(this, app);
 	},
-	skip_next () {
+	skip_next() {
 		app.Funs.skip_next(this, app);
 	},
-	playModeChange () {
+	playModeChange() {
 		this.data.modeTimer && clearTimeout(this.data.modeTimer);
 		if (this.data.modeIndex < appData.modeIcon.list.length - 1) {
 			this.data.modeIndex++;
@@ -285,12 +294,12 @@ Page(Object.assign(swiper, {
 			app.Funs.createRandomIndex();
 		}
 	},
-	rollup () {
+	rollup() {
 		this.setData({
 			rollup: !this.data.rollup
 		});
 	},
-	showTrans (e) {
+	showTrans(e) {
 		let dataset = e.currentTarget.dataset;
 		if (this.data.showTransIndex == dataset.showTransIndex) {
 			this.setData({
@@ -305,5 +314,11 @@ Page(Object.assign(swiper, {
 		}
 
 	},
-	onShareAppMessage () {}
+	onShareAppMessage() { },
+	touchScreen() {
+		this.setData({
+			waitTime: LAG_TIME
+		});
+
+	}
 }));

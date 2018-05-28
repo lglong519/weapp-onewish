@@ -65,7 +65,7 @@ const init = app => {
 
 	updateAudioInfo(data);
 	wx.getSystemInfo({
-		success (res) {
+		success(res) {
 			data.windowHeight = res.windowHeight;
 		}
 	});
@@ -111,7 +111,7 @@ const resetData = (type, index) => {
 		_();
 	}
 
-	function _ () {
+	function _() {
 		data.index = index;
 		data.currAudio = data.audioList[index];
 		data.url = data.currAudio[0].url;
@@ -123,7 +123,7 @@ const resetData = (type, index) => {
 
 	}
 };
-function _recentView (type, index) {
+function _recentView(type, index) {
 	let views = 1;
 	let record = JSON.stringify({ type, index });
 	let recentViews = JSON.parse(JSON.stringify(wx.getStorageSync('recentViews')).replace(/,\\"views\\":\d+/g, ''));
@@ -150,7 +150,7 @@ const switchToPlay = e => {
 };
 // const playControl = () => {
 // 箭头函数 上下文 根据定义环境而定，与执行环境无关
-function playControl () {
+function playControl() {
 	let app = getApp();
 	if (app.data.onPlay) {
 		app.data.Audio.pause();
@@ -188,10 +188,10 @@ const keepPlay = app => {
 };
 const getAudioList = type => {
 	switch (type) {
-	case 'articleZH': return articleZH;
-	case 'articleEN': return articleEN;
-	case 'classical': return classical;
-	default: return music;
+		case 'articleZH': return articleZH;
+		case 'articleEN': return articleEN;
+		case 'classical': return classical;
+		default: return music;
 	}
 };
 const wxLogin = app => new Promise((resovle, reject) => {
@@ -202,15 +202,15 @@ const wxLogin = app => new Promise((resovle, reject) => {
 				app.userInfoReadyCallback(res);
 			}
 		},
-		complete (res) {
+		complete(res) {
 			if (/deny|fail/g.test(res.errMsg)) {
 				wx.removeStorageSync('userInfo');
 				wx.showModal({
 					content: '当前帐号未登录，\n为了更好的使用体验请登录，\n是否使用微信登录？',
-					complete (res) {
+					complete(res) {
 						if (res.confirm) {
 							wx.openSetting({
-								complete (res) {
+								complete(res) {
 									if (res.authSetting['scope.userInfo']) {
 										//
 									} else {
@@ -467,7 +467,7 @@ const skip_next = (that, app) => {
 	_prevOrNext(that, app, newIndex);
 };
 
-function _prevOrNext (that, app, newIndex) {
+function _prevOrNext(that, app, newIndex) {
 	resetData(app.data.type, newIndex);
 	if (app.data.url) {
 		app.data.Audio.play();
@@ -545,7 +545,7 @@ const createRandomIndex = () => {
 			}
 			initNo.splice(appData.index, 1);
 			let randomList = [];
-			(function getRandomNo () {
+			(function getRandomNo() {
 				if (initNo.length > 0) {
 					randomList = randomList.concat(initNo.splice(parseInt(Math.random() * initNo.length), 1));
 					getRandomNo();

@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 	[{
 		title: '一家火锅店',
 		author: '上海彩虹室内合唱团/万能图书馆',
