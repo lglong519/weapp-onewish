@@ -26,12 +26,12 @@
 </view>
 
 <icon wx:if='{{showZoom}}' class='material-icons text-30 text-grey zoom {{type !=="articleZH" && type !=="articleEN" && "text-white"}}'
-	bindtap='zoom'>{{hideTabBar?"select_all":"zoom_out_map"}}</icon>
+	catchtap='zoom'>{{hideTabBar?"select_all":"zoom_out_map"}}</icon>
 
 <!--文章  -->
 <view class="page relative" wx:if='{{type=="articleZH" || type=="articleEN"}}' style='left:{{swiperX}}' bind:touchstart="swiperTouchstart" bind:touchmove="swiperTouchmove" bind:touchend="swiperTouchend" bindtap="touchScreen">
 	<!-- 跳转 -->
-	<icon wx:if='{{currAudio[0].url && showAnchor}}' class='material-icons anchor text-30 text-grey' bindtap='toSection'>play_for_work</icon>
+	<icon wx:if='{{currAudio[0].url && showAnchor}}' class='material-icons anchor text-30 text-grey' catchtap='toSection'>play_for_work</icon>
 	<view class="page__bd">
 		<block wx:for='{{currAudio}}' wx:for-item='art' wx:for-index='i' wx:key='title'>
 				<view class="weui-article">
@@ -51,7 +51,7 @@
 										<!--时间  -->
 										<view wx:if='{{item.time}}' id='{{currPart==item.time? "currentPart":""}}' class='weui-article__h3 {{currPart==item.time && onPlay?"text-blue-2":"text-grey-6"}}'>
 												{{item.time}}
-												<icon class='material-icons {{currPart==item.time && onPlay?"text-green-0":"text-grey-1"}}' bindtap='playSection' data-art-id='{{art.id}}'
+												<icon class='material-icons {{currPart==item.time && onPlay?"text-green-0":"text-grey-1"}}' catchtap='playSection' data-art-id='{{art.id}}'
 													data-art-url='{{art.url}}' data-art-time='{{item.time}}'>{{currPart==item.time && onPlay && currentTimeFormat[4]%2==0 ?"volume_mute":"volume_down"}}</icon>
 										</view>
 										<!--文本  -->
@@ -61,7 +61,7 @@
 
 										<!--译文  -->
 										<block wx:if='{{item.trans}}'>
-												<view class='weui-article__h3 text-blue-3 flex-row align-center' bindtap='showTrans' data-show-trans-index='{{j}}'>
+												<view class='weui-article__h3 text-blue-3 flex-row align-center' catchtap='showTrans' data-show-trans-index='{{j}}'>
 													<icon class='material-icons'>g_translate</icon>
 													<text class='trans-down ml-1 {{showTrans==art.title && showTransIndex==j ? "trans-up" : ""}}'></text>
 												</view>
