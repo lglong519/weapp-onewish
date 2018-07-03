@@ -54,6 +54,12 @@
 					"name": "music",
 					"pathName": "pages/music/music",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "more-fun",
+					"pathName": "pages/more-fun/more-fun",
+					"query": ""
 				}
 			]
 		}
