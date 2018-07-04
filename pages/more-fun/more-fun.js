@@ -1,9 +1,12 @@
 import OLL from '../../libs/OLL.js';
+import PLL from '../../libs/PLL.js';
 
 Page({
 	data: {
-		isOLL: true,
-		OLL
+		isOLL: false,
+		OLL,
+		isPLL: false,
+		PLL,
 	},
 	onLoad() {
 
@@ -23,6 +26,11 @@ Page({
 	toggleOLL() {
 		this.setData({
 			isOLL: !this.data.isOLL,
+		});
+	},
+	togglePLL() {
+		this.setData({
+			isPLL: !this.data.isPLL,
 		});
 	}
 });
