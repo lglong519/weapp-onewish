@@ -3,6 +3,8 @@ import articleEN from '../libs/articleEN';
 import classical from '../libs/classical';
 import music from '../libs/music';
 import lyric from '../libs/lyric';
+import OLL from '../libs/OLL.js';
+import PLL from '../libs/PLL.js';
 
 /* eslint no-use-before-define:0 */
 // 定义全局变量
@@ -83,6 +85,7 @@ const init = app => {
 			aniamtion: true
 		});
 	}
+	setFavorite();
 	console.log('init');
 };
 
@@ -612,6 +615,25 @@ const updateAudioInfo = data => {
 	data.Audio.title = data.currAudio[0].title;
 	data.currAudio[0].author && (data.Audio.singer = data.currAudio[0].author);
 	data.Audio.coverImgUrl = data.currAudio[0].image ? data.currAudio[0].image : 'https://lglong519.github.io/test/images/panda-music.jpg';
+};
+const setFavorite = () => {
+	let OLLs = [];
+	let PLLs = [];
+	let favorite = wx.getStorageSync('favorite');
+	if (!favorite) {
+		OLL.forEach(() => {
+			OLLs.push(false);
+		});
+		PLL.forEach(() => {
+			PLLs.push(false);
+		});
+		favorite = {
+			OLLs,
+			PLLs
+		};
+		wx.setStorageSync('favorite', favorite);
+	}
+
 };
 module.exports = {
 	articleZH,

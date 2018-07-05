@@ -6,18 +6,23 @@
             <icon wx:else class='material-icons ml-3 mr-2 text-red-0'>visibility_off</icon>
             <text class='weight-600 text-black'>OLL</text>
         </view>
+        <view class='flex text-right'>
+            <text class='mr-4'>{{favorite.OLL}}</text>
+        </view>
     </view>
 
     <view wx:if='{{isOLL}}' class='my-1 recent-views'>
         <block wx:for='{{OLL}}' wx:for-index='i' wx:key='item'>
-                <view class='flex-row justify-between align-center text-center bg-white py-1'>
+                <view class='flex-row justify-between align-center text-center bg-white py-1' bindtap='favor' data-index='{{i}}' data-type='OLLs'>
                     <view class='series color-{{random[i]}}'>{{i+1}}</view>
                     <image src='{{item.url}}' mode='aspectFit' class='view-img mr-3'></image>
                     <view class="flex flex-row justify-between align-center border-bt-{{random[i]}}">
                         <view class="flex flex-column align-start my-2">
                             <text class="mb-1 weight-700 text-left">{{item.formula}}</text>
                             <view class='flex-row align-center text-grey text-12'>
-                                <text class='mr-4'>{{item.reletive || '0'}}</text>
+                                <text class='mr-4'>{{item.reletive}}</text>
+								<icon wx:if='{{favorite.OLLs[i]}}' class='material-icons  text-10 ml-1 headset text-red-0'>favorite</icon>
+								<icon wx:else class='material-icons  text-10 ml-1 headset text-grey'>favorite_border</icon>
                             </view>
                         </view>
                     </view>
@@ -31,18 +36,23 @@
             <icon wx:else class='material-icons ml-3 mr-2 text-red-0'>visibility_off</icon>
             <text class='weight-600 text-black'>PLL</text>
         </view>
+		 <view class='flex text-right'>
+            <text class='mr-4'>{{favorite.PLL}}</text>
+        </view>
     </view>
 
 	<view wx:if='{{isPLL}}' class='my-1 recent-views'>
         <block wx:for='{{PLL}}' wx:for-index='i' wx:key='item'>
-                <view class='flex-row justify-between align-center text-center bg-white py-1'>
+                <view class='flex-row justify-between align-center text-center bg-white py-1' bindtap='favor' data-index='{{i}}' data-type='PLLs'>
                     <view class='series color-{{random[i]}}'>{{i+1}}</view>
                     <image src='{{item.url}}' mode='aspectFit' class='view-img mr-3'></image>
                     <view class="flex flex-row justify-between align-center border-bt-{{random[i]}}">
                         <view class="flex flex-column align-start my-2">
                             <text class="mb-1 weight-700 text-left">{{item.formula}}</text>
                             <view class='flex-row align-center text-grey text-12'>
-                                <text class='mr-4'>{{item.reletive || '0'}}</text>
+                                <text class='mr-4'>{{item.reletive}}</text>
+								<icon wx:if='{{favorite.PLLs[i]}}' class='material-icons  text-10 ml-1 headset text-red-0'>favorite</icon>
+								<icon wx:else class='material-icons  text-10 ml-1 headset text-grey'>favorite_border</icon>
                             </view>
                         </view>
                     </view>

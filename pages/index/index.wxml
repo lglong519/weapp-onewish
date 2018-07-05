@@ -29,18 +29,24 @@
 	
 	<view class='flex-row  text-center bg-white py-4 btns'>
 		<view class='xs3 flex-column ' bindtap='{{item[0].bindtap}}' data-type='{{item[0].dataType}}'>
-			<navigator url="/pages/more-fun/more-fun">
+			<navigator url="/pages/more-fun/more-fun?tab=isF2L">
 				<text>F2L</text>
 			</navigator>
 		</view>
 		<view class='xs3 flex-column ' bindtap='{{item[1].bindtap}}' data-type='{{item[1].dataType}}'>
-			<text>OLL</text>
+			<navigator url="/pages/more-fun/more-fun?tab=isOLL">
+				<text>OLL</text>
+			</navigator>
 		</view>
 		<view class='xs3 flex-column ' bindtap='{{item[2].bindtap}}' data-type='{{item[2].dataType}}'>
-			<text>PLL</text>
+			<navigator url="/pages/more-fun/more-fun?tab=isPLL">
+				<text>PLL</text>
+			</navigator>
 		</view>
 		<view class='xs3 flex-column ' bindtap='{{item[3].bindtap}}' data-type='{{item[3].dataType}}'>
-			<text>ALL</text>
+			<navigator url="/pages/more-fun/more-fun?tab=isALL">
+				<text>ALL</text>
+			</navigator>
 		</view>
 	</view>
 

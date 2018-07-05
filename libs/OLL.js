@@ -1,23 +1,28 @@
 export default [
 	{
 		'url': '../../public/images/OLL/image_OLL_021.png',
-		'formula': '21.(R U\'U\') (R\' U\' R U R\' U\') (R U\' R\')'
+		'formula': '21.(R U\'U\') (R\' U\' R U R\' U\') (R U\' R\')',
+		reletive: '<>'
 	},
 	{
 		'url': '../../public/images/OLL/image_OLL_022.png',
-		'formula': '22.R U\'U\' (R\'2 U\') (R2 U\') R\'2 U\' U\'R'
+		'formula': '22.R U\'U\' (R\'2 U\') (R2 U\') R\'2 U\' U\'R',
+		reletive: '<>'
 	},
 	{
 		'url': '../../public/images/OLL/image_OLL_023.png',
-		'formula': '23.(R2 D\') (R U\'U\') (R\' D) (R U\'U\' R)'
+		'formula': '23.(R2 D\') (R U\'U\') (R\' D) (R U\'U\' R)',
+		reletive: '22 <=> 25'
 	},
 	{
 		'url': '../../public/images/OLL/image_OLL_024.png',
-		'formula': '24.(r U R\' U\') (r\' F R F\')'
+		'formula': '24.(r U R\' U\') (r\' F R F\')',
+		reletive: '25 <=> 25'
 	},
 	{
 		'url': '../../public/images/OLL/image_OLL_025.png',
-		'formula': '25.F\'(r U R\' U\') (r\' F R)'
+		'formula': '25.F\'(r U R\' U\') (r\' F R)',
+		reletive: '23/24 <=> 24'
 	},
 	{
 		'url': '../../public/images/OLL/image_OLL_026.png',
