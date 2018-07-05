@@ -4,6 +4,7 @@ import classical from '../libs/classical';
 import music from '../libs/music';
 import lyric from '../libs/lyric';
 
+/* eslint no-use-before-define:0 */
 // 定义全局变量
 const globalData = () => ({
 	type: null,	// storage->articleZH/articleEN/classical/music
@@ -71,7 +72,6 @@ const init = app => {
 	});
 
 	setAudioEvent(app);
-	wxLogin(app);
 	keepPlay(app);
 	showRedDot(app);
 	if (wx.getStorageSync('hideTabBar')) {
@@ -195,6 +195,9 @@ const getAudioList = type => {
 	}
 };
 const wxLogin = app => new Promise((resovle, reject) => {
+	wx.showLoading({
+		title: '正在登录',
+	});
 	wx.getUserInfo({
 		success: res => {
 			app.data.userInfo = res.userInfo;
@@ -203,6 +206,7 @@ const wxLogin = app => new Promise((resovle, reject) => {
 			}
 		},
 		complete(res) {
+			wx.hideLoading();
 			if (/deny|fail/g.test(res.errMsg)) {
 				wx.removeStorageSync('userInfo');
 				wx.showModal({
@@ -232,9 +236,14 @@ const wxLogin = app => new Promise((resovle, reject) => {
 				wx.setStorageSync('userInfo', true);
 			}
 			if (app.data.userInfo) {
+				wx.showToast({
+					title: '登录成功',
+					icon: 'success',
+					duaration: 1500
+				});
 				resovle(app.data.userInfo);
 			} else {
-				resovle(false);
+				reject(false);
 			}
 		}
 	});

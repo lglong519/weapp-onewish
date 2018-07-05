@@ -19,7 +19,7 @@ Page(Object.assign(swiper, {
 		showAnchor: wx.getStorageSync('showAnchor'),
 		showZoom: wx.getStorageSync('showZoom')
 	},
-	audioBackstageChange (e) {
+	audioBackstageChange(e) {
 		app = getApp();
 		this.setData({
 			audioBackstage: e.detail.value
@@ -62,7 +62,7 @@ Page(Object.assign(swiper, {
 			});
 		}
 	},
-	hideTabBar (e) {
+	hideTabBar(e) {
 		this.setData({
 			hideTabBar: e.detail.value
 		});
@@ -77,25 +77,25 @@ Page(Object.assign(swiper, {
 			});
 		}
 	},
-	showAnchor (e) {
+	showAnchor(e) {
 		this.setData({
 			showAnchor: e.detail.value
 		});
 		wx.setStorageSync('showAnchor', e.detail.value);
 	},
-	showZoom (e) {
+	showZoom(e) {
 		this.setData({
 			showZoom: e.detail.value
 		});
 		wx.setStorageSync('showZoom', e.detail.value);
 	},
-	hideRecentViews (e) {
+	hideRecentViews(e) {
 		this.setData({
 			showRecentViews: e.detail.value
 		});
 		wx.setStorageSync('hideRecentViews', !e.detail.value);
 	},
-	previewImage () {
+	previewImage() {
 		wx.previewImage({
 			urls: [
 				'https://lglong519.github.io/test/images/qrcode.jpg',
@@ -103,7 +103,7 @@ Page(Object.assign(swiper, {
 			]
 		});
 	},
-	tapPlayMode (e) {
+	tapPlayMode(e) {
 		this.setData({
 			index: e.detail.value
 		});
@@ -114,14 +114,14 @@ Page(Object.assign(swiper, {
 			app.Funs.createRandomIndex();
 		}
 	},
-	logoutEvent () {
+	logoutEvent() {
 		let that = this;
 		wx.showModal({
 			content: '是否退出当前帐号？',
-			complete (res) {
+			complete(res) {
 				if (res.confirm) {
 					wx.openSetting({
-						complete (res) {
+						complete(res) {
 							if (res.authSetting['scope.userInfo']) {
 								//
 							} else {
@@ -137,11 +137,12 @@ Page(Object.assign(swiper, {
 			}
 		});
 	},
-	loginEvent () {
-		app.Funs.wxLogin(app);
-		this.onShow();
+	loginEvent() {
+		app.Funs.wxLogin(app).then(() => {
+			this.onShow();
+		});
 	},
-	onShow () {
+	onShow() {
 		wx.setTabBarStyle({
 			selectedColor: '#5287E9',
 		});
@@ -153,12 +154,6 @@ Page(Object.assign(swiper, {
 		if (app.data.userInfo) {
 			this.setData({
 				userInfo: app.data.userInfo
-			});
-		} else {
-			app.Funs.wxLogin(app).then(res => {
-				this.setData({
-					userInfo: res
-				});
 			});
 		}
 		if (this.data.hideTabBar) {

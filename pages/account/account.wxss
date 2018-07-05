@@ -13,3 +13,13 @@
     width: 70rpx;
     height: 70rpx;
 }
+
+.getuserinfo{
+	position: static;
+	overflow: visible;
+	display: inline-block;
+	background: #fff;
+	font-size: 28rpx;
+	border: 0;
+	outline: none;
+}

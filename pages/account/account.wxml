@@ -7,7 +7,7 @@
         </view>
         <image bindtap='previewImage' class='qrcode mx-4' src='../../public/images/qrcode.jpg'></image>
     </view>
-
+	 
     <picker bindchange="tapPlayMode" value="{{index}}" range="{{mode}}">
         <view class="weui-flex justify-between py-3 bg-white  mt-4 border-bt">
             <view>
@@ -66,10 +66,10 @@
             <text class='weight-600 text-black'>退出登录</text>
         </view>
     </view>
-    <view wx:else class="weui-flex py-3 bg-white mt-4" bindtap='loginEvent'>
+    <view wx:else class="weui-flex py-3 bg-white mt-4">
         <view>
             <icon class='material-icons ml-3 mr-2 text-green-0'>settings</icon>
-            <text class='weight-600 text-black'>微信登录</text>
+			<button open-type='getUserInfo' bindgetuserinfo='loginEvent' class='weight-600 text-black getuserinfo'>微信登录</button>
         </view>
     </view>
 </view>
